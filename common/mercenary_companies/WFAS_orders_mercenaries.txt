@@ -35,7 +35,8 @@ WFAS_winged_hussars = {
 	cavalry_weight = 1
 	home_province = 257
 	sprites = {
-		dlc003_pol_sprite_pack easterngfx_sprite_pack
+		dlc003_pol_sprite_pack
+		easterngfx_sprite_pack
 	}
 	trigger = {
 		OR = {
@@ -44,9 +45,8 @@ WFAS_winged_hussars = {
 		}
 		is_year = 1550
 	}
-	modifier = { 
-	cavalry_power = 0.3
-	cavalry_flanking = 1
-	cost_modifier = 1
+	modifier = {
+		cavalry_power = 0.3
+		cavalry_flanking = 1
 	}
 }

@@ -80,7 +80,7 @@ WFAS_SWE_missions_1 = {
 			}
 			else = {
 				OR = {
-					area = scandinavia_region
+					region = scandinavia_region
 				}
 			}
 		}
@@ -466,10 +466,6 @@ WFAS_SWE_missions_2 = {
 		}
 		effect = {
 			add_mil_power = 100
-			add_country_modifier = {
-				name = "WFAS_defend_the_prussia"
-				duration = 7300
-			}
 			samogitia_area = {
 				limit = {
 					NOT = {
@@ -647,7 +643,7 @@ WFAS_SWE_missions_3 = {
 		icon = mission_protect_white_sea_trade
 		provinces_to_highlight = {
 			OR = {
-				area = russia_region
+				region = russia_region
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -660,9 +656,9 @@ WFAS_SWE_missions_3 = {
 			}
 		}
 		effect = {
-			adm = 1
-			dip = 1
-			mil = 1
+			change_adm = 1
+			change_dip = 1
+			change_mil = 1
 			add_manpower = 50
 			add_treasury = 500
 		}

@@ -28,3 +28,25 @@ WFAS_defeat_tatars = {
 WFAS_ruthenian_industralization = {
 	global_trade_goods_size_modifier = 0.1
 }
+
+WFAS_ukraine_yaroslav_legacy_modifier = {
+	technology_cost = -0.1
+}
+
+WFAS_ukraine_olga_legacy_modifier = {
+	ae_impact = -0.1
+}
+
+WFAS_ukraine_sviatoslav_legacy_modifier = {
+	army_tradition_from_battle = 0.5
+	prestige_from_land = 0.5
+}
+
+WFAS_ukraine_vladimir_legacy_modifier = {
+	global_missionary_strength = 0.01
+	yearly_patriarch_authority = 0.005
+}
+
+WFAS_ukraine_vsevolod_legacy_modifier = {
+	prestige = 1
+}

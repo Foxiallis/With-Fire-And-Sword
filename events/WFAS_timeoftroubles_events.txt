@@ -1742,3 +1742,17 @@ country_event = {
 		set_country_flag = WFAS_tot_ended
 	}
 }
+
+#Hidden event to give heir flag if he somehow appears
+country_event = {
+	id = WFAS_timeoftroubles.33
+	is_triggered_only = yes
+	hidden = yes
+	trigger = {
+		tag = event_target:WFAS_tot_target
+		has_disaster = time_of_troubles
+	}
+	option = {
+		set_heir_flag = WFAS_tot_monarch_flag
+	}
+}

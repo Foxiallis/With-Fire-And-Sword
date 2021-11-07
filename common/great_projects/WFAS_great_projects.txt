@@ -8,6 +8,15 @@ WFAS_corvin_castle = {
 	can_be_moved = no
 	starting_tier = 1
 	type = monument
+	#what to do when it's built
+	on_built = {
+	}
+	#what to do when it's destroyed
+	on_destroyed = {
+	}
+	#can our country keep it or is it destroyed when we get hold of it?
+	keep_trigger = {
+	}
 	build_trigger = {
 		OR = {
 			culture = hungarian
@@ -123,6 +132,15 @@ WFAS_golden_gate = {
 	can_be_moved = no
 	starting_tier = 1
 	type = monument
+	#what to do when it's built
+	on_built = {
+	}
+	#what to do when it's destroyed
+	on_destroyed = {
+	}
+	#can our country keep it or is it destroyed when we get hold of it?
+	keep_trigger = {
+	}
 	build_trigger = {
 		culture = ruthenian
 		OR = {
@@ -229,6 +247,15 @@ WFAS_st_basil_cathedral = {
 	can_be_moved = no
 	starting_tier = 0
 	type = monument
+	#what to do when it's built
+	on_built = {
+	}
+	#what to do when it's destroyed
+	on_destroyed = {
+	}
+	#can our country keep it or is it destroyed when we get hold of it?
+	keep_trigger = {
+	}
 	build_trigger = {
 		OR = {
 			culture = ruthenian
@@ -238,6 +265,9 @@ WFAS_st_basil_cathedral = {
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
+		}
+		owner = {
+			religion = orthodox
 		}
 	}
 	can_use_modifiers_trigger = {
@@ -250,6 +280,9 @@ WFAS_st_basil_cathedral = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
 		}
+		owner = {
+			religion = orthodox
+		}
 	}
 	can_upgrade_trigger = {
 		OR = {
@@ -260,6 +293,9 @@ WFAS_st_basil_cathedral = {
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
+		}
+		owner = {
+			religion = orthodox
 		}
 	}
 	tier_0 = {
@@ -312,7 +348,9 @@ WFAS_st_basil_cathedral = {
 			missionary_maintenance_cost = -0.15
 		}
 		on_upgraded = {
-			add_patriarch_authority = 0.05
+			owner = {
+				add_patriarch_authority = 0.05
+			}
 		}
 	}
 	tier_3 = {
@@ -331,7 +369,9 @@ WFAS_st_basil_cathedral = {
 			missionary_maintenance_cost = -0.25
 		}
 		on_upgraded = {
-			add_patriarch_authority = 0.1
+			owner = {
+				add_patriarch_authority = 0.1
+			}
 		}
 	}
 }
@@ -346,22 +386,31 @@ WFAS_winter_palace = {
 	can_be_moved = no
 	starting_tier = 0
 	type = monument
+	#what to do when it's built
+	on_built = {
+	}
+	#what to do when it's destroyed
+	on_destroyed = {
+	}
+	#can our country keep it or is it destroyed when we get hold of it?
+	keep_trigger = {
+	}
 	build_trigger = {
-		culture = russian
+		culture_group = east_slavic
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
 		}
 	}
 	can_use_modifiers_trigger = {
-		culture = russian
+		culture_group = east_slavic
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
 		}
 	}
 	can_upgrade_trigger = {
-		culture = russian
+		culture_group = east_slavic
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
@@ -396,7 +445,7 @@ WFAS_winter_palace = {
 			local_development_cost = -0.1
 		}
 		country_modifiers = {
-			yearly_prestige = 0.25
+			prestige = 0.25
 		}
 		on_upgraded = {
 		}
@@ -414,7 +463,7 @@ WFAS_winter_palace = {
 			local_development_cost = -0.15
 		}
 		country_modifiers = {
-			yearly_prestige = 0.5
+			prestige = 0.5
 			global_autonomy = -0.025
 		}
 		on_upgraded = {
@@ -433,7 +482,7 @@ WFAS_winter_palace = {
 			local_development_cost = -0.2
 		}
 		country_modifiers = {
-			yearly_prestige = 1
+			prestige = 1
 			global_autonomy = -0.05
 			free_policy = 1
 		}

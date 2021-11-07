@@ -1,0 +1,8 @@
+1444.11.11 = {
+	owner = LIT
+	controller = LIT
+	add_core = LIT
+	remove_core = CRI
+	culture = WFAS_cossack_culture
+	religion = orthodox
+}

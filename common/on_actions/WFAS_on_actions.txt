@@ -5,15 +5,98 @@ on_five_year_pulse_3 = {
 		100 = WFAS_orders_do.4
 		50 = WFAS_orders_do.6
 		50 = WFAS_orders_do.7
-		1 = WFAS_orders_do.5
+		10 = WFAS_orders_do.5
 		100 = WFAS_chmielnicki_flavor.1
 		100 = WFAS_chmielnicki_flavor.2
+		30 = WFAS_cossacks.9
+	}
+}
+
+on_five_year_pulse_2 = {
+	random_events = {
+		500 = magnates_estate_events.1
+		500 = magnates_estate_events.2
+		100 = magnates_estate_events.3
+		300 = magnates_estate_events.4
+		500 = magnates_estate_events.5
+		200 = WFAS_cossacks.4
+		200 = WFAS_cossacks.5
+		200 = WFAS_cossacks.6
+		100 = WFAS_cossacks.7
+		100 = WFAS_cossacks.10
+		100 = WFAS_cossacks.11
 	}
 }
 
 on_monarch_death = {
+	if = {
+		limit = {
+			has_heir = no
+			tag = event_target:WFAS_tot_target
+			has_disaster = time_of_troubles
+			NOT = {
+				has_ruler_flag = WFAS_tot_anarchy_flag
+			}
+		}
+		define_ruler = {
+			name = "(Anarchy)"
+			regency = yes
+			adm = 0
+			dip = 0
+			mil = 0
+			fixed = yes
+			claim = 0
+		}
+		set_ruler_flag = WFAS_tot_anarchy_flag
+	}
 	events = {
 		WFAS_timeoftroubles.2
 		WFAS_timeoftroubles.30
+	}
+}
+
+on_new_heir = {
+	events = {
+		WFAS_timeoftroubles.33
+	}
+}
+
+on_death_election = {
+	if = {
+		limit = {
+			has_reform = elective_monarchy
+		}
+		define_ruler = {
+			name = "(Interregnum)"
+			adm = 0
+			mil = 0
+			dip = 0
+			max_random_adm = 0
+			max_random_dip = 0
+			max_random_mil = 0
+			regency = yes
+		}
+	}
+	events = {
+		WFAS_elective_monarchy_events.1
+	}
+}
+
+on_siege_won_country = {
+	events = {
+		WFAS_lithuania.6
+	}
+}
+
+on_war_lost = {
+	events = {
+		WFAS_cossacks.8
+	}
+}
+
+on_siberian_pulse = {
+	random_events = {
+		100 = WFAS_cossacks.3
+		15000 = 0
 	}
 }

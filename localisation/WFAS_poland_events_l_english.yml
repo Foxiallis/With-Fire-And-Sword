@@ -198,3 +198,7 @@
  WFAS_poland_estonia_autonomy:0 "Give them more autonomy."
  WFAS_poland_estonia_vassal:0 "Hereby the Duchy of Estonia shall be our vassal."
  WFAS_poland_estonia_kurland:0 "Give the lands to [KUR.GetName]"
+ WFAS_poland_dunin_title:0 "Piotr Dunin"
+ WFAS_poland_dunin_desc:0 "Piotr Dunin was the commander in chief of the royal polish army in the Thirteen Years' War. His tactical talent and the consistency with which he tried to cut off the orders from obtaining reinforcements from Germany undoubtedly contributed to the victory of Poland. He triumphed in the Battle of Świecin, conquered Gniew and Chojnice. He was a commander of great authority, but also a ruthless man, with a tough hand maintaining discipline in his mercenary units."
+ WFAS_poland_dunin_general:0 "Make him a general!"
+ WFAS_poland_dunin_advisor:0 "He would better serve as a commandant"

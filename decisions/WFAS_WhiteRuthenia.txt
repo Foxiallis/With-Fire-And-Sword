@@ -107,9 +107,6 @@ country_decisions = {
 			if = {
 				limit = {
 					has_custom_ideas = no
-					NOT = {
-						has_idea_group = WFAS_tr_belarus_ideas
-					}
 				}
 				country_event = {
 					id = ideagroups.1

@@ -67,12 +67,28 @@ time_of_troubles = {
 		}
 	}
 	can_end = {
-		custom_trigger_tooltip = {
-			tooltip = WFAS_tot_can_end
-			has_country_flag = WFAS_tot_ended
+		NOT = {
+			num_of_rebel_armies = 1
+		}
+		NOT = {
+			num_of_rebel_controlled_provinces = 1
+		}
+		if = {
+			limit = {
+				any_country = {
+					has_country_flag = WFAS_tot_dmitry_sent
+				}
+			}
+			NOT = {
+				war_with = event_target:WFAS_tot_dmitry_target
+			}
 		}
 		capital_scope = {
 			controlled_by = ROOT
+		}
+		custom_trigger_tooltip = {
+			tooltip = WFAS_tot_can_end
+			has_country_flag = WFAS_tot_ended
 		}
 	}
 	on_start = WFAS_timeoftroubles.4

@@ -1188,8 +1188,8 @@ WFAS_PLC_LIT_missions_5 = {
 		effect = {
 			1 = {
 				add_center_of_trade_level = 1
+				add_building = stock_exchange
 			}
-			add_building = stock_exchange
 			add_mercantilism = 5
 		}
 	}

@@ -1381,7 +1381,7 @@ country_event = {
 				max_random_mil = 2
 				male = yes
 				culture = root
-				religion = refromed
+				religion = reformed
 			}
 		}
 		end_disaster = pol_struggle_for_royal_power_disaster
@@ -1581,7 +1581,7 @@ country_event = {
 	trigger = {
 		43 = {
 			owned_by = ROOT
-			controled_by = ROOT
+			controlled_by = ROOT
 		}
 	}
 	option = {
@@ -1598,8 +1598,8 @@ country_event = {
 		43 = {
 			add_devastation = 25
 			add_base_tax = -1
-			add_base_mil = -1
-			add_base_dip = -1
+			add_base_manpower = -1
+			add_base_production = -1
 		}
 		add_prestige = -10
 	}

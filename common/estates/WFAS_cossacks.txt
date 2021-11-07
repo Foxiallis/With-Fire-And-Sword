@@ -33,7 +33,7 @@ estate_cossacks = {
 			has_reform = revolutionary_empire_reform
 		}
 		any_owned_province = {
-			has_terrain = steppe
+			culture = WFAS_cossack_culture
 		}
 	}
 }

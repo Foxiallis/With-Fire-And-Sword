@@ -359,8 +359,8 @@ WFAS_TEU_missions_4 = {
 		effect = {
 			capital_scope = {
 				add_building = cathedral
+				add_base_tax = 2
 			}
-			add_base_tax = 2
 		}
 	}
 }

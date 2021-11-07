@@ -1,4 +1,4 @@
 WFAS_tot_prelude = {
-	heir_chance = -2
+	heir_chance = -5
 	block_introduce_heir = yes
 }

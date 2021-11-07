@@ -21,3 +21,8 @@
  desc_WFAS_LIT_mare_nostrum:0 "Mare Nostrum"
  WFAS_lithuania_radziwill_executed:0 "Radziwill Executed"
  desc_WFAS_lithuania_radziwill_executed:0 "Traitorous ruler of Lithuania, Janusz Radziwill, was burned at the stake for his crimes."
+ WFAS_lithuanian_palace:0 "Palace of the Grand Dukes of Lithuania"
+ desc_WFAS_lithuanian_palace:0 "The Palace of the Grand Dukes of Lithuania is a palace in Vilnius, Lithuania. It was originally constructed in the 15th century for the rulers of the Grand Duchy of Lithuania and the future Kings of Poland."
+ WFAS_lithuanian_palace_refurbished:0 "Refurbishment of the Palace"
+ desc_WFAS_lithuanian_palace_refurbished:0 "The old Vilnius palace now shines anew like a pearl in a [Root.GetAdjective] crown."
+ WFAS_lithuania_impressed:0 "Impressed"

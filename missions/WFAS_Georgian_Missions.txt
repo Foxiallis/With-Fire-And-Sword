@@ -289,7 +289,7 @@ WFAS_GEO_missions_4 = {
 					cost = 0
 				}
 				add_unit_construction = {
-					type = transport_ship
+					type = transport
 					amount = 4
 					speed = 0.1
 					cost = 0

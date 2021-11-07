@@ -1,0 +1,61 @@
+#Repressed Don Cossacks
+WFAS_cossacks_1 = {
+	cossacks_loyalty_modifier = -0.2
+	cossacks_influence_modifier = -0.2
+	drill_decay_modifier = -0.25
+	discipline = 0.05
+}
+
+#Insignificant Don Cossacks
+WFAS_cossacks_2 = {
+	cossacks_loyalty_modifier = -0.1
+	cossacks_influence_modifier = -0.1
+	drill_decay_modifier = -0.1
+	discipline = 0.025
+	shock_damage = 0.05
+}
+
+#Valued Don Cossacks
+WFAS_cossacks_3 = {
+	shock_damage = 0.1
+	special_unit_forcelimit = 0.05
+}
+
+#Important Don Cossacks
+WFAS_cossacks_4 = {
+	cossacks_loyalty_modifier = 0.1
+	cossacks_influence_modifier = 0.1
+	drill_decay_modifier = 0.1
+	discipline = -0.025
+	shock_damage = 0.2
+	special_unit_forcelimit = 0.1
+}
+
+#Crucial Don Cossacks
+WFAS_cossacks_5 = {
+	cossacks_loyalty_modifier = 0.2
+	cossacks_influence_modifier = 0.2
+	drill_decay_modifier = 0.25
+	discipline = -0.05
+	shock_damage = 0.3
+	special_unit_forcelimit = 0.15
+}
+
+#Absent Cossacks
+WFAS_cossacks_absent = {
+	shock_damage = -0.5
+	cavalry_power = -0.3
+}
+
+#Unruly Cossacks
+WFAS_cossacks_unruly = {
+	discipline = -0.05
+	shock_damage_received = 0.15
+	cossacks_influence_modifier = 0.1
+}
+
+#Cossacks Returning Home
+WFAS_cossacks_return = {
+	manpower_recovery_speed = -0.25
+	cavalry_cost = 0.25
+}

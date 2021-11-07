@@ -51,3 +51,8 @@ WFAS_other_cossacks_uncontrolled = {
 	opinion = -50
 	yearly_decay = 1
 }
+
+WFAS_lithuania_impressed = {
+	opinion = 50
+	yearly_decay = 1
+}

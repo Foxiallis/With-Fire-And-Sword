@@ -42,3 +42,61 @@ WFAS_georgian_monarchy = {
 		}
 	}
 }
+
+WFAS_orders_dual_order = {
+	rank = {
+		1 = WFAS_ORDERS_DUAL_ORDER
+		2 = WFAS_ORDERS_DUAL_ORDER
+		3 = WFAS_ORDERS_DUAL_ORDER
+	}
+	ruler_male = {
+		1 = WFAS_HOCHMEISTER
+		2 = WFAS_HOCHMEISTER
+		3 = WFAS_HOCHMEISTER
+	}
+	ruler_female = {
+		1 = WFAS_HOCHMEISTERIN
+		2 = WFAS_HOCHMEISTERIN
+		3 = WFAS_HOCHMEISTERIN
+	}
+	trigger = {
+		has_reform = WFAS_orders_dual_order_reform
+	}
+}
+
+WFAS_orders_livonian_confederacy = {
+	rank = {
+		1 = WFAS_ORDERS_LIVONIAN_CONFEDERACY
+		2 = WFAS_ORDERS_LIVONIAN_CONFEDERACY
+		3 = WFAS_ORDERS_LIVONIAN_CONFEDERACY
+	}
+	ruler_male = {
+		1 = WFAS_LANDMEISTER
+		2 = WFAS_LANDMEISTER
+		3 = WFAS_LANDMEISTER
+	}
+	ruler_female = {
+		1 = WFAS_LANDMEISTERIN
+		2 = WFAS_LANDMEISTERIN
+		3 = WFAS_LANDMEISTERIN
+	}
+	trigger = {
+		has_reform = WFAS_orders_livonian_confederacy_reform
+	}
+}
+
+WFAS_ukraine_tsardom = {
+	rank = {
+		3 = WFAS_UKRAINE_GREATEST_PRINCIPALITY
+	}
+	ruler_male = {
+		3 = WFAS_UKRAINE_GREATEST_KNIAZ
+	}
+	ruler_female = {
+		3 = WFAS_UKRAINE_GREATEST_KNIAGINIA
+	}
+	trigger = {
+		tag = UKR
+		has_reform = tsardom
+	}
+}

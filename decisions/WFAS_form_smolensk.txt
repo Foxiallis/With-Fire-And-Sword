@@ -97,7 +97,7 @@ country_decisions = {
 				#Swap Ideas
 			}
 			set_country_flag = formed_smolensk_flag
-			add_government_reform = russian_principality
+			add_government_reform = principality
 		}
 		ai_will_do = {
 			factor = 1

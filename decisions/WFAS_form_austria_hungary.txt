@@ -1,5 +1,5 @@
 country_decisions = {
-	austria_hungary_dip = {
+	habsburg_monarchy_dip = {
 		major = yes
 		potential = {
 			NOT = {
@@ -8,7 +8,7 @@ country_decisions = {
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = {
-				has_country_flag = formed_austria_hungary
+				has_country_flag = formed_habsburg_monarchy
 			}
 			OR = {
 				tag = HAB
@@ -86,7 +86,7 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 10
-			set_country_flag = formed_austria_hungary
+			set_country_flag = formed_habsburg_monarchy
 			if = {
 				limit = {
 					has_custom_ideas = no
@@ -101,7 +101,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-	austria_hungary_mil = {
+	habsburg_monarchy_mil = {
 		major = yes
 		potential = {
 			NOT = {
@@ -110,7 +110,7 @@ country_decisions = {
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = {
-				has_country_flag = formed_austria_hungary
+				has_country_flag = formed_habsburg_monarchy
 			}
 			OR = {
 				tag = HAB
@@ -225,7 +225,7 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 10
-			set_country_flag = formed_austria_hungary
+			set_country_flag = formed_habsburg_monarchy
 			if = {
 				limit = {
 					has_custom_ideas = no

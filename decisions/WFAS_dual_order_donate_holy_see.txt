@@ -1,6 +1,5 @@
 country_decisions = {
 	dual_order_donate_holy_see = {
-		major = no
 		potential = {
 			religion = catholic
 			OR = {
