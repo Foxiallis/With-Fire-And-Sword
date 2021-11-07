@@ -92,13 +92,13 @@ WFAS_chmielnicki_uprising = {
 			WFAS_chmielnicki.30			#Chmielnicki Crushed
 		}
 		random_events = {
+			200 = WFAS_chmielnicki.27			#Union of Hadziak
 			100 = WFAS_chmielnicki_flavor.8			#Peryna, Latyna, Dytyna
 			100 = WFAS_chmielnicki_flavor.9			#Jeremi Wisniowiecki
 			100 = WFAS_chmielnicki_flavor.10			#Magnates dont like war
 			100 = WFAS_chmielnicki_flavor.11			#Szlachta joins
 			100 = WFAS_chmielnicki_flavor.12			#Treaty not cool
 			100 = WFAS_chmielnicki.26			#Hetmanate Entrenches
-			100 = WFAS_chmielnicki.27			#Union of Hadziak
 			50 = WFAS_chmielnicki.17			#Battle of Zwaniec
 			50 = WFAS_chmielnicki.21			#Treaty of Zborow
 			50 = WFAS_chmielnicki.23			#Treaty of Bila Tserkva

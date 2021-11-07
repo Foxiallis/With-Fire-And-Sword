@@ -438,3 +438,10 @@ country_event = {
 		}
 	}
 }
+
+#Slave trade prospects
+#Burning of Moscow
+#Circassian favors
+#Treaty of Karlowitz
+#Land of Silk and Honey
+#Introduction of Tobacco to Europe
