@@ -1,0 +1,75 @@
+namespace = WFAS_incident_poland_and_the_empire
+country_event = {
+	id = WFAS_incident_poland_and_the_empire.2
+	title = WFAS_incident_poland_and_the_empire.2.t
+	desc = WFAS_incident_poland_and_the_empire.2.d
+	picture = HRE_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = WFAS_incident_poland_and_the_empire.2.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				OR = {
+					is_rival = PLC
+					PLC = {
+						is_rival = ROOT
+					}
+				}
+			}
+		}
+		emperor = {
+			add_casus_belli = {
+				target = PLC
+				type = cb_imperial_ban
+				war_goal_province = 4238
+				months = 12
+			}
+		}
+		emperor = {
+			declare_war_with_cb = {
+				who = PLC
+				casus_belli = cb_imperial_ban
+				war_goal_province = 4238
+			}
+		}
+		custom_tooltip = WFAS_flavor_pol.2.tooltip
+		hidden_effect = {
+			every_elector = {
+				limit = {
+					NOT = {
+						OR = {
+							alliance_with = PLC
+							is_subject = yes
+						}
+					}
+				}
+				join_all_offensive_wars_of = emperor
+			}
+		}
+	}
+	option = {
+		#leave them alone
+		name = WFAS_incident_poland_and_the_empire.2.b
+		ai_chance = {
+			factor = 0.1
+			modifier = {
+				factor = 1
+				NOT = {
+					OR = {
+						is_rival = PLC
+						PLC = {
+							is_rival = ROOT
+						}
+					}
+				}
+			}
+		}
+		emperor = {
+			add_prestige = -10
+		}
+	}
+}

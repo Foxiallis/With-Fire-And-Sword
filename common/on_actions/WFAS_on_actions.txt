@@ -1,0 +1,19 @@
+on_five_year_pulse_3 = {
+	random_events = {
+		100 = WFAS_orders_do.2
+		100 = WFAS_orders_do.3
+		100 = WFAS_orders_do.4
+		50 = WFAS_orders_do.6
+		50 = WFAS_orders_do.7
+		1 = WFAS_orders_do.5
+		100 = WFAS_chmielnicki_flavor.1
+		100 = WFAS_chmielnicki_flavor.2
+	}
+}
+
+on_monarch_death = {
+	events = {
+		WFAS_timeoftroubles.2
+		WFAS_timeoftroubles.30
+	}
+}

@@ -1,0 +1,1581 @@
+namespace = WFAS_chmielnicki
+#First visit
+country_event = {
+	id = WFAS_chmielnicki.1
+	title = "WFAS_chmielnicki_visit_title"
+	desc = "WFAS_chmielnicki_visit_desc"
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			tag = POL
+			tag = PLC
+			AND = {
+				tag = LIT
+				NOT = {
+					OR = {
+						exists = POL
+						exists = PLC
+					}
+				}
+			}
+		}
+		NOT = {
+			exists = ZAZ
+		}
+		owns_core_province = 283
+		num_of_owned_provinces_with = {
+			value = 3
+			OR = {
+				area = west_dniepr_area
+				area = east_dniepr_area
+				area = zaporizhia_area
+				area = yedisan_area
+			}
+		}
+		has_regency = no
+		is_year = 1630
+	}
+	mean_time_to_happen = {
+		months = 120
+	}
+	option = {
+		name = "WFAS_chmielnicki_visit_seize"
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = 10
+		}
+		set_country_flag = WFAS_chmielnicki_upset_flag
+		add_adm_power = 100
+		add_prestige = 10
+		custom_tooltip = WFAS_chmielnicki_upset_tooltip
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_visit_refuse"
+		set_country_flag = WFAS_chmielnicki_visited_flag
+		add_prestige = -5
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_visit_compensate"
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -10
+		}
+		add_stability = -2
+		add_years_of_income = -1
+		custom_tooltip = WFAS_chmielnicki_pleased_tooltip
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Second visit
+country_event = {
+	id = WFAS_chmielnicki.2
+	title = "WFAS_chmielnicki_second_visit_title"
+	desc = "WFAS_chmielnicki_second_visit_desc"
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+	fire_only_once = yes
+	trigger = {
+		has_country_flag = WFAS_chmielnicki_visited_flag
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	option = {
+		name = "WFAS_chmielnicki_second_visit_refuse"
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = 10
+		}
+		set_country_flag = WFAS_chmielnicki_upset_flag
+		add_adm_power = 100
+		add_prestige = 10
+		custom_tooltip = WFAS_chmielnicki_upset_tooltip
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_second_visit_compensate"
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -10
+		}
+		add_stability = -2
+		add_years_of_income = -1
+		add_prestige = -10
+		custom_tooltip = WFAS_chmielnicki_pleased_tooltip
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Start
+country_event = {
+	id = WFAS_chmielnicki.3
+	title = "WFAS_chmielnicki_start_title"
+	desc = "WFAS_chmielnicki_start_desc"
+	picture = COSSACK_ESTATE_UPSET_eventPicture
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	immediate = {
+		hidden_effect = {
+			set_global_flag = WFAS_chmielnicki_uprising_happened
+			save_global_event_target_as = WFAS_chmielnicki_target
+			set_country_flag = WFAS_chmielnicki_ongoing
+			IF = {
+				limit = {
+					owns = 283
+				}
+				283 = {
+					save_event_target_as = WFAS_chmielnicki_revolt_province_1
+					spawn_rebels = {
+						size = 3
+						type = cossack_rebels
+						friend = ZAZ
+					}
+				}
+			}
+			ELSE = {
+				random_owned_province = {
+					limit = {
+						OR = {
+							area = west_dniepr_area
+							area = east_dniepr_area
+							area = zaporizhia_area
+							area = yedisan_area
+						}
+					}
+					save_event_target_as = WFAS_chmielnicki_revolt_province_1
+					spawn_rebels = {
+						size = 3
+						type = cossack_rebels
+						friend = ZAZ
+					}
+				}
+			}
+			random_owned_province = {
+				limit = {
+					OR = {
+						area = west_dniepr_area
+						area = east_dniepr_area
+						area = zaporizhia_area
+						area = yedisan_area
+					}
+				}
+				save_event_target_as = WFAS_chmielnicki_revolt_province_2
+				spawn_rebels = {
+					size = 3
+					type = cossack_rebels
+					friend = ZAZ
+				}
+			}
+			random_owned_province = {
+				limit = {
+					OR = {
+						area = west_dniepr_area
+						area = east_dniepr_area
+						area = zaporizhia_area
+						area = yedisan_area
+					}
+				}
+				save_event_target_as = WFAS_chmielnicki_revolt_province_3
+				spawn_rebels = {
+					size = 3
+					type = cossack_rebels
+					friend = ZAZ
+				}
+			}
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_start_option"
+		add_stability = -1
+		tooltip = {
+			event_target:WFAS_chmielnicki_revolt_province_1 = {
+				spawn_rebels = {
+					size = 3
+					type = cossack_rebels
+				}
+			}
+			event_target:WFAS_chmielnicki_revolt_province_2 = {
+				spawn_rebels = {
+					size = 3
+					type = cossack_rebels
+				}
+			}
+			event_target:WFAS_chmielnicki_revolt_province_3 = {
+				spawn_rebels = {
+					size = 3
+					type = cossack_rebels
+				}
+			}
+		}
+	}
+}
+
+#End
+country_event = {
+	id = WFAS_chmielnicki.4
+	title = "WFAS_chmielnicki_end_title"
+	desc = {
+		trigger = {
+			has_country_flag = WFAS_chmielnicki_rtn
+		}
+		desc = "WFAS_chmielnicki_end_rtn_desc"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = WFAS_chmielnicki_russia
+		}
+		desc = "WFAS_chmielnicki_end_russia_desc"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = WFAS_chmielnicki_defeated
+		}
+		desc = "WFAS_chmielnicki_end_defeated_desc"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = WFAS_chmielnicki_submitted
+		}
+		desc = "WFAS_chmielnicki_end_submitted_desc"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = WFAS_chmielnicki_crushed
+		}
+		desc = "WFAS_chmielnicki_end_crushed_desc"
+	}
+	picture = DIPLOMACY_eventPicture
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_chmielnicki_end_option"
+		add_stability_or_adm_power = yes
+		IF = {
+			limit = {
+				OR = {
+					has_country_flag = WFAS_chmielnicki_rtn
+					has_country_flag = WFAS_chmielnicki_defeated
+				}
+			}
+			add_prestige = 10
+		}
+		IF = {
+			limit = {
+				exists = ZAZ
+			}
+			ZAZ = {
+				clr_country_flag = WFAS_chmielnicki_zaz_flag
+			}
+		}
+	}
+}
+
+#Hetmanate
+country_event = {
+	id = WFAS_chmielnicki.5
+	title = "WFAS_chmielnicki_hetmanate_title"
+	desc = "WFAS_chmielnicki_hetmanate_desc"
+	picture = COSSACK_ESTATE_UPSET_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		num_of_owned_provinces_with = {
+			value = 1
+			OR = {
+				area = west_dniepr_area
+				area = east_dniepr_area
+				area = zaporizhia_area
+				area = yedisan_area
+			}
+			controlled_by = cossack_rebels
+		}
+		NOT = {
+			exists = ZAZ
+		}
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	immediate = {
+		hidden_effect = {
+			set_global_flag = WFAS_chmielnicki_zaporozhe_revolted
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = east_dniepr_area
+						area = zaporizhia_area
+						area = yedisan_area
+					}
+				}
+				add_core = ZAZ
+			}
+			release = ZAZ
+			ZAZ = {
+				override_country_name = "WFAS_HETMANATE"
+				change_technology_group = eastern
+				set_country_flag = WFAS_chmielnicki_zaz_flag
+				IF = {
+					limit = {
+						NOT = {
+							government = republic
+						}
+					}
+					change_government_to_republic = yes
+				}
+				IF = {
+					limit = {
+						NOT = {
+							has_reform = cossacks_reform
+						}
+					}
+					add_government_reform = cossacks_reform
+				}
+				add_government_reform = WFAS_cossack_starshyna
+				define_ruler = {
+					name = "Bohdan"
+					dynasty = "Chmielnicki"
+					age = 50
+					adm = 3
+					dip = 2
+					mil = 5
+					male = yes
+					fixed = yes
+				}
+				define_ruler_to_general = {
+					fire = 3
+					shock = 5
+					manuever = 4
+					siege = 1
+				}
+				capital_scope = {
+					infantry = ZAZ
+					infantry = ZAZ
+					infantry = ZAZ
+					infantry = ZAZ
+					infantry = ZAZ
+					infantry = ZAZ
+					infantry = ZAZ
+					infantry = ZAZ
+					infantry = ZAZ
+					cossack_cavalry = ZAZ
+					cossack_cavalry = ZAZ
+					cossack_cavalry = ZAZ
+					cossack_cavalry = ZAZ
+				}
+				random_owned_province = {
+					infantry = ZAZ
+					infantry = ZAZ
+					streltsy_infantry = ZAZ
+					streltsy_infantry = ZAZ
+					streltsy_infantry = ZAZ
+					streltsy_infantry = ZAZ
+					cossack_cavalry = ZAZ
+					cossack_cavalry = ZAZ
+					cossack_cavalry = ZAZ
+					cossack_cavalry = ZAZ
+				}
+				declare_war_with_cb = {
+					casus_belli = cb_independence_war
+					who = ROOT
+				}
+			}
+			disband_rebels = cossack_rebels
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_hetmanate_destroy"
+		tooltip = {
+			release = ZAZ
+		}
+		hidden_effect = {
+			add_country_modifier = {
+				name = "WFAS_chmielnicki_ai_zaz_buff"
+				hidden = yes
+				duration = -1
+			}
+		}
+		custom_tooltip = WFAS_chmielnicki_zaz_war
+	}
+	option = {
+		name = "WFAS_chmielnicki_hetmanate_switch"
+		trigger = {
+			ai = no
+		}
+		tooltip = {
+			release = ZAZ
+		}
+		custom_tooltip = WFAS_chmielnicki_zaz_war
+		switch_tag = ZAZ
+		ZAZ = {
+			add_country_modifier = {
+				name = "WFAS_chmielnicki_player_zaz_buff"
+				desc = WFAS_chmielnicki_end_of_the_disaster
+				duration = -1
+			}
+		}
+	}
+}
+
+#Secedes (zaporozhe)
+country_event = {
+	id = WFAS_chmielnicki.8
+	title = "WFAS_chmielnicki_control_zaz_title"
+	desc = "WFAS_chmielnicki_control_zaz_desc"
+	picture = SIEGE_eventPicture
+	trigger = {
+		tag = ZAZ
+		event_target:WFAS_chmielnicki_target = {
+			has_disaster = WFAS_chmielnicki_uprising
+			war_with = ZAZ
+			any_owned_province = {
+				OR = {
+					area = west_dniepr_area
+					area = east_dniepr_area
+					area = zaporizhia_area
+					area = yedisan_area
+					area = chernigov_area
+					area = sloboda_ukraine_area
+					area = podolia_volhynia_area
+					area = volhynia_area
+					area = red_ruthenia_area
+				}
+				any_neighbor_province = {
+					owned_by = ZAZ
+				}
+				controlled_by = ZAZ
+			}
+		}
+	}
+	immediate = {
+		event_target:WFAS_chmielnicki_target = {
+			random_owned_province = {
+				limit = {
+					OR = {
+						area = west_dniepr_area
+						area = east_dniepr_area
+						area = zaporizhia_area
+						area = yedisan_area
+						area = chernigov_area
+						area = sloboda_ukraine_area
+						area = podolia_volhynia_area
+						area = volhynia_area
+						area = red_ruthenia_area
+					}
+					any_neighbor_province = {
+						owned_by = ZAZ
+					}
+					controlled_by = ZAZ
+				}
+				save_global_event_target_as = WFAS_chmielnicki_province_secede
+			}
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_control_zaz_option"
+		event_target:WFAS_chmielnicki_province_secede = {
+			infantry = ZAZ
+			infantry = ZAZ
+			infantry = ZAZ
+			infantry = ZAZ
+			infantry = ZAZ
+			add_core = ZAZ
+		}
+	}
+}
+
+#Ask Crimea for help
+country_event = {
+	id = WFAS_chmielnicki.7
+	title = "WFAS_chmielnicki_crimea_title"
+	desc = "WFAS_chmielnicki_crimea_desc"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		months = 1
+	}
+	trigger = {
+		tag = ZAZ
+		has_country_flag = WFAS_chmielnicki_zaz_flag
+		is_subject = no
+		NOT = {
+			is_rival = CRI
+		}
+		CRI = {
+			exists = yes
+			is_subject = no
+			NOT = {
+				war_with = ROOT
+			}
+			NOT = {
+				is_rival = ROOT
+			}
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_crimea_ask"
+		CRI = {
+			country_event = {
+				id = WFAS_chmielnicki.9
+				days = 1
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_crimea_leave"
+		add_prestige = -5
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Zaporozhe asks for help
+country_event = {
+	id = WFAS_chmielnicki.9
+	title = "WFAS_chmielnicki_crimea_offer_title"
+	desc = "WFAS_chmielnicki_crimea_offer_desc"
+	picture = DIPLOMACY_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = event_target:WFAS_chmielnicki_target
+			tag = ZAZ
+		}
+	}
+	is_triggered_only = yes
+	option = {
+		name = "WFAS_chmielnicki_offer_accept"
+		join_all_offensive_wars_of = ZAZ
+		reverse_add_opinion = {
+			who = ZAZ
+			modifier = WFAS_chmielnicki_helped
+		}
+		set_country_flag = WFAS_chmielnicki_cri_flag
+		ai_chance = {
+			factor = 80
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_offer_decline"
+		add_prestige = -10
+		reverse_add_opinion = {
+			who = ZAZ
+			modifier = WFAS_chmielnicki_refused_help
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+}
+
+#Rozanda Lupu
+country_event = {
+	id = WFAS_chmielnicki.12
+	title = "WFAS_chmielnicki_rozanda_title"
+	desc = "WFAS_chmielnicki_rozanda_desc"
+	picture = wihgfx_FEMALE_RULER_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		months = 48
+	}
+	trigger = {
+		tag = ZAZ
+		has_country_flag = WFAS_chmielnicki_zaz_flag
+		is_subject = no
+		NOT = {
+			is_rival = MOL
+		}
+		MOL = {
+			exists = yes
+			NOT = {
+				war_with = ROOT
+			}
+			NOT = {
+				is_rival = ROOT
+			}
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_rozanda_offer"
+		MOL = {
+			country_event = {
+				id = WFAS_chmielnicki.13
+				days = 1
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_rozanda_leave"
+		add_prestige = -10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Offer from cossacks
+country_event = {
+	id = WFAS_chmielnicki.13
+	title = "WFAS_chmielnicki_rozanda_offer_title"
+	desc = "WFAS_chmielnicki_rozanda_offer_desc"
+	picture = wihgfx_FEMALE_RULER_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "WFAS_chmielnicki_rozanda_accept"
+		create_marriage = ZAZ
+		reverse_add_opinion = {
+			who = ZAZ
+			modifier = opinion_pleased
+		}
+		IF = {
+			limit = {
+				is_subject = no
+			}
+			create_alliance = ZAZ
+			join_all_offensive_wars_of = ZAZ
+		}
+		hidden_effect = {
+			ZAZ = {
+				country_event = {
+					id = WFAS_chmielnicki.14
+					days = 1
+				}
+			}
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_rozanda_decline"
+		add_prestige = 5
+		custom_tooltip = WFAS_chmielnicki_upset_tooltip
+		hidden_effect = {
+			ZAZ = {
+				add_casus_belli = {
+					type = cb_insult
+					target = ROOT
+				}
+				country_event = {
+					id = WFAS_chmielnicki.15
+					days = 1
+				}
+			}
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+}
+
+#Moldovian Voidode accepts
+country_event = {
+	id = WFAS_chmielnicki.14
+	title = "WFAS_chmielnicki_mol_accepts_title"
+	desc = "WFAS_chmielnicki_mol_accepts_desc"
+	picture = ROYAL_COUPLE_FUTURE_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "WFAS_chmielnicki_mol_accepts_option"
+		add_prestige = 15
+		tooltip = {
+			add_opinion = {
+				who = ZAZ
+				modifier = opinion_pleased
+			}
+			MOL = {
+				create_marriage = ZAZ
+				IF = {
+					limit = {
+						is_subject = no
+					}
+					create_alliance = ZAZ
+					join_all_offensive_wars_of = ZAZ
+				}
+			}
+		}
+	}
+}
+
+#Moldovian Voidode declines
+country_event = {
+	id = WFAS_chmielnicki.15
+	title = "WFAS_chmielnicki_mol_declines_title"
+	desc = "WFAS_chmielnicki_mol_declines_desc"
+	picture = ACCUSATION_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "WFAS_chmielnicki_mol_declines_leave"
+		add_prestige = -5
+		ai_chance = {
+			factor = 20
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_mol_declines_war"
+		declare_war_with_cb = {
+			casus_belli = cb_insult
+			who = MOL
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 5
+				MOL = {
+					is_subject = yes
+					overlord = {
+						NOT = {
+							war_with = ZAZ
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#Voidode concedes
+country_event = {
+	id = WFAS_chmielnicki.16
+	title = "WFAS_chmielnicki_mol_concedes_title"
+	desc = "WFAS_chmielnicki_mol_concedes_desc"
+	picture = SIEGE_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = MOL
+			overlord_of = MOL
+		}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 7
+	}
+	trigger = {
+		tag = ZAZ
+		has_country_flag = WFAS_chmielnicki_zaz_flag
+		MOL = {
+			exists = yes
+			war_with = ROOT
+			capital_scope = {
+				controlled_by = ROOT
+			}
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_mol_concedes_marry"
+		create_marriage = MOL
+		add_prestige = 20
+		ai_chance = {
+			factor = 80
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_mol_concedes_leave"
+		add_prestige = 5
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_mol_concedes_kill"
+		add_prestige = -10
+		MOL = {
+			kill_heir = yes
+			kill_consort = yes
+			add_opinion = {
+				who = ZAZ
+				modifier = WFAS_chmielnicki_enraged
+			}
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#Battle of Zwaniec (swap crimea sides) (Poland) #RANDOM
+country_event = {
+	id = WFAS_chmielnicki.17
+	title = "WFAS_chmielnicki_zwaniec_title"
+	desc = "WFAS_chmielnicki_zwaniec_pol_desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		CRI = {
+			has_country_flag = WFAS_chmielnicki_cri_flag
+		}
+		war_with = CRI
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_chmielnicki_zwaniec_pol_ask"
+		add_treasury = -300
+		CRI = {
+			country_event = {
+				id = WFAS_chmielnicki.18
+				days = 1
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_zwaniec_pol_leave"
+		add_prestige = 5
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Battle of Zwaniec (swap crimea sides) (Crimea)
+country_event = {
+	id = WFAS_chmielnicki.18
+	title = "WFAS_chmielnicki_zwaniec_title"
+	desc = "WFAS_chmielnicki_zwaniec_cri_desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = ZAZ
+			tag = event_target:WFAS_chmielnicki_target
+		}
+	}
+	is_triggered_only = yes
+	option = {
+		name = "WFAS_chmielnicki_zwaniec_cri_betray"
+		set_country_flag = WFAS_chmielnicki_cri_betrayed
+		white_peace = event_target:WFAS_chmielnicki_target
+		add_treasury = 300
+		reverse_add_opinion = {
+			who = ZAZ
+			modifier = WFAS_chmielnicki_betrayal
+		}
+		add_prestige = -10
+		ai_chance = {
+			factor = 60
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_zwaniec_cri_loyal"
+		reverse_add_opinion = {
+			who = event_target:WFAS_chmielnicki_target
+			modifier = WFAS_chmielnicki_refused_help
+		}
+		add_prestige = 10
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 10
+				NOT = {
+					war_score_against = {
+						who = event_target:WFAS_chmielnicki_target
+						value = -20
+					}
+				}
+			}
+		}
+	}
+}
+
+#Treaty of Pereyaslav (Hetmanate)
+country_event = {
+	id = WFAS_chmielnicki.19
+	title = "WFAS_chmielnicki_pereyaslav_title"
+	desc = "WFAS_chmielnicki_pereyaslav_desc"
+	picture = DIPLOMACY_SIGNING_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = ZAZ
+		has_country_flag = WFAS_chmielnicki_zaz_flag
+		is_subject = no
+		war_with = event_target:WFAS_chmielnicki_target
+		NOT = {
+			war_score_against = {
+				who = event_target:WFAS_chmielnicki_target
+				value = -20
+			}
+		}
+		exists = RUS
+		NOT = {
+			war_with = RUS
+		}
+	}
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.5
+			NOT = {
+				war_score_against = {
+					who = event_target:WFAS_chmielnicki_target
+					value = -50
+				}
+			}
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_pereyaslav_sign"
+		custom_tooltip = WFAS_chmielnicki_pereyaslav_tooltip
+		RUS = {
+			country_event = {
+				id = WFAS_chmielnicki.20
+				days = 1
+			}
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_pereyaslav_leave"
+		add_stability = -1
+		ai_chance = {
+			factor = 20
+		}
+	}
+}
+
+#Treaty of Pereyaslav (Russia)
+country_event = {
+	id = WFAS_chmielnicki.20
+	title = "WFAS_chmielnicki_pereyaslav_title"
+	desc = "WFAS_chmielnicki_pereyaslav_desc"
+	picture = DIPLOMACY_SIGNING_eventPicture
+	is_triggered_only = yes
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = ZAZ
+			war_with = ZAZ
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_pereyaslav_accept"
+		set_global_flag = WFAS_chmielnicki_pereyaslav_signed
+		join_all_offensive_wars_of = ZAZ
+		join_all_defensive_wars_of = ZAZ
+		create_subject = {
+			subject_type = march
+			subject = ZAZ
+		}
+		reverse_add_opinion = {
+			who = ZAZ
+			modifier = WFAS_chmielnicki_helped
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_pereyaslav_decline"
+		add_prestige = -10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Treaty of Zborow (Poland) END EVENT? #RANDOM
+country_event = {
+	id = WFAS_chmielnicki.21
+	title = "WFAS_chmielnicki_zborow_title"
+	desc = "WFAS_chmielnicki_zborow_desc"
+	picture = DIPLOMACY_SIGNING_eventPicture
+	fire_only_once = yes
+	trigger = {
+		exists = ZAZ
+		war_with = ZAZ
+		ZAZ = {
+			is_subject = no
+			had_country_flag = {
+				flag = WFAS_chmielnicki_zaz_flag
+				days = 365
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_chmielnicki_zborow_sign"
+		set_country_flag = WFAS_chmielnicki_zborow_signed
+		ZAZ = {
+			country_event = {
+				id = WFAS_chmielnicki.22
+				days = 1
+			}
+		}
+		IF = {
+			limit = {
+				CRI = {
+					has_country_flag = WFAS_chmielnicki_cri_flag
+					NOT = {
+						has_country_flag = WFAS_chmielnicki_cri_betrayed
+					}
+				}
+			}
+			tooltip = {
+				add_treasury = -500
+			}
+		}
+		IF = {
+			limit = {
+				has_reform = elective_monarchy
+			}
+			change_statists_vs_monarchists = 0.1
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -10
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 80
+				dip = 3
+			}
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_zborow_leave"
+		add_stability = -1
+		IF = {
+			limit = {
+				has_reform = elective_monarchy
+			}
+			change_statists_vs_monarchists = -0.1
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = 10
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 20
+				dip = 3
+			}
+		}
+	}
+}
+
+#Treaty of Zborow (Hetmanate) END EVENT?
+country_event = {
+	id = WFAS_chmielnicki.22
+	title = "WFAS_chmielnicki_zborow_title"
+	desc = "WFAS_chmielnicki_zborow_desc"
+	picture = DIPLOMACY_SIGNING_eventPicture
+	is_triggered_only = yes
+	major = yes
+	major_trigger = {
+		OR = {
+			war_with = ZAZ
+			has_country_flag = WFAS_chmielnicki_cri_flag
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_zborow_zaz_sign"
+		set_country_flag = WFAS_chmielnicki_zborow_signed
+		add_truce_with = event_target:WFAS_chmielnicki_target
+		white_peace = event_target:WFAS_chmielnicki_target
+		add_opinion = {
+			who = event_target:WFAS_chmielnicki_target
+			modifier = WFAS_chmielnicki_treaty
+		}
+		reverse_add_opinion = {
+			who = event_target:WFAS_chmielnicki_target
+			modifier = WFAS_chmielnicki_treaty
+		}
+		hidden_effect = {
+			IF = {
+				limit = {
+					CRI = {
+						has_country_flag = WFAS_chmielnicki_cri_flag
+						NOT = {
+							has_country_flag = WFAS_chmielnicki_cri_betrayed
+						}
+					}
+				}
+				event_target:WFAS_chmielnicki_target = {
+					add_treasury = -500
+				}
+				CRI = {
+					add_treasury = 500
+				}
+			}
+		}
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 80
+				war_score = 25
+			}
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_zborow_zaz_leave"
+		add_prestige = 20
+		add_stability = -1
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 20
+				war_score = 25
+			}
+		}
+	}
+}
+
+#Treaty of Bila Tserkva (Poland) END EVENT? #RANDOM
+country_event = {
+	id = WFAS_chmielnicki.23
+	title = "WFAS_chmielnicki_bt_title"
+	desc = "WFAS_chmielnicki_bt_desc"
+	picture = DIPLOMACY_SIGNING_eventPicture
+	fire_only_once = yes
+	trigger = {
+		exists = ZAZ
+		war_with = ZAZ
+		ZAZ = {
+			is_subject = no
+		}
+		has_country_flag = WFAS_chmielnicki_zborow_signed
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_chmielnicki_bt_sign"
+		set_country_flag = WFAS_chmielnicki_bt_signed
+		ZAZ = {
+			country_event = {
+				id = WFAS_chmielnicki.24
+				days = 1
+			}
+		}
+		IF = {
+			limit = {
+				has_reform = elective_monarchy
+			}
+			change_statists_vs_monarchists = 0.1
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -10
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 80
+				dip = 3
+			}
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_bt_leave"
+		add_stability = -1
+		IF = {
+			limit = {
+				has_reform = elective_monarchy
+			}
+			change_statists_vs_monarchists = -0.1
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = 10
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 20
+				dip = 3
+			}
+		}
+	}
+}
+
+#Treaty of Bila Tserkva (Hetmanate) END EVENT?
+country_event = {
+	id = WFAS_chmielnicki.24
+	title = "WFAS_chmielnicki_bt_title"
+	desc = "WFAS_chmielnicki_bt_desc"
+	picture = DIPLOMACY_SIGNING_eventPicture
+	is_triggered_only = yes
+	major = yes
+	major_trigger = {
+		OR = {
+			war_with = ZAZ
+			has_country_flag = WFAS_chmielnicki_cri_flag
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_bt_zaz_sign"
+		set_country_flag = WFAS_chmielnicki_bt_signed
+		white_peace = event_target:WFAS_chmielnicki_target
+		add_truce_with = event_target:WFAS_chmielnicki_target
+		add_opinion = {
+			who = event_target:WFAS_chmielnicki_target
+			modifier = WFAS_chmielnicki_treaty
+		}
+		reverse_add_opinion = {
+			who = event_target:WFAS_chmielnicki_target
+			modifier = WFAS_chmielnicki_treaty
+		}
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 80
+				war_score = 25
+			}
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_bt_zaz_leave"
+		add_prestige = 20
+		add_stability = -1
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 20
+				war_score = 25
+			}
+		}
+	}
+}
+
+#Back to war?
+country_event = {
+	id = WFAS_chmielnicki.25
+	title = "WFAS_chmielnicki_btw_title"
+	desc = "WFAS_chmielnicki_btw_desc"
+	picture = COSSACK_ESTATE_UPSET_eventPicture
+	major = yes
+	major_trigger = {
+		tag = event_target:WFAS_chmielnicki_target
+	}
+	trigger = {
+		tag = ZAZ
+		has_country_flag = WFAS_chmielnicki_zaz_flag
+		NOT = {
+			war_with = event_target:WFAS_chmielnicki_target
+		}
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	option = {
+		name = "WFAS_chmielnicki_btw_war"
+		add_prestige = -10
+		declare_war = event_target:WFAS_chmielnicki_target
+		IF = {
+			limit = {
+				ai = yes
+				was_player = no
+				NOT = {
+					army_size = 10
+				}
+			}
+			capital_scope = {
+				infantry = ZAZ
+				infantry = ZAZ
+				infantry = ZAZ
+				infantry = ZAZ
+				infantry = ZAZ
+				infantry = ZAZ
+				infantry = ZAZ
+				infantry = ZAZ
+				infantry = ZAZ
+				cossack_cavalry = ZAZ
+				cossack_cavalry = ZAZ
+				cossack_cavalry = ZAZ
+				cossack_cavalry = ZAZ
+			}
+			random_owned_province = {
+				infantry = ZAZ
+				infantry = ZAZ
+				streltsy_infantry = ZAZ
+				streltsy_infantry = ZAZ
+				streltsy_infantry = ZAZ
+				streltsy_infantry = ZAZ
+				cossack_cavalry = ZAZ
+				cossack_cavalry = ZAZ
+				cossack_cavalry = ZAZ
+				cossack_cavalry = ZAZ
+			}
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 20
+				dip = 3
+			}
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_btw_peace"
+		add_stability = -1
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 80
+				dip = 3
+			}
+		}
+	}
+}
+
+#Hetmanate Entrenches END EVENT #RANDOM
+country_event = {
+	id = WFAS_chmielnicki.26
+	title = "WFAS_chmielnicki_entrench_title"
+	desc = "WFAS_chmielnicki_entrench_desc"
+	picture = COSSACK_ESTATE_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		ZAZ = {
+			exists = yes
+			is_subject = no
+			adm = 3
+			had_country_flag = {
+				flag = WFAS_chmielnicki_zaz_flag
+				days = 1460
+			}
+			NOT = {
+				war_with = ROOT
+			}
+			NOT = {
+				has_country_modifier = "WFAS_chmielnicki_ruin_modifier"
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_chmielnicki_entrench_option"
+		add_prestige = -10
+		set_country_flag = WFAS_chmielnicki_submitted
+		ZAZ = {
+			set_country_flag = WFAS_chmielnicki_entrenched
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -20
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -20
+		}
+	}
+}
+
+#Union of Hadziak END EVENT #RANDOM
+country_event = {
+	id = WFAS_chmielnicki.27
+	title = "WFAS_chmielnicki_hadziak_title"
+	desc = "WFAS_chmielnicki_hadziak_desc"
+	picture = DIPLOMACY_SIGNING_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		ZAZ = {
+			exists = yes
+			is_subject = no
+			was_player = no
+			ai = yes
+			had_country_flag = {
+				flag = WFAS_chmielnicki_zaz_flag
+				days = 1460
+			}
+			NOT = {
+				war_with = ROOT
+			}
+		}
+		OR = {
+			has_country_flag = WFAS_chmielnicki_zborow_signed
+			has_country_flag = WFAS_chmielnicki_bt_signed
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_hadziak_rtn"
+		set_country_flag = WFAS_chmielnicki_rtn
+		IF = {
+			limit = {
+				ZAZ = {
+					is_at_war = yes
+				}
+			}
+			join_all_defensive_wars_of = ZAZ
+		}
+		inherit = ZAZ
+		add_country_modifier = {
+			name = "WFAS_chmielnicki_rtn_modifier"
+			duration = -1
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_hadziak_march"
+		set_country_flag = WFAS_chmielnicki_rtn
+		create_subject = {
+			subject_type = march
+			subject = ZAZ
+		}
+		reverse_add_opinion = {
+			who = ZAZ
+			modifier = WFAS_chmielnicki_union_of_hadziak
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+}
+
+#Ruin END EVENT
+country_event = {
+	id = WFAS_chmielnicki.28
+	title = "WFAS_chmielnicki_ruin_pol_title"
+	desc = "WFAS_chmielnicki_ruin_pol_desc"
+	picture = REVOLUTION_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			ZAZ = {
+				has_country_modifier = WFAS_chmielnicki_ruin_modifier
+			}
+			AND = {
+				has_global_flag = WFAS_chmielnicki_zaporozhe_revolted
+				NOT = {
+					exists = ZAZ
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_chmielnicki_ruin_pol_option"
+		set_country_flag = WFAS_chmielnicki_defeated
+		add_prestige = 20
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = 20
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 20
+		}
+	}
+}
+
+#Peace of Andruszow END EVENT
+country_event = {
+	id = WFAS_chmielnicki.29
+	title = "WFAS_chmielnicki_andruszow_title"
+	desc = "WFAS_chmielnicki_andruszow_desc"
+	picture = DIPLOMACY_SIGNING_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		has_global_flag = WFAS_chmielnicki_pereyaslav_signed
+		NOT = {
+			war_with = RUS
+		}
+		exists = ZAZ
+	}
+	option = {
+		name = "WFAS_chmielnicki_andruszow_option"
+		set_country_flag = WFAS_chmielnicki_russia
+		add_prestige = 5
+	}
+}
+
+#Cossack revolt crushed END EVENT
+country_event = {
+	id = WFAS_chmielnicki.30
+	title = "WFAS_chmielnicki_crushed_title"
+	desc = "WFAS_chmielnicki_crushed_desc"
+	picture = VILLAGE_BURNING_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		NOT = {
+			has_global_flag = WFAS_chmielnicki_zaporozhe_revolted
+		}
+		NOT = {
+			num_of_rebel_armies = 1
+		}
+		NOT = {
+			num_of_rebel_controlled_provinces = 1
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_crushed_option"
+		set_country_flag = WFAS_chmielnicki_crushed
+		add_prestige = 20
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = 20
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 20
+		}
+	}
+}

@@ -1,0 +1,32 @@
+WFAS_poland_kosciuszko_leadership = {
+	land_morale = 0.1
+	global_manpower_modifier = 0.15
+}
+
+WFAS_poland_kurland_autonomy_modifier = {
+	min_local_autonomy = 25
+}
+
+WFAS_poland_estonia_autonomy_modifier = {
+	min_local_autonomy = 25
+}
+
+WFAS_poland_uniates_catholic = {
+	tolerance_heretic = -1
+	papal_influence = 1
+}
+
+WFAS_poland_uniates_orthodox = {
+	tolerance_own = -1
+	tolerance_heretic = 1
+}
+
+WFAS_poland_disuniates_catholic = {
+	tolerance_own = -1
+	tolerance_heretic = 1
+}
+
+WFAS_poland_disuniates_orthodox = {
+	tolerance_heretic = -1
+	yearly_patriarch_authority = 0.005
+}

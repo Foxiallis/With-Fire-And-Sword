@@ -1,0 +1,37 @@
+WFAS_confederation_curtailed = {
+	global_autonomy = -0.1
+}
+
+WFAS_teutonic_fortresses = {
+	local_defensiveness = 0.15
+}
+
+WFAS_naval_domination = {
+	naval_morale = 0.1
+	global_ship_trade_power = 0.5
+}
+
+WFAS_blessed_army = {
+	land_morale = 0.1
+}
+
+WFAS_ora_et_labora = {
+	build_cost = -0.1
+}
+
+WFAS_revenge_for_grunwald = {
+	tolerance_own = 2
+	global_unrest = -1
+}
+
+WFAS_more_people_to_tax = {
+	global_tax_modifier = 0.2
+}
+
+WFAS_revenge_for_grunwald = {
+	infantry_power = 0.1
+}
+
+WFAS_eastern_bastion = {
+	prestige = 1
+}

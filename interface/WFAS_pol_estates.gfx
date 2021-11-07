@@ -1,0 +1,10 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_polish_magnates"
+		texturefile = "gfx//interface//WFAS_magnates.dds"
+	}
+	spriteType = {
+		name = "GFX_polish_szlachta"
+		texturefile = "gfx//interface//WFAS_szlachta.dds"
+	}
+}

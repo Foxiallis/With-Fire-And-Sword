@@ -1,0 +1,5 @@
+estate_nobles = {
+	privileges = {
+		WFAS_establish_order_banners
+	}
+}

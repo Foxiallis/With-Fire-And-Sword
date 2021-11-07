@@ -1,0 +1,17 @@
+WFAS_befriend_estates = {
+	nobles_loyalty_modifier = 0.1
+	church_loyalty_modifier = 0.1
+	burghers_loyalty_modifier = 0.1
+}
+
+WFAS_convert_the_orthodox = {
+	global_missionary_strength = 0.02
+}
+
+WFAS_defeat_sweden = {
+	land_morale = 0.1
+}
+
+WFAS_develop_belarus = {
+	development_cost = -0.05
+}

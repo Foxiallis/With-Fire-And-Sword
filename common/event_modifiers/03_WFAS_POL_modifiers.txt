@@ -1,0 +1,148 @@
+WFAS_declining_influence_of_teutons = {
+	local_autonomy = -0.075
+	local_years_of_nationalism = -5
+}
+
+WFAS_baltic_trade = {
+	trade_efficiency = 0.1
+}
+
+WFAS_novgorodian_trade = {
+	trade_efficiency = 0.15
+}
+
+WFAS_powerful_dynasty = {
+	diplomatic_annexation_cost = -0.25
+	diplomatic_upkeep = 1
+}
+
+WFAS_expanding_country = {
+	ae_impact = -0.15
+}
+
+WFAS_times_of_prosperity = {
+	production_efficiency = 0.1
+}
+
+WFAS_naval_ambition = {
+	naval_maintenance_modifier = -0.25
+	global_ship_cost = -0.25
+}
+
+WFAS_golden_farmlands = {
+	trade_goods_size = 0.5
+}
+
+WFAS_economic_hegemon = {
+	advisor_cost = -0.1
+}
+
+WFAS_baltic_trade_supremacy = {
+	mercantilism_cost = -0.5
+}
+
+WFAS_european_power = {
+	development_cost = -0.1
+}
+
+WFAS_moldavian_trade_routes = {
+	global_trade_power = 0.1
+}
+
+WFAS_german_administration = {
+	governing_capacity_modifier = 0.1
+}
+
+WFAS_drive_out_turks = {
+	land_morale = 0.1
+}
+
+WFAS_polish_colonization_of_ukraine = {
+	global_manpower_modifier = 0.2
+}
+
+WFAS_cossacks_in_polish_army = {
+	cavalry_cost = -0.2
+	shock_damage = 0.1
+}
+
+WFAS_end_of_hre = {
+	discipline = 0.025
+}
+
+WFAS_revenge_for_varna = {
+	free_leader_pool = 1
+	leader_cost = -0.25
+}
+
+WFAS_king_of_all_slavs = {
+	diplomatic_annexation_cost = -0.3
+	diplomatic_reputation = 2
+	diplomats = 1
+}
+
+WFAS_pol_szlachta_vs_magnates_1 = {
+}
+
+WFAS_traders_supported = {
+	trade_efficiency = 0.1
+	magnates_influence_modifier = -0.1
+}
+
+WFAS_local_production_supported = {
+	production_efficiency = 0.1
+	burghers_influence_modifier = -0.1
+}
+
+WFAS_new_reforms_magnates = {
+	global_autonomy = -0.05
+	reform_progress_growth = 0.1
+	magnates_influence_modifier = 0.1
+}
+
+WFAS_new_reforms_szlachta = {
+	global_autonomy = -0.05
+	reform_progress_growth = 0.1
+	nobles_influence_modifier = 0.1
+}
+
+WFAS_new_reforms_magnates2 = {
+	global_autonomy = -0.05
+	reform_progress_growth = 0.1
+	magnates_influence_modifier = 0.15
+}
+
+WFAS_new_reforms_szlachta2 = {
+	global_autonomy = -0.05
+	reform_progress_growth = 0.1
+	nobles_influence_modifier = 0.15
+}
+
+WFAS_tolerated_heretics_in_gdansk = {
+	local_unrest = -3
+}
+
+WFAS_struggle_for_royal_power_estate_modifier_1 = {
+	magnates_loyalty_modifier = -0.3
+}
+
+WFAS_struggle_for_royal_power_estate_modifier_2 = {
+	nobles_loyalty_modifier = -0.3
+}
+
+WFAS_struggle_for_royal_power_estate_modifier_3 = {
+	nobles_loyalty_modifier = -0.3
+	magnates_loyalty_modifier = -0.3
+}
+
+WFAS_struggle_for_royal_power_grain_export = {
+	trade_efficiency = -0.2
+}
+
+WFAS_struggle_for_royal_power_deserting_soldiers = {
+	manpower_recovery_speed = -0.5
+}
+
+WFAS_struggle_for_royal_power_disorganization_in_army = {
+	general_cost = 0.5
+}

@@ -1,0 +1,509 @@
+namespace = WFAS_poland
+#Kosciuszko Insurection
+country_event = {
+	id = WFAS_poland.1
+	title = "WFAS_poland_kosciuszko_insurection_title"
+	desc = "WFAS_poland_kosciuszko_insurection_desc"
+	picture = REVOLUTION_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		tag = PLC
+		is_year = 1700
+		revanchism = 50
+		is_at_war = yes
+		NOT = {
+			war_score = -20
+		}
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	option = {
+		name = "WFAS_poland_kosciuszko_insurection_option"
+		define_general = {
+			name = "Tadeusz Kosciuszko"
+			trait = siege_specialist_personality
+			shock = 5
+			fire = 3
+			manuever = 5
+			siege = 2
+		}
+		add_country_modifier = {
+			name = WFAS_poland_kosciuszko_leadership
+			duration = 1825
+		}
+		capital_scope = {
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+		}
+	}
+}
+
+#Kurland frees itself
+country_event = {
+	id = WFAS_poland.2
+	title = "WFAS_poland_kurland_title"
+	desc = "WFAS_poland_kurland_desc"
+	picture = LIBERUM_VETO_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			tag = PLC
+			tag = LIT
+			tag = POL
+		}
+		any_owned_province = {
+			OR = {
+				area = curonia_area
+				area = livonia_area
+			}
+		}
+		NOT = {
+			exists = LIV
+		}
+		NOT = {
+			exists = KUR
+		}
+		is_at_war = no
+		is_year = 1500
+	}
+	mean_time_to_happen = {
+		months = 120
+	}
+	immediate = {
+		hidden_effect = {
+			curonia_area = {
+				add_core = KUR
+			}
+			livonia_area = {
+				add_core = KUR
+			}
+		}
+	}
+	option = {
+		name = "WFAS_poland_kurland_autonomy"
+		curonia_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_province_modifier = {
+				name = WFAS_poland_kurland_autonomy_modifier
+				duration = -1
+			}
+		}
+		livonia_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_province_modifier = {
+				name = WFAS_poland_kurland_autonomy_modifier
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = "WFAS_poland_kurland_march"
+		release = KUR
+		create_subject = {
+			subject_type = march
+			subject = KUR
+		}
+		KUR = {
+			add_opinion = {
+				who = ROOT
+				modifier = released_vassal
+			}
+			hidden_effect = {
+				define_ruler = {
+					name = "Adam"
+					dynasty = "Olgemalde"
+					male = yes
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						heavy_ship = 0.3
+						light_ship = 0.5
+						transport = 0.2
+					}
+					build_to_forcelimit = {
+						infantry = 0.5
+						artillery = 0.3
+						cavalry = 0.2
+					}
+				}
+				add_accepted_culture = latvian
+				add_idea_group = exploration_ideas
+				add_idea_group = naval_ideas
+				add_idea_group = trade_ideas
+				add_idea = quest_for_the_new_world
+				add_idea = colonial_ventures
+				add_idea = overseas_exploration
+				add_idea = land_of_opportunity
+				add_idea = vice_roys
+				add_idea = free_colonies
+				add_idea = global_empire
+				add_idea = boarding_parties
+				add_idea = improved_rams
+				add_idea = naval_cadets
+				add_idea = naval_glory
+				add_idea = press_gangs
+				add_idea = oak_forests_for_ships
+				add_idea = superior_seamanship
+			}
+		}
+		hidden_effect = {
+			curonia_area = {
+				remove_core = ROOT
+			}
+			livonia_area = {
+				remove_core = ROOT
+			}
+		}
+	}
+	option = {
+		name = "WFAS_poland_kurland_free"
+		release = KUR
+		add_opinion = {
+			who = KUR
+			modifier = released_in_peace
+		}
+		hidden_effect = {
+			KUR = {
+				define_ruler = {
+					name = "Gotthard"
+					dynasty = "Kettler"
+					adm = 3
+					dip = 1
+					mil = 2
+					male = yes
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						heavy_ship = 0.3
+						light_ship = 0.5
+						transport = 0.2
+					}
+					build_to_forcelimit = {
+						infantry = 0.5
+						artillery = 0.3
+						cavalry = 0.2
+					}
+				}
+				add_accepted_culture = latvian
+				add_idea_group = exploration_ideas
+				add_idea_group = naval_ideas
+				add_idea_group = trade_ideas
+				add_idea = quest_for_the_new_world
+				add_idea = colonial_ventures
+				add_idea = overseas_exploration
+				add_idea = land_of_opportunity
+				add_idea = vice_roys
+				add_idea = free_colonies
+				add_idea = global_empire
+				add_idea = boarding_parties
+				add_idea = improved_rams
+				add_idea = naval_cadets
+				add_idea = naval_glory
+				add_idea = press_gangs
+				add_idea = oak_forests_for_ships
+				add_idea = superior_seamanship
+			}
+			curonia_area = {
+				remove_core = ROOT
+			}
+			livonia_area = {
+				remove_core = ROOT
+			}
+		}
+		switch_tag = KUR
+	}
+}
+
+#Uniate church
+country_event = {
+	id = WFAS_poland.3
+	title = "WFAS_poland_uniate_church_title"
+	desc = "WFAS_poland_uniate_church_desc"
+	picture = RELIGION_eventPicture
+	trigger = {
+		OR = {
+			tag = POL
+			tag = PLC
+		}
+		owns = 277
+		OR = {
+			religion = catholic
+			religion = orthodox
+		}
+		is_year = 1590
+	}
+	fire_only_once = yes
+	mean_time_to_happen = {
+		months = 60
+	}
+	option = {
+		name = "WFAS_poland_support_uniates"
+		IF = {
+			limit = {
+				religion = catholic
+			}
+			add_country_modifier = {
+				name = "WFAS_poland_uniates_catholic"
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				religion = orthodox
+			}
+			add_country_modifier = {
+				name = "WFAS_poland_uniates_orthodox"
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = "WFAS_poland_support_disuniates"
+		IF = {
+			limit = {
+				religion = catholic
+			}
+			add_country_modifier = {
+				name = "WFAS_poland_disuniates_catholic"
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				religion = orthodox
+			}
+			add_country_modifier = {
+				name = "WFAS_poland_disuniates_orthodox"
+				duration = -1
+			}
+		}
+	}
+}
+
+#Confederation of Bar
+country_event = {
+	id = WFAS_poland.4
+	title = "WFAS_poland_bar_title"
+	desc = "WFAS_poland_bar_desc"
+	picture = LIBERUM_VETO_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = PLC
+		NOT = {
+			war_with = RUS
+		}
+		NOT = {
+			alliance_with = RUS
+		}
+		RUS = {
+			exists = yes
+			army_strength = {
+				who = ROOT
+				value = 1.5
+			}
+		}
+		is_year = 1750
+	}
+	mean_time_to_happen = {
+		months = 120
+	}
+	option = {
+		name = "WFAS_poland_bar_option"
+		IF = {
+			limit = {
+				owns = 281
+			}
+			281 = {
+				spawn_rebels = {
+					size = 3
+					type = polish_noble_rebels
+				}
+			}
+		}
+		ELSE = {
+			random_owned_province = {
+				limit = {
+					continent = europe
+				}
+				spawn_rebels = {
+					size = 3
+					type = polish_noble_rebels
+				}
+			}
+		}
+		reverse_add_casus_belli = {
+			type = cb_vassalize_mission
+			target = RUS
+		}
+		set_country_flag = WFAS_poland_partition_start
+	}
+}
+
+#Confederation of Targowica
+country_event = {
+	id = WFAS_poland.5
+	title = "WFAS_poland_targowica_title"
+	desc = "WFAS_poland_targowica_desc"
+	picture = LIBERUM_VETO_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = PLC
+		has_country_flag = WFAS_poland_partition_start
+		NOT = {
+			war_with = RUS
+		}
+		NOT = {
+			alliance_with = RUS
+		}
+		RUS = {
+			exists = yes
+			army_strength = {
+				who = ROOT
+				value = 1.5
+			}
+		}
+		is_year = 1750
+	}
+	mean_time_to_happen = {
+		months = 120
+	}
+	option = {
+		name = "WFAS_poland_targowica_option"
+		IF = {
+			limit = {
+				owns = 281
+			}
+			281 = {
+				spawn_rebels = {
+					size = 3
+					type = polish_noble_rebels
+				}
+			}
+		}
+		ELSE = {
+			random_owned_province = {
+				limit = {
+					continent = europe
+				}
+				spawn_rebels = {
+					size = 3
+					type = polish_noble_rebels
+				}
+			}
+		}
+		reverse_add_casus_belli = {
+			type = cb_vassalize_mission
+			target = RUS
+		}
+	}
+}
+
+#Duchy of Estonia
+country_event = {
+	id = WFAS_poland.6
+	title = "WFAS_poland_estonia_title"
+	desc = "WFAS_poland_estonia_desc"
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			tag = PLC
+			tag = LIT
+			tag = POL
+		}
+		any_owned_province = {
+			area = estonia_ingria_area
+		}
+		NOT = {
+			any_owned_province = {
+				area = estonia_ingria_area
+				any_neighbor_province = {
+					owned_by = ROOT
+				}
+			}
+		}
+		NOT = {
+			exists = EST
+		}
+		is_at_war = no
+		is_year = 1500
+	}
+	mean_time_to_happen = {
+		months = 60
+	}
+	immediate = {
+		hidden_effect = {
+			estonia_ingria_area = {
+				add_core = EST
+			}
+		}
+	}
+	option = {
+		name = "WFAS_poland_estonia_autonomy"
+		estonia_ingria_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_province_modifier = {
+				name = WFAS_poland_estonia_autonomy_modifier
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = "WFAS_poland_estonia_vassal"
+		release = EST
+		create_subject = {
+			subject_type = vassal
+			subject = EST
+		}
+		EST = {
+			add_opinion = {
+				who = ROOT
+				modifier = released_vassal
+			}
+			hidden_effect = {
+				define_ruler = {
+					name = "Jaagup"
+					dynasty = "Fridrich"
+					male = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = "WFAS_poland_estonia_kurland"
+		trigger = {
+			KUR = {
+				exists = yes
+				is_subject_of = ROOT
+				any_owned_province = {
+					any_neighbor_province = {
+						area = estonia_ingria_area
+					}
+				}
+			}
+		}
+		estonia_ingria_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			cede_province = KUR
+		}
+		KUR = {
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_pleased
+			}
+			add_liberty_desire = -25
+		}
+	}
+}

@@ -1,0 +1,450 @@
+############### SLOT 1 ###############
+WFAS_GEO_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = GEO
+		}
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_GEO_gold_in_kakheti = {
+		position = 2
+		required_missions = {
+			WFAS_GEO_holy_trinity_cathedral
+		}
+		provinces_to_highlight = {
+			province_id = 2203
+		}
+		icon = mission_entrepot_of_india
+		trigger = {
+			2203 = {
+				owned_by = ROOT
+				development = 20
+				NOT = {
+					devastation = 1
+				}
+			}
+		}
+		effect = {
+			2203 = {
+				change_trade_goods = gold
+			}
+		}
+	}
+	WFAS_GEO_conquer_karadeniz = {
+		position = 4
+		required_missions = {
+			WFAS_GEO_building_infrastructure
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = kastamonu_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		icon = mission_crusade_for_varna
+		trigger = {
+			kastamonu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = WFAS_GEO_conquest_of_karadeniz
+				duration = -1
+			}
+		}
+	}
+}
+
+############### SLOT 2 ###############
+WFAS_GEO_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = GEO
+		}
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_GEO_holy_trinity_cathedral = {
+		position = 1
+		required_missions = {
+		}
+		provinces_to_highlight = {
+			province_id = 423
+		}
+		icon = mission_european_church
+		trigger = {
+			423 = {
+				owned_by = ROOT
+				has_building = temple
+			}
+		}
+		effect = {
+			add_prestige = 10
+			423 = {
+				add_base_tax = 4
+				add_building = cathedral
+			}
+		}
+	}
+	WFAS_GEO_building_infrastructure = {
+		position = 3
+		required_missions = {
+			WFAS_GEO_gold_in_kakheti
+			WFAS_GEO_stand_against_muslims
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = caucasia_region
+			}
+			owned_by = root
+			num_free_building_slots = 1
+		}
+		icon = mission_early_game_buildings
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = WFAS_GEO_building_slots.tooltip
+				NOT = {
+					any_owned_province = {
+						num_free_building_slots = 1
+					}
+				}
+			}
+		}
+		effect = {
+			caucasia_region = {
+				limit = {
+					owned_by = root
+				}
+				add_province_modifier = {
+					name = WFAS_GEO_georgian_development
+					duration = -1
+				}
+			}
+			custom_tooltip = WFAS_georgian_wine.tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						owned_by = ROOT
+						trade_goods = wine
+						region = caucasia_region
+					}
+					add_province_modifier = {
+						name = "WFAS_georgian_wine"
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+}
+
+############### SLOT 3 ###############
+WFAS_GEO_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = GEO
+		}
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_GEO_stand_against_muslims = {
+		position = 2
+		required_missions = {
+			WFAS_GEO_reclaim_western_lands
+			WFAS_GEO_holy_trinity_cathedral
+		}
+		icon = mission_non-western_soldiers
+		trigger = {
+			religious_unity = 0.99
+			patriarch_authority = 0.1
+		}
+		effect = {
+			add_country_modifier = {
+				name = "WFAS_GEO_fight_the_muslims"
+				duration = 7300
+			}
+		}
+	}
+	WFAS_GEO_conquer_crimea = {
+		position = 4
+		required_missions = {
+			WFAS_GEO_building_infrastructure
+			WFAS_GEO_control_caucasian_trade
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = crimea_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		icon = mission_non-western_cavalry_raid
+		trigger = {
+			crimea_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = WFAS_GEO_conquest_of_crimea
+				duration = -1
+			}
+		}
+	}
+	WFAS_GEO_tamar_legacy = {
+		position = 5
+		required_missions = {
+			WFAS_GEO_conquer_crimea
+			WFAS_GEO_conquer_karadeniz
+			WFAS_GEO_conquer_tabarestan
+		}
+		icon = mission_empire
+		trigger = {
+			total_development = 600
+			prestige = 50
+		}
+		effect = {
+			set_government_rank = 3
+			add_adm_power = 200
+			add_dip_power = 200
+			add_mil_power = 200
+			add_prestige = 25
+			add_treasury = 250
+		}
+	}
+}
+
+############### SLOT 4 ###############
+WFAS_GEO_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = GEO
+		}
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_GEO_reclaim_western_lands = {
+		position = 1
+		required_missions = {
+		}
+		icon = mission_conquer_50_development
+		provinces_to_highlight = {
+			OR = {
+				area = imereti_area
+				area = samtskhe_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			imereti_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			samtskhe_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			462 = {
+				add_unit_construction = {
+					type = light_ship
+					amount = 6
+					speed = 0.1
+					cost = 0
+				}
+				add_unit_construction = {
+					type = galley
+					amount = 4
+					speed = 0.1
+					cost = 0
+				}
+				add_unit_construction = {
+					type = transport_ship
+					amount = 4
+					speed = 0.1
+					cost = 0
+				}
+			}
+			circassia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			armenia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			shirvan_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	WFAS_GEO_control_caucasian_trade = {
+		position = 3
+		required_missions = {
+			WFAS_GEO_unite_caucasia
+			WFAS_GEO_stand_against_muslims
+		}
+		icon = mission_market_place_with_asian_traders
+		provinces_to_highlight = {
+			OR = {
+				region = caucasia_region
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			420 = {
+				is_strongest_trade_power = ROOT
+			}
+		}
+		effect = {
+			2208 = {
+				center_of_trade = 1
+			}
+			add_country_modifier = {
+				name = WFAS_GEO_trade_caravans
+				duration = 7300
+			}
+		}
+	}
+}
+
+############### SLOT 5 ###############
+WFAS_GEO_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = GEO
+		}
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_GEO_unite_caucasia = {
+		position = 2
+		required_missions = {
+			WFAS_GEO_reclaim_western_lands
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = shirvan_area
+				area = armenia_area
+				area = circassia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		icon = mission_monarch_in_throne_room
+		trigger = {
+			shirvan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			armenia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			circassia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			caucasia_region = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	WFAS_GEO_conquer_tabarestan = {
+		position = 4
+		required_missions = {
+			WFAS_GEO_control_caucasian_trade
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tabarestan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		icon = mission_arabian_fort
+		trigger = {
+			tabarestan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = WFAS_GEO_conquest_of_tabarestan
+				duration = -1
+			}
+		}
+	}
+}

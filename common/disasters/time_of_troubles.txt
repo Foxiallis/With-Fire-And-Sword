@@ -1,0 +1,103 @@
+time_of_troubles = {
+	potential = {
+		NOT = {
+			has_global_flag = WFAS_tot_global_flag
+		}
+		is_free_or_tributary_trigger = yes
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = {
+					exists = RUS
+				}
+			}
+			tag = RUS
+		}
+		normal_or_historical_nations = yes
+	}
+	can_start = {
+		government = monarchy
+		has_any_disaster = no
+		is_subject = no
+		custom_trigger_tooltip = {
+			tooltip = WFAS_tot_start_tooltip
+			has_country_flag = WFAS_tot_start_flag
+		}
+	}
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			has_global_flag = WFAS_tot_global_flag
+			NOT = {
+				government = monarchy
+			}
+		}
+	}
+	modifier = {
+		global_unrest = 5
+		stability_cost_modifier = 0.2
+	}
+	progress = {
+		modifier = {
+			factor = 1
+			custom_trigger_tooltip = {
+				tooltip = WFAS_tot_tick_tooltip
+				has_country_flag = WFAS_tot_start_flag
+			}
+		}
+		modifier = {
+			factor = 1
+			NOT = {
+				stability = 0
+			}
+		}
+		modifier = {
+			factor = 1
+			NOT = {
+				stability = 3
+			}
+		}
+		modifier = {
+			factor = 1
+			war_exhaustion = 5
+		}
+		modifier = {
+			factor = 1
+			war_exhaustion = 10
+		}
+	}
+	can_end = {
+		custom_trigger_tooltip = {
+			tooltip = WFAS_tot_can_end
+			has_country_flag = WFAS_tot_ended
+		}
+		capital_scope = {
+			controlled_by = ROOT
+		}
+	}
+	on_start = WFAS_timeoftroubles.4
+	on_end = WFAS_timeoftroubles.28
+	on_monthly = {
+		events = {
+			WFAS_timeoftroubles.23
+			WFAS_timeoftroubles.24
+			WFAS_timeoftroubles.25
+			WFAS_timeoftroubles.26
+			WFAS_timeoftroubles.27
+		}
+		random_events = {
+			1000 = 0
+			100 = WFAS_timeoftroubles.9			#Bolotnikov Revolt
+			100 = WFAS_timeoftroubles.10			#Tsarevich Piotr
+			100 = WFAS_timeoftroubles.11			#The Second Dimitri
+			100 = WFAS_timeoftroubles.12			#An Unexpected Ally 
+			200 = WFAS_timeoftroubles.17			#An Heir to the Throne
+			100 = WFAS_timeoftroubles.19			#First Volunteer Army
+			100 = WFAS_timeoftroubles.20			#Second Volunteer Army
+			200 = WFAS_timeoftroubles.21			#Swedish Promises
+			100 = time_of_troubles.3			#Famine Strikes
+			100 = time_of_troubles.4			#Plague
+			100 = time_of_troubles.5			#Brigands
+		}
+	}
+}

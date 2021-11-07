@@ -1,0 +1,53 @@
+WFAS_orders_do_debate_army_modifier = {
+	army_tradition = 5
+}
+
+WFAS_orders_do_debate_autonomy_modifier = {
+	global_autonomy = -0.25
+}
+
+WFAS_orders_do_debate_trade_modifier = {
+	global_own_trade_power = 0.2
+}
+
+WFAS_orders_do_debate_missionary_modifier = {
+	global_missionary_strength = 0.02
+}
+
+WFAS_orders_do_hansa_curtailed = {
+	trade_efficiency = -0.2
+	production_efficiency = 0.15
+}
+
+WFAS_orders_do_hansa_submitted = {
+	trade_efficiency = 0.15
+	global_autonomy = 0.1
+}
+
+WFAS_orders_lawlessness = {
+	discipline = -0.05
+}
+
+WFAS_orders_pru_1_mod = {
+	min_autonomy = 25
+}
+
+WFAS_orders_pru_2_mod = {
+	min_autonomy = 20
+}
+
+WFAS_orders_pru_3_mod = {
+	min_autonomy = 15
+}
+
+WFAS_orders_pru_4_mod = {
+	min_autonomy = 10
+}
+
+WFAS_orders_pru_5_mod = {
+	min_autonomy = 5
+}
+
+WFAS_orders_pru_disposal = {
+	global_manpower_modifier = -0.2
+}

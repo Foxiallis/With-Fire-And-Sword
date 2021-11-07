@@ -1,0 +1,585 @@
+namespace = WFAS_chmielnicki_flavor
+#########COSSACKS
+#Disorganization in ranks
+country_event = {
+	id = WFAS_chmielnicki_flavor.1
+	title = "WFAS_ch_flavor_discord_title"
+	desc = "WFAS_ch_flavor_discord_desc"
+	picture = SOLDIER_INFIGHTING_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		tag = ZAZ
+		has_country_flag = WFAS_chmielnicki_zaz_flag
+		war_with = event_target:WFAS_chmielnicki_target
+	}
+	option = {
+		name = "WFAS_ch_flavor_discord_modifier"
+		add_country_modifier = {
+			name = "WFAS_chmielnicki_disorganization"
+			duration = 730
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_ch_flavor_discord_army"
+		add_army_professionalism = -0.05
+		add_army_tradition = -10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Ukrainian spirit
+country_event = {
+	id = WFAS_chmielnicki_flavor.2
+	title = "WFAS_ch_flavor_morale_title"
+	desc = "WFAS_ch_flavor_morale_desc"
+	picture = COSSACK_ESTATE_RAIDERS_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		tag = ZAZ
+		has_country_flag = WFAS_chmielnicki_zaz_flag
+		war_with = event_target:WFAS_chmielnicki_target
+	}
+	option = {
+		name = "WFAS_ch_flavor_morale_modifier"
+		add_country_modifier = {
+			name = "WFAS_chmielnicki_morale"
+			duration = 730
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					stability = 0
+				}
+			}
+		}
+	}
+	option = {
+		name = "WFAS_ch_flavor_morale_army"
+		add_stability_or_adm_power = yes
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 1
+				NOT = {
+					stability = 0
+				}
+			}
+		}
+	}
+}
+
+#Maksym Krywonos
+country_event = {
+	id = WFAS_chmielnicki_flavor.3
+	title = "WFAS_ch_flavor_krywonos_title"
+	desc = "WFAS_ch_flavor_krywonos_desc"
+	picture = ADVISOR_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = ZAZ
+		OR = {
+			has_country_flag = WFAS_chmielnicki_zaz_flag
+			is_year = 1640
+		}
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	option = {
+		name = "WFAS_ch_flavor_krywonos_general"
+		define_general = {
+			name = "Maksym Kryvonis"
+			shock = 3
+			fire = 1
+			manuever = 4
+			siege = 3
+			trait = ruthless_personality
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_ch_flavor_krywonos_army"
+		add_army_tradition = 15
+		add_army_professionalism = 0.05
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Ivan Bohun
+country_event = {
+	id = WFAS_chmielnicki_flavor.4
+	title = "WFAS_ch_flavor_bohun_title"
+	desc = "WFAS_ch_flavor_bohun_desc"
+	picture = ADVISOR_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = ZAZ
+		OR = {
+			has_country_flag = WFAS_chmielnicki_zaz_flag
+			is_year = 1640
+		}
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	option = {
+		name = "WFAS_ch_flavor_bohun_general"
+		define_general = {
+			name = "Ivan Bohun"
+			shock = 6
+			fire = 2
+			manuever = 2
+			siege = 0
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_ch_flavor_bohun_advisor"
+		define_advisor = {
+			type = commandant
+			name = "Ivan Bohun"
+			skill = 2
+			cost_multiplier = 0.25
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Ruin
+country_event = {
+	id = WFAS_chmielnicki_flavor.5
+	title = "WFAS_ch_flavor_ruin_title"
+	desc = "WFAS_ch_flavor_ruin_desc"
+	picture = BAD_WITH_MONARCH_eventPicture
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		tag = ZAZ
+		has_global_flag = WFAS_chmielnicki_uprising_happened
+		NOT = {
+			adm = 3
+		}
+		NOT = {
+			has_ruler = "Bohdan"
+		}
+		NOT = {
+			has_country_flag = WFAS_chmielnicki_entrenched
+		}
+	}
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.75
+			NOT = {
+				dynasty = "Chmielnicki"
+			}
+		}
+		modifier = {
+			factor = 0.5
+			is_subject = yes
+		}
+		modifier = {
+			factor = 1.1
+			stability = 1
+		}
+		modifier = {
+			factor = 1.5
+			stability = 3
+		}
+		modifier = {
+			factor = 1.5
+			adm = 5
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_country_flag = WFAS_chmielnicki_zborow_signed
+				has_country_flag = WFAS_chmielnicki_bt_signed
+			}
+		}
+	}
+	option = {
+		name = "WFAS_ch_flavor_ruin_option"
+		add_stability = -2
+		add_dip_power = -100
+		add_adm_power = -100
+		add_mil_power = -100
+		add_country_modifier = {
+			name = "WFAS_chmielnicki_ruin_modifier"
+			duration = 18250
+		}
+	}
+}
+
+#Bohdan rides into Kiev
+country_event = {
+	id = WFAS_chmielnicki_flavor.6
+	title = "WFAS_ch_flavor_kiev_title"
+	desc = "WFAS_ch_flavor_kiev_desc"
+	picture = MILITARISTICALLY_TALENTED_RULER_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = ZAZ
+		has_country_flag = WFAS_chmielnicki_zaz_flag
+		280 = {
+			OR = {
+				AND = {
+					owner = {
+						war_with = ZAZ
+					}
+					controlled_by = ZAZ
+				}
+				owned_by = ZAZ
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_ch_flavor_kiev_option"
+		add_prestige = 50
+		add_adm_power = 50
+		add_dip_power = 50
+		add_mil_power = 50
+		add_stability_or_adm_power = yes
+	}
+}
+
+#Death of Bohdan Chmielnicki
+country_event = {
+	id = WFAS_chmielnicki_flavor.7
+	title = "WFAS_ch_flavor_death_title"
+	desc = "WFAS_ch_flavor_death_desc"
+	picture = DEATH_OF_HEIR_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = ZAZ
+		has_global_flag = WFAS_chmielnicki_uprising_happened
+		NOT = {
+			has_ruler = "Bohdan"
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_ch_flavor_death_option"
+		add_stability = -1
+		IF = {
+			limit = {
+				is_at_war = yes
+			}
+			add_war_exhaustion = 5
+		}
+	}
+}
+
+#########POLAND
+#Peryna, Latyna, Dytyna #RANDOM
+country_event = {
+	id = WFAS_chmielnicki_flavor.8
+	title = "WFAS_ch_flavor_generals_title"
+	desc = "WFAS_ch_flavor_generals_desc"
+	picture = THREE_HEIRS_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_ch_flavor_generals_peryna"
+		define_general = {
+			name = "Dominik Zaslawski"
+			shock = 0
+			fire = 2
+			manuever = 2
+			siege = 0
+		}
+	}
+	option = {
+		name = "WFAS_ch_flavor_generals_latyna"
+		define_general = {
+			name = "Mikolaj Ostrorog"
+			shock = 1
+			fire = 0
+			manuever = 1
+			siege = 2
+		}
+	}
+	option = {
+		name = "WFAS_ch_flavor_generals_dytyna"
+		define_general = {
+			name = "Aleksander Koniecpolski"
+			shock = 2
+			fire = 1
+			manuever = 1
+			siege = 0
+		}
+	}
+}
+
+#Jeremi Wiśniowiecki #RANDOM
+country_event = {
+	id = WFAS_chmielnicki_flavor.9
+	title = "WFAS_ch_flavor_jarema_title"
+	desc = "WFAS_ch_flavor_jarema_desc"
+	picture = ADVISOR_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_ch_flavor_jarema_general"
+		define_general = {
+			name = "Jeremi Wisniowiecki"
+			shock = 3
+			fire = 4
+			manuever = 4
+			siege = 1
+			trait = ruthless_personality
+		}
+	}
+	option = {
+		name = "WFAS_ch_flavor_jarema_advisor"
+		define_advisor = {
+			type = army_reformer
+			name = "Jeremi Wisniowiecki"
+			skill = 3
+			cost_multiplier = 0.5
+		}
+	}
+}
+
+#Magnates demand the end of conflict #RANDOM #TO END THE
+country_event = {
+	id = WFAS_chmielnicki_flavor.10
+	title = "WFAS_ch_flavor_magnates_title"
+	desc = "WFAS_ch_flavor_magnates_desc"
+	picture = BURGHER_ESTATE_UPSET_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		has_estate = estate_magnates
+		is_at_war = yes
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_ch_flavor_magnates_truth"
+		add_dip_power = -75
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -10
+		}
+	}
+	option = {
+		name = "WFAS_ch_flavor_magnates_lie"
+		add_stability = -1
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = 10
+		}
+	}
+}
+
+#Szlachta joins #RANDOM
+country_event = {
+	id = WFAS_chmielnicki_flavor.11
+	title = "WFAS_ch_flavor_szlachta_title"
+	desc = "WFAS_ch_flavor_szlachta_desc"
+	is_triggered_only = yes
+	trigger = {
+		has_estate = estate_nobles
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_ch_flavor_szlachta_army"
+		capital_scope = {
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+		}
+	}
+	option = {
+		name = "WFAS_ch_flavor_szlachta_manpower"
+		add_yearly_manpower = 0.5
+		add_army_tradition = 10
+	}
+}
+
+#Nobles reject treaty #RANDOM
+country_event = {
+	id = WFAS_chmielnicki_flavor.12
+	title = "WFAS_ch_flavor_treaty_title"
+	desc = "WFAS_ch_flavor_treaty_desc"
+	is_triggered_only = yes
+	trigger = {
+		has_estate = estate_nobles
+		OR = {
+			has_country_flag = WFAS_chmielnicki_zborow_signed
+			has_country_flag = WFAS_chmielnicki_bt_signed
+		}
+		NOT = {
+			war_with = ZAZ
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_ch_flavor_treaty_rule"
+		add_prestige = -10
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+	}
+	option = {
+		name = "WFAS_ch_flavor_treaty_uprising"
+		random_owned_province = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 1
+			}
+		}
+		random_owned_province = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 1
+			}
+		}
+	}
+}
+
+#Yuri Chmielnicki seizes power
+country_event = {
+	id = WFAS_chmielnicki_flavor.13
+	title = "WFAS_chmielnicki_yuri_title"
+	desc = "WFAS_chmielnicki_yuri_desc"
+	picture = NOBLE_ESTATE_TAKE_OVER_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = ZAZ
+		has_country_flag = WFAS_chmielnicki_zaz_flag
+		NOT = {
+			has_ruler = "Bohdan"
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_chmielnicki_yuri_accept"
+		define_ruler = {
+			name = "Yuri"
+			dynasty = "Chmielnicki"
+			adm = 1
+			dip = 1
+			mil = 1
+			age = 18
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_chmielnicki_yuri_decline"
+		add_stability = -1
+		capital_scope = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 2
+				leader = "Yuri"
+				leader_dynasty = "Chmielnicki"
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Hidden event to give bot some army
+country_event = {
+	id = WFAS_chmielnicki_flavor.14
+	hidden = yes
+	mean_time_to_happen = {
+		months = 1
+	}
+	trigger = {
+		tag = ZAZ
+		has_country_flag = WFAS_chmielnicki_zaz_flag
+		is_at_war = yes
+		ai = yes
+		was_player = no
+		NOT = {
+			army_size = 10
+		}
+	}
+	option = {
+		capital_scope = {
+			infantry = ZAZ
+			infantry = ZAZ
+			infantry = ZAZ
+			infantry = ZAZ
+			infantry = ZAZ
+			infantry = ZAZ
+			infantry = ZAZ
+			infantry = ZAZ
+			infantry = ZAZ
+			cossack_cavalry = ZAZ
+			cossack_cavalry = ZAZ
+			cossack_cavalry = ZAZ
+			cossack_cavalry = ZAZ
+		}
+	}
+}
+
+#Hidden event to remove maintenance if zaz is player for some reason
+country_event = {
+	id = WFAS_chmielnicki_flavor.15
+	hidden = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		OR = {
+			AND = {
+				has_country_modifier = WFAS_chmielnicki_ai_zaz_buff
+				OR = {
+					ai = no
+					was_player = yes
+				}
+			}
+			has_country_modifier = WFAS_chmielnicki_player_zaz_buff
+		}
+		NOT = {
+			has_country_flag = WFAS_chmielnicki_zaz_flag
+		}
+	}
+	option = {
+		remove_country_modifier = WFAS_chmielnicki_ai_zaz_buff
+		remove_country_modifier = WFAS_chmielnicki_player_zaz_buff
+	}
+}

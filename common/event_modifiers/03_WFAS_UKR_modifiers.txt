@@ -1,0 +1,30 @@
+WFAS_got_mit_uns = {
+	local_tax_modifier = 0.5
+	tax_income = 6
+}
+
+WFAS_develop_ruthenia = {
+	build_cost = -0.1
+	development_cost = -0.1
+}
+
+WFAS_increased_production = {
+	production_efficiency = 0.15
+}
+
+WFAS_defeat_poland = {
+	land_morale = 0.1
+}
+
+WFAS_defeat_russia = {
+	global_manpower_modifier = 0.25
+}
+
+WFAS_defeat_tatars = {
+	cavalry_flanking = 1
+	cavalry_power = 0.2
+}
+
+WFAS_ruthenian_industralization = {
+	global_trade_goods_size_modifier = 0.1
+}

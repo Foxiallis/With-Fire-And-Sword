@@ -1,0 +1,150 @@
+namespace = WFAS_lithuania
+#Radziwill Secession
+country_event = {
+	id = WFAS_lithuania.1
+	title = "WFAS_lithuania_radziwill_title"
+	desc = "WFAS_lithuania_radziwill_desc"
+	picture = BORDER_TENSION_eventPicture
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		tag = PLC
+		is_subject = no
+		any_country = {
+			OR = {
+				tag = SWE
+				tag = DAN
+				tag = NOR
+				tag = FIN
+				tag = SCA
+				tag = TNR
+				tag = LIV
+			}
+			war_with = ROOT
+			is_subject = no
+		}
+		NOT = {
+			exists = LIT
+		}
+		owns_core_province = 272
+		NOT = {
+			war_score = -20
+		}
+	}
+	mean_time_to_happen = {
+		months = 12
+		modifier = {
+			factor = 0.5
+			war_exhaustion = 4
+		}
+		modifier = {
+			factor = 0.1
+			272 = {
+				owned_by = ROOT
+				NOT = {
+					controlled_by = ROOT
+				}
+			}
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			samogitia_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = LIT
+				cede_province = LIT
+			}
+			lithuania_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = LIT
+				cede_province = LIT
+			}
+			random_country = {
+				limit = {
+					OR = {
+						tag = SWE
+						tag = DAN
+						tag = NOR
+						tag = FIN
+						tag = SCA
+						tag = TNR
+						tag = LIV
+					}
+					war_with = ROOT
+				}
+				save_global_event_target_as = WFAS_lithuania_radziwill_target
+				vassalize = LIT
+			}
+			LIT = {
+				add_liberty_desire = -100
+				define_ruler = {
+					name = "Janusz II"
+					dynasty = "Radziwill"
+					adm = 2
+					dip = 2
+					mil = 0
+					age = 30
+					claim = 50
+				}
+			}
+		}
+	}
+	option = {
+		name = "WFAS_lithuania_radziwill_option"
+		set_country_flag = WFAS_lithuania_radziwill_seceded
+		tooltip = {
+			samogitia_area = {
+				cede_province = LIT
+			}
+			lithuania_area = {
+				cede_province = LIT
+			}
+			event_target:WFAS_lithuania_radziwill_target = {
+				vassalize = LIT
+			}
+		}
+	}
+}
+
+#Radziwill is gone
+country_event = {
+	id = WFAS_lithuania.2
+	title = "WFAS_lithuania_radziwill_execution_title"
+	desc = "WFAS_lithuania_radziwill_execution_desc"
+	picture = WITCHBURNING_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = PLC
+		NOT = {
+			exists = LIT
+		}
+		has_country_flag = WFAS_lithuania_radziwill_seceded
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_lithuania_radziwill_execute"
+		add_prestige = 15
+		add_country_modifier = {
+			name = "WFAS_lithuania_radziwill_executed"
+			duration = 3650
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "WFAS_lithuania_radziwill_pardon"
+		add_prestige = -15
+		add_dip_power = 25
+		add_adm_power = 25
+		ai_chance = {
+			factor = 10
+		}
+	}
+}

@@ -1,0 +1,1744 @@
+namespace = WFAS_timeoftroubles
+#%MONARCH% kills his son
+country_event = {
+	id = WFAS_timeoftroubles.1
+	title = "WFAS_tot_son_title"
+	desc = "WFAS_tot_son_desc"
+	picture = BAD_WITH_MONARCH_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			tag = RUS
+			AND = {
+				tag = MOS
+				NOT = {
+					exists = RUS
+				}
+			}
+		}
+		dynasty = "Rurikovich"
+		heir_dynasty = "Rurikovich"
+		has_heir = yes
+		is_year = 1575
+	}
+	mean_time_to_happen = {
+		months = 72
+	}
+	immediate = {
+		hidden_effect = {
+			set_country_flag = WFAS_tot_killed_son
+			add_country_modifier = {
+				name = WFAS_tot_prelude
+				hidden = yes
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = "WFAS_tot_son_we"
+		kill_heir = yes
+		add_war_exhaustion = -5
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 1
+				war_exhaustion = 4
+			}
+		}
+	}
+	option = {
+		name = "WFAS_tot_son_church"
+		kill_heir = yes
+		IF = {
+			limit = {
+				NOT = {
+					capital_scope = {
+						OR = {
+							has_building = temple
+							has_building = cathedral
+						}
+					}
+				}
+			}
+			capital_scope = {
+				add_building = temple
+			}
+		}
+		ELSE = {
+			random_owned_province = {
+				limit = {
+					NOT = {
+						OR = {
+							has_building = temple
+							has_building = cathedral
+						}
+					}
+				}
+				add_building = temple
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					war_exhaustion = 4
+				}
+			}
+		}
+	}
+}
+
+#Feodor's regency 
+country_event = {
+	id = WFAS_timeoftroubles.2
+	title = "WFAS_tot_feodor_title"
+	desc = "WFAS_tot_feodor_desc"
+	picture = COURT_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		is_lesser_in_union = no
+		has_country_flag = WFAS_tot_killed_son
+	}
+	option = {
+		name = "WFAS_tot_feodor_option"
+		clr_country_flag = WFAS_tot_killed_son
+		define_ruler = {
+			name = "Feodor Ivanovich"
+			dynasty = "Rurikovich"
+			age = 27
+			male = yes
+			max_random_adm = 1
+			max_random_dip = 1
+			max_random_mil = 0
+		}
+	}
+}
+
+#Rise to power of Boris Godunov #DISASTER TICK START
+country_event = {
+	id = WFAS_timeoftroubles.3
+	title = "WFAS_tot_godunov_title"
+	desc = "WFAS_tot_godunov_desc"
+	picture = COURT_eventPicture
+	fire_only_once = yes
+	trigger = {
+		has_ruler = "Feodor Ivanovich"
+	}
+	mean_time_to_happen = {
+		months = 36
+	}
+	option = {
+		name = "WFAS_tot_godunov_option"
+		set_country_flag = WFAS_tot_start_flag
+		define_ruler = {
+			name = "Boris"
+			dynasty = "Godunov"
+			age = 35
+			male = yes
+			adm = 3
+			dip = 1
+			mil = 1
+		}
+	}
+}
+
+#Dmitry found dead #DISASTER START
+country_event = {
+	id = WFAS_timeoftroubles.4
+	title = "WFAS_tot_dmitry_dead_title"
+	desc = "WFAS_tot_dmitry_dead_desc"
+	picture = DEATH_OF_HEIR_eventPicture
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		hidden_effect = {
+			set_ruler_flag = WFAS_tot_monarch_flag
+			save_global_event_target_as = WFAS_tot_target
+		}
+	}
+	option = {
+		name = "WFAS_tot_dmitry_dead_guilty"
+		custom_tooltip = WFAS_tot_anarchy_tooltip
+		hidden_effect = {
+			define_ruler = {
+				name = "(Anarchy)"
+				regency = yes
+				adm = 0
+				dip = 0
+				mil = 0
+				fixed = yes
+				claim = 0
+			}
+		}
+		set_ruler_flag = WFAS_tot_anarchy_flag
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = {
+		name = "WFAS_tot_dmitry_dead_not_guilty"
+		add_stability = -1
+		add_legitimacy = -20
+		ai_chance = {
+			factor = 45
+		}
+	}
+	option = {
+		name = "WFAS_tot_dmitry_dead_neutral"
+		add_adm_power = -75
+		add_dip_power = -75
+		add_mil_power = -75
+		ai_chance = {
+			factor = 45
+		}
+	}
+}
+
+#Grigoriy Otrepiev (Poland)
+country_event = {
+	id = WFAS_timeoftroubles.5
+	title = "WFAS_tot_pol_dmitry_title"
+	desc = "WFAS_tot_pol_dmitry_desc"
+	picture = NOBLE_ESTATE_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			tag = POL
+			tag = PLC
+			AND = {
+				tag = LIT
+				NOT = {
+					OR = {
+						exists = POL
+						exists = PLC
+					}
+				}
+			}
+		}
+		is_subject = no
+		event_target:WFAS_tot_target = {
+			has_disaster = time_of_troubles
+			is_subject = no
+		}
+	}
+	mean_time_to_happen = {
+		months = 4
+	}
+	option = {
+		name = "WFAS_tot_pol_dmitry_install"
+		add_yearly_manpower = -1
+		set_country_flag = WFAS_tot_dmitry_sent
+		event_target:WFAS_tot_target = {
+			country_event = {
+				id = WFAS_timeoftroubles.6
+				days = 1
+			}
+		}
+		hidden_effect = {
+			save_global_event_target_as = WFAS_tot_dmitry_target
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_tot_pol_dmitry_leave"
+		add_prestige = 10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Dmitry Returns (Russia)
+country_event = {
+	id = WFAS_timeoftroubles.6
+	title = "WFAS_tot_rus_dmitry_title"
+	desc = "WFAS_tot_rus_dmitry_desc"
+	picture = NOBLE_ESTATE_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "WFAS_tot_rus_dmitry_install"
+		define_ruler = {
+			name = "Dmitry"
+			dynasty = "Rurikovich"
+			culture = polish
+			religion = catholic
+			male = yes
+			adm = 1
+			dip = 1
+			mil = 1
+			claim = 30
+		}
+		set_ruler_flag = WFAS_tot_dmitry_ruler
+		set_ruler_flag = WFAS_tot_monarch_flag
+		ai_chance = {
+			factor = 30
+		}
+	}
+	option = {
+		name = "WFAS_tot_rus_dmitry_rebuke"
+		set_country_flag = WFAS_tot_dmitry_in_country
+		random_owned_province = {
+			limit = {
+				continent = europe
+				controlled_by = ROOT
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				leader = "Dmitry"
+				leader_dynasty = "Rurikovich"
+				friend = event_target:WFAS_tot_dmitry_target
+			}
+		}
+		ai_chance = {
+			factor = 70
+		}
+	}
+}
+
+#Death of Boris Godunov
+country_event = {
+	id = WFAS_timeoftroubles.7
+	title = "WFAS_tot_godunov_death_title"
+	desc = "WFAS_tot_godunov_death_desc"
+	picture = KING_SICK_IN_BED_eventPicture
+	fire_only_once = yes
+	trigger = {
+		has_disaster = time_of_troubles
+		has_country_flag = WFAS_tot_dmitry_in_country
+		has_ruler = "Boris"
+	}
+	mean_time_to_happen = {
+		months = 8
+	}
+	option = {
+		name = "WFAS_tot_godunov_death_dmitry"
+		trigger = {
+			num_of_rebel_armies = 1
+		}
+		disband_rebels = pretender_rebels
+		clr_country_flag = WFAS_tot_dmitry_in_country
+		define_ruler = {
+			name = "Dmitry"
+			dynasty = "Rurikovich"
+			culture = polish
+			religion = catholic
+			male = yes
+			adm = 1
+			dip = 1
+			mil = 1
+			claim = 30
+		}
+		set_ruler_flag = WFAS_tot_dmitry_ruler
+		set_ruler_flag = WFAS_tot_monarch_flag
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_tot_godunov_death_anarchy"
+		trigger = {
+			NOT = {
+				num_of_rebel_armies = 1
+			}
+		}
+		custom_tooltip = WFAS_tot_anarchy_tooltip
+		hidden_effect = {
+			define_ruler = {
+				name = "(Anarchy)"
+				regency = yes
+				adm = 0
+				dip = 0
+				mil = 0
+				fixed = yes
+				claim = 0
+			}
+		}
+		set_ruler_flag = WFAS_tot_anarchy_flag
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#False Dmitry! (Shuyski uprising)
+country_event = {
+	id = WFAS_timeoftroubles.8
+	title = "WFAS_tot_false_dmitry_title"
+	desc = "WFAS_tot_false_dmitry_desc"
+	picture = BAD_WITH_MONARCH_eventPicture
+	fire_only_once = yes
+	major = yes
+	major_trigger = {
+		tag = event_target:WFAS_tot_dmitry_target
+	}
+	trigger = {
+		has_disaster = time_of_troubles
+		has_ruler_flag = WFAS_tot_dmitry_ruler
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	option = {
+		name = "WFAS_tot_false_dmitry_remove"
+		define_ruler = {
+			name = "Vasily"
+			dynasty = "Shuisky"
+			age = 54
+			male = yes
+		}
+		set_ruler_flag = WFAS_tot_monarch_flag
+		ai_chance = {
+			factor = 80
+		}
+	}
+	option = {
+		name = "WFAS_tot_false_dmitry_allow"
+		random_owned_province = {
+			limit = {
+				continent = europe
+				controlled_by = ROOT
+			}
+			spawn_rebels = {
+				size = 3
+				type = pretender_rebels
+				leader = "Vasily"
+				leader_dynasty = "Shuisky"
+			}
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+}
+
+#Revolt of Ivan Bolotnikov
+country_event = {
+	id = WFAS_timeoftroubles.9
+	title = "WFAS_tot_bolotnikov_title"
+	desc = "WFAS_tot_bolotnikov_desc"
+	picture = COSSACK_ESTATE_UPSET_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			has_ruler_flag = WFAS_tot_dmitry_ruler
+		}
+		event_target:WFAS_tot_dmitry_target = {
+			has_country_flag = WFAS_tot_dmitry_sent
+		}
+	}
+	option = {
+		name = "WFAS_tot_bolotnikov_accept"
+		define_ruler = {
+			name = "Ivan"
+			dynasty = "Bolotnikov"
+			min_age = 40
+			male = yes
+		}
+		set_ruler_flag = WFAS_tot_monarch_flag
+		add_estate_loyalty = {
+			estate = estate_cossacks
+			loyalty = 15
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+	option = {
+		name = "WFAS_tot_bolotnikov_crush"
+		random_owned_province = {
+			limit = {
+				continent = europe
+				controlled_by = ROOT
+			}
+			spawn_rebels = {
+				size = 2
+				type = pretender_rebels
+				leader = "Prokopiy"
+				leader_dynasty = "Liapunov"
+			}
+		}
+		random_owned_province = {
+			limit = {
+				continent = europe
+				controlled_by = ROOT
+			}
+			spawn_rebels = {
+				size = 2
+				type = pretender_rebels
+				leader = "Ivan"
+				leader_dynasty = "Bolotnikov"
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_cossacks
+			loyalty = -10
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+}
+
+#Tsarevich Pyotr 
+country_event = {
+	id = WFAS_timeoftroubles.10
+	title = "WFAS_tot_pyotr_title"
+	desc = "WFAS_tot_pyotr_desc"
+	picture = COSSACK_ESTATE_RAIDERS_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = "WFAS_tot_pyotr_accept"
+		define_ruler = {
+			name = "Pyotr"
+			dynasty = "Rurikovich"
+			min_age = 30
+			male = yes
+			claim = 5
+		}
+		set_ruler_flag = WFAS_tot_monarch_flag
+		add_estate_loyalty = {
+			estate = estate_cossacks
+			loyalty = 20
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = {
+		name = "WFAS_tot_pyotr_crush"
+		IF = {
+			limit = {
+				owns = 300
+			}
+			300 = {
+				spawn_rebels = {
+					size = 1
+					type = pretender_rebels
+					leader = "Pyotr"
+					leader_dynasty = "Rurikovich"
+				}
+			}
+		}
+		ELSE = {
+			random_owned_province = {
+				limit = {
+					continent = europe
+					controlled_by = ROOT
+				}
+				spawn_rebels = {
+					size = 1
+					type = pretender_rebels
+					leader = "Pyotr"
+					leader_dynasty = "Rurikovich"
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_cossacks
+			loyalty = -10
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+}
+
+#The Second Dmitry
+country_event = {
+	id = WFAS_timeoftroubles.11
+	title = "WFAS_tot_second_dmitry_title"
+	desc = "WFAS_tot_second_dmitry_desc"
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	major_trigger = {
+		tag = event_target:WFAS_tot_dmitry_target
+	}
+	trigger = {
+		event_target:WFAS_tot_dmitry_target = {
+			has_country_flag = WFAS_tot_dmitry_sent
+		}
+		NOT = {
+			has_ruler_flag = WFAS_tot_dmitry_ruler
+		}
+	}
+	option = {
+		name = "WFAS_tot_second_dmitry_accept"
+		define_ruler = {
+			name = "Dmitry"
+			dynasty = "Rurikovich"
+			culture = lithuanian
+			religion = catholic
+			male = yes
+			claim = 10
+		}
+		set_ruler_flag = WFAS_tot_monarch_flag
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+		set_ruler_flag = WFAS_tot_second_dmitry
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = {
+		name = "WFAS_tot_second_dmitry_refuse"
+		random_owned_province = {
+			limit = {
+				continent = europe
+				controlled_by = ROOT
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				leader = "Dmitry"
+				leader_dynasty = "Rurikovich"
+				friend = event_target:WFAS_tot_dmitry_target
+			}
+		}
+		random_owned_province = {
+			limit = {
+				continent = europe
+				controlled_by = ROOT
+			}
+			spawn_rebels = {
+				type = noble_rebels
+				size = 3
+				friend = event_target:WFAS_tot_dmitry_target
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+}
+
+#An unexpected ally (Russia)
+country_event = {
+	id = WFAS_timeoftroubles.12
+	title = "WFAS_tot_sweden_ally_title"
+	desc = "WFAS_tot_sweden_ally_desc"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			is_rival = SWE
+		}
+		SWE = {
+			exists = yes
+			is_subject = no
+			NOT = {
+				alliance_with = event_target:WFAS_tot_dmitry_target
+			}
+			NOT = {
+				is_rival = ROOT
+			}
+		}
+		owns = 33
+		owns = 34
+	}
+	option = {
+		name = "WFAS_tot_sweden_ally_deal"
+		custom_tooltip = WFAS_tot_swedish_deal_tooltip
+		custom_tooltip = WFAS_tot_swedish_mercs_tooltip
+		SWE = {
+			country_event = {
+				id = WFAS_timeoftroubles.13
+				days = 1
+			}
+		}
+		ai_chance = {
+			factor = 70
+		}
+	}
+	option = {
+		name = "WFAS_tot_sweden_ally_no_deal"
+		add_legitimacy = 15
+		ai_chance = {
+			factor = 30
+		}
+	}
+}
+
+#A helping hand (Sweden)
+country_event = {
+	id = WFAS_timeoftroubles.13
+	title = "WFAS_tot_sweden_offer_title"
+	desc = "WFAS_tot_sweden_offer_desc"
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+	major = yes
+	major_trigger = {
+		tag = event_target:WFAS_tot_target
+	}
+	option = {
+		name = "WFAS_tot_sweden_deal"
+		custom_tooltip = WFAS_tot_swedish_deal_swe_tooltip
+		add_yearly_manpower = -5
+		event_target:WFAS_tot_target = {
+			set_country_flag = WFAS_tot_swedish_corps
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "WFAS_tot_sweden_no_deal"
+		reverse_add_opinion = {
+			who = event_target:WFAS_tot_target
+			modifier = WFAS_chmielnicki_refused_help
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#A Diplomatic Intervention (Poland)
+country_event = {
+	id = WFAS_timeoftroubles.14
+	title = "WFAS_tot_poland_intervention_title"
+	desc = "WFAS_tot_poland_intervention_desc"
+	picture = KINGS_CHOICE_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = event_target:WFAS_tot_dmitry_target
+		has_country_flag = WFAS_tot_dmitry_sent
+		event_target:WFAS_tot_target = {
+			has_disaster = time_of_troubles
+			NOT = {
+				has_ruler_flag = WFAS_tot_dmitry_ruler
+			}
+			NOT = {
+				has_ruler_flag = WFAS_tot_second_dmitry
+			}
+		}
+		NOT = {
+			alliance_with = event_target:WFAS_tot_target
+		}
+		NOT = {
+			war_with = event_target:WFAS_tot_target
+		}
+	}
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.05
+			event_target:WFAS_tot_target = {
+				has_country_flag = WFAS_tot_swedish_corps
+			}
+		}
+	}
+	option = {
+		name = "WFAS_tot_poland_intervention_war"
+		hidden_effect = {
+			add_casus_belli = {
+				type = cb_fabricated_claims
+				target = event_target:WFAS_tot_target
+			}
+		}
+		declare_war_with_cb = {
+			casus_belli = cb_fabricated_claims
+			who = event_target:WFAS_tot_target
+		}
+		ai_chance = {
+			factor = 60
+		}
+	}
+	option = {
+		name = "WFAS_tot_poland_intervention_wait"
+		custom_tooltip = WFAS_tot_chances_tooltip
+		ai_chance = {
+			factor = 40
+		}
+	}
+}
+
+#Boyars demand abdication
+country_event = {
+	id = WFAS_timeoftroubles.15
+	title = "WFAS_tot_abdication_title"
+	desc = "WFAS_tot_abdication_desc"
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+	fire_only_once = yes
+	trigger = {
+		has_disaster = time_of_troubles
+		has_ruler_flag = WFAS_tot_monarch_flag
+	}
+	mean_time_to_happen = {
+		months = 24
+	}
+	option = {
+		name = "WFAS_tot_abdication_depose"
+		define_ruler = {
+			name = "The Seven Boyars"
+			regency = yes
+			adm = 1
+			dip = 1
+			mil = 1
+			max_random_adm = 3
+			max_random_dip = 3
+			max_random_mil = 3
+			claim = 20
+		}
+		set_ruler_flag = WFAS_tot_republic_flag
+		ai_chance = {
+			factor = 40
+		}
+	}
+	option = {
+		name = "WFAS_tot_abdication_resist"
+		add_legitimacy = -20
+		hidden_effect = {
+			IF = {
+				limit = {
+					has_ruler = "Vasily"
+				}
+				country_event = {
+					id = WFAS_timeoftroubles.16
+					days = 30
+				}
+			}
+		}
+		ai_chance = {
+			factor = 60
+		}
+	}
+}
+
+#Deposement of Shuyski
+country_event = {
+	id = WFAS_timeoftroubles.16
+	title = "WFAS_tot_deposement_title"
+	desc = "WFAS_tot_deposement_desc"
+	picture = ASSASSINATION_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "WFAS_tot_deposement_option"
+		define_ruler = {
+			name = "The Seven Boyars"
+			regency = yes
+			adm = 1
+			dip = 1
+			mil = 1
+			max_random_adm = 3
+			max_random_dip = 3
+			max_random_mil = 3
+			claim = 20
+		}
+		set_ruler_flag = WFAS_tot_republic_flag
+	}
+}
+
+#An heir to the throne (Russia)
+country_event = {
+	id = WFAS_timeoftroubles.17
+	title = "WFAS_tot_heir_rus_title"
+	desc = "WFAS_tot_heir_rus_desc"
+	picture = DIPLOMAT_INTERROGATION_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		has_ruler = "The Seven Boyars"
+		event_target:WFAS_tot_dmitry_target = {
+			has_country_flag = WFAS_tot_dmitry_sent
+		}
+	}
+	option = {
+		name = "WFAS_tot_heir_rus_boyars"
+		add_stability = -1
+		add_legitimacy = -20
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+	option = {
+		name = "WFAS_tot_heir_rus_wladyslaw"
+		define_heir = {
+			name = "Wladyslaw"
+			dynasty = event_target:WFAS_tot_dmitry_target
+			adm = 2
+			dip = 2
+			mil = 1
+			age = 10
+			claim = 40
+		}
+		set_heir_flag = WFAS_tot_monarch_flag
+		event_target:WFAS_tot_dmitry_target = {
+			country_event = {
+				id = WFAS_timeoftroubles.18
+				days = 1
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -20
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+}
+
+#An heir to the throne (Poland)
+country_event = {
+	id = WFAS_timeoftroubles.18
+	title = "WFAS_tot_heir_pol_title"
+	desc = "WFAS_tot_heir_pol_desc"
+	picture = DIPLOMAT_INTERROGATION_eventPicture
+	is_triggered_only = yes
+	major = yes
+	major_trigger = {
+		tag = event_target:WFAS_tot_target
+	}
+	option = {
+		name = "WFAS_tot_heir_pol_prince"
+		IF = {
+			limit = {
+				war_with = event_target:WFAS_tot_target
+			}
+			white_peace = event_target:WFAS_tot_target
+		}
+		add_legitimacy = 15
+		add_prestige = 15
+		custom_tooltip = WFAS_tot_maybe_union
+		ai_chance = {
+			factor = 40
+		}
+	}
+	option = {
+		name = "WFAS_tot_heir_pol_king"
+		IF = {
+			limit = {
+				NOT = {
+					war_with = event_target:WFAS_tot_target
+				}
+			}
+			hidden_effect = {
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					target = event_target:WFAS_tot_target
+				}
+			}
+			declare_war_with_cb = {
+				casus_belli = cb_restore_personal_union
+				who = event_target:WFAS_tot_target
+			}
+		}
+		ai_chance = {
+			factor = 60
+		}
+	}
+}
+
+#First Volunteer Army
+country_event = {
+	id = WFAS_timeoftroubles.19
+	title = "WFAS_tot_volunteer_1_title"
+	desc = "WFAS_tot_volunteer_1_desc"
+	picture = ANGRY_MOB_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_heir = "Wladyslaw"
+			has_ruler = "Wladyslaw"
+		}
+	}
+	immediate = {
+		set_country_flag = WFAS_tot_first_revolt
+	}
+	option = {
+		name = "WFAS_tot_volunteer_1_anarchy"
+		IF = {
+			limit = {
+				has_heir = "Wladyslaw"
+			}
+			kill_heir = yes
+		}
+		ELSE_IF = {
+			limit = {
+				has_ruler = "Wladyslaw"
+			}
+			custom_tooltip = WFAS_tot_anarchy_tooltip
+			hidden_effect = {
+				define_ruler = {
+					name = "(Anarchy)"
+					regency = yes
+					adm = 0
+					dip = 0
+					mil = 0
+					fixed = yes
+					claim = 0
+				}
+			}
+			set_ruler_flag = WFAS_tot_anarchy_flag
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+	option = {
+		name = "WFAS_tot_volunteer_1_crush"
+		random_owned_province = {
+			limit = {
+				continent = europe
+			}
+			spawn_rebels = {
+				type = leadered_peasant_rebels
+				size = 1
+			}
+		}
+		random_owned_province = {
+			limit = {
+				continent = europe
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 1
+				leader = "Prokopiy"
+				leader_dynasty = "Liapunov"
+			}
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+}
+
+#Second Volunteer Army
+country_event = {
+	id = WFAS_timeoftroubles.20
+	title = "WFAS_tot_volunteer_2_title"
+	desc = "WFAS_tot_volunteer_2_desc"
+	picture = ANGRY_MOB_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_heir = "Wladyslaw"
+			has_ruler = "Wladyslaw"
+		}
+		has_country_flag = WFAS_tot_first_revolt
+	}
+	option = {
+		name = "WFAS_tot_volunteer_2_anarchy"
+		IF = {
+			limit = {
+				has_heir = "Wladyslaw"
+			}
+			kill_heir = yes
+		}
+		ELSE_IF = {
+			limit = {
+				has_ruler = "Wladyslaw"
+			}
+			custom_tooltip = WFAS_tot_anarchy_tooltip
+			hidden_effect = {
+				define_ruler = {
+					name = "(Anarchy)"
+					regency = yes
+					adm = 0
+					dip = 0
+					mil = 0
+					fixed = yes
+					claim = 0
+				}
+			}
+			set_ruler_flag = WFAS_tot_anarchy_flag
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+	option = {
+		name = "WFAS_tot_volunteer_2_crush"
+		random_owned_province = {
+			limit = {
+				continent = europe
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 2
+				leader = "Dmitry"
+				leader_dynasty = "Pozharsky"
+			}
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+}
+
+#Swedish Promises (Russia)
+country_event = {
+	id = WFAS_timeoftroubles.21
+	title = "WFAS_tot_swedish_promises_title"
+	desc = "WFAS_tot_swedish_promises_desc"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	major_trigger = {
+		tag = SWE
+	}
+	trigger = {
+		had_country_flag = {
+			flag = WFAS_tot_swedish_corps
+			days = 730
+		}
+		owns = 33
+		owns = 34
+	}
+	option = {
+		name = "WFAS_tot_swedish_promises_deliver"
+		custom_tooltip = WFAS_tot_cede_sweden
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						province_id = 34
+						province_id = 33
+						province_id = 30
+					}
+				}
+				cede_province = SWE
+				add_core = SWE
+			}
+		}
+	}
+	option = {
+		name = "WFAS_tot_swedish_promises_forget"
+		custom_tooltip = WFAS_tot_war_sweden
+		hidden_effect = {
+			SWE = {
+				country_event = {
+					id = WFAS_timeoftroubles.22
+					days = 7
+				}
+			}
+		}
+	}
+}
+
+#Russia fails to deliver demans (Sweden)
+country_event = {
+	id = WFAS_timeoftroubles.22
+	title = "WFAS_tot_russian_promises_title"
+	desc = "WFAS_tot_russian_promises_desc"
+	picture = ACCUSATION_eventPicture
+	is_triggered_only = yes
+	major = yes
+	major_trigger = {
+		tag = event_target:WFAS_tot_target
+	}
+	option = {
+		name = "WFAS_tot_russian_promises_naive"
+		ai_chance = {
+			factor = 0
+		}
+	}
+	option = {
+		name = "WFAS_tot_russian_promises_retreat"
+		custom_tooltip = WFAS_tot_swedish_corps_removed
+		event_target:WFAS_tot_target = {
+			clr_country_flag = WFAS_tot_swedish_corps
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 50
+				event_target:WFAS_tot_target = {
+					army_strength = {
+						who = ROOT
+						value = 1.5
+					}
+				}
+			}
+			modifier = {
+				factor = 80
+				event_target:WFAS_tot_target = {
+					army_strength = {
+						who = ROOT
+						value = 2
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "WFAS_tot_russian_promises_war"
+		33 = {
+			add_claim = ROOT
+		}
+		declare_war_with_cb = {
+			casus_belli = cb_conquest
+			war_goal_province = 33
+			who = event_target:WFAS_tot_target
+		}
+		event_target:WFAS_tot_target = {
+			clr_country_flag = WFAS_tot_swedish_corps
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 50
+				event_target:WFAS_tot_target = {
+					army_strength = {
+						who = ROOT
+						value = 1.5
+					}
+				}
+			}
+			modifier = {
+				factor = 20
+				event_target:WFAS_tot_target = {
+					army_strength = {
+						who = ROOT
+						value = 2
+					}
+				}
+			}
+		}
+	}
+}
+
+#Election of %YEAR% #END EVENT
+country_event = {
+	id = WFAS_timeoftroubles.23
+	title = "WFAS_tot_election_title"
+	desc = "WFAS_tot_election_desc"
+	picture = DIET_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			num_of_rebel_armies = 1
+		}
+		NOT = {
+			num_of_rebel_controlled_provinces = 1
+		}
+		had_heir_flag = {
+			flag = WFAS_tot_monarch_flag
+			days = 730
+		}
+		NOT = {
+			war_with = event_target:WFAS_tot_dmitry_target
+		}
+		has_heir = yes
+	}
+	immediate = {
+		set_country_flag = WFAS_tot_election_end
+	}
+	after = {
+		remove_heir = yes
+	}
+	option = {
+		name = "WFAS_tot_election_wladyslaw"
+		define_ruler = {
+			name = "Wladyslaw"
+			dynasty = event_target:WFAS_tot_dmitry_target
+			culture = event_target:WFAS_tot_dmitry_target
+			religion = event_target:WFAS_tot_dmitry_target
+			adm = 1
+			dip = 2
+			mil = 1
+			age = 16
+		}
+		custom_tooltip = WFAS_tot_personal_union_on_death
+		set_country_flag = WFAS_tot_ended
+		hidden_effect = {
+			event_target:WFAS_tot_dmitry_target = {
+				set_ruler_flag = WFAS_tot_polish_monarch
+			}
+		}
+		ai_chance = {
+			factor = 30
+		}
+	}
+	option = {
+		name = "WFAS_tot_election_karl"
+		define_ruler = {
+			name = "Karl Filip"
+			dynasty = SWE
+			culture = SWE
+			religion = SWE
+			adm = 1
+			dip = 1
+			mil = 1
+			age = 30
+		}
+		set_country_flag = WFAS_tot_ended
+		ai_chance = {
+			factor = 5
+		}
+	}
+	option = {
+		name = "WFAS_tot_election_pozharsky"
+		define_ruler = {
+			name = "Dmitry"
+			dynasty = "Pozharsky"
+			adm = 1
+			dip = 1
+			mil = 3
+			age = 32
+		}
+		set_country_flag = WFAS_tot_ended
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = {
+		name = "WFAS_tot_election_dmitry_son"
+		define_ruler = {
+			name = "Varionok"
+			dynasty = "Rurikovich"
+			culture = lithuanian
+			religion = catholic
+			adm = -1
+			dip = -1
+			mil = -1
+			age = 15
+		}
+		set_country_flag = WFAS_tot_ended
+		ai_chance = {
+			factor = 5
+		}
+	}
+	option = {
+		name = "WFAS_tot_election_romanov"
+		define_ruler = {
+			name = "Mikhail"
+			dynasty = "Romanov"
+			adm = 4
+			dip = 2
+			mil = 3
+			max_random_dip = 4
+			max_random_mil = 5
+			age = 16
+		}
+		ai_chance = {
+			factor = 50
+		}
+		set_country_flag = WFAS_tot_ended
+	}
+}
+
+#Ruler settles on the russian throne #END EVENT
+country_event = {
+	id = WFAS_timeoftroubles.24
+	title = "WFAS_tot_monarch_title"
+	desc = "WFAS_tot_monarch_desc"
+	picture = KING_DOING_GREAT_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			num_of_rebel_armies = 1
+		}
+		NOT = {
+			num_of_rebel_controlled_provinces = 1
+		}
+		OR = {
+			had_ruler_flag = {
+				flag = WFAS_tot_monarch_flag
+				days = 1460
+			}
+			had_heir_flag = {
+				flag = WFAS_tot_monarch_flag
+				days = 1460
+			}
+		}
+		NOT = {
+			war_with = event_target:WFAS_tot_dmitry_target
+		}
+	}
+	option = {
+		name = "WFAS_tot_monarch_allow"
+		add_stability = 1
+		set_country_flag = WFAS_tot_ended
+		set_country_flag = WFAS_tot_monarch_end
+	}
+	option = {
+		name = "WFAS_tot_monarch_election"
+		country_event = {
+			id = WFAS_timeoftroubles.32
+		}
+	}
+}
+
+#Duma and the Seven Boyars #END EVENT
+country_event = {
+	id = WFAS_timeoftroubles.25
+	title = "WFAS_tot_republic_title"
+	desc = "WFAS_tot_republic_desc"
+	picture = PARLIAMENT_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			num_of_rebel_armies = 1
+		}
+		NOT = {
+			num_of_rebel_controlled_provinces = 1
+		}
+		had_ruler_flag = {
+			flag = WFAS_tot_republic_flag
+			days = 1460
+		}
+		NOT = {
+			war_with = event_target:WFAS_tot_dmitry_target
+		}
+		has_heir = no
+	}
+	option = {
+		name = "WFAS_tot_republic_allow"
+		add_stability = -1
+		change_government_to_republic = yes
+		add_government_reform = WFAS_timeoftroubles_duma
+		set_country_flag = WFAS_tot_ended
+		set_country_flag = WFAS_tot_republic_end
+	}
+	option = {
+		name = "WFAS_tot_republic_execute"
+		add_stability = -3
+		custom_tooltip = WFAS_tot_anarchy_tooltip
+		hidden_effect = {
+			define_ruler = {
+				name = "(Anarchy)"
+				regency = yes
+				adm = 0
+				dip = 0
+				mil = 0
+				fixed = yes
+				claim = 0
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = WFAS_timeoftroubles.31
+				days = 7
+			}
+		}
+	}
+}
+
+#Collapse of the Russian state #END EVENT
+country_event = {
+	id = WFAS_timeoftroubles.26
+	title = "WFAS_tot_anarchy_title"
+	desc = "WFAS_tot_anarchy_desc"
+	picture = COUNTRY_COLLAPSE_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		had_ruler_flag = {
+			flag = WFAS_tot_anarchy_flag
+			days = 1460
+		}
+		NOT = {
+			war_with = event_target:WFAS_tot_dmitry_target
+		}
+		has_heir = no
+	}
+	immediate = {
+		set_country_flag = WFAS_tot_anarchy_end
+	}
+	option = {
+		name = "WFAS_tot_anarchy_peasants"
+		trigger = {
+			stability = 0
+		}
+		add_stability = -1
+		change_government_to_republic = yes
+		add_government_reform = peasants_republic
+		set_country_flag = WFAS_tot_ended
+	}
+	option = {
+		name = "WFAS_tot_anarchy_stateless"
+		add_stability = -3
+		change_tag = RAT
+		change_government_to_republic = yes
+		add_government_reform = WFAS_timeoftroubles_anarchy
+		# IF = {
+		# 	limit = {
+		# 		has_custom_ideas = no
+		# 		NOT = {
+		# 			has_idea_group = WFAS_timeoftroubles_rat_ideas
+		# 		}
+		# 	}
+		# 	country_event = {
+		# 		id = ideagroups.1
+		# 	}
+		# 	#Swap Ideas
+		# }
+		set_country_flag = WFAS_tot_ended
+	}
+}
+
+#Fall of russia #END EVENT
+country_event = {
+	id = WFAS_timeoftroubles.27
+	title = "WFAS_tot_union_title"
+	desc = "WFAS_tot_union_desc"
+	picture = BAD_WITH_MONARCH_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		is_subject = yes
+	}
+	option = {
+		name = "WFAS_tot_union_option"
+		add_stability = 1
+		set_country_flag = WFAS_tot_ended
+		set_country_flag = WFAS_tot_union_end
+	}
+}
+
+#End of the Time of Troubles #DISASTER END
+country_event = {
+	id = WFAS_timeoftroubles.28
+	title = "WFAS_tot_end_title"
+	major = yes
+	desc = {
+		trigger = {
+			has_country_flag = WFAS_tot_election_end
+		}
+		desc = "WFAS_tot_end_election_desc"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = WFAS_tot_republic_end
+		}
+		desc = "WFAS_tot_end_republic_desc"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = WFAS_tot_anarchy_end
+		}
+		desc = "WFAS_tot_end_anarchy_desc"
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				has_country_flag = WFAS_tot_election_end
+			}
+			NOT = {
+				has_country_flag = WFAS_tot_republic_end
+			}
+			NOT = {
+				has_country_flag = WFAS_tot_anarchy_end
+			}
+		}
+		desc = "WFAS_tot_end_monarch_desc"
+	}
+	picture = GOOD_WITH_MONARCH_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = WFAS_tot_ended
+	}
+	immediate = {
+		hidden_effect = {
+			set_global_flag = WFAS_tot_global_flag
+			clr_country_flag = WFAS_tot_start_flag
+		}
+	}
+	option = {
+		name = "WFAS_tot_end_option"
+		add_stability = 3
+		add_legitimacy = 100
+		add_republican_tradition = 100
+		hidden_effect = {
+			remove_country_modifier = WFAS_tot_prelude
+			event_target:WFAS_tot_target = {
+				clr_country_flag = WFAS_tot_swedish_corps
+			}
+		}
+	}
+}
+
+#Hidden event to PU after polish king dies
+country_event = {
+	id = WFAS_timeoftroubles.30
+	hidden = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = event_target:WFAS_tot_dmitry_target
+		has_country_flag = WFAS_tot_dmitry_sent
+		NOT = {
+			has_ruler_flag = WFAS_tot_polish_monarch
+		}
+		event_target:WFAS_tot_target = {
+			has_ruler = "Wladyslaw"
+		}
+	}
+	option = {
+		random = {
+			chance = 50
+			create_union = event_target:WFAS_tot_target
+		}
+	}
+}
+
+#Collapse of the Russian state NO TRIGGER #END EVENT
+country_event = {
+	id = WFAS_timeoftroubles.31
+	title = "WFAS_tot_anarchy_title"
+	desc = "WFAS_tot_anarchy_desc"
+	picture = COUNTRY_COLLAPSE_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = WFAS_tot_anarchy_end
+	}
+	option = {
+		name = "WFAS_tot_anarchy_peasants"
+		trigger = {
+			stability = 0
+		}
+		add_stability = -1
+		change_government_to_republic = yes
+		add_government_reform = peasants_republic
+		set_country_flag = WFAS_tot_ended
+	}
+	option = {
+		name = "WFAS_tot_anarchy_stateless"
+		add_stability = -3
+		change_tag = RAT
+		change_government_to_republic = yes
+		add_government_reform = WFAS_timeoftroubles_anarchy
+		# IF = {
+		# 	limit = {
+		# 		has_custom_ideas = no
+		# 		NOT = {
+		# 			has_idea_group = WFAS_timeoftroubles_rat_ideas
+		# 		}
+		# 	}
+		# 	country_event = {
+		# 		id = ideagroups.1
+		# 	}
+		# 	#Swap Ideas
+		# }
+		set_country_flag = WFAS_tot_ended
+	}
+}
+
+#Election of %YEAR% NO TRIGGER #END EVENT
+country_event = {
+	id = WFAS_timeoftroubles.32
+	title = "WFAS_tot_election_title"
+	desc = "WFAS_tot_election_desc"
+	picture = DIET_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = WFAS_tot_election_end
+	}
+	option = {
+		name = "WFAS_tot_election_wladyslaw"
+		define_ruler = {
+			name = "Wladyslaw"
+			dynasty = event_target:WFAS_tot_dmitry_target
+			culture = event_target:WFAS_tot_dmitry_target
+			religion = event_target:WFAS_tot_dmitry_target
+			adm = 1
+			dip = 2
+			mil = 1
+			age = 16
+		}
+		custom_tooltip = WFAS_tot_personal_union_on_death
+		set_country_flag = WFAS_tot_ended
+		hidden_effect = {
+			event_target:WFAS_tot_dmitry_target = {
+				set_ruler_flag = WFAS_tot_polish_monarch
+			}
+		}
+		ai_chance = {
+			factor = 30
+		}
+	}
+	option = {
+		name = "WFAS_tot_election_karl"
+		define_ruler = {
+			name = "Karl Filip"
+			dynasty = SWE
+			culture = SWE
+			religion = SWE
+			adm = 1
+			dip = 1
+			mil = 1
+			age = 30
+		}
+		set_country_flag = WFAS_tot_ended
+		ai_chance = {
+			factor = 5
+		}
+	}
+	option = {
+		name = "WFAS_tot_election_pozharsky"
+		define_ruler = {
+			name = "Dmitry"
+			dynasty = "Pozharsky"
+			adm = 1
+			dip = 1
+			mil = 3
+			age = 32
+		}
+		set_country_flag = WFAS_tot_ended
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = {
+		name = "WFAS_tot_election_dmitry_son"
+		define_ruler = {
+			name = "Varionok"
+			dynasty = "Rurikovich"
+			culture = lithuanian
+			religion = catholic
+			adm = -1
+			dip = -1
+			mil = -1
+			age = 15
+		}
+		set_country_flag = WFAS_tot_ended
+		ai_chance = {
+			factor = 5
+		}
+	}
+	option = {
+		name = "WFAS_tot_election_romanov"
+		define_ruler = {
+			name = "Mikhail"
+			dynasty = "Romanov"
+			adm = 4
+			dip = 2
+			mil = 3
+			max_random_dip = 4
+			max_random_mil = 5
+			age = 16
+		}
+		ai_chance = {
+			factor = 50
+		}
+		set_country_flag = WFAS_tot_ended
+	}
+}

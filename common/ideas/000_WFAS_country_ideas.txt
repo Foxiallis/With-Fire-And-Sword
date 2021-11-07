@@ -1,0 +1,44 @@
+WFAS_austria_hungary_ideas = {
+	start = {
+		imperial_authority = 0.25
+		no_religion_penalty = yes
+	}
+	
+	bonus = {
+		land_morale = 0.10
+	}
+	
+	trigger = {
+		tag = AUH
+	}
+	free = yes		#will be added at load.
+
+	WFAS_new_imperial_army = {
+		global_manpower_modifier = 0.3
+		infantry_power = 0.05
+	}
+	WFAS_german_settlers = {
+		development_cost = -0.1
+		global_own_trade_power = 0.15
+	}
+	WFAS_hungarian_integration = {
+		global_unrest = -2
+		land_maintenance_modifier = -0.10
+	}
+	WFAS_fugger_banks = {
+		inflation_reduction = 0.05
+		interest = -0.5
+	}
+	WFAS_austrian_diplomacy = {
+		diplomatic_upkeep = 1
+		diplomatic_reputation = 2
+	}
+	WFAS_german_administration = {
+		diplomatic_annexation_cost = -0.2
+		province_warscore_cost = -0.1
+	}
+	WFAS_line_infantry = {
+		discipline = 0.05
+		recover_army_morale_speed = 0.10
+	}
+}

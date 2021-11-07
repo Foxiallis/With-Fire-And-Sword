@@ -1,0 +1,74 @@
+WFAS_other_romanian_ideas = {
+	start = {
+		discipline = 0.05
+		tolerance_own = 2
+	}
+	bonus = {
+		land_morale = 0.1
+	}
+	trigger = {
+		tag = RMN
+	}
+	free = yes
+	WFAS_other_scorch = {
+		hostile_attrition = 1
+	}
+	WFAS_other_foreign_trade = {
+		global_trade_power = 0.15
+	}
+	WFAS_other_latin_island = {
+		legitimacy = 1
+	}
+	WFAS_other_skilled_commanders = {
+		leader_land_shock = 1
+	}
+	WFAS_other_cunning_diplomacy = {
+		diplomatic_reputation = 1
+	}
+	WFAS_other_foreign_advisors = {
+		advisor_cost = -0.1
+	}
+	WFAS_other_peasant_army = {
+		manpower_recovery_speed = 0.2
+	}
+}
+
+WFAS_other_couronian_ideas = {
+	start = {
+		naval_morale = 0.1
+		global_ship_cost = -0.2
+	}
+	bonus = {
+		trade_efficiency = 0.15
+	}
+	trigger = {
+		tag = KUR
+	}
+	free = yes
+	WFAS_other_merchants_of_hansa = {
+		merchants = 1
+		trade_range_modifier = 0.25
+	}
+	WFAS_other_duchy_of_mercantilism = {
+		global_foreign_trade_power = 0.15
+		ship_power_propagation = 0.2
+	}
+	WFAS_other_booming_manufacture = {
+		production_efficiency = 0.1
+		global_ship_recruit_speed = -0.1
+	}
+	WFAS_other_couronian_colonization = {
+		naval_forcelimit_modifier = 0.25
+		range = 0.5
+	}
+	WFAS_other_palaces_of_mitau = {
+		prestige = 1
+	}
+	WFAS_other_northern_fleet = {
+		heavy_ship_power = 0.1
+		ship_durability = 0.05
+	}
+	WFAS_other_baltic_wooden_wall = {
+		own_coast_naval_combat_bonus = 1
+	}
+}

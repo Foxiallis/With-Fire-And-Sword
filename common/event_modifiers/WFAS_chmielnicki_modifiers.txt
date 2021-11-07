@@ -1,0 +1,33 @@
+WFAS_chmielnicki_ruin_modifier = {
+	stability_cost_modifier = 0.5
+	global_unrest = 4
+	global_manpower_modifier = -0.2
+}
+
+WFAS_chmielnicki_rtn_modifier = {
+	prestige_decay = -0.01
+	stability_cost_modifier = -0.2
+	tolerance_heretic = 2
+}
+
+WFAS_chmielnicki_autonomy = {
+	min_autonomy = 0.15
+}
+
+WFAS_chmielnicki_disorganization = {
+	discipline = -0.05
+}
+
+WFAS_chmielnicki_morale = {
+	land_morale = 0.05
+}
+
+WFAS_chmielnicki_ai_zaz_buff = {
+	global_regiment_cost = -1
+	land_forcelimit = 50
+}
+
+WFAS_chmielnicki_player_zaz_buff = {
+	global_regiment_cost = -0.75
+	land_forcelimit = 50
+}

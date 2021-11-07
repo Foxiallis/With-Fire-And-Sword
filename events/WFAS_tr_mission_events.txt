@@ -1,0 +1,104 @@
+namespace = WFAS_tr_missions
+country_event = {
+	id = WFAS_tr_missions.1
+	title = "WFAS_tr_destiny_ev_title"
+	desc = "WFAS_tr_destiny_ev_desc"
+	picture = KINGS_CHOICE_eventPicture
+	is_triggered_only = yes
+	option = {
+		trigger = {
+			NOT = {
+				exists = UKR
+			}
+		}
+		name = "WFAS_tr_destiny_ukraine"
+		custom_tooltip = WFAS_tr_now_can_form_ukr
+		hidden_effect = {
+			set_country_flag = WFAS_can_form_ruthenia
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				exists = BEL
+			}
+		}
+		name = "WFAS_tr_destiny_belarus"
+		custom_tooltip = WFAS_tr_now_can_form_bel
+		hidden_effect = {
+			set_country_flag = WFAS_can_form_belarus
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				exists = RUS
+			}
+		}
+		name = "WFAS_tr_destiny_russia"
+		custom_tooltip = WFAS_tr_now_can_form_rus
+		hidden_effect = {
+			set_country_flag = WFAS_can_form_russia
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+	option = {
+		name = "WFAS_tr_destiny_our_own"
+		add_stability_or_adm_power = yes
+		add_prestige = 25
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = {
+	id = WFAS_tr_missions.2
+	title = "WFAS_tr_duma_title"
+	desc = "WFAS_tr_duma_desc"
+	picture = DIET_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = BEL
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_tr_duma_institute"
+		IF = {
+			limit = {
+				NOT = {
+					government = republic
+				}
+			}
+			change_government_to_republic = yes
+		}
+		IF = {
+			limit = {
+				NOT = {
+					has_reform = WFAS_timeoftroubles_duma
+				}
+			}
+			add_government_reform = WFAS_timeoftroubles_duma
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_tr_duma_leave"
+		add_prestige = 5
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

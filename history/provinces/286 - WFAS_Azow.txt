@@ -1,0 +1,2 @@
+#286 - Azow
+center_of_trade = 1

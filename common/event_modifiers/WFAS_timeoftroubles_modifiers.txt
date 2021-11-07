@@ -1,0 +1,4 @@
+WFAS_tot_prelude = {
+	heir_chance = -2
+	block_introduce_heir = yes
+}

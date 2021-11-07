@@ -1,0 +1,8 @@
+﻿l_english:
+ WFAS_lithuania_radziwill_title:0 "Radziwill Secession"
+ WFAS_lithuania_radziwill_desc:0 "[LIT.Monarch.GetName] was a noble and magnate in our state, occupying several important government positions in the Grand Duchy of Lithuania. Though when the enemies from the north came to fight against us, he was reluctant to help. Alas, as we were losing more and more, he pledged his allegiance to the [WFAS_lithuania_radziwill_target.Monarch.GetTitle] of [WFAS_lithuania_radziwill_target.GetName], seceding from our country, and taking the Duchy of Lithuania with him."
+ WFAS_lithuania_radziwill_option:0 "We will hang this blasted traitor!"
+ WFAS_lithuania_radziwill_execution_title:0 "Radziwill Execution"
+ WFAS_lithuania_radziwill_execution_desc:0 "As Radziwill seceded from us during our war with [WFAS_lithuania_radziwill_target.GetName], we promised to hang this traitor if we ever manage to catch him. Now, as Lithuania is reincorporated into our lands, he stands before the tribunal, pleading for mercy."
+ WFAS_lithuania_radziwill_execute:0 "Traitors get no mercy."
+ WFAS_lithuania_radziwill_pardon:0 "Leave this fool be."

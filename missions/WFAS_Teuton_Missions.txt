@@ -1,0 +1,519 @@
+############### SLOT 1 ###############
+WFAS_TEU_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = TEU
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_TEU_control_vistula_estuary = {
+		position = 2
+		required_missions = {
+			WFAS_TEU_deal_with_confederation
+		}
+		icon = mission_danzig_or_war
+		provinces_to_highlight = {
+			OR = {
+				province_id = 43
+			}
+		}
+		trigger = {
+			43 = {
+				province_trade_power = 50
+			}
+		}
+		effect = {
+			43 = {
+				add_center_of_trade_level = 1
+			}
+			add_adm_power = 25
+			add_dip_power = 25
+			add_mil_power = 25
+			add_country_modifier = {
+				name = "WFAS_baltic_trade"
+				duration = 7300
+			}
+		}
+	}
+	WFAS_TEU_teutonic_fleet = {
+		position = 3
+		required_missions = {
+			WFAS_TEU_control_vistula_estuary
+		}
+		icon = mission_rb_scottish_north_sea_trade
+		trigger = {
+			OR = {
+				num_of_galley = 30
+				num_of_heavy_ship = 10
+				num_of_light_ship = 30
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "WFAS_naval_domination"
+				duration = 7300
+			}
+		}
+	}
+}
+
+############### SLOT 2 ###############
+WFAS_TEU_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = TEU
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_TEU_deal_with_confederation = {
+		position = 1
+		required_missions = {
+		}
+		icon = mission_have_two_subjects
+		provinces_to_highlight = {
+			OR = {
+				area = west_prussia_area
+				area = east_prussia_area
+			}
+		}
+		trigger = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = WFAS_TEU_conf_curtailed_mission.tooltip
+					has_country_flag = pru_confederation_curtailed
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = WFAS_TEU_conf_happend_mission.tooltip
+						has_country_flag = pru_confederation_happened
+					}
+					west_prussia_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					east_prussia_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			east_prussia_area = {
+				area = {
+					limit = {
+						owned_by = ROOT
+					}
+					add_province_modifier = {
+						name = "WFAS_confederation_curtailed"
+						duration = 3650
+					}
+				}
+			}
+			west_prussia_area = {
+				area = {
+					limit = {
+						owned_by = ROOT
+					}
+					add_province_modifier = {
+						name = "WFAS_confederation_curtailed"
+						duration = 3650
+					}
+				}
+			}
+		}
+	}
+	WFAS_TEU_develop_prussia = {
+		position = 2
+		required_missions = {
+			WFAS_TEU_deal_with_confederation
+		}
+		icon = mission_colonial
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					NOT = {
+						development = 10
+					}
+					owned_by = TEU
+				}
+			}
+		}
+		trigger = {
+			all_owned_province = {
+				development = 10
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+			add_country_modifier = {
+				name = "WFAS_more_people_to_tax"
+				duration = 7300
+			}
+		}
+	}
+	WFAS_TEU_fortify_the_state = {
+		position = 3
+		required_missions = {
+			WFAS_TEU_develop_prussia
+		}
+		icon = fight_bosnian_heresies
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					OR = {
+						has_building = fort_15th
+						has_building = fort_16th
+						has_building = fort_17th
+						has_building = fort_18th
+					}
+				}
+				amount = 10
+			}
+		}
+		effect = {
+			custom_tooltip = WFAS_TEU_teutonic_fortresses.tooltip
+			every_owned_province = {
+				limit = {
+					OR = {
+						has_building = fort_15th
+						has_building = fort_16th
+						has_building = fort_17th
+						has_building = fort_18th
+					}
+				}
+				add_province_modifier = {
+					name = "WFAS_teutonic_fortresses"
+					duration = -1
+				}
+			}
+		}
+	}
+	WFAS_TEU_ordensburg_marienburg = {
+		position = 4
+		required_missions = {
+			WFAS_TEU_fortify_the_state
+		}
+		icon = fortress_of_belgrade
+		trigger = {
+			1841 = {
+				owned_by = ROOT
+				has_building = fort_15th
+			}
+		}
+		effect = {
+			1841 = {
+				add_building = fort_16th
+			}
+		}
+	}
+}
+
+############### SLOT 3 ###############
+WFAS_TEU_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = TEU
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_TEU_union_of_orders = {
+		position = 1
+		required_missions = {
+		}
+		icon = Control_Junkers
+		provinces_to_highlight = {
+			OR = {
+				area = curonia_area
+				area = livonia_area
+				area = estonia_ingria_area
+			}
+		}
+		trigger = {
+			if = {
+				limit = {
+					exists = LIV
+				}
+				LIV = {
+					is_subject_of = ROOT
+				}
+			}
+			else = {
+				curonia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				livonia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				estonia_ingria_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			add_prestige = 10
+			add_dip_power = 100
+		}
+	}
+	WFAS_TEU_ora_et_labora = {
+		position = 3
+		required_missions = {
+			WFAS_TEU_union_of_orders
+			WFAS_TEU_develop_prussia
+		}
+		icon = eastern_catholicization
+		trigger = {
+			total_development = 250
+		}
+		effect = {
+			add_country_modifier = {
+				name = "WFAS_ora_et_labora"
+				duration = -1
+			}
+		}
+	}
+	WFAS_TEU_eastern_bastion = {
+		position = 5
+		required_missions = {
+			WFAS_TEU_strong_in_faith
+			WFAS_TEU_ordensburg_marienburg
+		}
+		icon = mission_european_church
+		trigger = {
+			capital_scope = {
+				development = 30
+				num_of_buildings_in_province = 5
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_province_modifier = {
+					name = "WFAS_eastern_bastion"
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+############### SLOT 4 ###############
+WFAS_TEU_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = TEU
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_TEU_blessed_army = {
+		position = 2
+		required_missions = {
+			WFAS_TEU_relations_with_holy_father
+		}
+		icon = mission_teutonic_knights
+		trigger = {
+			army_size_percentage = 1
+			land_forcelimit = 25
+		}
+		effect = {
+			add_country_modifier = {
+				name = "WFAS_blessed_army"
+				duration = 3650
+			}
+		}
+	}
+	WFAS_TEU_strong_in_faith = {
+		position = 4
+		required_missions = {
+			WFAS_TEU_holy_order
+			WFAS_TEU_ora_et_labora
+		}
+		icon = chivalry_is_not_dead
+		trigger = {
+			capital_scope = {
+				has_building = temple
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_building = cathedral
+			}
+			add_base_tax = 2
+		}
+	}
+}
+
+############### SLOT 5 ###############
+WFAS_TEU_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = TEU
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_TEU_relations_with_holy_father = {
+		position = 1
+		required_missions = {
+		}
+		icon = spread_piety
+		trigger = {
+			if = {
+				limit = {
+					exists = PAP
+				}
+				PAP = {
+					OR = {
+						alliance_with = ROOT
+						has_opinion = {
+							who = ROOT
+							value = 100
+						}
+					}
+				}
+			}
+			else = {
+				papal_influence = 100
+			}
+		}
+		effect = {
+			kuyavia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			mazovia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			samogitia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			podlasie_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	WFAS_TEU_crusade_against_pagans = {
+		position = 2
+		required_missions = {
+			WFAS_TEU_relations_with_holy_father
+		}
+		icon = mission_landsknecht_soldier
+		provinces_to_highlight = {
+			OR = {
+				area = kuyavia_area
+				area = mazovia_area
+				area = samogitia_area
+				area = podlasie_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			OR = {
+				AND = {
+					kuyavia_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					mazovia_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+				AND = {
+					samogitia_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					podlasie_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "WFAS_revenge_for_grunwald"
+				duration = 3650
+			}
+		}
+	}
+	WFAS_TEU_holy_order = {
+		position = 3
+		required_missions = {
+			WFAS_TEU_crusade_against_pagans
+			WFAS_TEU_blessed_army
+		}
+		icon = mission_hands_praying
+		trigger = {
+			all_owned_province = {
+				has_owner_religion = yes
+			}
+		}
+		effect = {
+			add_prestige = 10
+			add_papal_influence = 25
+			add_adm_power = 50
+			add_mil_power = 50
+			add_dip_power = 50
+		}
+	}
+}

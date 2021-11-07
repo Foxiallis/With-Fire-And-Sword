@@ -1,0 +1,260 @@
+cossacks_reform = {
+	icon = "horde_riding"
+	legacy_equivalent = cossacks_legacy_reform
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			AND = {
+				tag = ZAZ
+				NOT = {
+					map_setup = map_setup_random
+				}
+			}
+			has_reform = cossacks_reform
+			have_had_reform = cossacks_reform
+		}
+	}
+	government_abilities = {
+		cossacks_mechanic
+	}
+	valid_for_new_country = yes
+	nation_designer_trigger = {
+		any_owned_province = {
+			has_terrain = steppe
+		}
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 60
+	modifiers = {
+		cavalry_power = 0.2
+		cavalry_cost = -0.2
+		cav_to_inf_ratio = 0.25
+		governing_capacity = 50
+		max_absolutism = -40
+	}
+	duration = 4
+}
+
+WFAS_cossack_starshyna = {
+	icon = "commander_king_reform"
+	allow_normal_conversion = yes
+	potential = {
+		has_reform = cossacks_reform
+	}
+	has_term_election = no
+	royal_marriage = yes
+	custom_attributes = {
+		generals_become_rulers = yes
+		enables_nepotism = yes
+	}
+	modifiers = {
+		war_exhaustion = -0.05
+	}
+}
+
+WFAS_orders_dual_order_reform = {
+	icon = "soldiers_4"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			has_reform = WFAS_orders_dual_order_reform
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = WFAS_orders_dual_order_reform
+			}
+		}
+		religion = catholic
+	}
+	lock_level_when_selected = yes
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	monastic = yes
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+		}
+		states_general_mechanic = {
+			teutons = {
+				defensiveness = 0.33
+				yearly_army_professionalism = 0.015
+				administrative_efficiency = 0.05
+			}
+			livonians = {
+				trade_efficiency = 0.15
+				manpower_recovery_speed = 0.2
+				yearly_corruption = -0.5
+			}
+		}
+	}
+	modifiers = {
+		tolerance_own = 1
+		state_maintenance_modifier = -0.35
+		max_absolutism = -20
+	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
+}
+
+WFAS_orders_livonian_confederacy_reform = {
+	icon = "paper_with_seal"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			tag = LIV
+			tag = KUR
+			has_reform = WFAS_orders_livonian_confederacy_reform
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = WFAS_orders_livonian_confederacy_reform
+			}
+		}
+	}
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	monastic = yes
+	fixed_rank = 1
+	modifiers = {
+		trade_efficiency = 0.15
+		stability_cost_modifier = -0.3
+		max_absolutism = -20
+	}
+}
+
+WFAS_timeoftroubles_anarchy = {
+	potential = {
+		tag = RAT
+	}
+	icon = "fist_in_air"
+	allow_normal_conversion = no
+	valid_for_nation_designer = yes
+	lock_level_when_selected = yes
+	nation_designer_cost = 0
+	modifiers = {
+		governing_capacity_modifier = -0.99
+		republican_tradition = 1
+		defensiveness = 0.75
+		land_morale = 0.15
+	}
+}
+
+WFAS_timeoftroubles_duma = {
+	potential = {
+		OR = {
+			has_reform = WFAS_timeoftroubles_duma
+			have_had_reform = WFAS_timeoftroubles_duma
+		}
+	}
+	icon = "parliament_hall"
+	allow_normal_conversion = no
+	valid_for_nation_designer = yes
+	lock_level_when_selected = yes
+	nation_designer_cost = 60
+	government_abilities = {
+		russian_mechanic
+	}
+	modifiers = {
+		max_absolutism = -10
+		yearly_absolutism = 0.5
+		nobles_loyalty_modifier = 0.05
+		nobles_influence_modifier = 0.1
+	}
+	custom_attributes = {
+		enables_aristocratic_idea_group = yes
+		enables_plutocratic_idea_group = no
+		enables_nepotism = yes
+	}
+}
+
+WFAS_other_plutocracy = {
+	icon = "military_dictatorship_reform"
+	allow_normal_conversion = yes
+	legacy_equivalent = despotic_monarchy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	modifiers = {
+		merchants = 1
+		nobles_influence_modifier = -0.05
+		burghers_influence_modifier = 0.05
+		vaisyas_influence_modifier = 0.05
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		allow_draft_transport_ships = yes
+	}
+	boost_income = yes
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = {
+				has_dlc = "Mare Nostrum"
+			}
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = {
+				has_dlc = "Res Publica"
+			}
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	ai = {
+		factor = 0.75		#generic
+	}
+}
+
+enforce_trader_privileges_reform = {
+	icon = "paper_money_map"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			is_reform_available = plutocratic_reform
+			is_reform_available = WFAS_other_plutocracy
+		}
+	}
+	trigger = {
+		OR = {
+			has_reform = plutocratic_reform
+			has_reform = WFAS_other_plutocracy
+		}
+	}
+	modifiers = {
+		trade_range_modifier = 0.3
+		trade_efficiency = 0.05
+	}
+	ai = {
+		factor = 2
+		modifier = {
+			factor = 1.5
+			trade_income_percentage = 0.35
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				trade_income_percentage = 0.25
+			}
+		}
+	}
+}

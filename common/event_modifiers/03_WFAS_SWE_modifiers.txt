@@ -1,0 +1,46 @@
+WFAS_got_mit_uns = {
+	local_tax_modifier = 0.5
+	tax_income = 6
+}
+
+WFAS_new_kalmar_union = {
+	diplomatic_reputation = 1
+	diplomatic_upkeep = 1
+	diplomatic_annexation_cost = -0.25
+}
+
+WFAS_reformation_in_sweden = {
+	global_missionary_strength = 0.02
+	missionary_maintenance_cost = -0.1
+	missionaries = 1
+}
+
+WFAS_hre_humiliated = {
+	prestige = 1
+	diplomatic_reputation = 3
+	global_manpower_modifier = 0.1
+}
+
+WFAS_military_reforms = {
+	mil_tech_cost_modifier = -0.1
+}
+
+WFAS_professional_army = {
+	drill_gain_modifier = 0.2
+	drill_decay_modifier = -0.2
+}
+
+WFAS_gustavian_infantry = {
+	land_morale = 0.1
+}
+
+WFAS_swedish_naval_dominance = {
+	naval_morale = 0.1
+	global_naval_engagement_modifier = 0.1
+	disengagement_chance = 0.05
+}
+
+WFAS_poland_looted = {
+	loot_amount = 0.5
+	available_province_loot = 0.5
+}

@@ -1,0 +1,550 @@
+namespace = magnates_estate_events
+country_event = {
+	id = magnates_estate_events.1
+	title = magnates_estate_events.1.t
+	desc = magnates_estate_events.1.d
+	picture = BANKRUPTCY_eventPicture
+	trigger = {
+		has_estate = estate_magnates
+		has_estate = estate_nobles
+		estate_influence = {
+			estate = estate_nobles
+			influence = 25
+		}
+		estate_influence = {
+			estate = estate_magnates
+			influence = 25
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		add_treasury = 150
+		name = magnates_estate_events.1.a
+		ai_chance = {
+			factor = 1
+		}
+		change_statists_vs_orangists = 0.1
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -15
+		}
+	}
+	option = {
+		add_treasury = 150
+		change_statists_vs_orangists = -0.1
+		name = magnates_estate_events.1.b
+		ai_chance = {
+			factor = 1
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -15
+		}
+	}
+}
+
+country_event = {
+	id = magnates_estate_events.2
+	title = magnates_estate_events.2.t
+	desc = magnates_estate_events.2.d
+	picture = CITY_VIEW_eventPicture
+	trigger = {
+		has_estate = estate_magnates
+		estate_influence = {
+			estate = estate_nobles
+			influence = 25
+		}
+		estate_influence = {
+			estate = estate_magnates
+			influence = 25
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		add_adm_power = 50
+		name = magnates_estate_events.2.a
+		change_statists_vs_orangists = -0.1
+		ai_chance = {
+			factor = 1
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = 15
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -15
+		}
+	}
+	option = {
+		add_mil_power = 50
+		change_statists_vs_orangists = 0.1
+		name = magnates_estate_events.2.b
+		ai_chance = {
+			factor = 1
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 15
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -15
+		}
+	}
+}
+
+country_event = {
+	id = magnates_estate_events.3
+	title = magnates_estate_events.3.t
+	desc = magnates_estate_events.3.d
+	picture = FEAST_eventPicture
+	trigger = {
+		has_estate = estate_magnates
+		estate_influence = {
+			estate = estate_nobles
+			influence = 25
+		}
+		estate_influence = {
+			estate = estate_magnates
+			influence = 25
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = magnates_estate_events.3.a
+		add_stability = 1
+		add_prestige = 10
+	}
+}
+
+country_event = {
+	id = magnates_estate_events.4
+	title = magnates_estate_events.4.t
+	desc = magnates_estate_events.4.d
+	picture = FINVENTION_eventPicture
+	trigger = {
+		NOT = {
+			is_year = 1550
+		}
+		has_estate = estate_magnates
+		estate_influence = {
+			estate = estate_magnates
+			influence = 50
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = magnates_estate_events.4.a
+		add_adm_power = 100
+		add_dip_power = 100
+		add_treasury = -300
+	}
+	option = {
+		name = magnates_estate_events.4.b
+	}
+}
+
+country_event = {
+	id = magnates_estate_events.5
+	title = magnates_estate_events.5.t
+	desc = magnates_estate_events.5.d
+	picture = MERCHANTS_TALKING_eventPicture
+	trigger = {
+		has_estate = estate_magnates
+		has_estate = estate_burghers
+		estate_influence = {
+			estate = estate_magnates
+			influence = 40
+		}
+		estate_influence = {
+			estate = estate_burghers
+			influence = 40
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = magnates_estate_events.5.a
+		add_country_modifier = {
+			name = "WFAS_traders_supported"
+			duration = 7300
+		}
+		change_statists_vs_orangists = 0.1
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -10
+		}
+	}
+	option = {
+		name = magnates_estate_events.5.b
+		add_country_modifier = {
+			name = "WFAS_local_production_supported"
+			duration = 7300
+		}
+		change_statists_vs_orangists = -0.1
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -10
+		}
+	}
+}
+
+country_event = {
+	id = magnates_estate_events.6
+	title = magnates_estate_events.6.t
+	desc = magnates_estate_events.6.d
+	picture = LIBERUM_VETO_eventPicture
+	trigger = {
+		has_estate = estate_magnates
+		has_reform = elective_monarchy
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = magnates_estate_events.6.a
+		change_statists_vs_orangists = 0.1
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+		hidden_effect = {
+			random_list = {
+				33 = {
+					country_event = {
+						id = magnates_estate_events.68
+						days = 6
+						random = 6
+					}
+				}
+				33 = {
+					country_event = {
+						id = magnates_estate_events.67
+						days = 6
+						random = 6
+					}
+				}
+				33 = {
+					country_event = {
+						id = magnates_estate_events.63
+						days = 6
+						random = 6
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = magnates_estate_events.6.b
+		change_statists_vs_orangists = -0.1
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = 10
+		}
+		hidden_effect = {
+			random_list = {
+				33 = {
+					country_event = {
+						id = magnates_estate_events.64
+						days = 6
+						random = 6
+					}
+				}
+				33 = {
+					country_event = {
+						id = magnates_estate_events.65
+						days = 6
+						random = 6
+					}
+				}
+				33 = {
+					country_event = {
+						id = magnates_estate_events.63
+						days = 6
+						random = 6
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = magnates_estate_events.6.c
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -5
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -5
+		}
+		hidden_effect = {
+			random_list = {
+				33 = {
+					country_event = {
+						id = magnates_estate_events.61
+						days = 6
+						random = 6
+					}
+				}
+				33 = {
+					country_event = {
+						id = magnates_estate_events.62
+						days = 6
+						random = 6
+					}
+				}
+				33 = {
+					country_event = {
+						id = magnates_estate_events.63
+						days = 6
+						random = 6
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = magnates_estate_events.61
+	title = magnates_estate_events.61.t
+	desc = magnates_estate_events.61.d
+	picture = LIBERUM_VETO_eventPicture
+	trigger = {
+		has_estate = estate_magnates
+		has_reform = elective_monarchy
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = magnates_estate_events.61.a
+		change_statists_vs_orangists = 0.1
+		add_country_modifier = {
+			name = "WFAS_new_reforms_szlachta"
+			duration = 1825
+		}
+		hidden_effect = {
+			country_event = {
+				id = magnates_estate_events.6
+				days = 1825
+			}
+		}
+	}
+}
+
+country_event = {
+	id = magnates_estate_events.62
+	title = magnates_estate_events.62.t
+	desc = magnates_estate_events.62.d
+	picture = LIBERUM_VETO_eventPicture
+	trigger = {
+		has_estate = estate_magnates
+		has_reform = elective_monarchy
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = magnates_estate_events.62.a
+		change_statists_vs_orangists = -0.1
+		add_country_modifier = {
+			name = "WFAS_new_reforms_magnates"
+			duration = 1825
+		}
+		hidden_effect = {
+			country_event = {
+				id = magnates_estate_events.6
+				days = 1825
+			}
+		}
+	}
+}
+
+country_event = {
+	id = magnates_estate_events.63
+	title = magnates_estate_events.63.t
+	desc = magnates_estate_events.63.d
+	picture = LIBERUM_VETO_eventPicture
+	trigger = {
+		has_estate = estate_magnates
+		has_reform = elective_monarchy
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = magnates_estate_events.63.a
+		add_prestige = -10
+		hidden_effect = {
+			country_event = {
+				id = magnates_estate_events.6
+				days = 1825
+			}
+		}
+	}
+}
+
+country_event = {
+	id = magnates_estate_events.64
+	title = magnates_estate_events.61.t
+	desc = magnates_estate_events.61.d
+	picture = LIBERUM_VETO_eventPicture
+	trigger = {
+		has_estate = estate_magnates
+		has_reform = elective_monarchy
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = magnates_estate_events.61.a
+		change_statists_vs_orangists = 0.1
+		add_country_modifier = {
+			name = "WFAS_new_reforms_szlachta2"
+			duration = 1825
+		}
+		hidden_effect = {
+			country_event = {
+				id = magnates_estate_events.6
+				days = 1825
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+	}
+}
+
+country_event = {
+	id = magnates_estate_events.65
+	title = magnates_estate_events.62.t
+	desc = magnates_estate_events.62.d
+	picture = LIBERUM_VETO_eventPicture
+	trigger = {
+		has_estate = estate_magnates
+		has_reform = elective_monarchy
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = magnates_estate_events.65.a
+		change_statists_vs_orangists = -0.1
+		add_country_modifier = {
+			name = "WFAS_new_reforms_magnates2"
+			duration = 1825
+		}
+		hidden_effect = {
+			country_event = {
+				id = magnates_estate_events.6
+				days = 1825
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = 10
+		}
+	}
+}
+
+country_event = {
+	id = magnates_estate_events.68
+	title = magnates_estate_events.61.t
+	desc = magnates_estate_events.61.d
+	picture = LIBERUM_VETO_eventPicture
+	trigger = {
+		has_estate = estate_magnates
+		has_reform = elective_monarchy
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = magnates_estate_events.66.a
+		change_statists_vs_orangists = 0.1
+		add_country_modifier = {
+			name = "WFAS_new_reforms_szlachta2"
+			duration = 1825
+		}
+		hidden_effect = {
+			country_event = {
+				id = magnates_estate_events.6
+				days = 1825
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+	}
+}
+
+country_event = {
+	id = magnates_estate_events.67
+	title = magnates_estate_events.62.t
+	desc = magnates_estate_events.62.d
+	picture = LIBERUM_VETO_eventPicture
+	trigger = {
+		has_estate = estate_magnates
+		has_reform = elective_monarchy
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = magnates_estate_events.61.a
+		change_statists_vs_orangists = -0.1
+		add_country_modifier = {
+			name = "WFAS_new_reforms_magnates2"
+			duration = 1825
+		}
+		hidden_effect = {
+			country_event = {
+				id = magnates_estate_events.6
+				days = 1825
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -10
+		}
+	}
+}

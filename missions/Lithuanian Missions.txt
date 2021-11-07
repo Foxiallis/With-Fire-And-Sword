@@ -1,0 +1,1301 @@
+############### SLOT 1 ###############
+WFAS_LIT_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = LIT
+			tag = PLC
+		}
+		OR = {
+			primary_culture = lithuanian
+			primary_culture = byelorussian
+		}
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	develop_ukraine_1 = {
+		icon = mission_colonial
+		required_missions = {
+		}
+		provinces_to_highlight = {
+			region = ruthenia_region
+			NOT = {
+				development = 10
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				region = ruthenia_region
+				development = 10
+				value = 10
+			}
+		}
+		effect = {
+			ruthenia_region = {
+				limit = {
+					owned_by = root
+				}
+				add_province_modifier = {
+					name = restored_ruthenia
+					duration = -1
+				}
+			}
+		}
+	}
+	lit_ukraine_2 = {
+		icon = mission_eastern_european_city
+		required_missions = {
+			develop_ukraine_1
+		}
+		provinces_to_highlight = {
+			province_id = 280
+		}
+		trigger = {
+			280 = {
+				development = 20
+			}
+			if = {
+				limit = {
+					has_dlc = "Dharma"
+				}
+				280 = {
+					province_has_center_of_trade_of_level = 3
+				}
+			}
+			else = {
+				280 = {
+					OR = {
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+				}
+			}
+		}
+		effect = {
+			280 = {
+				add_province_modifier = {
+					name = "restoration_of_kiev"
+					duration = -1
+				}
+			}
+		}
+	}
+	lit_develop_sluck = {
+		icon = mission_noble_council
+		required_missions = {
+			lit_ukraine_2
+		}
+		provinces_to_highlight = {
+			province_id = 4545
+			NOT = {
+				OR = {
+					has_building = counting_house
+					has_building = workshop
+				}
+			}
+		}
+		trigger = {
+			4545 = {
+				has_building = textile
+				OR = {
+					has_building = counting_house
+					has_building = workshop
+				}
+			}
+			textile = 5
+		}
+		effect = {
+			if = {
+				limit = {
+					has_estate = estate_nobles
+				}
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 15
+				}
+			}
+			4545 = {
+				add_base_production = 3
+				add_province_modifier = {
+					name = "sluck_sashes"
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+############### SLOT 2 ###############
+WFAS_LIT_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = LIT
+			tag = PLC
+		}
+		OR = {
+			primary_culture = lithuanian
+			primary_culture = byelorussian
+		}
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_LIT_preach_the_word_of_god = {
+		icon = spread_piety
+		position = 2
+		required_missions = {
+			develop_ukraine_1
+		}
+		trigger = {
+			religious_unity = 0.85
+		}
+		effect = {
+			add_dip_power = 100
+			add_country_modifier = {
+				name = "WFAS_spreading_lithuanian_culture"
+				duration = 10950
+			}
+		}
+	}
+	WFAS_LIT_spread_the_culture = {
+		icon = Control_Junkers
+		position = 3
+		required_missions = {
+			WFAS_LIT_preach_the_word_of_god
+		}
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					culture = lithuanian
+				}
+				amount = 15
+			}
+		}
+		effect = {
+			add_dip_power = 100
+			add_country_modifier = {
+				name = "WFAS_spreading_lithuanian_culture"
+				duration = 10950
+			}
+		}
+	}
+	WFAS_LIT_kingdom_of_lithuania = {
+		icon = mission_empire
+		position = 5
+		required_missions = {
+			WFAS_LIT_spread_the_culture
+		}
+		trigger = {
+			prestige = 75
+			if = {
+				limit = {
+					exists = POL
+				}
+				total_development = POL
+			}
+			else = {
+				total_development = 350
+			}
+			is_at_war = no
+		}
+		effect = {
+			if = {
+				limit = {
+					has_reform = grand_duchy_reform
+				}
+				add_government_reform = autocracy_reform
+			}
+			if = {
+				limit = {
+					NOT = {
+						government_rank = 2
+					}
+				}
+				hidden_effect = {
+					set_government_rank = 2
+				}
+				custom_tooltip = WFAS_lithuanian_kingdom.tooltip
+			}
+			else = {
+				add_dip_power = 50
+				add_mil_power = 50
+				add_adm_power = 50
+			}
+			add_prestige = 10
+		}
+	}
+}
+
+############## SLOT 3 ###############
+WFAS_LIT_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = LIT
+			tag = PLC
+		}
+		OR = {
+			primary_culture = lithuanian
+			primary_culture = byelorussian
+		}
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_LIT_raise_an_army = {
+		icon = mission_recruit_streltsy
+		position = 1
+		required_missions = {
+		}
+		trigger = {
+			army_size_percentage = 0.9
+			num_of_generals = 1
+		}
+		effect = {
+			livonia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			estonia_ingria_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			curonia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	defeat_the_livonian_order = {
+		icon = mission_teutonic_knights
+		required_missions = {
+			WFAS_LIT_raise_an_army
+		}
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = livonia_area
+				area = estonia_ingria_area
+				area = curonia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			livonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			estonia_ingria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			curonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "baltic_ambition_new"
+				duration = 7300
+			}
+			malopolska_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			mazovia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			west_prussia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					NOT = {
+						NOV = {
+							OR = {
+								alliance_with = ROOT
+								is_subject_of = ROOT
+							}
+						}
+					}
+				}
+				novgorod_area = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+						}
+						NOT = {
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	WFAS_LIT_into_novgorod = {
+		icon = mission_novgorod_the_great
+		position = 4
+		required_missions = {
+			WFAS_LIT_eastern_power
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = novgorod_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			novgorod_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			310 = {
+				add_center_of_trade_level = 1
+			}
+			add_country_modifier = {
+				name = "WFAS_LIT_novgorodian_trade"
+				duration = 18250
+			}
+		}
+	}
+	WFAS_LIT_third_rome = {
+		icon = mission_conquer_novgorod
+		position = 6
+		required_missions = {
+			WFAS_LIT_subjugate_the_rus
+			WFAS_LIT_kingdom_of_lithuania
+		}
+		trigger = {
+			government_rank = 3
+			if = {
+				limit = {
+					religion = orthodox
+				}
+				AND = {
+					NOT = {
+						exists = MOS
+					}
+					NOT = {
+						exists = RUS
+					}
+					NOT = {
+						exists = UKR
+					}
+					NOT = {
+						exists = BYZ
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					religion = catholic
+				}
+				religious_unity = 1
+				papal_influence = 100
+			}
+			else = {
+				religious_unity = 1
+				capital_scope = {
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					religion_group = christian
+				}
+				capital_scope = {
+					change_province_name = "Carigradas"
+					rename_capital = "Carigradas"
+				}
+			}
+			if = {
+				limit = {
+					religion = orthodox
+				}
+				add_government_reform = tsardom
+			}
+			else_if = {
+				limit = {
+					religion = catholic
+				}
+				capital_scope = {
+					add_province_modifier = {
+						name = "WFAS_third_rome_catholic"
+						duration = -1
+					}
+				}
+			}
+			else = {
+				capital_scope = {
+					add_province_modifier = {
+						name = "WFAS_third_rome_else"
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+}
+
+############### SLOT 4 ###############
+WFAS_LIT_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = LIT
+			tag = PLC
+		}
+		OR = {
+			primary_culture = lithuanian
+			primary_culture = byelorussian
+		}
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_LIT_defeat_russian_principalities = {
+		icon = mission_consolidate_the_state
+		position = 1
+		required_missions = {
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4116
+				province_id = 300
+				province_id = 4255
+				province_id = 301
+				province_id = 2408
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 4116
+			owns_or_non_sovereign_subject_of = 300
+			owns_or_non_sovereign_subject_of = 4255
+			owns_or_non_sovereign_subject_of = 301
+			owns_or_non_sovereign_subject_of = 2408
+		}
+		effect = {
+			add_adm_power = 100
+		}
+	}
+	WFAS_LIT_deal_with_hordes = {
+		icon = consolidate_the_stadholders
+		position = 2
+		required_missions = {
+			WFAS_LIT_defeat_russian_principalities
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 299
+				province_id = 302
+				province_id = 2415
+				area = lower_don_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			299 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			302 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2415 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lower_don_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "WFAS_fighting_the_islam"
+				duration = 7300
+			}
+		}
+	}
+	WFAS_LIT_eastern_power = {
+		icon = mission_unite_home_region
+		required_missions = {
+			defeat_the_livonian_order
+			WFAS_LIT_deal_with_hordes
+			lit_conquer_crimea
+		}
+		trigger = {
+			total_development = 500
+		}
+		effect = {
+			ruthenia_region = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			crimea_region = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_casus_belli = {
+				type = cb_restore_personal_union
+				months = 300
+				target = POL
+			}
+		}
+	}
+	WFAS_LIT_raid_on_muscovy = {
+		icon = mission_steppe_warriors
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					owned_by = MOS
+					is_capital = yes
+				}
+				AND = {
+					owned_by = RUS
+					is_capital = yes
+				}
+				AND = {
+					province_id = 295
+					NOT = {
+						owned_by = MOS
+					}
+					NOT = {
+						owned_by = RUS
+					}
+					owner = {
+						NOT = {
+							exists = MOS
+						}
+					}
+					owner = {
+						NOT = {
+							exists = RUS
+						}
+					}
+				}
+			}
+			NOT = {
+				controlled_by = ROOT
+			}
+		}
+		required_missions = {
+			WFAS_LIT_eastern_power
+		}
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						exists = MOS
+						exists = RUS
+					}
+				}
+				OR = {
+					MOS = {
+						capital_scope = {
+							controlled_by = ROOT
+						}
+					}
+					RUS = {
+						capital_scope = {
+							controlled_by = ROOT
+						}
+					}
+				}
+			}
+			else = {
+				295 = {
+					owned_by = ROOT
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					exists = MOS
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = MOS
+				}
+			}
+			else_if = {
+				limit = {
+					exists = RUS
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = RUS
+				}
+			}
+			else = {
+				moscow_area = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+						}
+						NOT = {
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+				tver_area = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+						}
+						NOT = {
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+				oka_area = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+						}
+						NOT = {
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+				vladimir_area = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+						}
+						NOT = {
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	WFAS_LIT_subjugate_the_rus = {
+		icon = mission_conquer_moscow
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					owned_by = MOS
+					exists = MOS
+				}
+				AND = {
+					owned_by = RUS
+					exists = RUS
+				}
+				AND = {
+					NOT = {
+						exists = MOS
+					}
+					NOT = {
+						exists = RUS
+					}
+					OR = {
+						area = moscow_area
+						area = tver_area
+						area = oka_area
+						area = vladimir_area
+					}
+				}
+			}
+			NOT = {
+				controlled_by = ROOT
+			}
+		}
+		required_missions = {
+			WFAS_LIT_raid_on_muscovy
+		}
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						exists = MOS
+						exists = RUS
+					}
+				}
+				OR = {
+					MOS = {
+						junior_union_with = ROOT
+					}
+					RUS = {
+						junior_union_with = ROOT
+					}
+				}
+				else = {
+					moscow_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					tver_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					oka_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					vladimir_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			russia_region = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "WFAS_integrating_the_rus"
+				duration = 18250
+			}
+		}
+	}
+}
+
+############### SLOT 5 ###############
+WFAS_LIT_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = LIT
+			tag = PLC
+		}
+		OR = {
+			primary_culture = lithuanian
+			primary_culture = byelorussian
+		}
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_LIT_expand_into_steppes = {
+		icon = mission_cossack_cavalry
+		required_missions = {
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 282
+				province_id = 2406
+				province_id = 283
+			}
+		}
+		trigger = {
+			owns_core_province = 282
+			owns_core_province = 2406
+			owns_core_province = 283
+		}
+		effect = {
+			zaporizhia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			yedisan_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			crimea_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			azov_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	lit_conquer_crimea = {
+		icon = mission_crusade_for_varna
+		required_missions = {
+			WFAS_LIT_expand_into_steppes
+		}
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = zaporizhia_area
+				area = yedisan_area
+				area = crimea_area
+				area = azov_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			zaporizhia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			yedisan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			crimea_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			azov_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_core_province = 285
+		}
+		effect = {
+			add_mercantilism = 2
+			if = {
+				limit = {
+					has_dlc = "Dharma"
+					285 = {
+						NOT = {
+							province_has_center_of_trade_of_level = 3
+						}
+					}
+				}
+				285 = {
+					add_center_of_trade_level = 1
+				}
+			}
+			else = {
+				285 = {
+					add_trade_modifier = {
+						who = root
+						duration = 7300
+						power = 50
+						key = crimean_trade
+					}
+				}
+			}
+		}
+	}
+}
+
+############ PLC Missions ############
+############### SLOT 1 ###############
+WFAS_PLC_LIT_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = PLC
+		}
+		OR = {
+			primary_culture = lithuanian
+			primary_culture = byelorussian
+		}
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	lit_jag_university = {
+		icon = mission_early_modern_university
+		required_missions = {
+		}
+		position = 4
+		provinces_to_highlight = {
+			province_id = 262
+			NOT = {
+				AND = {
+					country_or_non_sovereign_subject_holds = ROOT
+					has_building = university
+				}
+			}
+		}
+		trigger = {
+			owns_core_province = 262
+			262 = {
+				has_building = university
+			}
+			university = 5
+			has_institution = printing_press
+		}
+		effect = {
+			add_prestige = 10
+			add_country_modifier = {
+				name = "renovated_jag_uni"
+				duration = 7300
+			}
+		}
+	}
+	WFAS_PLC_LIT_increased_production = {
+		icon = mission_have_manufactories
+		required_missions = {
+			lit_jag_university
+		}
+		position = 5
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					has_building = workshop
+				}
+				amount = 30
+			}
+		}
+		effect = {
+			add_years_of_income = 2
+			add_country_modifier = {
+				name = "WFAS_increased_production"
+				duration = -1
+			}
+		}
+	}
+	WFAS_PLC_LIT_industralization = {
+		icon = mission_rb_prospect_for_coal
+		required_missions = {
+			WFAS_PLC_LIT_increased_production
+		}
+		position = 6
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					has_building = furnace
+				}
+				amount = 3
+			}
+		}
+		effect = {
+			custom_tooltip = WFAS_coal_mining.tooltip
+			every_province = {
+				limit = {
+					owned_by = ROOT
+					trade_goods = coal
+				}
+				add_province_modifier = {
+					name = "WFAS_coal_mining"
+					duration = 7300
+				}
+			}
+		}
+	}
+}
+
+############### SLOT 2 ###############
+#empty
+############### SLOT 3 ###############
+#empty
+############### SLOT 4 ###############
+#empty
+############### SLOT 5 ###############
+WFAS_PLC_LIT_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = PLC
+		}
+		OR = {
+			primary_culture = lithuanian
+			primary_culture = byelorussian
+		}
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	WFAS_PLC_LIT_invasion_on_finland = {
+		icon = mission_protect_white_sea_trade
+		required_missions = {
+			WFAS_LIT_eastern_power
+		}
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = finland_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			finland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			ostra_svealand_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "WFAS_no_fear_of_cold"
+				duration = -1
+			}
+		}
+	}
+	WFAS_PLC_LIT_cross_the_baltic = {
+		icon = mission_invade_island
+		required_missions = {
+			WFAS_PLC_LIT_invasion_on_finland
+		}
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = ostra_svealand_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			ostra_svealand_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			1 = {
+				add_center_of_trade_level = 1
+			}
+			add_building = stock_exchange
+			add_mercantilism = 5
+		}
+	}
+	WFAS_PLC_LIT_mare_nostrum = {
+		icon = mission_establish_high_seas_navy
+		required_missions = {
+			WFAS_PLC_LIT_cross_the_baltic
+		}
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1
+				province_id = 2
+				province_id = 3
+				province_id = 6
+				province_id = 9
+				province_id = 11
+				province_id = 19
+				province_id = 25
+				province_id = 27
+				province_id = 28
+				province_id = 30
+				province_id = 33
+				province_id = 34
+				province_id = 35
+				province_id = 36
+				province_id = 37
+				province_id = 38
+				province_id = 39
+				province_id = 40
+				province_id = 41
+				province_id = 42
+				province_id = 43
+				province_id = 45
+				province_id = 46
+				province_id = 47
+				province_id = 48
+				province_id = 1841
+				province_id = 1842
+				province_id = 1858
+				province_id = 1930
+				province_id = 1935
+				province_id = 1981
+				province_id = 1982
+				province_id = 2994
+				province_id = 2995
+				province_id = 2996
+				province_id = 4113
+				province_id = 4165
+				province_id = 4746
+				province_id = 4745
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			owns_core_province = 1
+			owns_core_province = 2
+			owns_core_province = 3
+			owns_core_province = 6
+			owns_core_province = 9
+			owns_core_province = 11
+			owns_core_province = 19
+			owns_core_province = 25
+			owns_core_province = 27
+			owns_core_province = 28
+			owns_core_province = 30
+			owns_core_province = 33
+			owns_core_province = 34
+			owns_core_province = 35
+			owns_core_province = 36
+			owns_core_province = 37
+			owns_core_province = 38
+			owns_core_province = 39
+			owns_core_province = 40
+			owns_core_province = 41
+			owns_core_province = 42
+			owns_core_province = 43
+			owns_core_province = 45
+			owns_core_province = 46
+			owns_core_province = 47
+			owns_core_province = 48
+			owns_core_province = 1841
+			owns_core_province = 1842
+			owns_core_province = 1858
+			owns_core_province = 1930
+			owns_core_province = 1935
+			owns_core_province = 1981
+			owns_core_province = 1982
+			owns_core_province = 2994
+			owns_core_province = 2995
+			owns_core_province = 2996
+			owns_core_province = 4113
+			owns_core_province = 4165
+			owns_core_province = 4746
+			owns_core_province = 4745
+		}
+		effect = {
+			add_prestige = 50
+			add_dip_power = 200
+			add_mercantilism = 10
+			add_country_modifier = {
+				name = "WFAS_LIT_mare_nostrum"
+				duration = -1
+			}
+		}
+	}
+}

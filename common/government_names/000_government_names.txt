@@ -1,0 +1,44 @@
+WFAS_georgian_monarchy = {
+	rank = {
+		1 = BAGRATID
+		2 = BAGRATID
+		3 = GREAT_BAGRATID
+	}
+	ruler_male = {
+		1 = MEPE
+		2 = MEPE
+		3 = GREAT_MEPE
+	}
+	ruler_female = {
+		1 = MEPOBA
+		2 = MEPOBA
+		3 = GREAT_MEPOBA
+	}
+	consort_male = {
+		1 = MEPE
+		2 = MEPE
+		3 = MEPE
+	}
+	consort_female = {
+		1 = MEPOBA
+		2 = MEPOBA
+		3 = MEPOBA
+	}
+	heir_male = {
+		1 = HEIR
+		2 = MEPE
+		3 = MEPE
+	}
+	heir_female = {
+		1 = MEPOBA
+		2 = MEPOBA
+		3 = MEPOBA
+	}
+	trigger = {
+		has_reform = WFAS_georgian_monarchy
+		OR = {
+			culture = georgian
+			culture = armenian
+		}
+	}
+}

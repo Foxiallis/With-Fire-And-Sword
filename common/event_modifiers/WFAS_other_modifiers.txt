@@ -1,0 +1,52 @@
+estate_cossacks_exploration_expedition_mod = {
+	local_development_cost = -0.05
+}
+
+estate_cossacks_prime_herding_rights_mod = {
+	local_tax_modifier = -0.5
+	local_manpower_modifier = 0.25
+}
+
+WFAS_cumans = {
+	shock_damage = 0.05
+	diplomatic_reputation = -1
+	prestige = -0.5
+}
+
+WFAS_kurland_natives = {
+	native_assimilation = 0.5
+	native_uprising_chance = -0.5
+}
+
+### Georgia ###
+WFAS_GEO_fight_the_muslims = {
+	land_morale = 0.1
+}
+
+WFAS_GEO_trade_caravans = {
+	caravan_power = 0.5
+	merchants = 1
+}
+
+WFAS_GEO_georgian_development = {
+	local_development_cost = -0.1
+}
+
+WFAS_GEO_conquest_of_tabarestan = {
+	global_trade_power = 0.05
+	shock_damage_received = -0.05
+}
+
+WFAS_GEO_conquest_of_karadeniz = {
+	global_tax_modifier = 0.1
+	fire_damage_received = -0.05
+}
+
+WFAS_GEO_conquest_of_crimea = {
+	global_ship_trade_power = 0.15
+	naval_morale = 0.075
+}
+
+WFAS_georgian_wine = {
+	trade_goods_size = 1
+}

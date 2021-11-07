@@ -1,0 +1,84 @@
+WFAS_kurland_missions = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = KUR
+	}
+	has_country_shield = yes
+	WFAS_kurland_gambia = {
+		icon = mission_rb_take_gibraltar
+		required_missions = {
+		}
+		position = 1
+		trigger = {
+			owns = 2239
+			2239 = {
+				is_colony = no
+			}
+		}
+		effect = {
+			add_prestige = 10
+			guinea_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	WFAS_kurland_tobago = {
+		icon = mission_caribbean_cn
+		required_missions = {
+		}
+		position = 2
+		trigger = {
+			owns = 502
+			502 = {
+				is_colony = no
+			}
+		}
+		effect = {
+			add_prestige = 10
+			colombia_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	WFAS_kurland_baltic_nation = {
+		icon = mission_conquer_riga
+		required_missions = {
+		}
+		position = 3
+		trigger = {
+			38 = {
+				has_most_province_trade_power = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "WFAS_kurland_natives"
+				duration = -1
+			}
+		}
+	}
+	WFAS_kurland_colonial_nation = {
+		icon = mission_colonize_the_caribbean
+		required_missions = {
+			WFAS_kurland_baltic_nation
+		}
+		position = 4
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = WFAS_kurland_colonies
+				colony = 3
+			}
+		}
+		effect = {
+			every_subject_country = {
+				limit = {
+					is_colonial_nation = yes
+				}
+				add_tariff_value = 0.5
+				add_liberty_desire = -50
+			}
+		}
+	}
+}

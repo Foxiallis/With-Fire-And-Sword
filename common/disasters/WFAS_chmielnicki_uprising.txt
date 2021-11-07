@@ -1,0 +1,108 @@
+WFAS_chmielnicki_uprising = {
+	potential = {
+		normal_or_historical_nations = yes
+		OR = {
+			tag = POL
+			tag = PLC
+			tag = LIT
+		}
+		is_year = 1630
+		NOT = {
+			has_global_flag = WFAS_chmielnicki_uprising_happened
+		}
+		NOT = {
+			exists = ZAZ
+		}
+		num_of_owned_provinces_with = {
+			value = 3
+			region = ruthenia_region
+		}
+		owns_core_province = 283
+	}
+	can_start = {
+		custom_trigger_tooltip = {
+			tooltip = WFAS_chmielnicki_got_upset
+			has_country_flag = WFAS_chmielnicki_upset_flag
+		}
+	}
+	can_stop = {
+		OR = {
+			ZAZ = {
+				exists = yes
+				is_subject = no
+			}
+			has_any_disaster = yes
+		}
+	}
+	progress = {
+		modifier = {
+			factor = 1
+			custom_trigger_tooltip = {
+				tooltip = WFAS_chmielnicki_got_upset
+				has_country_flag = WFAS_chmielnicki_upset_flag
+			}
+		}
+		modifier = {
+			factor = 1
+			OR = {
+				has_country_modifier = WFAS_poland_uniates_catholic
+				has_country_modifier = WFAS_poland_uniates_orthodox
+			}
+		}
+		modifier = {
+			factor = 1
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 1
+			estate_influence = {
+				estate = estate_cossacks
+				influence = 50
+			}
+		}
+	}
+	can_end = {
+		custom_trigger_tooltip = {
+			tooltip = WFAS_chmielnicki_end_tooltip
+			OR = {
+				has_country_flag = WFAS_chmielnicki_rtn
+				has_country_flag = WFAS_chmielnicki_russia
+				has_country_flag = WFAS_chmielnicki_defeated
+				has_country_flag = WFAS_chmielnicki_submitted
+			}
+		}
+		NOT = {
+			num_of_rebel_controlled_provinces = 1
+		}
+		NOT = {
+			num_of_rebel_armies = 1
+		}
+	}
+	modifier = {
+		global_unrest = 4
+		war_exhaustion = 0.05
+	}
+	on_start = WFAS_chmielnicki.3
+	on_end = WFAS_chmielnicki.4
+	on_monthly = {
+		events = {
+			WFAS_chmielnicki.5			#Hetmanate
+			WFAS_chmielnicki.28			#Ruin
+			WFAS_chmielnicki.29			#Peace of Andruszow
+			WFAS_chmielnicki.30			#Chmielnicki Crushed
+		}
+		random_events = {
+			100 = WFAS_chmielnicki_flavor.8			#Peryna, Latyna, Dytyna
+			100 = WFAS_chmielnicki_flavor.9			#Jeremi Wisniowiecki
+			100 = WFAS_chmielnicki_flavor.10			#Magnates dont like war
+			100 = WFAS_chmielnicki_flavor.11			#Szlachta joins
+			100 = WFAS_chmielnicki_flavor.12			#Treaty not cool
+			100 = WFAS_chmielnicki.26			#Hetmanate Entrenches
+			100 = WFAS_chmielnicki.27			#Union of Hadziak
+			50 = WFAS_chmielnicki.17			#Battle of Zwaniec
+			50 = WFAS_chmielnicki.21			#Treaty of Zborow
+			50 = WFAS_chmielnicki.23			#Treaty of Bila Tserkva
+			1000 = 0
+		}
+	}
+}

@@ -1,0 +1,563 @@
+namespace = WFAS_elective_monarchy_events
+#interregnum in pl
+country_event = {
+	id = WFAS_elective_monarchy_events.1
+	title = WFAS_elective_monarchy_events.1.t
+	desc = WFAS_elective_monarchy_events.1.d
+	picture = DEATH_OF_HEIR_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		has_government_attribute = lottery_election
+		has_reform = elective_monarchy
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.1.a
+		custom_tooltip = WFAS_elective_monarchy_event1.tooltip
+		add_stability = -1
+		hidden_effect = {
+			country_event = {
+				id = WFAS_elective_monarchy_events.2
+				days = 90
+				random = 90
+			}
+		}
+	}
+}
+
+# election
+country_event = {
+	id = WFAS_elective_monarchy_events.2
+	title = WFAS_elective_monarchy_events.2.t
+	desc = WFAS_elective_monarchy_events.2.desc
+	picture = LIBERUM_VETO_eventPicture
+	is_triggered_only = yes
+	major = yes
+	trigger = {
+		has_government_attribute = lottery_election
+		has_reform = elective_monarchy
+	}
+	after = {
+		clear_global_event_target = WFAS_POL_same_continent_country
+		clear_global_event_target = WFAS_POL_friend_country
+		clear_global_event_target = WFAS_POL_ally_country
+		clear_global_event_target = WFAS_POL_marriage_country
+		clear_global_event_target = WFAS_POL_lit_target
+		ROOT = {
+			clr_country_flag = WFAS_POL_same_continent_country_present
+			clr_country_flag = WFAS_POL_friend_country_present
+			clr_country_flag = WFAS_POL_ally_country_present
+			clr_country_flag = WFAS_POL_marriage_country_present
+		}
+		set_ruler_flag = WFAS_elected
+	}
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					government = monarchy
+					NOT = {
+						tag = LIT
+					}
+					NOT = {
+						tag = PAP
+					}
+					NOT = {
+						tag = POL
+					}
+					NOT = {
+						tag = PLC
+					}
+					same_continent = ROOT
+					total_development = 75
+					religion_group = ROOT
+				}
+				save_global_event_target_as = WFAS_POL_same_continent_country
+			}
+			ROOT = {
+				set_country_flag = WFAS_POL_same_continent_country_present
+			}
+			if = {
+				limit = {
+					num_of_allies = 1
+				}
+				random_ally = {
+					limit = {
+						government = monarchy
+						religion_group = ROOT
+					}
+					save_global_event_target_as = WFAS_POL_ally_country
+				}
+				ROOT = {
+					set_country_flag = WFAS_POL_ally_country_present
+				}
+			}
+			if = {
+				limit = {
+					exists = LIT
+				}
+				LIT = {
+					save_global_event_target_as = WFAS_POL_lit_target
+				}
+			}
+			if = {
+				limit = {
+					num_of_royal_marriages = 1
+				}
+				random_country = {
+					limit = {
+						government = monarchy
+						NOT = {
+							tag = LIT
+						}
+						marriage_with = ROOT
+						religion_group = ROOT
+					}
+					save_global_event_target_as = WFAS_POL_marriage_country
+				}
+				ROOT = {
+					set_country_flag = WFAS_POL_marriage_country_present
+				}
+			}
+			if = {
+				limit = {
+					any_country = {
+						government = monarchy
+						religion_group = ROOT
+						same_continent = ROOT
+						has_opinion = {
+							who = ROOT
+							value = 120
+						}
+						NOT = {
+							marriage_with = ROOT
+						}
+						NOT = {
+							alliance_with = ROOT
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						government = monarchy
+						religion_group = ROOT
+						same_continent = ROOT
+						NOT = {
+							tag = PAP
+						}
+						has_opinion = {
+							who = ROOT
+							value = 120
+						}
+						NOT = {
+							marriage_with = ROOT
+						}
+						NOT = {
+							alliance_with = ROOT
+						}
+					}
+					save_global_event_target_as = WFAS_POL_friend_country
+				}
+				ROOT = {
+					set_country_flag = WFAS_POL_friend_country_present
+				}
+			}
+		}
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.2.a
+		ai_chance = {
+			factor = 3
+		}
+		if = {
+			limit = {
+				has_reform = legislative_sejm
+			}
+			define_ruler = {
+				culture = root
+				male = yes
+				min_age = 30
+				max_age = 60
+				culture = ROOT
+				religion = ROOT
+				claim = 95
+			}
+			custom_tooltip = WFAS_elective_monarchy_event4.tooltip
+			hidden_effect = {
+				change_mil = 1
+				change_dip = 1
+				change_adm = 1
+			}
+		}
+		else = {
+			define_ruler = {
+				culture = root
+				male = yes
+				min_age = 30
+				max_age = 60
+				culture = ROOT
+				religion = ROOT
+				claim = 95
+			}
+		}
+		set_ruler_flag = WFAS_elected_polish_country
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.2.b
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {
+			exists = LIT
+		}
+		define_ruler = {
+			dynasty = event_target:WFAS_POL_lit_target
+			culture = lithuanian
+			religion = ROOT
+			male = yes
+			min_age = 30
+			max_age = 60
+			#adm = -2
+			#dip = -2
+			#mil = -2
+			claim = 90
+		}
+		set_ruler_flag = WFAS_elected_lithuanian_country
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.2.c
+		trigger = {
+			event_target:WFAS_POL_same_continent_country = {
+				government = monarchy
+			}
+			has_country_flag = WFAS_POL_same_continent_country_present
+		}
+		ai_chance = {
+			factor = 2
+		}
+		define_ruler = {
+			culture = event_target:WFAS_POL_same_continent_country
+			dynasty = event_target:WFAS_POL_same_continent_country
+			religion = event_target:WFAS_POL_same_continent_country
+			male = yes
+			min_age = 20
+			max_age = 50
+			#adm = -1
+			#dip = -1
+			#mil = -1
+			claim = 75
+		}
+		set_ruler_flag = WFAS_elected_same_continent_country
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.2.d
+		ai_chance = {
+			factor = 5
+		}
+		trigger = {
+			event_target:WFAS_POL_ally_country = {
+				government = monarchy
+			}
+			has_country_flag = WFAS_POL_ally_country_present
+		}
+		define_ruler = {
+			culture = event_target:WFAS_POL_ally_country
+			dynasty = event_target:WFAS_POL_ally_country
+			male = yes
+			min_age = 30
+			max_age = 60
+			#adm = 0
+			#dip = 0
+			#mil = 2
+			claim = 75
+			religion = event_target:WFAS_POL_ally_country
+		}
+		set_ruler_flag = WFAS_elected_ally_country
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.2.e
+		ai_chance = {
+			factor = 5
+		}
+		trigger = {
+			has_country_flag = WFAS_POL_marriage_country_present
+			event_target:WFAS_POL_marriage_country = {
+				government = monarchy
+			}
+		}
+		define_ruler = {
+			culture = event_target:WFAS_POL_marriage_country
+			dynasty = event_target:WFAS_POL_marriage_country
+			male = yes
+			min_age = 30
+			max_age = 60
+			#adm = 0
+			#dip = 2
+			#mil = 0
+			claim = 95
+			religion = event_target:WFAS_POL_marriage_country
+		}
+		set_ruler_flag = WFAS_elected_marriage_country
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.2.f
+		ai_chance = {
+			factor = 5
+		}
+		trigger = {
+			has_country_flag = WFAS_POL_friend_country_present
+			event_target:WFAS_POL_friend_country = {
+				government = monarchy
+			}
+		}
+		define_ruler = {
+			culture = event_target:WFAS_POL_friend_country
+			dynasty = event_target:WFAS_POL_friend_country
+			male = yes
+			min_age = 30
+			max_age = 60
+			#adm = 2
+			#dip = 0
+			#mil = 0
+			claim = 90
+			religion = event_target:WFAS_POL_friend_country
+		}
+		set_ruler_flag = WFAS_elected_friend_country
+	}
+}
+
+# ruler runs away from pl
+country_event = {
+	id = WFAS_elective_monarchy_events.3
+	title = WFAS_elective_monarchy_events.3.t
+	desc = WFAS_elective_monarchy_events.3.d
+	picture = OVEREXTENSION_eventPicture
+	trigger = {
+		has_government_attribute = lottery_election
+		has_reform = elective_monarchy
+		has_ruler_flag = WFAS_elected
+		has_regency = no
+		NOT = {
+			has_country_flag = WFAS_monarch_has_escaped
+		}
+		is_at_war = no
+		NOT = {
+			adm = 3
+		}
+		NOT = {
+			mil = 3
+		}
+		NOT = {
+			dip = 3
+		}
+	}
+	mean_time_to_happen = {
+		days = 730
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.3.a
+		set_country_flag = WFAS_monarch_has_escaped
+		custom_tooltip = WFAS_elective_monarchy_event3.tooltip
+		custom_tooltip = WFAS_elective_monarchy_event1.tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					has_estate_privilege = estate_magnates_priviliges_and_promises
+				}
+				remove_estate_privilege = estate_magnates_priviliges_and_promises
+			}
+			if = {
+				limit = {
+					has_estate_privilege = estate_nobles_priviliges_and_promises
+				}
+				remove_estate_privilege = estate_nobles_priviliges_and_promises
+			}
+			define_ruler = {
+				name = "(Interregnum)"
+				adm = 0
+				mil = 0
+				dip = 0
+				max_random_adm = 0
+				max_random_dip = 0
+				max_random_mil = 0
+				regency = yes
+			}
+			country_event = {
+				id = WFAS_elective_monarchy_events.2
+				days = 90
+				random = 90
+			}
+		}
+	}
+}
+
+#privilages after election
+country_event = {
+	id = WFAS_elective_monarchy_events.4
+	title = WFAS_elective_monarchy_events.4.t
+	desc = WFAS_elective_monarchy_events.4.d
+	picture = NOBLE_ESTATE_eventPicture
+	trigger = {
+		has_government_attribute = lottery_election
+		has_reform = elective_monarchy
+		has_ruler_flag = WFAS_elected
+		has_regency = no
+		NOT = {
+			has_ruler_flag = WFAS_privilages_after_election
+		}
+	}
+	mean_time_to_happen = {
+		days = 30
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.4.a
+		set_ruler_flag = WFAS_privilages_after_election
+		change_statists_vs_orangists = 0.1
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = 1
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+		custom_tooltip = SEPERATOR_TOOLTIP
+		set_estate_privilege = estate_nobles_priviliges_and_promises
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.4.b
+		set_ruler_flag = WFAS_privilages_after_election
+		change_statists_vs_orangists = -0.1
+		change_estate_land_share = {
+			estate = estate_magnates
+			share = 1
+		}
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = 10
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+		custom_tooltip = SEPERATOR_TOOLTIP
+		set_estate_privilege = estate_magnates_priviliges_and_promises
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.4.c
+		set_ruler_flag = WFAS_privilages_after_election
+		add_estate_loyalty = {
+			estate = estate_magnates
+			loyalty = -20
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -20
+		}
+		add_prestige = 10
+		add_legitimacy = -10
+		if = {
+			limit = {
+				OR = {
+					current_age = age_of_absolutism
+					current_age = age_of_revolutions
+				}
+			}
+			add_absolutism = 5
+		}
+		custom_tooltip = SEPERATOR_TOOLTIP
+		if = {
+			limit = {
+				current_age = age_of_discovery
+			}
+			random = {
+				chance = 20
+				random_owned_province = {
+					spawn_rebels = {
+						type = noble_rebels
+						size = 1
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				current_age = age_of_reformation
+			}
+			random = {
+				chance = 33
+				random_owned_province = {
+					spawn_rebels = {
+						type = noble_rebels
+						size = 2
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				current_age = age_of_absolutism
+			}
+			random = {
+				chance = 50
+				random_owned_province = {
+					spawn_rebels = {
+						type = noble_rebels
+						size = 3
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				current_age = age_of_revolutions
+			}
+			random = {
+				chance = 75
+				random_owned_province = {
+					spawn_rebels = {
+						type = noble_rebels
+						size = 3
+					}
+				}
+			}
+		}
+	}
+}
+
+# influencial noble coup
+country_event = {
+	id = WFAS_elective_monarchy_events.5
+	title = WFAS_elective_monarchy_events.5.t
+	desc = WFAS_elective_monarchy_events.5.d
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+	trigger = {
+		has_government_attribute = lottery_election
+		has_reform = elective_monarchy
+		has_ruler_flag = WFAS_elected
+		NOT = {
+			has_ruler_flag = WFAS_elected_polish_country
+		}
+		NOT = {
+			has_country_flag = WFAS_noble_coup
+		}
+		has_regency = no
+		is_at_war = no
+	}
+	mean_time_to_happen = {
+		days = 120
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.5.a
+		set_country_flag = WFAS_noble_coup
+		random_owned_province = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+			}
+		}
+	}
+}

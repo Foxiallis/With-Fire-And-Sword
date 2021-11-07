@@ -1,0 +1,126 @@
+pol_struggle_for_royal_power_disaster = {
+	potential = {
+		OR = {
+			AND = {
+				tag = POL
+				NOT = {
+					exists = PLC
+				}
+			}
+			tag = PLC
+		}
+		normal_or_historical_nations = yes
+		current_age = age_of_absolutism
+		NOT = {
+			has_country_flag = pol_zebrzydowski_rebellion_flag
+		}
+		is_lesser_in_union = no
+	}
+	can_start = {
+		OR = {
+			current_age = age_of_absolutism
+			current_age = age_of_revolutions
+		}
+		has_reform = elective_monarchy
+		absolutism = 40
+		has_regency = no
+		NOT = {
+			has_estate_privilege = estate_magnates_anti_absolutism
+		}
+	}
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			NOT = {
+				has_reform = elective_monarchy
+			}
+			AND = {
+				NOT = {
+					current_age = age_of_absolutism
+				}
+				NOT = {
+					current_age = age_of_revolutions
+				}
+			}
+			has_estate_privilege = estate_magnates_anti_absolutism
+		}
+	}
+	progress = {
+		modifier = {
+			factor = 2
+			has_country_flag = librium_veto
+		}
+		modifier = {
+			factor = 1
+			has_reform = elective_monarchy
+		}
+		modifier = {
+			factor = 1
+			revanchism = 10
+		}
+		modifier = {
+			factor = 2
+			has_estate_privilege = estate_nobles_nieszawa_privileges
+		}
+		modifier = {
+			factor = 10
+			NOT = {
+				has_estate_privilege = estate_nobles_golden_liberty
+			}
+		}
+		modifier = {
+			factor = 2
+			NOT = {
+				crown_land_share = 50
+			}
+		}
+		modifier = {
+			factor = 2
+			estate_influence = {
+				estate = estate_nobles
+				influence = 50
+			}
+		}
+	}
+	can_end = {
+		NOT = {
+			has_reform = elective_monarchy
+		}
+	}
+	modifier = {
+		global_unrest = 8
+		stability_cost_modifier = 0.25
+		global_trade_goods_size_modifier = -0.25
+	}
+	on_start = WFAS_flavor_events_pol.17	# Death of Zamoyski
+	on_end = WFAS_flavor_events_pol.16	# Struggle for royal power ends
+	on_monthly = {
+		events = {
+			WFAS_flavor_events_pol.21			# Rising Unrest - starting event
+			WFAS_flavor_events_pol.12			# Konfederacja - choice 1 - absolutism
+			WFAS_flavor_events_pol.13			# Rokosz Sandomierski - choice 2 - absolutism
+			WFAS_flavor_events_pol.14			# Pacification Sejm - ending - absolutism
+			WFAS_flavor_events_pol.15			# Sejm Seize Control - ending - absolutism
+			WFAS_flavor_events_pol.22			# Szlachta Rumors - choice 1 - elective
+			WFAS_flavor_events_pol.23			# Szlachta Uprising - choice 2 - elective
+			WFAS_flavor_events_pol.24			# Szlachta enforces their demands - ending - elective
+			WFAS_flavor_events_pol.25			# Pacification of Szlachta - ending - elective
+			WFAS_flavor_events_pol.26			# Disloyal Advisors - choice 1 - noble republic
+			WFAS_flavor_events_pol.27			# Magnates Uprising - choice 2 - noble republic
+			WFAS_flavor_events_pol.28			# Magnates enforce their demands - ending - noble republic
+			WFAS_flavor_events_pol.29			# Pacification of Magnates - ending - noble republic
+		}
+		random_events = {
+			500 = WFAS_flavor_events_pol.18			# Chodkiewicz
+			100 = WFAS_flavor_events_pol.20			# Rebellion of Magnate
+			100 = WFAS_flavor_events_pol.30			# New soldiers
+			300 = WFAS_flavor_events_pol.31			# General's resignation
+			300 = WFAS_flavor_events_pol.32			# Monarch and General
+			200 = WFAS_flavor_events_pol.33			# Problems with grain export
+			200 = WFAS_flavor_events_pol.34			# Deserting Soldiers
+			200 = WFAS_flavor_events_pol.35			# Disorganization in army
+			300 = WFAS_flavor_events_pol.36			# Religious Turmoil in Gdańsk 
+			2000 = 0
+		}
+	}
+}

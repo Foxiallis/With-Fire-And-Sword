@@ -1,0 +1,51 @@
+WFAS_spreading_lithuanian_culture = {
+	culture_conversion_cost = -0.3
+}
+
+WFAS_fighting_the_islam = {
+	global_missionary_strength = 0.02
+	tolerance_own = 1
+}
+
+WFAS_integrating_the_rus = {
+	diplomatic_annexation_cost = -0.33
+}
+
+WFAS_third_rome_catholic = {
+	tolerance_own = 1
+	missionaries = 1
+	global_missionary_strength = 0.02
+	manpower_in_true_faith_provinces = 0.15
+	papal_influence = 1
+}
+
+WFAS_third_rome_else = {
+	tolerance_own = 1
+	missionaries = 1
+	global_missionary_strength = 0.02
+	manpower_in_true_faith_provinces = 0.15
+}
+
+WFAS_LIT_novgorodian_trade = {
+	trade_efficiency = 0.1
+	trade_steering = 0.2
+}
+
+WFAS_increased_production = {
+	production_efficiency = 0.1
+}
+
+WFAS_coal_mining = {
+	trade_goods_size = 0.5
+}
+
+WFAS_no_fear_of_cold = {
+	land_attrition = -0.2
+}
+
+WFAS_LIT_mare_nostrum = {
+	mercantilism_cost = -0.33
+	center_of_trade_upgrade_cost = -0.2
+	embargo_efficiency = 0.25
+	global_trade_power = 0.1
+}
