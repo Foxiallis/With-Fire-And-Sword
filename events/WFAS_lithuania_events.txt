@@ -84,9 +84,8 @@ country_event = {
 				define_ruler = {
 					name = "Janusz II"
 					dynasty = "Radziwill"
-					adm = 2
-					dip = 2
-					mil = 0
+					change_adm = 2
+					change_dip = 2
 					age = 30
 					claim = 50
 				}

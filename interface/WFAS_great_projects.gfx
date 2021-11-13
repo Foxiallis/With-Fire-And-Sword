@@ -8,7 +8,7 @@ spriteTypes = {
 		texturefile = "gfx//interface//great_projects//st_basil_cathedral.dds"
 	}
 	spriteType = {
-		name = "GFX_great_project_WFAS_winter_palace"
+		name = "GFX_great_project_winter_palace"
 		texturefile = "gfx//interface//great_projects//winter_palace.dds"
 	}
 	spriteType = {

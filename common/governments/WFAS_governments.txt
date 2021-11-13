@@ -1,107 +1,215 @@
-theocracy = {
-	color = {
-		75
-		170
-		75
-	}
-	basic_reform = theocracy_mechanic
-	legacy_government = {
-		papal_government
-		theocratic_government
-		monastic_order_government
-		holy_state_legacy
-	}
+
+monarchy = {
 	reform_levels = {
-		theocratic_leadership = {
+		feudalism_vs_autocracy = {
 			reforms = {
-				leading_clergy_reform
-				monastic_order_reform
-				papacy_reform
+				feudalism_reform
+				autocracy_reform
+				plutocratic_reform
+				indian_sultanate_reform
+				nayankara_reform
+				misl_confederacy_reform
+				rajput_kingdom
+				negusa_nagast
+				solomonic_empire
+				#Specific:
+				grand_duchy_reform
+				daimyo
+				indep_daimyo
+				elective_monarchy
+				iqta
+				ottoman_government
+				prussian_monarchy
+				austrian_dual_monarchy
+				principality
+				tsardom
+				mamluk_government
+				feudal_theocracy
+				celestial_empire
+				shogunate
+				english_monarchy
+				mandala_reform
+				revolutionary_empire_reform
 				holy_state_reform
-				united_cantons_reform
-				WFAS_orders_dual_order_reform
-				WFAS_orders_livonian_confederacy_reform
+				austrian_archduchy_reform
+				siamese_absolutism
+				confucian_bureaucracy
+				musa_rule
+				mossi_federal_kingdom
+				WFAS_other_plutocracy
+				WFAS_georgian_monarchy
 			}
 		}
-		internal_vs_external_mission = {
+		hereditary_vs_nobility = {
 			reforms = {
-				internal_mission_reform
-				external_mission_reform
-				mission_to_civilize_reform
-				mission_to_kill_pirates_reform
+				enforce_privileges_reform
+				quash_noble_power_reform
+				enforce_trader_privileges_reform
+				bengali_reform
+				sufi_syncretism_reform
+				poligar_reform
+				khalsa_reform
+				deccani_society_reform
+				mughal_government
+				black_army_reform
+				legion_of_honor_reform
+				imperial_nobility_reform
+				uparaja_reform
 			}
 		}
-		divine_cause = {
+		bureaucracy = {
 			reforms = {
-				safeguard_holy_sites_reform
-				combat_heresy_reform
-				expel_heathens_reform
-				guru_advisors_reform
-				kingdom_of_god_reform
+				centralize_reform
+				decentralize_reform
+				sidhi_recruitment
+				mansabdari_reform
+				council_of_the_indies_reform
+				penal_colonies_reform
+				liberte_reform
+				fraternite_reform
+				examination_system_reform
+				corvee_reform
 			}
 		}
-		clergy_in_administration = {
+		growth_of_administration = {
 			reforms = {
-				subservient_administrators_reform
-				religious_administrators_reform
+				clergy_in_administration_reform
+				of_noble_bearing_reform
+				meritocratic_focus_reform
+				dakhni_culture_reform
+				zabt_reform
 				permanent_marathas_council_reform
 				governmental_purbias_register_reform
-				loyal_nobility_reform
-				pious_merchants_reform
-				monastic_breweries_reform
-				warrior_monks_reform
+				revolutionary_principle_reform
+				equality_principle_reform
+				imperial_principle_reform
+				sakdina_system_reform
 			}
 		}
-		secularization = {
+		deliberative_assembly = {
 			reforms = {
-				partial_secularisation_reform
-				maintain_religious_head_reform
-				hereditary_religious_leadership_reform
-				crown_leader_reform
-				proclaim_republic_reform
-				battle_pope_reform
-				conciliarism_reform
+				parliamentary_reform
+				royal_decree_reform
+				aristocratic_court_reform
+				general_estates_reform
+				states_general_reform
+				legislative_sejm
+				integrated_sejmiks
+				feuillant_reform
+				two_chamber_reform
+				imperial_decree_reform
 			}
 		}
-		separation_of_power_theocracy = {
+		absolute_rule_vs_constitutional = {
 			reforms = {
-				clerical_commission_reform
-				divine_guidance_reform
-				theocratic_democracy_reform
-				regionally_elected_commanders
-				monastic_elections_reform
-				commander_king_reform
-				admiral_king_reform
+				letat_cest_moi_reform
+				regional_representation_reform
+				consulate_reform
+				military_electorate_reform
 			}
 		}
-		nature_of_faith = {
+		separation_of_power = {
 			reforms = {
-				church_and_state_reform
-				religious_harmony_reform
-				god_and_man_reform
-				organising_our_religion_reform
-			}
-		}
-		faith_and_the_world = {
-			reforms = {
-				religion_in_one_country_reform
-				religious_permanent_revolution_reform
-				many_fingers_of_god_reform
-				priestly_autonomy_reform
-				proclaim_religious_head_reform
-				all_under_tengri_reform
+				political_absolutism_reform
+				legislative_houses_reform
+				become_a_republic_reform
+				install_theocratic_government_reform
+				emperor_of_the_revolution_reform
+				enlightened_monarchy_reform
+				become_rev_republic_reform
 			}
 		}
 	}
+
+	basic_reform = monarchy_mechanic
+
+	legacy_government = {
+		despotic_monarchy
+		feudal_monarchy
+		administrative_monarchy
+		constitutional_monarchy
+		enlightened_despotism
+		revolutionary_empire
+		english_monarchy_legacy
+		mamluk_government_legacy
+		feudal_theocracy_legacy
+		elective_monarchy_legacy
+		celestial_empire_legacy
+		ottoman_government_legacy
+		prussian_monarchy_legacy
+		iqta_legacy
+		daimyo_legacy
+		shogunate_legacy
+		indep_daimyo_legacy
+		principality_legacy
+		tsardom_legacy
+		holy_state_legacy
+		negusa_nagast_legacy
+		solomonic_empire_legacy
+		musa_rule_legacy
+		mossi_federal_kingdom_legacy
+	}
+
+	# Each group of exclusive reforms are mutually exclusive to each other
+
+	#Flavor
+	exclusive_reforms = {
+		iqta
+		indian_sultanate_reform
+		mamluk_government
+		tsardom
+		principality
+		parliamentary_reform
+		english_monarchy
+		states_general_reform
+	}
+	
+	# Dictatorships etc
+	exclusive_reforms = {
+		military_dictatorship_reform
+		protectorate_parliament_reform
+		prussian_republic_reform
+		admiralty_reform
+		nepotism_reform
+		lottery_reform
+		dutch_republic
+	}
+
+	#States General works with few others
+	exclusive_reforms = {
+		mamluk_government
+		feudal_theocracy
+		states_general_reform
+		mughal_government
+		ottoman_government
+		revolutionary_empire_reform
+		prussian_monarchy
+		elective_monarchy
+		celestial_empire
+	}
+
+	#Flavor
+	exclusive_reforms = {
+		daimyo
+		shogunate
+		indep_daimyo
+		states_general_reform
+		parliamentary_reform
+	}
+
+	#Effects conflict with each other
+	exclusive_reforms = {
+		mughal_government
+		decentralize_reform
+	}
+
+	color = { 179 25 25 }
 }
 
 republic = {
 	basic_reform = republic_mechanic
-	color = {
-		65
-		155
-		220
-	}
+
+	color = { 65 155 220 }
 	legacy_government = {
 		bureaucratic_despotism
 		revolutionary_republic
@@ -146,6 +254,7 @@ republic = {
 				veche_republic
 				american_republic
 				federal_republic
+				colonial_government
 				crown_colony_government
 				private_enterprise_colony_government
 				self_governing_colony_government
@@ -292,11 +401,11 @@ republic = {
 	}
 	exclusive_reforms = {
 		free_city
+		WFAS_timeoftroubles_anarchy
 		administrative_divisions_reform
 	}
 	exclusive_reforms = {
 		free_city
-		WFAS_timeoftroubles_anarchy
 		presidential_reform
 	}
 	exclusive_reforms = {
@@ -305,207 +414,10 @@ republic = {
 	}
 }
 
-monarchy = {
-	reform_levels = {
-		feudalism_vs_autocracy = {
-			reforms = {
-				feudalism_reform
-				autocracy_reform
-				plutocratic_reform
-				indian_sultanate_reform
-				nayankara_reform
-				misl_confederacy_reform
-				rajput_kingdom
-				#Specific:
-				grand_duchy_reform
-				daimyo
-				indep_daimyo
-				elective_monarchy
-				iqta
-				ottoman_government
-				prussian_monarchy
-				austrian_dual_monarchy
-				principality
-				tsardom
-				mamluk_government
-				feudal_theocracy
-				celestial_empire
-				shogunate
-				english_monarchy
-				mandala_reform
-				revolutionary_empire_reform
-				holy_state_reform
-				austrian_archduchy_reform
-				siamese_absolutism
-				confucian_bureaucracy
-				WFAS_other_plutocracy
-				WFAS_georgian_monarchy
-			}
-		}
-		hereditary_vs_nobility = {
-			reforms = {
-				enforce_privileges_reform
-				quash_noble_power_reform
-				enforce_trader_privileges_reform
-				bengali_reform
-				sufi_syncretism_reform
-				poligar_reform
-				khalsa_reform
-				deccani_society_reform
-				mughal_government
-				black_army_reform
-				legion_of_honor_reform
-				imperial_nobility_reform
-				uparaja_reform
-			}
-		}
-		bureaucracy = {
-			reforms = {
-				centralize_reform
-				decentralize_reform
-				sidhi_recruitment
-				mansabdari_reform
-				council_of_the_indies_reform
-				penal_colonies_reform
-				liberte_reform
-				fraternite_reform
-				examination_system_reform
-				corvee_reform
-			}
-		}
-		growth_of_administration = {
-			reforms = {
-				clergy_in_administration_reform
-				of_noble_bearing_reform
-				meritocratic_focus_reform
-				dakhni_culture_reform
-				zabt_reform
-				permanent_marathas_council_reform
-				governmental_purbias_register_reform
-				revolutionary_principle_reform
-				equality_principle_reform
-				imperial_principle_reform
-				sakdina_system_reform
-			}
-		}
-		deliberative_assembly = {
-			reforms = {
-				parliamentary_reform
-				royal_decree_reform
-				aristocratic_court_reform
-				general_estates_reform
-				states_general_reform
-				legislative_sejm
-				integrated_sejmiks
-				feuillant_reform
-				two_chamber_reform
-				imperial_decree_reform
-			}
-		}
-		absolute_rule_vs_constitutional = {
-			reforms = {
-				letat_cest_moi_reform
-				regional_representation_reform
-				consulate_reform
-				military_electorate_reform
-			}
-		}
-		separation_of_power = {
-			reforms = {
-				political_absolutism_reform
-				legislative_houses_reform
-				become_a_republic_reform
-				install_theocratic_government_reform
-				emperor_of_the_revolution_reform
-				enlightened_monarchy_reform
-				become_rev_republic_reform
-			}
-		}
-	}
-	basic_reform = monarchy_mechanic
-	legacy_government = {
-		despotic_monarchy
-		feudal_monarchy
-		administrative_monarchy
-		constitutional_monarchy
-		enlightened_despotism
-		revolutionary_empire
-		english_monarchy_legacy
-		mamluk_government_legacy
-		feudal_theocracy_legacy
-		elective_monarchy_legacy
-		celestial_empire_legacy
-		ottoman_government_legacy
-		prussian_monarchy_legacy
-		iqta_legacy
-		daimyo_legacy
-		shogunate_legacy
-		indep_daimyo_legacy
-		principality_legacy
-		tsardom_legacy
-		holy_state_legacy
-	}
-	# Each group of exclusive reforms are mutually exclusive to each other
-	#Flavor
-	exclusive_reforms = {
-		iqta
-		indian_sultanate_reform
-		mamluk_government
-		tsardom
-		principality
-		parliamentary_reform
-		english_monarchy
-		states_general_reform
-	}
-	# Dictatorships etc
-	exclusive_reforms = {
-		military_dictatorship_reform
-		protectorate_parliament_reform
-		prussian_republic_reform
-		admiralty_reform
-		nepotism_reform
-		lottery_reform
-		dutch_republic
-	}
-	#States General works with few others
-	exclusive_reforms = {
-		mamluk_government
-		feudal_theocracy
-		states_general_reform
-		mughal_government
-		ottoman_government
-		revolutionary_empire_reform
-		prussian_monarchy
-		elective_monarchy
-		celestial_empire
-	}
-	#Flavor
-	exclusive_reforms = {
-		daimyo
-		shogunate
-		indep_daimyo
-		states_general_reform
-		parliamentary_reform
-	}
-	#Effects conflict with each other
-	exclusive_reforms = {
-		mughal_government
-		decentralize_reform
-	}
-	color = {
-		179
-		25
-		25
-	}
-}
-
 tribal = {
-	color = {
-		220
-		165
-		95
-	}
+	color = { 220 165 95 }
 	basic_reform = tribe_mechanic
+
 	legacy_government = {
 		tribal_despotism_legacy
 		tribal_kingdom_legacy
@@ -513,7 +425,14 @@ tribal = {
 		tribal_federation_legacy
 		steppe_horde_legacy
 		siberian_native_council
+		sacred_kingdom_legacy
+		tribal_confederacy_legacy
+		shaka_regime_legacy
+		matrilineal_system_legacy
+		feudal_tribe_legacy
+		great_man_legacy
 	}
+
 	reform_levels = {
 		tribal_administration = {
 			reforms = {
@@ -527,6 +446,12 @@ tribal = {
 				stateless_society
 				polynesian_kingdom
 				polynesian_tribe
+				sacred_kingdom
+				tribal_confederacy
+				shaka_regime
+				matrilineal_system
+				feudal_tribe
+				great_man
 			}
 		}
 		tribal_cultural_values = {
@@ -556,6 +481,102 @@ tribal = {
 				tribe_becomes_republic_reform
 				tribe_becomes_theocracy_reform
 				tribe_becomes_horde_reform
+				tribe_remain_tribal_reform
+				tribe_tribal_unity
+			}
+		}
+	}
+}
+
+theocracy = {
+	color = { 75 170 75 }
+	basic_reform = theocracy_mechanic
+
+	legacy_government = {
+		papal_government
+		theocratic_government
+		monastic_order_government
+		holy_state_legacy
+	}
+	reform_levels = {
+		theocratic_leadership = {
+			reforms = {
+				leading_clergy_reform
+				monastic_order_reform
+				papacy_reform
+				holy_state_reform
+				united_cantons_reform
+				WFAS_orders_dual_order_reform
+				WFAS_orders_livonian_confederacy_reform
+			}
+		}
+		internal_vs_external_mission = {
+			reforms = {
+				internal_mission_reform
+				external_mission_reform
+				mission_to_civilize_reform
+				mission_to_kill_pirates_reform
+			}
+		}
+		divine_cause = {
+			reforms = {
+				safeguard_holy_sites_reform
+				combat_heresy_reform
+				expel_heathens_reform
+				guru_advisors_reform
+				kingdom_of_god_reform
+			}
+		}
+		clergy_in_administration = {
+			reforms = {
+				subservient_administrators_reform
+				religious_administrators_reform
+				permanent_marathas_council_reform
+				governmental_purbias_register_reform
+				loyal_nobility_reform
+				pious_merchants_reform
+				monastic_breweries_reform
+				warrior_monks_reform
+			}
+		}
+		secularization = {
+			reforms = {
+				partial_secularisation_reform
+				maintain_religious_head_reform
+				hereditary_religious_leadership_reform
+				crown_leader_reform
+				proclaim_republic_reform
+				battle_pope_reform
+				conciliarism_reform
+			}
+		}
+		separation_of_power_theocracy = {
+			reforms = {
+				clerical_commission_reform
+				divine_guidance_reform
+				theocratic_democracy_reform
+				regionally_elected_commanders
+				monastic_elections_reform
+				commander_king_reform
+				admiral_king_reform
+			}
+		}
+		nature_of_faith = {
+			reforms = {
+				church_and_state_reform
+				religious_harmony_reform
+				god_and_man_reform
+				organising_our_religion_reform
+			}
+		}
+		faith_and_the_world = {
+			reforms = {
+				religion_in_one_country_reform
+				religious_permanent_revolution_reform
+				many_fingers_of_god_reform
+				priestly_autonomy_reform
+				proclaim_religious_head_reform
+				all_under_tengri_reform
 			}
 		}
 	}

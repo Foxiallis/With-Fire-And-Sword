@@ -356,9 +356,9 @@ country_event = {
 					name = "Bohdan"
 					dynasty = "Chmielnicki"
 					age = 50
-					adm = 3
-					dip = 2
-					mil = 5
+					change_adm = 1
+					change_dip = -1
+					change_mil = 2
 					male = yes
 					fixed = yes
 				}
