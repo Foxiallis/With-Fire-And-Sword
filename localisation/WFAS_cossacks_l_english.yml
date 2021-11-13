@@ -52,3 +52,8 @@
  WFAS_protection_from_raiding:0 "Tatar raids will have much lower chance of succeeding."
  WFAS_reprimanded_desc:0 "Reprimanded"
  WFAS_defended_raid_desc:0 "Defended Raid"
+ estate_cossacks_prime_herding_rights_effect_tooltip:0 "§G+25%§! manpower from all Cossack Steppe provinces\n§R-50%§! tax income from all Cossack Steppe provinces"
+ estate_cossacks_exploration_expedition_effect_tooltip:1 "§G-5%§! local development cost in all Cossack Steppe provinces"
+ WFAS_cossacks_influence_desc:0 "Decisions taken by the [Root.Monarch.GetTitle]"
+ WFAS_don_cossacks_pleased:0 "§GDon cossacks will be grateful§!"
+ WFAS_don_cossacks_displeased:0 "§RDon cossacks will be furious§!"
