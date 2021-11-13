@@ -16,9 +16,10 @@ country_event = {
 		senior_union_with = MOL
 		is_at_war = no
 		is_subject = no
+		is_year = 1500
 	}
 	mean_time_to_happen = {
-		months = 60
+		months = 240
 	}
 	option = {
 		name = "WFAS_other_moldavia_2_option"

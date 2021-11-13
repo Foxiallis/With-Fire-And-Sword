@@ -148,22 +148,24 @@ wawel_royal_castle = {
 		}
 	}
 }
+
 winter_palace = {
-	start = 33 #Neva
+	start = 33	#Neva
 	date = 1444.01.01	#1711.01.01
-	time = { months = 0	}
+	time = {
+		months = 0
+	}
 	build_cost = 0
 	can_be_moved = no
 	move_days_per_unit_distance = 10
 	starting_tier = 0
 	type = monument
-	
 	on_built = {
 	}
-
 	on_destroyed = {
 	}
-
+	keep_trigger = {
+	}
 	build_trigger = {
 		culture_group = east_slavic
 		OR = {

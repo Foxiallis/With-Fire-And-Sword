@@ -35,7 +35,7 @@ country_decisions = {
 			}
 			had_country_flag = {
 				flag = WFAS_crimea_changed_raiding
-				months = 12
+				days = 365
 			}
 		}
 		effect = {
@@ -97,7 +97,7 @@ country_decisions = {
 			}
 			had_country_flag = {
 				flag = WFAS_crimea_changed_raiding
-				months = 12
+				days = 365
 			}
 		}
 		effect = {

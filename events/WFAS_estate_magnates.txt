@@ -224,7 +224,7 @@ country_event = {
 		has_reform = elective_monarchy
 	}
 	mean_time_to_happen = {
-		months = 6
+		days = 180
 	}
 	is_triggered_only = yes
 	immediate = {

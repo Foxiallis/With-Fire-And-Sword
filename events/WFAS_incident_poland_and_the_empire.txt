@@ -25,7 +25,6 @@ country_event = {
 			add_casus_belli = {
 				target = PLC
 				type = cb_imperial_ban
-				war_goal_province = 4238
 				months = 12
 			}
 		}

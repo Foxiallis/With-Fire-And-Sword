@@ -19,3 +19,27 @@ WFAS_crimea_astrakhan_refugees = {
 	idea_cost = -0.05
 	stability_cost_modifier = -0.1
 }
+
+WFAS_expanded_slave_port = {
+	trade_goods_size_modifier = 0.1
+	province_trade_power_value = 5
+}
+
+WFAS_kaffa_slave_port = {
+	trade_goods_size = 5
+}
+
+WFAS_circassian_mercenaries_modifier = {
+	cavalry_power = 0.05
+	shock_damage_received = -0.025
+}
+
+WFAS_crimean_wine = {
+	trade_goods_size = 1
+	local_production_efficiency = 0.15
+}
+
+WFAS_european_luxuries = {
+	trade_goods_size = 2
+	local_production_efficiency = 0.1
+}

@@ -80,21 +80,21 @@ country_event = {
 	trigger = {
 		has_country_flag = WFAS_established_don_cossacks
 		OR = {
-		NOT = {
-			any_core_province = {
-				OR = {
-					area = lower_don_area
-					area = azov_area
-					area = astrakhan_area
+			NOT = {
+				any_core_province = {
+					OR = {
+						area = lower_don_area
+						area = azov_area
+						area = astrakhan_area
+					}
+				}
+			}
+			NOT = {
+				any_core_province = {
+					culture = WFAS_cossack_culture
 				}
 			}
 		}
-		NOT = {
-			any_core_province = {
-				culture = WFAS_cossack_culture
-			}
-		}
-	}
 	}
 	immediate = {
 		clr_country_flag = WFAS_established_don_cossacks
@@ -336,7 +336,6 @@ province_event = {
 					}
 				}
 			}
-			
 		}
 	}
 	option = {
@@ -455,54 +454,54 @@ country_event = {
 			duration = 1825
 		}
 		if = {
-				limit = {
-					has_country_flag = WFAS_established_don_cossacks
+			limit = {
+				has_country_flag = WFAS_established_don_cossacks
+			}
+			custom_tooltip = WFAS_don_cossacks_pleased
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_1
+					}
+					remove_country_modifier = WFAS_cossacks_1
+					add_country_modifier = {
+						name = WFAS_cossacks_2
+						duration = -1
+					}
 				}
-				custom_tooltip = WFAS_don_cossacks_pleased
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_1
-						}
-						remove_country_modifier = WFAS_cossacks_1
-						add_country_modifier = {
-							name = WFAS_cossacks_2
-							duration = -1
-						}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_2
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_2
-						}
-						remove_country_modifier = WFAS_cossacks_2
-						add_country_modifier = {
-							name = WFAS_cossacks_3
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_2
+					add_country_modifier = {
+						name = WFAS_cossacks_3
+						duration = -1
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_3
-						}
-						remove_country_modifier = WFAS_cossacks_3
-						add_country_modifier = {
-							name = WFAS_cossacks_4
-							duration = -1
-						}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_3
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_4
-						}
-						remove_country_modifier = WFAS_cossacks_4
-						add_country_modifier = {
-							name = WFAS_cossacks_5
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_3
+					add_country_modifier = {
+						name = WFAS_cossacks_4
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_4
+					}
+					remove_country_modifier = WFAS_cossacks_4
+					add_country_modifier = {
+						name = WFAS_cossacks_5
+						duration = -1
 					}
 				}
 			}
 		}
+	}
 	option = {
 		name = "WFAS_cossacks_exhausted_force"
 		add_mil_power = -50
@@ -516,53 +515,53 @@ country_event = {
 			}
 		}
 		if = {
-				limit = {
-					has_country_flag = WFAS_established_don_cossacks
+			limit = {
+				has_country_flag = WFAS_established_don_cossacks
+			}
+			custom_tooltip = WFAS_don_cossacks_displeased
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_2
+					}
+					remove_country_modifier = WFAS_cossacks_2
+					add_country_modifier = {
+						name = WFAS_cossacks_1
+						duration = -1
+					}
 				}
-				custom_tooltip = WFAS_don_cossacks_displeased
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_2
-						}
-						remove_country_modifier = WFAS_cossacks_2
-						add_country_modifier = {
-							name = WFAS_cossacks_1
-							duration = -1
-						}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_3
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_3
-						}
-						remove_country_modifier = WFAS_cossacks_3
-						add_country_modifier = {
-							name = WFAS_cossacks_2
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_3
+					add_country_modifier = {
+						name = WFAS_cossacks_2
+						duration = -1
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_4
-						}
-						remove_country_modifier = WFAS_cossacks_4
-						add_country_modifier = {
-							name = WFAS_cossacks_3
-							duration = -1
-						}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_4
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_5
-						}
-						remove_country_modifier = WFAS_cossacks_5
-						add_country_modifier = {
-							name = WFAS_cossacks_4
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_4
+					add_country_modifier = {
+						name = WFAS_cossacks_3
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_5
+					}
+					remove_country_modifier = WFAS_cossacks_5
+					add_country_modifier = {
+						name = WFAS_cossacks_4
+						duration = -1
 					}
 				}
 			}
+		}
 	}
 }
 
@@ -608,61 +607,61 @@ country_event = {
 				loyalty = 15
 			}
 			add_estate_influence_modifier = {
-			estate = estate_cossacks
-			desc = WFAS_cossacks_influence_desc
-			influence = 10
-			duration = 1460
-		}
+				estate = estate_cossacks
+				desc = WFAS_cossacks_influence_desc
+				influence = 10
+				duration = 1460
+			}
 		}
 		if = {
-				limit = {
-					has_country_flag = WFAS_established_don_cossacks
+			limit = {
+				has_country_flag = WFAS_established_don_cossacks
+			}
+			custom_tooltip = WFAS_don_cossacks_pleased
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_1
+					}
+					remove_country_modifier = WFAS_cossacks_1
+					add_country_modifier = {
+						name = WFAS_cossacks_2
+						duration = -1
+					}
 				}
-				custom_tooltip = WFAS_don_cossacks_pleased
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_1
-						}
-						remove_country_modifier = WFAS_cossacks_1
-						add_country_modifier = {
-							name = WFAS_cossacks_2
-							duration = -1
-						}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_2
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_2
-						}
-						remove_country_modifier = WFAS_cossacks_2
-						add_country_modifier = {
-							name = WFAS_cossacks_3
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_2
+					add_country_modifier = {
+						name = WFAS_cossacks_3
+						duration = -1
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_3
-						}
-						remove_country_modifier = WFAS_cossacks_3
-						add_country_modifier = {
-							name = WFAS_cossacks_4
-							duration = -1
-						}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_3
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_4
-						}
-						remove_country_modifier = WFAS_cossacks_4
-						add_country_modifier = {
-							name = WFAS_cossacks_5
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_3
+					add_country_modifier = {
+						name = WFAS_cossacks_4
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_4
+					}
+					remove_country_modifier = WFAS_cossacks_4
+					add_country_modifier = {
+						name = WFAS_cossacks_5
+						duration = -1
 					}
 				}
 			}
 		}
+	}
 	option = {
 		name = "WFAS_cossacks_autonomy_decline"
 		add_country_modifier = {
@@ -679,53 +678,53 @@ country_event = {
 			}
 		}
 		if = {
-				limit = {
-					has_country_flag = WFAS_established_don_cossacks
+			limit = {
+				has_country_flag = WFAS_established_don_cossacks
+			}
+			custom_tooltip = WFAS_don_cossacks_displeased
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_2
+					}
+					remove_country_modifier = WFAS_cossacks_2
+					add_country_modifier = {
+						name = WFAS_cossacks_1
+						duration = -1
+					}
 				}
-				custom_tooltip = WFAS_don_cossacks_displeased
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_2
-						}
-						remove_country_modifier = WFAS_cossacks_2
-						add_country_modifier = {
-							name = WFAS_cossacks_1
-							duration = -1
-						}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_3
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_3
-						}
-						remove_country_modifier = WFAS_cossacks_3
-						add_country_modifier = {
-							name = WFAS_cossacks_2
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_3
+					add_country_modifier = {
+						name = WFAS_cossacks_2
+						duration = -1
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_4
-						}
-						remove_country_modifier = WFAS_cossacks_4
-						add_country_modifier = {
-							name = WFAS_cossacks_3
-							duration = -1
-						}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_4
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_5
-						}
-						remove_country_modifier = WFAS_cossacks_5
-						add_country_modifier = {
-							name = WFAS_cossacks_4
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_4
+					add_country_modifier = {
+						name = WFAS_cossacks_3
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_5
+					}
+					remove_country_modifier = WFAS_cossacks_5
+					add_country_modifier = {
+						name = WFAS_cossacks_4
+						duration = -1
 					}
 				}
 			}
+		}
 	}
 }
 
@@ -766,60 +765,61 @@ country_event = {
 				loyalty = 10
 			}
 			add_estate_influence_modifier = {
-			estate = estate_cossacks
-			desc = WFAS_cossacks_influence_desc
-			influence = 10
-			duration = 1460
-		}
+				estate = estate_cossacks
+				desc = WFAS_cossacks_influence_desc
+				influence = 10
+				duration = 1460
+			}
 		}
 		if = {
-				limit = {
-					has_country_flag = WFAS_established_don_cossacks
-				}
-				custom_tooltip = WFAS_don_cossacks_pleased
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_1
-						}
-						remove_country_modifier = WFAS_cossacks_1
-						add_country_modifier = {
-							name = WFAS_cossacks_2
-							duration = -1
-						}
+			limit = {
+				has_country_flag = WFAS_established_don_cossacks
+			}
+			custom_tooltip = WFAS_don_cossacks_pleased
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_1
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_2
-						}
-						remove_country_modifier = WFAS_cossacks_2
-						add_country_modifier = {
-							name = WFAS_cossacks_3
-							duration = -1
-						}
-					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_3
-						}
-						remove_country_modifier = WFAS_cossacks_3
-						add_country_modifier = {
-							name = WFAS_cossacks_4
-							duration = -1
-						}
-					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_4
-						}
-						remove_country_modifier = WFAS_cossacks_4
-						add_country_modifier = {
-							name = WFAS_cossacks_5
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_1
+					add_country_modifier = {
+						name = WFAS_cossacks_2
+						duration = -1
 					}
 				}
-			}}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_2
+					}
+					remove_country_modifier = WFAS_cossacks_2
+					add_country_modifier = {
+						name = WFAS_cossacks_3
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_3
+					}
+					remove_country_modifier = WFAS_cossacks_3
+					add_country_modifier = {
+						name = WFAS_cossacks_4
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_4
+					}
+					remove_country_modifier = WFAS_cossacks_4
+					add_country_modifier = {
+						name = WFAS_cossacks_5
+						duration = -1
+					}
+				}
+			}
+		}
+	}
 	option = {
 		name = "WFAS_cossacks_rights_refuse"
 		if = {
@@ -831,64 +831,64 @@ country_event = {
 				loyalty = -15
 			}
 			add_estate_influence_modifier = {
-			estate = estate_cossacks
-			desc = WFAS_cossacks_influence_desc
-			influence = -10
-			duration = 1460
-		}
+				estate = estate_cossacks
+				desc = WFAS_cossacks_influence_desc
+				influence = -10
+				duration = 1460
+			}
 		}
 		if = {
-				limit = {
-					has_country_flag = WFAS_established_don_cossacks
+			limit = {
+				has_country_flag = WFAS_established_don_cossacks
+			}
+			add_adm_power = 75
+			custom_tooltip = WFAS_don_cossacks_displeased
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_2
+					}
+					remove_country_modifier = WFAS_cossacks_2
+					add_country_modifier = {
+						name = WFAS_cossacks_1
+						duration = -1
+					}
 				}
-				add_adm_power = 75
-				custom_tooltip = WFAS_don_cossacks_displeased
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_2
-						}
-						remove_country_modifier = WFAS_cossacks_2
-						add_country_modifier = {
-							name = WFAS_cossacks_1
-							duration = -1
-						}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_3
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_3
-						}
-						remove_country_modifier = WFAS_cossacks_3
-						add_country_modifier = {
-							name = WFAS_cossacks_2
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_3
+					add_country_modifier = {
+						name = WFAS_cossacks_2
+						duration = -1
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_4
-						}
-						remove_country_modifier = WFAS_cossacks_4
-						add_country_modifier = {
-							name = WFAS_cossacks_3
-							duration = -1
-						}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_4
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_5
-						}
-						remove_country_modifier = WFAS_cossacks_5
-						add_country_modifier = {
-							name = WFAS_cossacks_4
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_4
+					add_country_modifier = {
+						name = WFAS_cossacks_3
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_5
+					}
+					remove_country_modifier = WFAS_cossacks_5
+					add_country_modifier = {
+						name = WFAS_cossacks_4
+						duration = -1
 					}
 				}
 			}
-			else = {
-				add_adm_power = -50
-			}
+		}
+		else = {
+			add_adm_power = -50
+		}
 	}
 }
 
@@ -969,60 +969,61 @@ country_event = {
 				loyalty = 10
 			}
 			add_estate_influence_modifier = {
-			estate = estate_cossacks
-			desc = WFAS_cossacks_influence_desc
-			influence = 10
-			duration = 1460
-		}
+				estate = estate_cossacks
+				desc = WFAS_cossacks_influence_desc
+				influence = 10
+				duration = 1460
+			}
 		}
 		if = {
-				limit = {
-					has_country_flag = WFAS_established_don_cossacks
-				}
-				custom_tooltip = WFAS_don_cossacks_pleased
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_1
-						}
-						remove_country_modifier = WFAS_cossacks_1
-						add_country_modifier = {
-							name = WFAS_cossacks_2
-							duration = -1
-						}
+			limit = {
+				has_country_flag = WFAS_established_don_cossacks
+			}
+			custom_tooltip = WFAS_don_cossacks_pleased
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_1
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_2
-						}
-						remove_country_modifier = WFAS_cossacks_2
-						add_country_modifier = {
-							name = WFAS_cossacks_3
-							duration = -1
-						}
-					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_3
-						}
-						remove_country_modifier = WFAS_cossacks_3
-						add_country_modifier = {
-							name = WFAS_cossacks_4
-							duration = -1
-						}
-					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_4
-						}
-						remove_country_modifier = WFAS_cossacks_4
-						add_country_modifier = {
-							name = WFAS_cossacks_5
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_1
+					add_country_modifier = {
+						name = WFAS_cossacks_2
+						duration = -1
 					}
 				}
-			}}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_2
+					}
+					remove_country_modifier = WFAS_cossacks_2
+					add_country_modifier = {
+						name = WFAS_cossacks_3
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_3
+					}
+					remove_country_modifier = WFAS_cossacks_3
+					add_country_modifier = {
+						name = WFAS_cossacks_4
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_4
+					}
+					remove_country_modifier = WFAS_cossacks_4
+					add_country_modifier = {
+						name = WFAS_cossacks_5
+						duration = -1
+					}
+				}
+			}
+		}
+	}
 	option = {
 		name = "WFAS_cossacks_minorities_forbid"
 		if = {
@@ -1035,73 +1036,73 @@ country_event = {
 			}
 		}
 		if = {
-				limit = {
-					has_country_flag = WFAS_established_don_cossacks
-				}
-				every_owned_province = {
 			limit = {
-				has_province_flag = WFAS_cossack_minority_flag
+				has_country_flag = WFAS_established_don_cossacks
 			}
-			add_unrest = -5
-			clr_province_flag = WFAS_cossack_minority_flag
+			every_owned_province = {
+				limit = {
+					has_province_flag = WFAS_cossack_minority_flag
 				}
-				custom_tooltip = WFAS_don_cossacks_displeased
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_2
-						}
-						remove_country_modifier = WFAS_cossacks_2
-						add_country_modifier = {
-							name = WFAS_cossacks_1
-							duration = -1
-						}
+				add_unrest = -5
+				clr_province_flag = WFAS_cossack_minority_flag
+			}
+			custom_tooltip = WFAS_don_cossacks_displeased
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_2
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_3
-						}
-						remove_country_modifier = WFAS_cossacks_3
-						add_country_modifier = {
-							name = WFAS_cossacks_2
-							duration = -1
-						}
-					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_4
-						}
-						remove_country_modifier = WFAS_cossacks_4
-						add_country_modifier = {
-							name = WFAS_cossacks_3
-							duration = -1
-						}
-					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_5
-						}
-						remove_country_modifier = WFAS_cossacks_5
-						add_country_modifier = {
-							name = WFAS_cossacks_4
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_2
+					add_country_modifier = {
+						name = WFAS_cossacks_1
+						duration = -1
 					}
 				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_3
+					}
+					remove_country_modifier = WFAS_cossacks_3
+					add_country_modifier = {
+						name = WFAS_cossacks_2
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_4
+					}
+					remove_country_modifier = WFAS_cossacks_4
+					add_country_modifier = {
+						name = WFAS_cossacks_3
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_5
+					}
+					remove_country_modifier = WFAS_cossacks_5
+					add_country_modifier = {
+						name = WFAS_cossacks_4
+						duration = -1
+					}
+				}
 			}
+		}
 		else = {
 			every_owned_province = {
-			limit = {
-				culture = WFAS_cossack_culture
+				limit = {
+					culture = WFAS_cossack_culture
+				}
+				add_unrest = 3
 			}
-			add_unrest = 2.5
-		}
-		every_owned_province = {
-			limit = {
-				has_province_flag = WFAS_cossack_minority_flag
+			every_owned_province = {
+				limit = {
+					has_province_flag = WFAS_cossack_minority_flag
+				}
+				clr_province_flag = WFAS_cossack_minority_flag
 			}
-			clr_province_flag = WFAS_cossack_minority_flag
-		}
 		}
 	}
 }
@@ -1150,53 +1151,54 @@ country_event = {
 			}
 		}
 		if = {
-				limit = {
-					has_country_flag = WFAS_established_don_cossacks
-				}
-				custom_tooltip = WFAS_don_cossacks_pleased
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_1
-						}
-						remove_country_modifier = WFAS_cossacks_1
-						add_country_modifier = {
-							name = WFAS_cossacks_2
-							duration = -1
-						}
+			limit = {
+				has_country_flag = WFAS_established_don_cossacks
+			}
+			custom_tooltip = WFAS_don_cossacks_pleased
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_1
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_2
-						}
-						remove_country_modifier = WFAS_cossacks_2
-						add_country_modifier = {
-							name = WFAS_cossacks_3
-							duration = -1
-						}
-					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_3
-						}
-						remove_country_modifier = WFAS_cossacks_3
-						add_country_modifier = {
-							name = WFAS_cossacks_4
-							duration = -1
-						}
-					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_4
-						}
-						remove_country_modifier = WFAS_cossacks_4
-						add_country_modifier = {
-							name = WFAS_cossacks_5
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_1
+					add_country_modifier = {
+						name = WFAS_cossacks_2
+						duration = -1
 					}
 				}
-			}}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_2
+					}
+					remove_country_modifier = WFAS_cossacks_2
+					add_country_modifier = {
+						name = WFAS_cossacks_3
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_3
+					}
+					remove_country_modifier = WFAS_cossacks_3
+					add_country_modifier = {
+						name = WFAS_cossacks_4
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_4
+					}
+					remove_country_modifier = WFAS_cossacks_4
+					add_country_modifier = {
+						name = WFAS_cossacks_5
+						duration = -1
+					}
+				}
+			}
+		}
+	}
 	option = {
 		name = "WFAS_cossacks_return_decline"
 		if = {
@@ -1209,62 +1211,62 @@ country_event = {
 			}
 		}
 		if = {
-				limit = {
-					has_country_flag = WFAS_established_don_cossacks
-				}
-				if = {
 			limit = {
-				has_dlc = "Cradle of Civilization"
+				has_country_flag = WFAS_established_don_cossacks
 			}
-			add_army_professionalism = 0.05
+			if = {
+				limit = {
+					has_dlc = "Cradle of Civilization"
+				}
+				add_army_professionalism = 0.05
 			}
 			else = {
-			add_army_tradition = 10
+				add_army_tradition = 10
 			}
-				custom_tooltip = WFAS_don_cossacks_displeased
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_2
-						}
-						remove_country_modifier = WFAS_cossacks_2
-						add_country_modifier = {
-							name = WFAS_cossacks_1
-							duration = -1
-						}
+			custom_tooltip = WFAS_don_cossacks_displeased
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_2
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_3
-						}
-						remove_country_modifier = WFAS_cossacks_3
-						add_country_modifier = {
-							name = WFAS_cossacks_2
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_2
+					add_country_modifier = {
+						name = WFAS_cossacks_1
+						duration = -1
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_4
-						}
-						remove_country_modifier = WFAS_cossacks_4
-						add_country_modifier = {
-							name = WFAS_cossacks_3
-							duration = -1
-						}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_3
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_5
-						}
-						remove_country_modifier = WFAS_cossacks_5
-						add_country_modifier = {
-							name = WFAS_cossacks_4
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_3
+					add_country_modifier = {
+						name = WFAS_cossacks_2
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_4
+					}
+					remove_country_modifier = WFAS_cossacks_4
+					add_country_modifier = {
+						name = WFAS_cossacks_3
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_5
+					}
+					remove_country_modifier = WFAS_cossacks_5
+					add_country_modifier = {
+						name = WFAS_cossacks_4
+						duration = -1
 					}
 				}
 			}
+		}
 		else = {
 			add_mil_power = -50
 		}
@@ -1358,53 +1360,53 @@ country_event = {
 			}
 		}
 		if = {
-				limit = {
-					has_country_flag = WFAS_established_don_cossacks
+			limit = {
+				has_country_flag = WFAS_established_don_cossacks
+			}
+			custom_tooltip = WFAS_don_cossacks_displeased
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_2
+					}
+					remove_country_modifier = WFAS_cossacks_2
+					add_country_modifier = {
+						name = WFAS_cossacks_1
+						duration = -1
+					}
 				}
-				custom_tooltip = WFAS_don_cossacks_displeased
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_2
-						}
-						remove_country_modifier = WFAS_cossacks_2
-						add_country_modifier = {
-							name = WFAS_cossacks_1
-							duration = -1
-						}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_3
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_3
-						}
-						remove_country_modifier = WFAS_cossacks_3
-						add_country_modifier = {
-							name = WFAS_cossacks_2
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_3
+					add_country_modifier = {
+						name = WFAS_cossacks_2
+						duration = -1
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_4
-						}
-						remove_country_modifier = WFAS_cossacks_4
-						add_country_modifier = {
-							name = WFAS_cossacks_3
-							duration = -1
-						}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_4
 					}
-					else_if = {
-						limit = {
-							has_country_modifier = WFAS_cossacks_5
-						}
-						remove_country_modifier = WFAS_cossacks_5
-						add_country_modifier = {
-							name = WFAS_cossacks_4
-							duration = -1
-						}
+					remove_country_modifier = WFAS_cossacks_4
+					add_country_modifier = {
+						name = WFAS_cossacks_3
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_modifier = WFAS_cossacks_5
+					}
+					remove_country_modifier = WFAS_cossacks_5
+					add_country_modifier = {
+						name = WFAS_cossacks_4
+						duration = -1
 					}
 				}
 			}
+		}
 		else = {
 			add_adm_power = 25
 			add_mil_power = 25
@@ -1548,7 +1550,7 @@ country_event = {
 		}
 		religion_group = christian
 		technology_group = eastern
-		year = 1500
+		is_year = 1500
 	}
 	mean_time_to_happen = {
 		months = 60
