@@ -1209,6 +1209,9 @@ country_event = {
 			}
 		}
 	}
+	mean_time_to_happen = {
+		months = 600
+	}
 	option = {
 		name = "WFAS_crimea_red_hawk_option"		#thanks again for the review!
 		random_list = {
