@@ -85,6 +85,7 @@ on_death_election = {
 on_siege_won_country = {
 	events = {
 		WFAS_lithuania.6
+		WFAS_crimea.9
 	}
 }
 
@@ -92,6 +93,13 @@ on_war_lost = {
 	events = {
 		WFAS_cossacks.8
 		WFAS_crimea.17
+		WFAS_crimean_war.15
+	}
+}
+
+on_war_won = {
+	events = {
+		WFAS_crimean_war.14
 	}
 }
 

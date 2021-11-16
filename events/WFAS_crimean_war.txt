@@ -1,0 +1,1091 @@
+namespace = WFAS_crimean_war
+#Crimean War of Independence
+country_event = {
+	id = WFAS_crimean_war.1
+	title = "WFAS_crimean_war_start_title"
+	desc = "WFAS_crimean_war_start_desc"
+	major = yes
+	picture = REVOLUTION_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		set_global_flag = WFAS_crimean_war_started
+	}
+	option = {
+		name = "WFAS_crimean_war_option"
+		hidden_effect = {
+			add_casus_belli = {
+				target = TUR
+				type = cb_independence_war
+			}
+		}
+		declare_war_with_cb = {
+			casus_belli = cb_independence_war
+			who = TUR
+		}
+		capital_scope = {
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			cavalry = ROOT
+			cavalry = ROOT
+		}
+	}
+}
+
+#End of the Crimean War of Independence 
+country_event = {
+	id = WFAS_crimean_war.2
+	title = "WFAS_crimean_war_end_title"
+	desc = {
+		trigger = {
+			has_country_flag = WFAS_crimean_war_lost
+		}
+		desc = "WFAS_crimean_war_end_lost"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = WFAS_crimean_war_won
+		}
+		desc = "WFAS_crimean_war_end_won"
+	}
+	major = yes
+	picture = COUNTRY_COLLAPSE_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		clr_global_flag = WFAS_crimean_war_started
+		set_global_flag = WFAS_crimean_war_happened
+		every_country = {
+			clr_country_flag = WFAS_crimean_war_participant_cri
+			clr_country_flag = WFAS_crimean_war_participant_tur
+			clr_country_flag = WFAS_crimean_war_offered_participation_cri
+			clr_country_flag = WFAS_crimean_war_offered_participation_tur
+			clr_country_flag = WFAS_crimean_war_rakoczi_agreed
+			clr_country_flag = WFAS_crimean_war_offered_greece_help
+		}
+	}
+	option = {
+		trigger = {
+			has_country_flag = WFAS_crimean_war_lost
+		}
+		name = "WFAS_crimean_war_end_lost_option"
+		add_prestige = -15
+		add_stability = -1
+		kill_ruler = yes
+		kill_heir = yes
+		kill_consort = yes
+	}
+	option = {
+		trigger = {
+			has_country_flag = WFAS_crimean_war_won
+		}
+		name = "WFAS_crimean_war_end_won_option"
+		add_prestige = 25
+		add_stability = 1
+	}
+}
+
+#An Intervention in Crimea
+country_event = {
+	id = WFAS_crimean_war.3
+	title = "WFAS_crimean_war_intervention_title"
+	desc = "WFAS_crimean_war_intervention_desc"
+	picture = KINGS_CHOICE_eventPicture
+	trigger = {
+		NOT = {
+			has_country_flag = WFAS_crimean_war_offered_participation_cri
+		}
+		NOT = {
+			truce_with = TUR
+		}
+		is_rival = TUR
+		has_global_flag = WFAS_crimean_war_started
+		CRI = {
+			war_with = TUR
+		}
+		NOT = {
+			AND = {
+				OR = {
+					tag = RUS
+					tag = MOS
+					tag = UKR
+					tag = BYZ
+				}
+				religion = orthodox
+			}
+		}
+		NOT = {
+			war_with = TUR
+		}
+		NOT = {
+			war_with = CRI
+		}
+	}
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = TUR
+			tag = CRI
+			has_country_flag = WFAS_crimean_war_participant_cri
+			has_country_flag = WFAS_crimean_war_participant_tur
+		}
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	immediate = {
+		set_country_flag = WFAS_crimean_war_offered_participation_cri
+	}
+	option = {
+		name = "WFAS_crimean_war_intervention_war"
+		join_all_offensive_wars_of = CRI
+		reverse_add_opinion = {
+			who = TUR
+			modifier = WFAS_chmielnicki_enraged
+		}
+		set_country_flag = WFAS_crimean_war_participant_cri
+		ai_chance = {
+			factor = 8
+			modifier = {
+				factor = 2
+				TUR = {
+					army_strength = {
+						who = ROOT
+						value = 1
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				TUR = {
+					army_strength = {
+						who = ROOT
+						value = 2
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_intervention_peace"
+		reverse_add_opinion = {
+			who = TUR
+			modifier = opinion_pleased
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+}
+
+#Eyes on the Constantinople (Rus/Byz)
+country_event = {
+	id = WFAS_crimean_war.4
+	title = "WFAS_crimean_war_constantinople_title"
+	desc = "WFAS_crimean_war_constantinople_desc"
+	picture = BYZANTINE_EMPEROR_eventPicture
+	trigger = {
+		NOT = {
+			has_country_flag = WFAS_crimean_war_offered_participation_cri
+		}
+		NOT = {
+			has_global_flag = WFAS_crimean_war_constantinople_attacked
+		}
+		NOT = {
+			truce_with = TUR
+		}
+		has_global_flag = WFAS_crimean_war_started
+		CRI = {
+			war_with = TUR
+		}
+		OR = {
+			tag = RUS
+			tag = MOS
+			tag = UKR
+			tag = BYZ
+		}
+		religion = orthodox
+		TUR = {
+			owns = 151
+		}
+		NOT = {
+			war_with = TUR
+		}
+		NOT = {
+			war_with = CRI
+		}
+	}
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = TUR
+			tag = CRI
+			has_country_flag = WFAS_crimean_war_participant_cri
+			has_country_flag = WFAS_crimean_war_participant_tur
+		}
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	immediate = {
+		set_country_flag = WFAS_crimean_war_offered_participation_cri
+	}
+	option = {
+		name = "WFAS_crimean_war_constantinople_war"
+		hidden_effect = {
+			add_casus_belli = {
+				type = cb_conquest
+				target = TUR
+			}
+		}
+		declare_war_with_cb = {
+			casus_belli = cb_conquest
+			who = TUR
+			war_goal_province = 151
+		}
+		reverse_add_opinion = {
+			who = TUR
+			modifier = WFAS_chmielnicki_enraged
+		}
+		set_global_flag = WFAS_crimean_war_constantinople_attacked
+		set_country_flag = WFAS_crimean_war_participant_cri
+		save_global_event_target_as = WFAS_crimean_war_constantinople_attacker
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				TUR = {
+					army_strength = {
+						who = ROOT
+						value = 1
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				TUR = {
+					army_strength = {
+						who = ROOT
+						value = 2
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_constantinople_help"
+		join_all_offensive_wars_of = CRI
+		reverse_add_opinion = {
+			who = TUR
+			modifier = WFAS_chmielnicki_enraged
+		}
+		set_global_flag = WFAS_crimean_war_constantinople_attacked
+		set_country_flag = WFAS_crimean_war_participant_cri
+		save_global_event_target_as = WFAS_crimean_war_constantinople_attacker
+		ai_chance = {
+			factor = 6
+			modifier = {
+				factor = 4
+				TUR = {
+					army_strength = {
+						who = ROOT
+						value = 1
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				TUR = {
+					army_strength = {
+						who = ROOT
+						value = 2
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_constantinople_peace"
+		reverse_add_opinion = {
+			who = TUR
+			modifier = opinion_pleased
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+}
+
+#Eyes on the Constantinople (Rus/Byz rivals)
+country_event = {
+	id = WFAS_crimean_war.5
+	title = "WFAS_crimean_war_constantinople_reaction_title"
+	desc = "WFAS_crimean_war_constantinople_reaction_desc"
+	picture = KINGS_CHOICE_eventPicture
+	trigger = {
+		NOT = {
+			has_country_flag = WFAS_crimean_war_offered_participation_tur
+		}
+		NOT = {
+			truce_with = CRI
+		}
+		has_global_flag = WFAS_crimean_war_started
+		has_global_flag = WFAS_crimean_war_constantinople_attacked
+		CRI = {
+			war_with = TUR
+		}
+		NOT = {
+			war_with = TUR
+		}
+		NOT = {
+			war_with = CRI
+		}
+	}
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = TUR
+			tag = CRI
+			has_country_flag = WFAS_crimean_war_participant_cri
+			has_country_flag = WFAS_crimean_war_participant_tur
+		}
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	immediate = {
+		set_country_flag = WFAS_crimean_war_offered_participation_tur
+	}
+	option = {
+		name = "WFAS_crimean_war_constantinople_reaction_war"
+		join_all_defensive_wars_of = TUR
+		set_country_flag = WFAS_crimean_war_participant_tur
+		reverse_add_opinion = {
+			who = TUR
+			modifier = opinion_pleased
+		}
+		ai_chance = {
+			factor = 8
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_constantinople_reaction_peace"
+		reverse_add_opinion = {
+			who = TUR
+			modifier = opinion_displeased
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+}
+
+#Rakoczi's Visit (Ottomans)
+country_event = {
+	id = WFAS_crimean_war.6
+	title = "WFAS_crimean_war_rakoczi_tur_title"
+	desc = "WFAS_crimean_war_rakoczi_tur_desc"
+	picture = NOBLE_ESTATE_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = TUR
+		NOT = {
+			exists = TRA
+		}
+		NOT = {
+			has_global_flag = WFAS_crimean_war_rakoczi_appeared
+		}
+		has_global_flag = WFAS_crimean_war_started
+		any_country = {
+			has_country_flag = WFAS_crimean_war_participant_cri
+			num_of_owned_provinces_with = {
+				value = 4
+				OR = {
+					area = transylvania_area
+					area = southern_transylvania_area
+				}
+			}
+			war_with = ROOT
+		}
+		war_with = CRI
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	immediate = {
+		set_global_flag = WFAS_crimean_war_rakoczi_appeared
+	}
+	option = {
+		name = "WFAS_crimean_war_rakoczi_accept"
+		hidden_effect = {
+			random_country = {
+				limit = {
+					has_country_flag = WFAS_crimean_war_participant_cri
+					num_of_owned_provinces_with = {
+						value = 4
+						OR = {
+							area = transylvania_area
+							area = southern_transylvania_area
+						}
+					}
+					war_with = TUR
+				}
+				save_global_event_target_as = WFAS_crimean_war_rakoczi_target
+			}
+		}
+		custom_tooltip = WFAS_crimean_war_rakoczi_demands
+		set_country_flag = WFAS_crimean_war_rakoczi_agreed
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_rakoczi_decline"
+		add_prestige = 10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Rakoczi's Visit (Austria)
+country_event = {
+	id = WFAS_crimean_war.7
+	title = "WFAS_crimean_war_rakoczi_auh_title"
+	desc = "WFAS_crimean_war_rakoczi_auh_desc"
+	picture = NOBLE_ESTATE_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			tag = AUH
+			tag = HAB
+			tag = HUN
+		}
+		NOT = {
+			exists = TRA
+		}
+		NOT = {
+			has_global_flag = WFAS_crimean_war_rakoczi_appeared
+		}
+		has_global_flag = WFAS_crimean_war_started
+		TUR = {
+			num_of_owned_provinces_with = {
+				value = 4
+				OR = {
+					area = transylvania_area
+					area = southern_transylvania_area
+				}
+			}
+			war_with = CRI
+			war_with = ROOT
+		}
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	immediate = {
+		set_global_flag = WFAS_crimean_war_rakoczi_appeared
+	}
+	option = {
+		name = "WFAS_crimean_war_rakoczi_accept"
+		custom_tooltip = WFAS_crimean_war_rakoczi_demands
+		set_country_flag = WFAS_crimean_war_rakoczi_agreed
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_rakoczi_decline"
+		add_prestige = 10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Rakoczi's War of Independence (Austria)
+country_event = {
+	id = WFAS_crimean_war.8
+	title = "WFAS_crimean_war_rakoczi_independence_auh_title"
+	desc = "WFAS_crimean_war_rakoczi_independence_auh_desc"
+	picture = REVOLT_HUNGARIAN_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = TUR
+			tag = CRI
+			has_country_flag = WFAS_crimean_war_participant_cri
+			has_country_flag = WFAS_crimean_war_participant_tur
+		}
+	}
+	fire_only_once = yes
+	trigger = {
+		has_global_flag = WFAS_crimean_war_started
+		has_global_flag = WFAS_crimean_war_rakoczi_appeared
+		tag = event_target:WFAS_crimean_war_rakoczi_target
+		TUR = {
+			has_country_flag = WFAS_crimean_war_rakoczi_agreed
+			war_with = CRI
+			war_with = ROOT
+		}
+		all_owned_province = {
+			if = {
+				limit = {
+					OR = {
+						area = transylvania_area
+						area = southern_transylvania_area
+					}
+				}
+				NOT = {
+					controlled_by = ROOT
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	immediate = {
+		hidden_effect = {
+			transylvania_area = {
+				add_core = TRA
+			}
+			southern_transylvania_area = {
+				add_core = TRA
+			}
+			release = TRA
+			TRA = {
+				define_ruler = {
+					name = "Ferenz II"
+					dynasty = "Rakoczi"
+					change_adm = 2
+					change_dip = 3
+					change_mil = 2
+					culture = hungarian
+				}
+				capital_scope = {
+					infantry = TRA
+					infantry = TRA
+					infantry = TRA
+					infantry = TRA
+					cavalry = TRA
+					cavalry = TRA
+					artillery = TRA
+					artillery = TRA
+				}
+				set_country_flag = WFAS_crimean_war_participant_tur
+				join_all_defensive_wars_of = TUR
+			}
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_rakoczi_independence_auh_option"
+		tooltip = {
+			release = TRA
+			TRA = {
+				join_all_defensive_wars_of = TUR
+			}
+		}
+	}
+}
+
+#Rakoczi's War of Independence (Ottoman)
+country_event = {
+	id = WFAS_crimean_war.9
+	title = "WFAS_crimean_war_rakoczi_independence_tur_title"
+	desc = "WFAS_crimean_war_rakoczi_independence_tur_desc"
+	picture = REVOLT_HUNGARIAN_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = TUR
+			tag = CRI
+			has_country_flag = WFAS_crimean_war_participant_cri
+			has_country_flag = WFAS_crimean_war_participant_tur
+		}
+	}
+	fire_only_once = yes
+	trigger = {
+		has_global_flag = WFAS_crimean_war_started
+		has_global_flag = WFAS_crimean_war_rakoczi_appeared
+		tag = TUR
+		any_country = {
+			has_country_flag = WFAS_crimean_war_rakoczi_agreed
+		}
+		all_owned_province = {
+			if = {
+				limit = {
+					OR = {
+						area = transylvania_area
+						area = southern_transylvania_area
+					}
+				}
+				NOT = {
+					controlled_by = ROOT
+				}
+			}
+		}
+		war_with = CRI
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	immediate = {
+		hidden_effect = {
+			transylvania_area = {
+				add_core = TRA
+			}
+			southern_transylvania_area = {
+				add_core = TRA
+			}
+			release = TRA
+			TRA = {
+				define_ruler = {
+					name = "Ferenz II"
+					dynasty = "Rakoczi"
+					change_adm = 2
+					change_dip = 3
+					change_mil = 2
+					culture = hungarian
+				}
+				capital_scope = {
+					infantry = TRA
+					infantry = TRA
+					infantry = TRA
+					infantry = TRA
+					cavalry = TRA
+					cavalry = TRA
+					artillery = TRA
+					artillery = TRA
+				}
+				set_country_flag = WFAS_crimean_war_participant_cri
+				join_all_offensive_wars_of = CRI
+			}
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_rakoczi_independence_tur_option"
+		tooltip = {
+			release = TRA
+			TRA = {
+				join_all_offensive_wars_of = CRI
+			}
+		}
+	}
+}
+
+#Wallachia Regains Independence
+country_event = {
+	id = WFAS_crimean_war.10
+	title = "WFAS_crimean_war_wallachia_title"
+	desc = "WFAS_crimean_war_wallachia_desc"
+	picture = REVOLUTION_eventPicture
+	fire_only_once = yes
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = TUR
+			tag = CRI
+			has_country_flag = WFAS_crimean_war_participant_cri
+			has_country_flag = WFAS_crimean_war_participant_tur
+		}
+	}
+	trigger = {
+		has_global_flag = WFAS_crimean_war_started
+		exists = TRA
+		NOT = {
+			exists = ROM
+		}
+		NOT = {
+			exists = WAL
+		}
+		wallachia_area = {
+			type = all
+			owned_by = ROOT
+			NOT = {
+				controlled_by = ROOT
+			}
+		}
+		OR = {
+			war_with = CRI
+			war_with = TUR
+		}
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	immediate = {
+		hidden_effect = {
+			wallachia_area = {
+				add_core = WAL
+			}
+			release = WAL
+			WAL = {
+				define_ruler = {
+					name = "Serban"
+					dynasty = "Cantacuzino"
+					change_adm = 2
+					change_dip = 2
+					culture = romanian
+				}
+				capital_scope = {
+					infantry = WAL
+					infantry = WAL
+					infantry = WAL
+					infantry = WAL
+					cavalry = WAL
+					cavalry = WAL
+					artillery = WAL
+					artillery = WAL
+				}
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								tag = TUR
+								has_country_flag = WFAS_crimean_war_participant_tur
+							}
+						}
+					}
+					set_country_flag = WFAS_crimean_war_participant_cri
+					join_all_offensive_wars_of = CRI
+				}
+				else_if = {
+					limit = {
+						ROOT = {
+							OR = {
+								tag = CRI
+								has_country_flag = WFAS_crimean_war_participant_cri
+							}
+						}
+					}
+					set_country_flag = WFAS_crimean_war_participant_tur
+					join_all_defensive_wars_of = TUR
+				}
+			}
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_wallachia_option"
+		save_global_event_target_as = WFAS_crimean_war_wallachia_target
+		tooltip = {
+			release = WAL
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							tag = TUR
+							has_country_flag = WFAS_crimean_war_participant_tur
+						}
+					}
+				}
+				set_country_flag = WFAS_crimean_war_participant_cri
+				join_all_offensive_wars_of = CRI
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						OR = {
+							tag = CRI
+							has_country_flag = WFAS_crimean_war_participant_cri
+						}
+					}
+				}
+				set_country_flag = WFAS_crimean_war_participant_tur
+				join_all_defensive_wars_of = TUR
+			}
+		}
+	}
+}
+
+#Collapse of Wallachia
+country_event = {
+	id = WFAS_crimean_war.11
+	title = "WFAS_crimean_war_wallachia_collapse_title"
+	desc = "WFAS_crimean_war_wallachia_collapse_desc"
+	picture = CIVIL_WAR_eventPicture
+	fire_only_once = yes
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = TUR
+			tag = CRI
+			has_country_flag = WFAS_crimean_war_participant_cri
+			has_country_flag = WFAS_crimean_war_participant_tur
+		}
+	}
+	trigger = {
+		has_global_flag = WFAS_crimean_war_started
+		tag = WAL
+		ai = yes
+		was_player = no
+		OR = {
+			has_country_flag = WFAS_crimean_war_participant_tur
+			has_country_flag = WFAS_crimean_war_participant_cri
+		}
+		OR = {
+			war_with = TUR
+			war_with = CRI
+		}
+		all_owned_province = {
+			NOT = {
+				controlled_by = ROOT
+			}
+		}
+		NOT = {
+			army_size = 5
+		}
+	}
+	mean_time_to_happen = {
+		months = 24
+	}
+	option = {
+		name = "WFAS_crimean_war_wallachia_collapse_option_other"
+		event_target:WFAS_crimean_war_wallachia_target = {
+			hidden_effect = {
+				wallachia_area = {
+					add_core = event_target:WFAS_crimean_war_wallachia_target
+				}
+			}
+			inherit = ROOT
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_wallachia_collapse_option_tra"
+		trigger = {
+			all_owned_province = {
+				controlled_by = TRA
+			}
+		}
+		TRA = {
+			hidden_effect = {
+				wallachia_area = {
+					add_core = event_target:WFAS_crimean_war_wallachia_target
+				}
+			}
+			inherit = ROOT
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#Greek Uprising
+country_event = {
+	id = WFAS_crimean_war.12
+	title = "WFAS_crimean_war_greece_title"
+	desc = "WFAS_crimean_war_greece_desc"
+	picture = REVOLUTION_eventPicture
+	fire_only_once = yes
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = TUR
+			tag = CRI
+			has_country_flag = WFAS_crimean_war_participant_cri
+			has_country_flag = WFAS_crimean_war_participant_tur
+		}
+	}
+	trigger = {
+		had_global_flag = {
+			flag = WFAS_crimean_war_started
+			days = 1460
+		}
+		tag = TUR
+		NOT = {
+			exists = BYZ
+		}
+		NOT = {
+			exists = GRE
+		}
+		war_with = CRI
+		num_of_owned_provinces_with = {
+			value = 4
+			area = morea_area
+			culture = greek
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			morea_area = {
+				add_core = GRE
+			}
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_greece_rebel"
+		ai_chance = {
+			factor = 9
+			modifier = {
+				factor = 4
+				NOT = {
+					war_score = -20
+				}
+			}
+		}
+		random_province = {
+			limit = {
+				area = morea_area
+			}
+			spawn_rebels = {
+				size = 2
+				type = nationalist_rebels
+				friend = GRE
+			}
+		}
+		random_province = {
+			limit = {
+				area = morea_area
+			}
+			spawn_rebels = {
+				size = 2
+				type = nationalist_rebels
+				friend = GRE
+			}
+		}
+		set_global_flag = WFAS_crimean_war_greece_revolted
+	}
+	option = {
+		name = "WFAS_crimean_war_greece_release"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 6
+				NOT = {
+					war_score = -20
+				}
+			}
+		}
+		release = GRE
+		add_truce_with = GRE
+		reverse_add_opinion = {
+			who = GRE
+			modifier = released_us_freely
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_greece_compromise"
+		trigger = {
+			accepted_culture = greek
+		}
+		highlight = yes
+		release = GRE
+		add_truce_with = GRE
+		create_subject = {
+			subject_type = WFAS_crimean_protectorate
+			subject = GRE
+		}
+		reverse_add_opinion = {
+			who = GRE
+			modifier = released_us_freely
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#Greeks ask for support
+country_event = {
+	id = WFAS_crimean_war.13
+	title = "WFAS_crimean_war_greece_support_title"
+	desc = "WFAS_crimean_war_greece_support_desc"
+	picture = NOBLE_ESTATE_eventPicture
+	fire_only_once = yes
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = TUR
+			tag = CRI
+			has_country_flag = WFAS_crimean_war_participant_cri
+			has_country_flag = WFAS_crimean_war_participant_tur
+		}
+	}
+	trigger = {
+		has_global_flag = WFAS_crimean_war_started
+		has_country_flag = WFAS_crimean_war_participant_cri
+		NOT = {
+			has_country_flag = WFAS_crimean_war_offered_greece_help
+		}
+		war_with = TUR
+		army_size = TUR
+		TUR = {
+			num_of_owned_provinces_with = {
+				value = 4
+				area = morea_area
+				culture = greek
+				controlled_by = nationalist_rebels
+			}
+		}
+	}
+	immediate = {
+		set_country_flag = WFAS_crimean_war_offered_greece_help
+	}
+	option = {
+		name = "WFAS_crimean_war_greece_support_agree"
+		TUR = {
+			release = GRE
+		}
+		create_guarantee = GRE
+		GRE = {
+			hidden_effect = {
+				add_casus_belli = {
+					type = cb_independence_war
+					target = TUR
+				}
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = supported_independence
+			}
+			declare_war_with_cb = {
+				casus_belli = cb_independence_war
+				who = TUR
+			}
+		}
+		join_all_offensive_wars_of = GRE
+		ai_chance = {
+			factor = 6
+		}
+	}
+	option = {
+		name = "WFAS_crimean_war_greece_support_decline"
+		add_prestige = 10
+		ai_chance = {
+			factor = 4
+		}
+	}
+}
+
+#Hidden event for setting the flag if won
+country_event = {
+	id = WFAS_crimean_war.14
+	fire_only_once = yes
+	is_triggered_only = yes
+	hidden = yes
+	trigger = {
+		tag = CRI
+		has_global_flag = WFAS_crimean_war_started
+	}
+	option = {
+		set_country_flag = WFAS_crimean_war_won
+	}
+}
+
+#Hidden event for setting the flag if lost
+country_event = {
+	id = WFAS_crimean_war.15
+	fire_only_once = yes
+	is_triggered_only = yes
+	hidden = yes
+	trigger = {
+		tag = CRI
+		has_global_flag = WFAS_crimean_war_started
+	}
+	option = {
+		set_country_flag = WFAS_crimean_war_lost
+	}
+}
