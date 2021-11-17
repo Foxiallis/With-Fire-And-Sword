@@ -719,6 +719,7 @@ tsardom = {
 			}
 			AND = {
 				tag = LIT
+				mission_completed = WFAS_LIT_third_rome
 				NOT = {
 					map_setup = map_setup_random
 				}

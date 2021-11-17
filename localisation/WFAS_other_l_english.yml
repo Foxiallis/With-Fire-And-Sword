@@ -107,6 +107,15 @@
  WFAS_other_plutocracy:0 "Plutocracy"
  WFAS_other_plutocracy_desc:0 "A plutocratic kingdom is one where the supporters of the Monarch are those with the largest incomes. The monarch is often the head of a successful merchant enterprise, and so are many of their supporters."
  WFAS_winged_hussars:0 "Winged Hussars"
+ WFAS_tatar_band:0 "Tatar Band"	
+ WFAS_other_golden_horde_horses_title:0 "The Finest of Horses"
+ WFAS_other_golden_horde_horses_desc:0 "Horses take an extremly important place in our history. How our armies would be like without these magnificent animals? We owe them our military strength. Horses from all over the world are different and thats why we must take care of what our warriors ride, so they can be more deadly on the battlefield!"
+ WFAS_other_golden_horde_option:0 "Supply our riders with the finest of horses!"
  
  STATISTS_DRO:1 ""
  MONARCHISTS_DRO:0 ""
+
+ WITH_FIRE_AND_SWORD:0 "With Fire and Sword" #bookmark
+ WITH_FIRE_AND_SWORD_DESC:0 "With Fire and Sword is sizeable Eastern Europe expansion mod. Countries marked in bookmark have received reworked mission trees, a lot of new custom events and many other stuff like decisions, disasters, privileges, estates, mechanics and more. Enjoy your Eastern Europe campaign filled with much more new intresting flavor. Don't forget to comment and rate the mod. Have fun!" 
+
+

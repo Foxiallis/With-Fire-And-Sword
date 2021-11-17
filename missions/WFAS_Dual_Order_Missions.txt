@@ -24,7 +24,7 @@ WFAS_TNR_missions_1 = {
 		effect = {
 			add_country_modifier = {
 				name = "WFAS_soldiers_of_christ"
-				duration = 7300
+				duration = -1
 			}
 			samogitia_area = {
 				limit = {

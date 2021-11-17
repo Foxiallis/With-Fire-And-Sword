@@ -96,6 +96,7 @@ WFAS_orders_dual_order_reform = {
 		tolerance_own = 1
 		state_maintenance_modifier = -0.35
 		max_absolutism = -20
+		governing_capacity_modifier = -0.5
 	}
 	custom_attributes = {
 		locked_government_type = yes
@@ -254,6 +255,61 @@ enforce_trader_privileges_reform = {
 			factor = 0.5
 			NOT = {
 				trade_income_percentage = 0.25
+			}
+		}
+	}
+}
+
+WFAS_cult_of_nature = {
+	potential = {
+		OR = {
+			has_reform = WFAS_cult_of_nature
+			have_had_reform = WFAS_cult_of_nature
+		}
+	}
+	icon = "native_seasonal_travel_reform"
+	allow_normal_conversion = yes
+	modifiers = {
+		inflation_reduction = 0.05
+	}
+	effect = {
+		custom_tooltip = WFAS_tatar_producing_livestock_and_grain.tooltip
+		hidden_effect = {
+			every_owned_province = {
+				if = {
+					limit = {
+						trade_goods = livestock
+					}
+					add_province_modifier = {
+						name = WFAS_tatar_livestock_bonus_prod
+						duration = -1
+						hidden = yes
+					}
+				}
+				if = {
+					limit = {
+						trade_goods = grain
+					}
+					add_province_modifier = {
+						name = WFAS_tatar_grain_bonus_prod
+						duration = -1
+						hidden = yes
+					}
+				}
+			}
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						has_province_modifier = WFAS_tatar_livestock_bonus_prod
+						has_province_modifier = WFAS_tatar_grain_bonus_prod
+					}
+				}
+				remove_province_modifier = WFAS_tatar_livestock_bonus_prod
+				remove_province_modifier = WFAS_tatar_grain_bonus_prod
 			}
 		}
 	}
