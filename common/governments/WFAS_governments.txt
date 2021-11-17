@@ -465,6 +465,7 @@ tribal = {
 			reforms = {
 				religious_societies_reform
 				lip_service_reform
+				WFAS_cult_of_nature
 			}
 		}
 		tribal_modernization = {

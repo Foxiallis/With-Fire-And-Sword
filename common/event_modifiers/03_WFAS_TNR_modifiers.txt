@@ -1,6 +1,6 @@
 WFAS_land_of_churches = {
-	local_tax_modifier = 0.5
-	tax_income = 6
+	local_tax_modifier = 0.25
+	tax_income = 3
 }
 
 WFAS_strong_in_faith = {

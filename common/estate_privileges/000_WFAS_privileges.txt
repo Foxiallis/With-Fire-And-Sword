@@ -211,3 +211,101 @@ estate_cossacks_prime_herding_rights = {
 		factor = 0
 	}
 }
+
+estate_nobles_golden_liberty = {
+	icon = privilege_golden_liberty
+	max_absolutism = -15
+	influence = 0.1
+	loyalty = 0.05
+	is_valid = {
+		OR = {
+			has_estate_privilege = estate_nobles_golden_liberty			#Poland starts with it
+			has_reform = elective_monarchy
+		}
+		government = monarchy
+	}
+	can_revoke = {
+		if = {
+			limit = {
+				OR = {
+					tag = PLC
+					AND = {
+						tag = POL
+						NOT = {
+							exists = PLC
+						}
+					}
+				}
+			}
+			OR = {
+				NOT = {
+					has_reform = elective_monarchy
+				}
+				is_year = 1600
+			}
+		}
+		stability = 2
+		has_regency = no
+	}
+	on_revoked = {
+		if = {
+			limit = {
+				government = monarchy
+				has_estate = estate_nobles
+			}
+			add_stability = -2
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = PLC
+					AND = {
+						tag = POL
+						NOT = {
+							exists = PLC
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_estate_privilege = estate_nobles_nieszawa_privileges
+				}
+				remove_estate_privilege = estate_nobles_nieszawa_privileges
+			}
+			if = {
+				limit = {
+					has_estate_privilege = estate_nobles_pacta_conventa
+				}
+				remove_estate_privilege = estate_nobles_pacta_conventa
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = pol_zebrzydowski_rebellion_flag
+					}
+					is_year = 1600
+					government = monarchy
+				}
+				set_country_flag = pol_pact_conventa_flag
+			}
+		}
+		else_if = {
+			limit = {
+				has_reform = elective_monarchy
+				has_estate = estate_nobles
+			}
+			country_event = {
+				id = estate_privileges_and_agendas_events.1
+			}
+		}
+	}
+	penalties = {
+	}
+	benefits = {
+		global_manpower_modifier = 0.33
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
