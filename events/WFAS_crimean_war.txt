@@ -460,6 +460,7 @@ country_event = {
 			tag = HAB
 			tag = HUN
 		}
+		is_subject = no
 		NOT = {
 			exists = TRA
 		}
