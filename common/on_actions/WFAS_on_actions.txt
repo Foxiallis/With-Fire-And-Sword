@@ -61,6 +61,12 @@ on_new_heir = {
 	}
 }
 
+on_new_term_election = {
+	events = {
+		WFAS_cossacks.13
+	}
+}
+
 on_death_election = {
 	if = {
 		limit = {
@@ -79,6 +85,7 @@ on_death_election = {
 	}
 	events = {
 		WFAS_elective_monarchy_events.1
+		WFAS_cossacks.14
 	}
 }
 

@@ -14,8 +14,15 @@ cossacks_reform = {
 			have_had_reform = cossacks_reform
 		}
 	}
+	raze_province = yes
 	government_abilities = {
 		cossacks_mechanic
+	}
+	conditional = {
+		allow = { has_dlc = "Origins" }
+		custom_attributes = {
+			has_itinerant_capital = yes
+		}
 	}
 	valid_for_new_country = yes
 	nation_designer_trigger = {
@@ -39,20 +46,74 @@ cossacks_reform = {
 	duration = 4
 }
 
+tsardom = {
+	icon = "king"
+	allow_normal_conversion = yes
+	potential = {
+		religion = orthodox
+		OR = {
+			AND = {
+				tag = RUS
+				NOT = {
+					map_setup = map_setup_random
+				}
+			}
+			AND = {
+				tag = UKR
+				NOT = {
+					map_setup = map_setup_random
+				}
+			}
+			AND = {
+				tag = LIT
+				mission_completed = WFAS_LIT_third_rome
+				NOT = {
+					map_setup = map_setup_random
+				}
+			}
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = tsardom
+			}
+		}
+	}
+	fixed_rank = 3
+	legacy_equivalent = tsardom_legacy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	nation_designer_trigger = {
+		culture_group = east_slavic
+		religion = orthodox
+	}
+	modifiers = {
+		global_manpower_modifier = 0.2
+		yearly_absolutism = 0.5
+		global_autonomy = -0.05
+		governing_capacity = 250
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Third Rome"
+		}
+		government_abilities = {
+			russian_mechanic
+		}
+		claim_states = yes
+	}
+}
+
 WFAS_cossack_starshyna = {
 	icon = "commander_king_reform"
 	allow_normal_conversion = yes
 	potential = {
 		has_reform = cossacks_reform
 	}
-	has_term_election = no
 	royal_marriage = yes
 	custom_attributes = {
-		generals_become_rulers = yes
 		enables_nepotism = yes
 	}
 	modifiers = {
-		war_exhaustion = -0.05
+		war_exhaustion = -0.1
 	}
 }
 

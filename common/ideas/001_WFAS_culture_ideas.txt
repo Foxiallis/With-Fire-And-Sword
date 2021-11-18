@@ -9,6 +9,7 @@ WFAS_cossack_ideas = {
 	trigger = {
 		OR = {
 			has_reform = cossacks_reform
+			has_reform = cossacks_legacy_reform
 			primary_culture = WFAS_cossack_culture
 		}
 	}

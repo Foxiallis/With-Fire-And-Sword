@@ -665,6 +665,9 @@ country_event = {
 		}
 		is_year = 1460
 	}
+	mean_time_to_happen = {
+		months = 120
+	}
 	option = {
 		name = "WFAS_crimea_circassian_mercenaries_mercenaries"
 		custom_tooltip = WFAS_circassian_mercenaries_available
@@ -970,6 +973,9 @@ country_event = {
 			culture = circassian
 		}
 	}
+	mean_time_to_happen = {
+		months = 120
+	}
 	option = {
 		name = "WFAS_crimea_consort_issues_accept"
 		add_accepted_culture = circassian
@@ -1164,6 +1170,9 @@ country_event = {
 			}
 		}
 		is_year = 1650
+	}
+	mean_time_to_happen = {
+		months = 50
 	}
 	option = {
 		name = "WFAS_crimea_tobacco_option"

@@ -909,6 +909,9 @@ country_event = {
 			culture = greek
 		}
 	}
+	mean_time_to_happen = {
+		months = 12
+	}
 	immediate = {
 		hidden_effect = {
 			morea_area = {
@@ -976,7 +979,7 @@ country_event = {
 		release = GRE
 		add_truce_with = GRE
 		create_subject = {
-			subject_type = WFAS_crimean_protectorate
+			subject_type = WFAS_protectorate
 			subject = GRE
 		}
 		reverse_add_opinion = {
@@ -1004,6 +1007,9 @@ country_event = {
 			has_country_flag = WFAS_crimean_war_participant_cri
 			has_country_flag = WFAS_crimean_war_participant_tur
 		}
+	}
+	mean_time_to_happen = {
+		months = 2
 	}
 	trigger = {
 		has_global_flag = WFAS_crimean_war_started

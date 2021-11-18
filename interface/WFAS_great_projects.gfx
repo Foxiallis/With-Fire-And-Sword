@@ -15,4 +15,8 @@ spriteTypes = {
 		name = "GFX_great_project_WFAS_golden_gate"
 		texturefile = "gfx//interface//great_projects//golden_gate.dds"
 	}
+	spriteType = {
+		name = "GFX_great_project_malbork_castle"
+		texturefile = "gfx//interface//great_projects//great_project_malbork_castle.dds"
+	}
 }

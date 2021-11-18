@@ -290,7 +290,7 @@ country_event = {
 		}
 		tooltip = {
 			create_subject = {
-				subject_type = WFAS_crimean_protectorate
+				subject_type = WFAS_protectorate
 				subject = CRI
 			}
 		}
@@ -567,7 +567,7 @@ country_event = {
 		add_adm_power = 50
 		TUR = {
 			create_subject = {
-				subject_type = WFAS_crimean_protectorate
+				subject_type = WFAS_protectorate
 				subject = CRI
 			}
 		}
@@ -655,7 +655,7 @@ country_event = {
 		}
 		TUR = {
 			create_subject = {
-				subject_type = WFAS_crimean_protectorate
+				subject_type = WFAS_protectorate
 				subject = CRI
 			}
 			hidden_effect = {

@@ -1,4 +1,5 @@
 namespace = WFAS_cossacks
+#TODO ai chances for cossacks
 #Establishment of the Don Cossacks
 country_event = {
 	id = WFAS_cossacks.1
@@ -136,6 +137,9 @@ country_event = {
 			remove_country_modifier = WFAS_cossacks_5
 			add_yearly_manpower = 2.5
 		}
+		ai_chance = {
+			factor = 4
+		}
 	}
 	option = {
 		name = "WFAS_cossacks_decline_loyalty"
@@ -228,6 +232,9 @@ country_event = {
 			else = {
 				add_prestige = 20
 			}
+		}
+		ai_chance = {
+			factor = 1
 		}
 	}
 }
@@ -337,6 +344,15 @@ province_event = {
 				}
 			}
 		}
+		ai_chance = {
+			factor = 6
+			modifier = {
+				factor = 2
+				owner = {
+					has_country_modifier = WFAS_cossacks_5
+				}
+			}
+		}
 	}
 	option = {
 		name = "WFAS_cossacks_siberia_forbid"
@@ -403,6 +419,15 @@ province_event = {
 			else = {
 				add_mil_power = -25
 				add_adm_power = -25
+			}
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 6
+				owner = {
+					has_country_modifier = WFAS_cossacks_1
+				}
 			}
 		}
 	}
@@ -501,6 +526,13 @@ country_event = {
 				}
 			}
 		}
+		ai_chance = {
+			factor = 6
+			modifier = {
+				factor = 2
+				has_country_modifier = WFAS_cossacks_5
+			}
+		}
 	}
 	option = {
 		name = "WFAS_cossacks_exhausted_force"
@@ -560,6 +592,13 @@ country_event = {
 						duration = -1
 					}
 				}
+			}
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 6
+				has_country_modifier = WFAS_cossacks_1
 			}
 		}
 	}
@@ -661,6 +700,13 @@ country_event = {
 				}
 			}
 		}
+		ai_chance = {
+			factor = 6
+			modifier = {
+				factor = 2
+				has_country_modifier = WFAS_cossacks_5
+			}
+		}
 	}
 	option = {
 		name = "WFAS_cossacks_autonomy_decline"
@@ -723,6 +769,13 @@ country_event = {
 						duration = -1
 					}
 				}
+			}
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 6
+				has_country_modifier = WFAS_cossacks_1
 			}
 		}
 	}
@@ -819,6 +872,13 @@ country_event = {
 				}
 			}
 		}
+		ai_chance = {
+			factor = 6
+			modifier = {
+				factor = 2
+				has_country_modifier = WFAS_cossacks_5
+			}
+		}
 	}
 	option = {
 		name = "WFAS_cossacks_rights_refuse"
@@ -888,6 +948,13 @@ country_event = {
 		}
 		else = {
 			add_adm_power = -50
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 6
+				has_country_modifier = WFAS_cossacks_1
+			}
 		}
 	}
 }
@@ -1023,6 +1090,13 @@ country_event = {
 				}
 			}
 		}
+		ai_chance = {
+			factor = 6
+			modifier = {
+				factor = 2
+				has_country_modifier = WFAS_cossacks_5
+			}
+		}
 	}
 	option = {
 		name = "WFAS_cossacks_minorities_forbid"
@@ -1102,6 +1176,13 @@ country_event = {
 					has_province_flag = WFAS_cossack_minority_flag
 				}
 				clr_province_flag = WFAS_cossack_minority_flag
+			}
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 6
+				has_country_modifier = WFAS_cossacks_1
 			}
 		}
 	}
@@ -1198,6 +1279,13 @@ country_event = {
 				}
 			}
 		}
+		ai_chance = {
+			factor = 6
+			modifier = {
+				factor = 2
+				has_country_modifier = WFAS_cossacks_5
+			}
+		}
 	}
 	option = {
 		name = "WFAS_cossacks_return_decline"
@@ -1269,6 +1357,13 @@ country_event = {
 		}
 		else = {
 			add_mil_power = -50
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 6
+				has_country_modifier = WFAS_cossacks_1
+			}
 		}
 	}
 }
@@ -1347,6 +1442,13 @@ country_event = {
 		else = {
 			add_adm_power = -100
 		}
+		ai_chance = {
+			factor = 6
+			modifier = {
+				factor = 2
+				has_country_modifier = WFAS_cossacks_5
+			}
+		}
 	}
 	option = {
 		name = "WFAS_cossacks_settle_decline"
@@ -1410,6 +1512,13 @@ country_event = {
 		else = {
 			add_adm_power = 25
 			add_mil_power = 25
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 6
+				has_country_modifier = WFAS_cossacks_1
+			}
 		}
 	}
 }
@@ -1642,6 +1751,323 @@ country_event = {
 				change_culture = WFAS_cossack_culture
 				change_religion = orthodox
 			}
+		}
+	}
+}
+
+#Election! 
+country_event = {
+	id = WFAS_cossacks.13
+	title = "WFAS_cossacks_election_title"
+	desc = "WFAS_cossacks_election_desc"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		has_reform = WFAS_cossack_starshyna
+	}
+	option = {
+		name = "WFAS_cossacks_election_leave"
+		trigger = {
+			has_regency = no
+			NOT = {
+				has_ruler_flag = leader_has_been_pushed_out
+			}
+		}
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = {
+					republican_tradition = 25
+				}
+			}
+			modifier = {
+				factor = 0.5
+				NOT = {
+					republican_tradition = 50
+				}
+			}
+			modifier = {
+				factor = 0.5
+				NOT = {
+					republican_tradition = 75
+				}
+			}
+			modifier = {
+				factor = 2
+				republican_tradition = 90
+			}
+		}
+		custom_tooltip = remains_ruler
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = {
+				NOT = {
+					republican_tradition = 20
+				}
+			}
+			capital_scope = {
+				spawn_rebels = {
+					size = 3
+					type = pretender_rebels
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					republican_tradition = 30
+				}
+			}
+			capital_scope = {
+				spawn_rebels = {
+					size = 2
+					type = pretender_rebels
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					republican_tradition = 40
+				}
+			}
+			capital_scope = {
+				spawn_rebels = {
+					size = 1
+					type = pretender_rebels
+				}
+			}
+		}
+		add_scaled_republican_tradition = -10
+		random_list = {
+			10 = {
+				add_adm_power = 50
+			}
+			10 = {
+				add_dip_power = 50
+			}
+			10 = {
+				add_mil_power = 50
+			}
+		}
+	}
+	option = {
+		name = "WFAS_cossacks_election_general"
+		ai_chance = {
+			factor = 20
+		}
+		if = {
+			limit = {
+				num_of_generals = 1
+			}
+			define_leader_to_ruler = {
+				type = general
+			}
+		}
+		else = {
+			define_ruler = {
+				min_age = 30
+				max_age = 50
+			}
+			hidden_effect = {
+				convert_ruler_to_general = yes
+			}
+		}
+	}
+	option = {
+		name = "WFAS_cossacks_election_relative"
+		ai_chance = {
+			factor = 10
+		}
+		add_scaled_republican_tradition = -4
+		define_ruler = {
+			min_age = 30
+			max_age = 50
+			name = "lastname"
+		}
+	}
+}
+
+#Election! (death)
+country_event = {
+	id = WFAS_cossacks.14
+	title = "WFAS_cossacks_election_title"
+	desc = "WFAS_cossacks_election_d_desc"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		has_reform = WFAS_cossack_starshyna
+	}
+	option = {
+		name = "WFAS_cossacks_election_general"
+		ai_chance = {
+			factor = 20
+		}
+		if = {
+			limit = {
+				num_of_generals = 1
+			}
+			define_leader_to_ruler = {
+				type = general
+			}
+		}
+		else = {
+			define_ruler = {
+				min_age = 30
+				max_age = 50
+			}
+			hidden_effect = {
+				convert_ruler_to_general = yes
+			}
+		}
+	}
+	option = {
+		name = "WFAS_cossacks_election_relative"
+		ai_chance = {
+			factor = 10
+		}
+		add_scaled_republican_tradition = -4
+		define_ruler = {
+			min_age = 30
+			max_age = 50
+			name = "lastname"
+		}
+	}
+}
+
+#Push for cossack starshyna
+country_event = {
+	id = WFAS_cossacks.15
+	title = "WFAS_cossacks_starshyna_event_title"
+	desc = "WFAS_cossacks_starshyna_event_decs"
+	picture = COSSACK_ESTATE_UPSET_eventPicture
+	trigger = {
+		OR = {
+			has_reform = cossacks_reform
+			has_reform = cossacks_legacy_reform
+		}
+		NOT = {
+			has_reform = WFAS_cossack_starshyna
+		}
+		has_reform_on_level = 3
+		NOT = {
+			has_country_flag = WFAS_pushed_cossack_starshyna
+		}
+	}
+	immediate = {
+		set_country_flag = WFAS_pushed_cossack_starshyna
+	}
+	option = {
+		name = "WFAS_cossacks_starshyna_event_submit"
+		add_government_reform = WFAS_cossack_starshyna
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_cossacks_starshyna_event_decline"
+		add_stability = -1
+		add_scaled_republican_tradition = -20
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#A Cossack Identity
+country_event = {
+	id = WFAS_cossacks.16
+	title = "WFAS_cossacks_don_event_title"
+	desc = "WFAS_cossacks_don_event_desc"
+	picture = COSSACK_ESTATE_eventPicture
+	fire_only_once = yes
+	trigger = {
+		has_global_flag = WFAS_cossacks_resettled
+		has_country_flag = WFAS_established_don_cossacks
+		OR = {
+			owns_all_provinces = {
+				area = lower_don_area
+			}
+			owns_all_provinces = {
+				area = azov_area
+			}
+			owns_all_provinces = {
+				area = astrakhan_area
+			}
+		}
+		num_of_owned_provinces_with = {
+			value = 4
+			OR = {
+				area = lower_don_area
+				area = azov_area
+				area = astrakhan_area
+			}
+			culture = WFAS_cossack_culture
+		}
+		is_year = 1600
+	}
+	mean_time_to_happen = {
+		months = 240
+	}
+	immediate = {
+		every_province = {
+			limit = {
+				OR = {
+					area = lower_don_area
+					area = azov_area
+					area = astrakhan_area
+				}
+				culture = WFAS_cossack_culture
+			}
+			add_core = DON
+		}
+	}
+	option = {
+		name = "WFAS_cossacks_don_event_ok"
+		custom_tooltip = WFAS_don_cossacks_want_independence
+		hidden_effect = {
+			every_province = {
+				limit = {
+					is_core = DON
+				}
+				add_unrest = 10
+			}
+		}
+		ai_chance = {
+			factor = 8
+		}
+	}
+	option = {
+		name = "WFAS_cossacks_don_event_release"
+		release = DON
+		reverse_add_opinion = {
+			who = DON
+			modifier = released_us_freely
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+	option = {
+		name = "WFAS_cossacks_don_event_protectorate"
+		highlight = yes
+		trigger = {
+			has_country_modifier = WFAS_cossacks_5
+		}
+		release = DON
+		reverse_add_opinion = {
+			who = DON
+			modifier = released_us_freely
+		}
+		create_subject = {
+			subject_type = WFAS_protectorate
+			subject = DON
+		}
+		ai_chance = {
+			factor = 16
 		}
 	}
 }

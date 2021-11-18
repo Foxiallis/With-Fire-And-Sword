@@ -36,6 +36,9 @@ country_event = {
 			has_government_attribute = lottery_election
 		}
 		NOT = {
+			has_reform = WFAS_cossack_starshyna
+		}
+		NOT = {
 			has_reform = pirate_republic_reform
 		}
 		NOT = {
@@ -360,6 +363,9 @@ country_event = {
 		}
 		NOT = {
 			has_government_attribute = lottery_election
+		}
+		NOT = {
+			has_reform = WFAS_cossack_starshyna
 		}
 		NOT = {
 			has_reform = pirate_republic_reform
