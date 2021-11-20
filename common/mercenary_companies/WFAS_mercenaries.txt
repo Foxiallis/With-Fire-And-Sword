@@ -35,7 +35,8 @@ WFAS_winged_hussars = {
 	cavalry_weight = 1
 	home_province = 257
 	sprites = {
-		dlc003_pol_sprite_pack easterngfx_sprite_pack
+		dlc003_pol_sprite_pack
+		easterngfx_sprite_pack
 	}
 	trigger = {
 		OR = {
@@ -44,11 +45,11 @@ WFAS_winged_hussars = {
 		}
 		is_year = 1550
 	}
-	modifier = { 
-	cavalry_power = 0.3
-	cavalry_flanking = 1
-	cost_modifier = 1
+	modifier = {
+		cavalry_power = 0.3
+		cavalry_flanking = 1
 	}
+	cost_modifier = 1
 }
 
 WFAS_tatar_band = {
@@ -65,9 +66,26 @@ WFAS_tatar_band = {
 			is_year = 1550
 		}
 	}
-	modifier = { 
-	cavalry_power = 0.1
-	cavalry_flanking = 1
-        cost_modifier = 0.3
+	modifier = {
+		cavalry_power = 0.1
+		cavalry_flanking = 1
+	}
+	cost_modifier = 0.3
+}
+
+WFAS_circassian_crimean_band = {
+	regiments_per_development = 0.025
+	cost_modifier = 0.4
+	home_province = 463	# Circassia proper
+	sprites = {
+		dlc047_cir_sprite_pack
+		easterngfx_sprite_pack
+	}
+	trigger = {
+		has_country_flag = WFAS_circassian_mercenaries_flag
+	}
+	modifier = {
+		prestige_from_land = 0.15
+		shock_damage = 0.1
 	}
 }

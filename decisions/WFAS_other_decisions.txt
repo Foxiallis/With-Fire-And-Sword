@@ -1,0 +1,50 @@
+country_decisions = {
+	WFAS_cossack_nation = {
+		major = yes
+		potential = {
+			culture_group = east_slavic
+			religion = orthodox
+			NOT = {
+				has_reform = cossacks_reform
+			}
+			NOT = {
+				tag = ZAZ
+			}
+			has_dlc = "The Cossacks"
+			NOT = {
+				has_country_flag = embraced_steppes
+			}
+			NOT = {
+				is_emperor_of_china = yes
+			}
+			NOT = {
+				is_revolutionary = yes
+			}
+		}
+		allow = {
+			stability = 0
+			culture = WFAS_cossack_culture
+			NOT = {
+				government = dictatorship
+			}
+			NOT = {
+				has_reform = presidential_despot_reform
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						government = republic
+					}
+				}
+				change_government_to_republic = yes
+			}
+			add_government_reform = cossacks_reform
+			set_country_flag = embraced_steppes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

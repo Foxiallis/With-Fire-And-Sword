@@ -1,5 +1,5 @@
 ﻿l_english:
- WFAS_crimean_protectorate_title: "Crimean Protectorate"
- WFAS_crimean_protectorate_title_plural: "Crimean Protectorates"
- WFAS_crimean_protectorate_long_desc: "A crimean protectorate was a unique subject-overlord relationship that Crimea held with the Ottomans for almost 300 years."
- WFAS_crimean_protectorate_is_our: "$NAME"
+ WFAS_protectorate_title: "Protectorate"
+ WFAS_protectorate_title_plural: "Protectorates"
+ WFAS_protectorate_long_desc: "A protectorate was a unique subject-overlord relationship that allowed protection to the subject in exchange of his mandatory war participation."
+ WFAS_protectorate_is_our: "$NAME"

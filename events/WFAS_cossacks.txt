@@ -1884,7 +1884,7 @@ country_event = {
 		}
 		add_scaled_republican_tradition = -4
 		define_ruler = {
-			min_age = 30
+			min_age = 18
 			max_age = 50
 			name = "lastname"
 		}
@@ -1931,7 +1931,7 @@ country_event = {
 		}
 		add_scaled_republican_tradition = -4
 		define_ruler = {
-			min_age = 30
+			min_age = 18
 			max_age = 50
 			name = "lastname"
 		}
@@ -1942,7 +1942,7 @@ country_event = {
 country_event = {
 	id = WFAS_cossacks.15
 	title = "WFAS_cossacks_starshyna_event_title"
-	desc = "WFAS_cossacks_starshyna_event_decs"
+	desc = "WFAS_cossacks_starshyna_event_desc"
 	picture = COSSACK_ESTATE_UPSET_eventPicture
 	trigger = {
 		OR = {
@@ -1956,6 +1956,9 @@ country_event = {
 		NOT = {
 			has_country_flag = WFAS_pushed_cossack_starshyna
 		}
+	}
+	mean_time_to_happen = {
+		months = 36
 	}
 	immediate = {
 		set_country_flag = WFAS_pushed_cossack_starshyna

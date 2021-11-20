@@ -70,6 +70,24 @@ country_event = {
 		name = "WFAS_crimean_war_end_lost_option"
 		add_prestige = -15
 		add_stability = -1
+		if = {
+			limit = {
+				has_country_modifier = WFAS_forbidden_raiding
+			}
+			remove_country_modifier = WFAS_forbidden_raiding
+		}
+		if = {
+			limit = {
+				has_country_modifier = WFAS_restricted_raiding
+			}
+			remove_country_modifier = WFAS_restricted_raiding
+		}
+		if = {
+			limit = {
+				has_country_modifier = WFAS_unrestricted_raiding
+			}
+			remove_country_modifier = WFAS_unrestricted_raiding
+		}
 		kill_ruler = yes
 		kill_heir = yes
 		kill_consort = yes
@@ -232,6 +250,7 @@ country_event = {
 	option = {
 		name = "WFAS_crimean_war_constantinople_war"
 		hidden_effect = {
+			add_claim = 151
 			add_casus_belli = {
 				type = cb_conquest
 				target = TUR
@@ -304,7 +323,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = "WFAS_crimean_war_constantinople_peace"
+		name = "WFAS_crimean_war_intervention_peace"
 		reverse_add_opinion = {
 			who = TUR
 			modifier = opinion_pleased
@@ -318,7 +337,7 @@ country_event = {
 #Eyes on the Constantinople (Rus/Byz rivals)
 country_event = {
 	id = WFAS_crimean_war.5
-	title = "WFAS_crimean_war_constantinople_reaction_title"
+	title = "WFAS_crimean_war_constantinople_title"
 	desc = "WFAS_crimean_war_constantinople_reaction_desc"
 	picture = KINGS_CHOICE_eventPicture
 	trigger = {
@@ -339,6 +358,7 @@ country_event = {
 		NOT = {
 			war_with = CRI
 		}
+		is_rival = event_target:WFAS_crimean_war_constantinople_attacker
 	}
 	major = yes
 	major_trigger = {
@@ -368,7 +388,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = "WFAS_crimean_war_constantinople_reaction_peace"
+		name = "WFAS_crimean_war_intervention_peace"
 		reverse_add_opinion = {
 			who = TUR
 			modifier = opinion_displeased
@@ -382,7 +402,7 @@ country_event = {
 #Rakoczi's Visit (Ottomans)
 country_event = {
 	id = WFAS_crimean_war.6
-	title = "WFAS_crimean_war_rakoczi_tur_title"
+	title = "WFAS_crimean_war_rakoczi_title"
 	desc = "WFAS_crimean_war_rakoczi_tur_desc"
 	picture = NOBLE_ESTATE_eventPicture
 	fire_only_once = yes
@@ -450,7 +470,7 @@ country_event = {
 #Rakoczi's Visit (Austria)
 country_event = {
 	id = WFAS_crimean_war.7
-	title = "WFAS_crimean_war_rakoczi_auh_title"
+	title = "WFAS_crimean_war_rakoczi_title"
 	desc = "WFAS_crimean_war_rakoczi_auh_desc"
 	picture = NOBLE_ESTATE_eventPicture
 	fire_only_once = yes
@@ -506,8 +526,8 @@ country_event = {
 #Rakoczi's War of Independence (Austria)
 country_event = {
 	id = WFAS_crimean_war.8
-	title = "WFAS_crimean_war_rakoczi_independence_auh_title"
-	desc = "WFAS_crimean_war_rakoczi_independence_auh_desc"
+	title = "WFAS_crimean_war_rakoczi_independence_title"
+	desc = "WFAS_crimean_war_rakoczi_independence_desc"
 	picture = REVOLT_HUNGARIAN_eventPicture
 	major = yes
 	major_trigger = {
@@ -579,7 +599,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = "WFAS_crimean_war_rakoczi_independence_auh_option"
+		name = "WFAS_crimean_war_rakoczi_independence_option"
 		tooltip = {
 			release = TRA
 			TRA = {
@@ -592,8 +612,8 @@ country_event = {
 #Rakoczi's War of Independence (Ottoman)
 country_event = {
 	id = WFAS_crimean_war.9
-	title = "WFAS_crimean_war_rakoczi_independence_tur_title"
-	desc = "WFAS_crimean_war_rakoczi_independence_tur_desc"
+	title = "WFAS_crimean_war_rakoczi_independence_title"
+	desc = "WFAS_crimean_war_rakoczi_independence_desc"
 	picture = REVOLT_HUNGARIAN_eventPicture
 	major = yes
 	major_trigger = {
@@ -664,7 +684,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = "WFAS_crimean_war_rakoczi_independence_tur_option"
+		name = "WFAS_crimean_war_rakoczi_independence_option"
 		tooltip = {
 			release = TRA
 			TRA = {
@@ -985,6 +1005,9 @@ country_event = {
 		reverse_add_opinion = {
 			who = GRE
 			modifier = released_us_freely
+		}
+		GRE = {
+			join_all_defensive_wars_of = ROOT
 		}
 		ai_chance = {
 			factor = 10

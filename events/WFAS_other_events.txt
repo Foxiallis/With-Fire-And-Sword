@@ -905,6 +905,7 @@ country_event = {
 	option = {
 		name = "WFAS_other_golden_horde_option"
 		change_price = {
+			key = WFAS_other_finest_horses
 			trade_goods = livestock
 			value = 0.5
 			duration = 18250

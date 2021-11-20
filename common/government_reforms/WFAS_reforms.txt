@@ -19,7 +19,9 @@ cossacks_reform = {
 		cossacks_mechanic
 	}
 	conditional = {
-		allow = { has_dlc = "Origins" }
+		allow = {
+			has_dlc = "Origins"
+		}
 		custom_attributes = {
 			has_itinerant_capital = yes
 		}
@@ -447,6 +449,8 @@ WFAS_crimean_khanate = {
 	ai = {
 		factor = 1
 	}
+}
+
 WFAS_cult_of_nature = {
 	potential = {
 		OR = {

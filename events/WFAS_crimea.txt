@@ -839,10 +839,11 @@ country_event = {
 	}
 	option = {
 		name = "WFAS_crimea_heir_path_send"
-		add_adm_power = -50
-		add_dip_power = -50
-		add_mil_power = -50
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
 		custom_tooltip = WFAS_crimea_heir_start_training
+		set_heir_flag = WFAS_crimea_heir_training
 		hidden_effect = {
 			random_list = {
 				4 = {
@@ -865,7 +866,7 @@ country_event = {
 	}
 	option = {
 		name = "WFAS_crimea_heir_path_leave"
-		add_prestige = 5
+		add_prestige = 10
 		ai_chance = {
 			factor = 1
 		}
@@ -875,10 +876,13 @@ country_event = {
 #Heir's path (return, successful)
 country_event = {
 	id = WFAS_crimea.14
-	title = "WFAS_crimea_heir_success_title"
+	title = "WFAS_crimea_heir_path_title"
 	desc = "WFAS_crimea_heir_success_desc"
 	picture = MILITARISTICALLY_TALENTED_RULER_eventPicture
 	is_triggered_only = yes
+	trigger = {
+		has_heir_flag = WFAS_crimea_heir_training
+	}
 	option = {
 		name = "WFAS_crimea_heir_success_option"
 		add_prestige = 15
@@ -927,10 +931,13 @@ country_event = {
 #Heir's path (return, unsuccessful)
 country_event = {
 	id = WFAS_crimea.15
-	title = "WFAS_crimea_heir_fail_title"
+	title = "WFAS_crimea_heir_path_title"
 	desc = "WFAS_crimea_heir_fail_desc"
 	picture = BAD_WITH_MONARCH_eventPicture
 	is_triggered_only = yes
+	trigger = {
+		has_heir_flag = WFAS_crimea_heir_training
+	}
 	option = {
 		name = "WFAS_crimea_heir_fail_option"
 		add_prestige = -10
@@ -944,18 +951,15 @@ country_event = {
 			random_list = {
 				6 = {
 				}
-				3 = {
-					change_heir_mil = 1
-				}
 				1 = {
-					change_heir_mil = 2
+					change_heir_mil = 1
 				}
 			}
 		}
 	}
 }
 
-#Consort pushes the Circassian issue
+#Consort pushes the Circassian issues
 country_event = {
 	id = WFAS_crimea.16
 	title = "WFAS_crimea_consort_issues_title"
@@ -1001,7 +1005,7 @@ country_event = {
 #Treaty of Karlowitz (Ottomans)
 country_event = {
 	id = WFAS_crimea.17
-	title = "WFAS_crimea_karlowitz_treaty_tur_title"
+	title = "WFAS_crimea_karlowitz_treaty_title"
 	desc = "WFAS_crimea_karlowitz_treaty_tur_desc"
 	picture = DIPLOMACY_SIGNING_eventPicture
 	trigger = {
@@ -1052,7 +1056,7 @@ country_event = {
 #Treaty of Karlowitz (Crimea)
 country_event = {
 	id = WFAS_crimea.18
-	title = "WFAS_crimea_karlowitz_treaty_cri_title"
+	title = "WFAS_crimea_karlowitz_treaty_title"
 	desc = "WFAS_crimea_karlowitz_treaty_cri_desc"
 	picture = DIPLOMACY_SIGNING_eventPicture
 	is_triggered_only = yes
@@ -1208,13 +1212,17 @@ country_event = {
 	trigger = {
 		ai = no
 		was_player = yes
-		capital_scope = {
-			OR = {
-				region = poland_region
-				region = baltic_region
-				region = crimea_region
-				region = russia_region
-				region = ruthenia_region
+		OR = {
+			tag = SWE
+			tag = GEO
+			capital_scope = {
+				OR = {
+					region = poland_region
+					region = baltic_region
+					region = crimea_region
+					region = russia_region
+					region = ruthenia_region
+				}
 			}
 		}
 	}

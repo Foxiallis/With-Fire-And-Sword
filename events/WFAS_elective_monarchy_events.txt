@@ -173,7 +173,6 @@ country_event = {
 				has_reform = legislative_sejm
 			}
 			define_ruler = {
-				culture = root
 				male = yes
 				min_age = 30
 				max_age = 60
@@ -190,7 +189,6 @@ country_event = {
 		}
 		else = {
 			define_ruler = {
-				culture = root
 				male = yes
 				min_age = 30
 				max_age = 60
