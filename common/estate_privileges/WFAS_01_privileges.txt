@@ -32,7 +32,7 @@ estate_magnates_land_rights = {
 
 estate_magnates_folwarks = {
 	icon = privilege_make_generous_donation
-	land_share = 0
+	land_share = 5
 	max_absolutism = -5
 	loyalty = 0.1
 	influence = 0.1
@@ -45,7 +45,7 @@ estate_magnates_folwarks = {
 		add_treasury = 200
 	}
 	penalties = {
-		min_autonomy = 5
+		global_autonomy = 0.05
 	}
 	benefits = {
 		production_efficiency = 0.15
@@ -58,6 +58,7 @@ estate_magnates_folwarks = {
 estate_magnates_production_law = {
 	icon = privilege_royal_authority
 	max_absolutism = -10
+	land_share = 5
 	influence = 0.2
 	loyalty = 0.05
 	is_valid = {
@@ -149,7 +150,7 @@ estate_magnates_royal_advisors = {
 
 estate_magnates_anti_absolutism = {
 	icon = privilege_royal_authority
-	max_absolutism = -35
+	max_absolutism = -75
 	influence = 0.1
 	loyalty = 0.2
 	is_valid = {
@@ -173,7 +174,7 @@ estate_magnates_anti_absolutism = {
 		global_unrest = -1
 	}
 	penalties = {
-		yearly_absolutism = -0.1
+		yearly_absolutism = -1
 	}
 	ai_will_do = {
 		factor = 0		# let the bot change his gov, something intresting for players

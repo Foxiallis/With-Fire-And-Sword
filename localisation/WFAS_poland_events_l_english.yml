@@ -93,6 +93,7 @@
  WFAS_elective_monarchy_events.1.t:0 "Interregnum in Poland"
  WFAS_elective_monarchy_events.1.d:0 "$MONARCHTITLE$ has died. A tough times are ahead of us in the coming months. Nobles from whole Poland will arrive to $CAPITAL_CITY$ and elect new $MONARCHTITLE$."
  WFAS_elective_monarchy_events.1.a:0 "God bless us and our [Root.GovernmentName]"
+ WFAS_elective_monarchy_events.1.b:0 "Perhaps Queen Bona should become a regent?"
 
  WFAS_elective_monarchy_events.2.t:0 "Polish Election of new monarch"
  WFAS_elective_monarchy_events.2.desc:0 "[GetDate], sunny afternoon. Polish magnates and noblemans are about to choose a new monarch for our great [Root.GovernmentName]. New monarch will sign privileges and make promises. We have to make a wise decision and elect the best candidate as possible."
@@ -102,6 +103,9 @@
  WFAS_elective_monarchy_events.2.d:0 "Elect relative of [WFAS_POL_ally_country.GetAdjective] [WFAS_POL_ally_country.Monarch.GetTitle], our loyal ally"
  WFAS_elective_monarchy_events.2.e:0 "Elect [WFAS_POL_marriage_country.GetAdjective] noble with connections with Polish families"
  WFAS_elective_monarchy_events.2.f:0 "Elect popular noble from [WFAS_POL_friend_country.GetName]"
+ WFAS_elective_monarchy_events.2.g:0 "Let the Queen Bona remain her position as a female ruler of Poland"
+ WFAS_elective_monarchy_events.2.h:0 "Elect perspective Duke of Transylvania, Stefan I Batory"
+ WFAS_elective_monarchy_events.2.i:0 "Elect warlike Jan from house Sobieski"
 
  WFAS_elective_monarchy_events.3.t:0 "Where is the king?"
  WFAS_elective_monarchy_events.3.d:0 "Minutes were passing, without our monarch present at the royal breakfast. Advisors have started to worry. After hours of searching for the [Root.Monarch.GetTitle], we realized that he escaped from the court."
@@ -120,6 +124,8 @@
  WFAS_elective_monarchy_event1.tooltip:0 "Election will be held in next few months"
  WFAS_elective_monarchy_event3.tooltip:0 "[Root.Monarch.GetName] escapes form [Root.GetName]"
  WFAS_elective_monarchy_event4.tooltip:0 "Each monarch skill will be increased by§Y 1§!."
+ WFAS_bona_sforza.tooltip:0 "Bona Sforza is present on the royal court."
+ WFAS_bona_sforza_married.tooltip:0 "Bona Sforza will become a new consort."
 
  # WFAS Flavor Events #
  WFAS_flavor_events_pol.1.title:0 "One and a half grosz Monetary Reform"
@@ -198,3 +204,12 @@
  WFAS_poland_estonia_autonomy:0 "Give them more autonomy."
  WFAS_poland_estonia_vassal:0 "Hereby the Duchy of Estonia shall be our vassal."
  WFAS_poland_estonia_kurland:0 "Give the lands to [KUR.GetName]"
+
+ WFAS_flavor_events_pol.38.title:0 "Queen Bona Sforza"
+ WFAS_flavor_events_pol.38.desc:0 "Our wise monarch, $MONARCH$, have just married the Italian lady named Bona, from house of Sforza. Thanks to that, we can keep habsburgs far away from our crown."
+ WFAS_flavor_events_pol.38.a:0 "Long live Queen Bona"
+
+ WFAS_flavor_events_pol.39.title:0 "Hammer on the Cossacks"
+ WFAS_flavor_events_pol.39.desc:0 "We have received a new that prince of Wisniowiec, Lubnie and Chorol, Jeremi Wisniowiecki, have converted from Eastern Orthodoxy to Roman Catholicism. It caused much dissent in our Ruthenian lands but Jeremi rules his land with iron fist, suppressing every single cossack revolt. He is also great military leader. His reputation is great, he is loyal to the crown and he is supported by majority of nobility. This man is someone we should appreciate."
+ WFAS_flavor_events_pol.39.a:0 "His military skills are superb, let him command our troops"
+ WFAS_flavor_events_pol.39.b:0 "We need his experience and charisma at the royal court"

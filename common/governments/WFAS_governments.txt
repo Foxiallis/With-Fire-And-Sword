@@ -357,6 +357,7 @@ monarchy = {
 				legion_of_honor_reform
 				imperial_nobility_reform
 				uparaja_reform
+				WFAS_the_institution_of_interrex
 			}
 		}
 		bureaucracy = {

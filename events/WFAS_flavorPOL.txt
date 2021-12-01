@@ -1624,3 +1624,97 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = WFAS_flavor_events_pol.38
+	title = "WFAS_flavor_events_pol.38.title"
+	desc = "WFAS_flavor_events_pol.38.desc"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			AND = {
+				tag = POL
+				NOT = {
+					exists = PLC
+				}
+			}
+			tag = PLC
+		}
+		is_year = 1510
+		NOT = {
+			is_year = 1560
+		}
+		has_regency = no
+		has_consort = no
+		is_female = no
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	option = {
+		name = "WFAS_flavor_events_pol.38.a"
+		define_consort = {
+			name = "Bona"
+			dynasty = "Sforza"
+			culture = neapolitan
+			religion = ROOT
+			adm = 5
+			dip = 4
+			mil = 3
+			female = yes
+		}
+		custom_tooltip = WFAS_bona_sforza_married.tooltip
+		set_country_flag = WFAS_bona_sforza
+	}
+}
+
+country_event = {
+	id = WFAS_flavor_events_pol.39
+	title = "WFAS_flavor_events_pol.39.title"
+	desc = "WFAS_flavor_events_pol.39.desc"
+	picture = VILLAGE_BURNING_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			AND = {
+				tag = POL
+				NOT = {
+					exists = PLC
+				}
+			}
+			tag = PLC
+		}
+		is_year = 1630
+		NOT = {
+			is_year = 1660
+		}
+		has_regency = no
+	}
+	mean_time_to_happen = {
+		months = 36
+	}
+	option = {
+		name = "WFAS_flavor_events_pol.39.a"
+		define_general = {
+			name = "Jeremi Wisniowiecki"
+			shock = 6
+			fire = 4
+			manuever = 6
+			siege = 3
+		}
+		add_mil_power = 100
+	}
+	option = {
+		name = "WFAS_flavor_events_pol.39.b"
+		define_advisor = {
+			type = commandant
+			name = "Jeremi Wisniowiecki"
+			skill = 3
+			culture = polish
+			religion = catholic
+			cost_multiplier = 0.25
+		}
+		add_mil_power = 100
+	}
+}

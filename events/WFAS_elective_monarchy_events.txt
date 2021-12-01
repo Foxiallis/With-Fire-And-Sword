@@ -22,6 +22,34 @@ country_event = {
 			}
 		}
 	}
+	option = {
+		highlight = yes
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = WFAS_bona_sforza.tooltip
+				has_country_flag = WFAS_bona_sforza
+			}
+		}
+		name = WFAS_elective_monarchy_events.1.b
+		custom_tooltip = WFAS_elective_monarchy_event1.tooltip
+		define_ruler = {
+			name = "Bona Sforza"
+			culture = neapolitan
+			religion = ROOT
+			adm = 5
+			dip = 4
+			mil = 3
+			female = yes
+			regency = yes
+		}
+		hidden_effect = {
+			country_event = {
+				id = WFAS_elective_monarchy_events.2
+				days = 90
+				random = 90
+			}
+		}
+	}
 }
 
 # election
@@ -47,6 +75,7 @@ country_event = {
 			clr_country_flag = WFAS_POL_friend_country_present
 			clr_country_flag = WFAS_POL_ally_country_present
 			clr_country_flag = WFAS_POL_marriage_country_present
+			clr_country_flag = WFAS_bona_sforza
 		}
 		set_ruler_flag = WFAS_elected
 	}
@@ -172,14 +201,35 @@ country_event = {
 			limit = {
 				has_reform = legislative_sejm
 			}
-			define_ruler = {
-				culture = root
-				male = yes
-				min_age = 30
-				max_age = 60
-				culture = ROOT
-				religion = ROOT
-				claim = 95
+			if = {
+				limit = {
+					is_year = 1500
+					NOT = {
+						has_country_flag = WFAS_mariusz_pudzianowski_najwiekszy_polak_w_polsce
+					}
+				}
+				set_country_flag = WFAS_mariusz_pudzianowski_najwiekszy_polak_w_polsce
+				define_ruler = {
+					name = "Mariusz I"
+					dynasty = "Pudzianowski"
+					male = yes
+					min_age = 30
+					max_age = 40
+					change_mil = 6
+					culture = ROOT
+					religion = ROOT
+					claim = 100
+				}
+			}
+			else = {
+				define_ruler = {
+					male = yes
+					min_age = 30
+					max_age = 60
+					culture = ROOT
+					religion = ROOT
+					claim = 95
+				}
 			}
 			custom_tooltip = WFAS_elective_monarchy_event4.tooltip
 			hidden_effect = {
@@ -189,14 +239,35 @@ country_event = {
 			}
 		}
 		else = {
-			define_ruler = {
-				culture = root
-				male = yes
-				min_age = 30
-				max_age = 60
-				culture = ROOT
-				religion = ROOT
-				claim = 95
+			if = {
+				limit = {
+					is_year = 1500
+					NOT = {
+						has_country_flag = WFAS_mariusz_pudzianowski_najwiekszy_polak_w_polsce
+					}
+				}
+				set_country_flag = WFAS_mariusz_pudzianowski_najwiekszy_polak_w_polsce
+				define_ruler = {
+					name = "Mariusz I"
+					dynasty = "Pudzianowski"
+					male = yes
+					min_age = 30
+					max_age = 40
+					change_mil = 6
+					culture = ROOT
+					religion = ROOT
+					claim = 100
+				}
+			}
+			else = {
+				define_ruler = {
+					male = yes
+					min_age = 30
+					max_age = 60
+					culture = ROOT
+					religion = ROOT
+					claim = 95
+				}
 			}
 		}
 		set_ruler_flag = WFAS_elected_polish_country
@@ -216,9 +287,9 @@ country_event = {
 			male = yes
 			min_age = 30
 			max_age = 60
-			#adm = -2
-			#dip = -2
-			#mil = -2
+			change_adm = -2
+			change_dip = -2
+			change_mil = -2
 			claim = 90
 		}
 		set_ruler_flag = WFAS_elected_lithuanian_country
@@ -241,9 +312,9 @@ country_event = {
 			male = yes
 			min_age = 20
 			max_age = 50
-			#adm = -1
-			#dip = -1
-			#mil = -1
+			change_adm = -1
+			change_dip = -1
+			change_mil = -1
 			claim = 75
 		}
 		set_ruler_flag = WFAS_elected_same_continent_country
@@ -265,9 +336,7 @@ country_event = {
 			male = yes
 			min_age = 30
 			max_age = 60
-			#adm = 0
-			#dip = 0
-			#mil = 2
+			change_mil = 2
 			claim = 75
 			religion = event_target:WFAS_POL_ally_country
 		}
@@ -290,13 +359,69 @@ country_event = {
 			male = yes
 			min_age = 30
 			max_age = 60
-			#adm = 0
-			#dip = 2
-			#mil = 0
+			change_dip = 2
 			claim = 95
 			religion = event_target:WFAS_POL_marriage_country
 		}
 		set_ruler_flag = WFAS_elected_marriage_country
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.2.h
+		ai_chance = {
+			factor = 50
+		}
+		trigger = {
+			is_year = 1570
+			NOT = {
+				is_year = 1587
+			}
+			NOT = {
+				has_country_flag = WFAS_elected_batory
+			}
+		}
+		define_ruler = {
+			culture = transylvanian
+			name = "Stefan I"
+			dynasty = "Batory"
+			male = yes
+			min_age = 30
+			max_age = 60
+			adm = 5
+			dip = 2
+			mil = 6
+			claim = 95
+			religion = ROOT
+		}
+		set_country_flag = WFAS_elected_batory
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.2.i
+		ai_chance = {
+			factor = 50
+		}
+		trigger = {
+			is_year = 1660
+			NOT = {
+				is_year = 1690
+			}
+			NOT = {
+				has_country_flag = WFAS_elected_sobieski
+			}
+		}
+		define_ruler = {
+			culture = ROOT
+			name = "Jan III"
+			dynasty = "Sobieski"
+			male = yes
+			min_age = 30
+			max_age = 60
+			adm = 2
+			dip = 5
+			mil = 6
+			claim = 95
+			religion = ROOT
+		}
+		set_country_flag = WFAS_elected_sobieski
 	}
 	option = {
 		name = WFAS_elective_monarchy_events.2.f
@@ -315,13 +440,38 @@ country_event = {
 			male = yes
 			min_age = 30
 			max_age = 60
-			#adm = 2
-			#dip = 0
-			#mil = 0
+			change_adm = 2
 			claim = 90
 			religion = event_target:WFAS_POL_friend_country
 		}
 		set_ruler_flag = WFAS_elected_friend_country
+	}
+	option = {
+		name = WFAS_elective_monarchy_events.2.g
+		ai_chance = {
+			factor = 50
+		}
+		highlight = yes
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = WFAS_bona_sforza.tooltip
+				has_country_flag = WFAS_bona_sforza
+			}
+		}
+		add_adm_power = 50
+		add_dip_power = 50
+		define_ruler = {
+			name = "Bona"
+			dynasty = "Sforza"
+			culture = neapolitan
+			religion = ROOT
+			adm = 5
+			dip = 4
+			mil = 3
+			female = yes
+		}
+		set_ruler_flag = WFAS_bona_sforza_elected
+		clr_country_flag = WFAS_bona_sforza
 	}
 }
 
@@ -338,6 +488,9 @@ country_event = {
 		has_regency = no
 		NOT = {
 			has_country_flag = WFAS_monarch_has_escaped
+		}
+		NOT = {
+			has_ruler_flag = WFAS_bona_sforza_elected
 		}
 		is_at_war = no
 		NOT = {

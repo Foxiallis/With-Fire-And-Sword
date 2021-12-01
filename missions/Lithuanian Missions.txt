@@ -885,6 +885,7 @@ WFAS_LIT_missions_5 = {
 			}
 		}
 		trigger = {
+			treasury = 100
 			owns_core_province = 282
 			owns_core_province = 2406
 			owns_core_province = 283

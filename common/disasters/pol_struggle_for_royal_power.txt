@@ -22,7 +22,6 @@ pol_struggle_for_royal_power_disaster = {
 			current_age = age_of_revolutions
 		}
 		has_reform = elective_monarchy
-		absolutism = 40
 		has_regency = no
 		NOT = {
 			has_estate_privilege = estate_magnates_anti_absolutism

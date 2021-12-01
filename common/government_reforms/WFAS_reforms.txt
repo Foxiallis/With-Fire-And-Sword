@@ -14,8 +14,17 @@ cossacks_reform = {
 			have_had_reform = cossacks_reform
 		}
 	}
+	raze_province = yes
 	government_abilities = {
 		cossacks_mechanic
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Origins"
+		}
+		custom_attributes = {
+			has_itinerant_capital = yes
+		}
 	}
 	valid_for_new_country = yes
 	nation_designer_trigger = {
@@ -39,20 +48,74 @@ cossacks_reform = {
 	duration = 4
 }
 
+tsardom = {
+	icon = "king"
+	allow_normal_conversion = yes
+	potential = {
+		religion = orthodox
+		OR = {
+			AND = {
+				tag = RUS
+				NOT = {
+					map_setup = map_setup_random
+				}
+			}
+			AND = {
+				tag = UKR
+				NOT = {
+					map_setup = map_setup_random
+				}
+			}
+			AND = {
+				tag = LIT
+				mission_completed = WFAS_LIT_third_rome
+				NOT = {
+					map_setup = map_setup_random
+				}
+			}
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = tsardom
+			}
+		}
+	}
+	fixed_rank = 3
+	legacy_equivalent = tsardom_legacy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	nation_designer_trigger = {
+		culture_group = east_slavic
+		religion = orthodox
+	}
+	modifiers = {
+		global_manpower_modifier = 0.2
+		yearly_absolutism = 0.5
+		global_autonomy = -0.05
+		governing_capacity = 250
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Third Rome"
+		}
+		government_abilities = {
+			russian_mechanic
+		}
+		claim_states = yes
+	}
+}
+
 WFAS_cossack_starshyna = {
 	icon = "commander_king_reform"
 	allow_normal_conversion = yes
 	potential = {
 		has_reform = cossacks_reform
 	}
-	has_term_election = no
 	royal_marriage = yes
 	custom_attributes = {
-		generals_become_rulers = yes
 		enables_nepotism = yes
 	}
 	modifiers = {
-		war_exhaustion = -0.05
+		war_exhaustion = -0.1
 	}
 }
 
@@ -82,7 +145,7 @@ WFAS_orders_dual_order_reform = {
 		states_general_mechanic = {
 			teutons = {
 				defensiveness = 0.33
-				yearly_army_professionalism = 0.015
+				yearly_army_professionalism = 0.01
 				administrative_efficiency = 0.05
 			}
 			livonians = {
@@ -260,6 +323,134 @@ enforce_trader_privileges_reform = {
 	}
 }
 
+elective_monarchy = {
+	icon = "elective_monarchy"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			has_reform = elective_monarchy
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = elective_monarchy
+			}
+		}
+	}
+	legacy_equivalent = elective_monarchy_legacy
+	lock_level_when_selected = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	nation_designer_trigger = {
+		has_dlc = "Res Publica"
+	}
+	modifiers = {
+		vassal_income = 0.25
+		global_unrest = -1
+		max_absolutism = -30
+		governing_capacity = 100
+	}
+	conditional = {
+		states_general_mechanic = {
+			polish_magnates = {
+				global_trade_goods_size_modifier = 0.05
+				production_efficiency = 0.1
+				stability_cost_to_declare_war = 1
+				nobles_loyalty_modifier = -0.1
+				magnates_loyalty_modifier = 0.1
+			}
+			polish_szlachta = {
+				prestige_decay = 0.01
+				army_tradition_from_battle = 0.5
+				nobles_loyalty_modifier = 0.1
+				magnates_loyalty_modifier = -0.1
+				land_morale = 0.05
+			}
+		}
+		allow = {
+			has_dlc = "Res Publica"
+		}
+		heir = no
+		foreign_slave_rulers = yes
+		#is_elective = yes
+	}
+	custom_attributes = {
+		election_on_death = yes
+		locked_government_type = yes
+		lottery_election = yes
+	}
+}
+
+WFAS_georgian_monarchy = {
+	icon = "man_on_podium"
+	legacy_equivalent = feudal_monarchy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 5
+	potential = {
+		have_had_reform = WFAS_georgian_monarchy
+		tag = GEO
+	}
+	lock_level_when_selected = yes
+	modifiers = {
+		diplomatic_reputation = 3
+		improve_relation_modifier = 0.2
+		may_recruit_female_generals = yes
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+elective_monarchy_legacy = {
+	# government mechanics flags go here
+	allow_normal_conversion = no
+	legacy_government = yes
+	icon = "crown"
+	valid_for_new_country = no
+	allow_convert = no
+	heir = no
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	nation_designer_trigger = {
+		has_dlc = "Res Publica"
+	}
+	monarchy = no
+	modifiers = {
+		vassal_income = 0.25
+		global_unrest = -1
+		global_autonomy = -0.025
+		max_absolutism = -30
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+		}
+		foreign_slave_rulers = yes
+		#is_elective = yes
+	}
+	ai = {
+		factor = 5
+	}
+}
+
+WFAS_crimean_khanate = {
+	icon = "chieftain"
+	valid_for_nation_designer = yes
+	nation_designer_cost = 15
+	potential = {
+		OR = {
+			have_had_reform = WFAS_crimean_khanate
+			tag = CRI
+		}
+	}
+	modifiers = {
+		global_trade_goods_size_modifier = 0.1
+		global_institution_spread = 0.15
+		horde_unity = 1
+	}
+	ai = {
+		factor = 1
+	}
+}
+
 WFAS_cult_of_nature = {
 	potential = {
 		OR = {
@@ -312,5 +503,23 @@ WFAS_cult_of_nature = {
 				remove_province_modifier = WFAS_tatar_grain_bonus_prod
 			}
 		}
+	}
+}
+
+WFAS_the_institution_of_interrex = {
+	icon = "man_on_podium"
+	allow_normal_conversion = yes
+	potential = {
+		has_reform = elective_monarchy
+	}
+	effect = {
+		##custom_tooltip = WFAS_the_institution_of_interrex.tooltip
+		custom_tooltip = WFAS_interrex.tooltip
+		custom_tooltip = WFAS_interrex_adm_skill.tooltip
+		custom_tooltip = WFAS_interrex_dip_skill.tooltip
+		custom_tooltip = WFAS_interrex_mil_skill.tooltip
+	}
+	ai = {
+		factor = 10
 	}
 }

@@ -1,0 +1,54 @@
+WFAS_tr_effective_diplomacy = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.25
+}
+
+WFAS_tr_tsar_of_all_tsars = {
+	prestige = 1
+	legitimacy = 1
+}
+
+WFAS_tr_true_ruler = {
+	land_morale = 0.05
+	global_unrest = -2
+}
+
+WFAS_tr_hortyca_fort = {
+	local_manpower_modifier = 0.5
+	local_defensiveness = 0.3
+}
+
+WFAS_tr_rapid_growth = {
+	development_cost = -0.1
+	global_unrest = -1
+}
+
+WFAS_tr_polish_serfs = {
+	global_tax_modifier = 0.15
+	num_accepted_cultures = 1
+}
+
+WFAS_tr_grodno_modifier = {
+	local_development_cost = -0.15
+	local_tax_modifier = 0.1
+}
+
+WFAS_tr_brest_modifier = {
+	local_defensiveness = 0.15
+	local_hostile_attrition = 1
+}
+
+WFAS_tr_statues_of_lithuania = {
+	stability_cost_modifier = -0.15
+	reform_progress_growth = 0.25
+}
+
+WFAS_tr_smolensk_trade = {
+	trade_efficiency = 0.15
+	global_trade_goods_size_modifier = 0.15
+}
+
+WFAS_tr_offense = {
+	land_morale = 0.05
+	infantry_power = 0.1
+}

@@ -1,5 +1,6 @@
 estate_nobles = {
 	privileges = {
 		WFAS_establish_order_banners
+		estate_nobles_priviliges_and_promises
 	}
 }
