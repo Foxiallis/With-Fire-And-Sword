@@ -50,3 +50,19 @@ WFAS_GEO_conquest_of_crimea = {
 WFAS_georgian_wine = {
 	trade_goods_size = 1
 }
+
+WFAS_PIAST_the_piast_dynasty = {
+	improve_relation_modifier = 0.2
+	diplomatic_reputation = 1
+}
+
+WFAS_PIAST_prepare_to_battle = {
+	land_morale = 0.10
+	reinforce_cost_modifier = -0.33
+}
+
+WFAS_PIAST_prospering_times = {
+	global_tax_modifier = 0.1
+	production_efficiency = 0.1
+	inflation_reduction = 0.1
+}

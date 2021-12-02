@@ -2048,6 +2048,11 @@ country_event = {
 	option = {
 		name = "WFAS_cossacks_don_event_release"
 		release = DON
+		hidden_effect = {
+			DON = {
+				add_government_reform = cossacks_reform
+			}
+		}
 		reverse_add_opinion = {
 			who = DON
 			modifier = released_us_freely
@@ -2062,6 +2067,11 @@ country_event = {
 			ai = no
 		}
 		release = DON
+		hidden_effect = {
+			DON = {
+				add_government_reform = cossacks_reform
+			}
+		}
 		switch_tag = DON
 		reverse_add_opinion = {
 			who = DON

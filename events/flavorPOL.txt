@@ -1,7 +1,7 @@
 ######################################## 
 # Flavor events for Poland
 # 
-# written by Sara Wendel-Örtqvist
+# written by Sara Wendel-ï¿½rtqvist
 ######################################## 
 namespace = flavor_pol
 normal_or_historical_nations = yes
@@ -1086,7 +1086,7 @@ country_event = {
 	}
 }
 
-# Michal Sedziwój
+# Michal Sedziwï¿½j
 country_event = {
 	id = flavor_pol.6
 	title = "flavor_pol.EVTNAME6"
@@ -1117,7 +1117,7 @@ country_event = {
 		add_adm_power = 100
 		define_advisor = {
 			type = philosopher
-			name = "Michal Sedziwój"
+			name = "Michal Sedziwoj"
 			culture = polish
 			discount = yes
 			skill = 3
@@ -1444,6 +1444,12 @@ country_event = {
 	}
 	option = {
 		name = flavor_pol.18.c		#Appoint a Piast.
+		trigger = {
+			MAZ = {
+				ai = yes
+				was_player = no
+			}
+		}
 		ai_chance = {
 			factor = 20
 		}

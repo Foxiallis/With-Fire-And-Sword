@@ -1,0 +1,83 @@
+# Estates pulse
+on_five_year_pulse_2 = {
+	random_events = {
+		# Magnates
+		500 = magnates_estate_events.1
+		500 = magnates_estate_events.2
+		100 = magnates_estate_events.3
+		300 = magnates_estate_events.4
+		500 = magnates_estate_events.5
+	}
+}
+
+# country
+on_death_election = {
+	if = {
+		limit = {
+			has_estate_privilege = estate_magnates_priviliges_and_promises
+		}
+		remove_estate_privilege = estate_magnates_priviliges_and_promises
+	}
+	if = {
+		limit = {
+			has_estate_privilege = estate_nobles_priviliges_and_promises
+		}
+		remove_estate_privilege = estate_nobles_priviliges_and_promises
+	}
+	if = {
+		limit = {
+			has_reform = elective_monarchy
+			NOT = {
+				has_reform = WFAS_the_institution_of_interrex
+			}
+		}
+		define_ruler = {
+			name = "(Interregnum)"
+			adm = 0
+			mil = 0
+			dip = 0
+			max_random_adm = 0
+			max_random_dip = 0
+			max_random_mil = 0
+			regency = yes
+		}
+	}
+	else_if = {
+		limit = {
+			has_reform = elective_monarchy
+			has_reform = WFAS_the_institution_of_interrex
+		}
+		define_ruler = {
+			name = "(Interrex)"
+			adm = 2
+			mil = 2
+			dip = 2
+			max_random_adm = 0
+			max_random_dip = 0
+			max_random_mil = 0
+			regency = yes
+		}
+	}
+	if = {
+		limit = {
+			has_reform = presidential_despot_reform
+		}
+		remove_government_reform = presidential_despot_reform
+	}
+	if = {
+		limit = {
+			has_reform = pirate_republic_reform
+		}
+		set_country_flag = pirate_death_election
+		country_event = {
+			id = pirates.1
+		}
+	}
+	events = {
+		701		# Election event
+		elections.721		# Dutch Republic
+		elections.800		# Lottery election
+		flavor_tus.16		#Savonarola Leaves This World
+		WFAS_elective_monarchy_events.1		#Election of ruler in Poland
+	}
+}

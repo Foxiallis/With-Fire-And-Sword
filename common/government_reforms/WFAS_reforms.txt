@@ -505,3 +505,21 @@ WFAS_cult_of_nature = {
 		}
 	}
 }
+
+WFAS_the_institution_of_interrex = {
+	icon = "man_on_podium"
+	allow_normal_conversion = yes
+	potential = {
+		has_reform = elective_monarchy
+	}
+	effect = {
+		##custom_tooltip = WFAS_the_institution_of_interrex.tooltip
+		custom_tooltip = WFAS_interrex.tooltip
+		custom_tooltip = WFAS_interrex_adm_skill.tooltip
+		custom_tooltip = WFAS_interrex_dip_skill.tooltip
+		custom_tooltip = WFAS_interrex_mil_skill.tooltip
+	}
+	ai = {
+		factor = 10
+	}
+}

@@ -1,4 +1,3 @@
-
 monarchy = {
 	reform_levels = {
 		feudalism_vs_autocracy = {
@@ -55,6 +54,7 @@ monarchy = {
 				legion_of_honor_reform
 				imperial_nobility_reform
 				uparaja_reform
+				WFAS_the_institution_of_interrex
 			}
 		}
 		bureaucracy = {
@@ -120,9 +120,7 @@ monarchy = {
 			}
 		}
 	}
-
 	basic_reform = monarchy_mechanic
-
 	legacy_government = {
 		despotic_monarchy
 		feudal_monarchy
@@ -149,9 +147,7 @@ monarchy = {
 		musa_rule_legacy
 		mossi_federal_kingdom_legacy
 	}
-
 	# Each group of exclusive reforms are mutually exclusive to each other
-
 	#Flavor
 	exclusive_reforms = {
 		iqta
@@ -163,7 +159,6 @@ monarchy = {
 		english_monarchy
 		states_general_reform
 	}
-	
 	# Dictatorships etc
 	exclusive_reforms = {
 		military_dictatorship_reform
@@ -174,7 +169,6 @@ monarchy = {
 		lottery_reform
 		dutch_republic
 	}
-
 	#States General works with few others
 	exclusive_reforms = {
 		mamluk_government
@@ -187,7 +181,6 @@ monarchy = {
 		elective_monarchy
 		celestial_empire
 	}
-
 	#Flavor
 	exclusive_reforms = {
 		daimyo
@@ -196,20 +189,25 @@ monarchy = {
 		states_general_reform
 		parliamentary_reform
 	}
-
 	#Effects conflict with each other
 	exclusive_reforms = {
 		mughal_government
 		decentralize_reform
 	}
-
-	color = { 179 25 25 }
+	color = {
+		179
+		25
+		25
+	}
 }
 
 republic = {
 	basic_reform = republic_mechanic
-
-	color = { 65 155 220 }
+	color = {
+		65
+		155
+		220
+	}
 	legacy_government = {
 		bureaucratic_despotism
 		revolutionary_republic
@@ -415,9 +413,12 @@ republic = {
 }
 
 tribal = {
-	color = { 220 165 95 }
+	color = {
+		220
+		165
+		95
+	}
 	basic_reform = tribe_mechanic
-
 	legacy_government = {
 		tribal_despotism_legacy
 		tribal_kingdom_legacy
@@ -432,7 +433,6 @@ tribal = {
 		feudal_tribe_legacy
 		great_man_legacy
 	}
-
 	reform_levels = {
 		tribal_administration = {
 			reforms = {
@@ -490,9 +490,12 @@ tribal = {
 }
 
 theocracy = {
-	color = { 75 170 75 }
+	color = {
+		75
+		170
+		75
+	}
 	basic_reform = theocracy_mechanic
-
 	legacy_government = {
 		papal_government
 		theocratic_government
