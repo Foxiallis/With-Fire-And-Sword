@@ -17,6 +17,7 @@ WFAS_tr_russian_missions_1 = {
 			tag = RSO
 			tag = NZH
 			tag = RAT
+			tag = DON
 		}
 		# has_dlc = "Third Rome"
 		NOT = {
@@ -217,6 +218,7 @@ WFAS_tr_russian_missions_2 = {
 			tag = RSO
 			tag = NZH
 			tag = RAT
+			tag = DON
 		}
 		# has_dlc = "Third Rome"
 		NOT = {
@@ -315,6 +317,7 @@ WFAS_tr_russian_missions_3 = {
 			tag = RSO
 			tag = NZH
 			tag = RAT
+			tag = DON
 		}
 		# has_dlc = "Third Rome"
 		NOT = {
@@ -511,6 +514,7 @@ WFAS_tr_russian_missions_4 = {
 			tag = RSO
 			tag = NZH
 			tag = RAT
+			tag = DON
 		}
 		# has_dlc = "Third Rome"
 		NOT = {
@@ -653,6 +657,7 @@ WFAS_tr_russian_missions_5 = {
 			tag = RSO
 			tag = NZH
 			tag = RAT
+			tag = DON
 		}
 		# has_dlc = "Third Rome"
 		NOT = {

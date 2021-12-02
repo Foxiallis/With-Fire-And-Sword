@@ -514,6 +514,14 @@ country_event = {
 		}
 	}
 	option = {
+		name = "WFAS_crimea_slaves_disallow"
+		add_stability = 1
+		add_prestige = 15
+		ai_chance = {
+			factor = 0
+		}
+	}
+	option = {
 		name = "WFAS_crimea_slaves_port_kaffa"
 		highlight = yes
 		trigger = {
@@ -530,14 +538,6 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 100
-		}
-	}
-	option = {
-		name = "WFAS_crimea_slaves_disallow"
-		add_stability = 1
-		add_prestige = 15
-		ai_chance = {
-			factor = 0
 		}
 	}
 }
@@ -570,6 +570,7 @@ country_event = {
 	}
 	option = {
 		name = "WFAS_crimea_moscow_burn"
+		add_treasury = 100
 		295 = {
 			add_devastation = 100
 			add_base_tax = -2
@@ -893,37 +894,9 @@ country_event = {
 			set_heir_culture = circassian
 		}
 		hidden_effect = {
-			random_list = {
-				3 = {
-					change_heir_mil = 1
-				}
-				2 = {
-					change_heir_mil = 2
-				}
-				1 = {
-					change_heir_mil = 3
-				}
-			}
-			random_list = {
-				6 = {
-				}
-				3 = {
-					change_heir_adm = 1
-				}
-				1 = {
-					change_heir_adm = 2
-				}
-			}
-			random_list = {
-				6 = {
-				}
-				3 = {
-					change_heir_dip = 1
-				}
-				1 = {
-					change_heir_dip = 2
-				}
-			}
+			change_heir_adm = 2
+			change_heir_dip = 2
+			change_heir_mil = 2
 		}
 	}
 }

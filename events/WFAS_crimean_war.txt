@@ -7,12 +7,10 @@ country_event = {
 	major = yes
 	picture = REVOLUTION_eventPicture
 	is_triggered_only = yes
-	immediate = {
-		set_global_flag = WFAS_crimean_war_started
-	}
 	option = {
 		name = "WFAS_crimean_war_option"
 		hidden_effect = {
+			set_global_flag = WFAS_crimean_war_started
 			add_casus_belli = {
 				target = TUR
 				type = cb_independence_war
@@ -151,7 +149,9 @@ country_event = {
 		months = 6
 	}
 	immediate = {
-		set_country_flag = WFAS_crimean_war_offered_participation_cri
+		hidden_effect = {
+			set_country_flag = WFAS_crimean_war_offered_participation_cri
+		}
 	}
 	option = {
 		name = "WFAS_crimean_war_intervention_war"
@@ -220,6 +220,10 @@ country_event = {
 			tag = MOS
 			tag = UKR
 			tag = BYZ
+			AND = {
+				tag = LIT
+				has_mission = WFAS_LIT_third_rome
+			}
 		}
 		religion = orthodox
 		TUR = {
@@ -423,6 +427,7 @@ country_event = {
 					area = transylvania_area
 					area = southern_transylvania_area
 				}
+				culture = transylvanian
 			}
 			war_with = ROOT
 		}
@@ -495,6 +500,7 @@ country_event = {
 					area = transylvania_area
 					area = southern_transylvania_area
 				}
+				culture = transylvanian
 			}
 			war_with = CRI
 			war_with = ROOT
@@ -555,6 +561,7 @@ country_event = {
 						area = transylvania_area
 						area = southern_transylvania_area
 					}
+					culture = transylvanian
 				}
 				NOT = {
 					controlled_by = ROOT
@@ -606,6 +613,16 @@ country_event = {
 				join_all_defensive_wars_of = TUR
 			}
 		}
+		if = {
+			limit = {
+				wallachia_area = {
+					type = all
+					owned_by = ROOT
+					culture = romanian
+				}
+			}
+			custom_tooltip = WFAS_crimean_war_wallachia_can_revolt
+		}
 	}
 }
 
@@ -639,6 +656,7 @@ country_event = {
 						area = transylvania_area
 						area = southern_transylvania_area
 					}
+					culture = transylvanian
 				}
 				NOT = {
 					controlled_by = ROOT
@@ -679,7 +697,6 @@ country_event = {
 					artillery = TRA
 				}
 				set_country_flag = WFAS_crimean_war_participant_cri
-				join_all_offensive_wars_of = CRI
 			}
 		}
 	}
@@ -687,9 +704,19 @@ country_event = {
 		name = "WFAS_crimean_war_rakoczi_independence_option"
 		tooltip = {
 			release = TRA
-			TRA = {
-				join_all_offensive_wars_of = CRI
+		}
+		TRA = {
+			join_all_offensive_wars_of = CRI
+		}
+		if = {
+			limit = {
+				wallachia_area = {
+					type = all
+					owned_by = ROOT
+					culture = romanian
+				}
 			}
+			custom_tooltip = WFAS_crimean_war_wallachia_can_revolt
 		}
 	}
 }
@@ -722,6 +749,7 @@ country_event = {
 		wallachia_area = {
 			type = all
 			owned_by = ROOT
+			culture = romanian
 			NOT = {
 				controlled_by = ROOT
 			}
@@ -970,6 +998,7 @@ country_event = {
 				friend = GRE
 			}
 		}
+		custom_tooltip = WFAS_crimean_war_greeks_can_ask_for_help
 		set_global_flag = WFAS_crimean_war_greece_revolted
 	}
 	option = {

@@ -1679,7 +1679,7 @@ country_event = {
 		set_global_flag = WFAS_cossacks_resettled
 		custom_tooltip = WFAS_cossacks_advance_tooltip
 		hidden_effect = {
-			167 = {
+			467 = {
 				change_culture = WFAS_cossack_culture
 				change_religion = orthodox
 			}
@@ -2016,16 +2016,18 @@ country_event = {
 		months = 240
 	}
 	immediate = {
-		every_province = {
-			limit = {
-				OR = {
-					area = lower_don_area
-					area = azov_area
-					area = astrakhan_area
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						area = lower_don_area
+						area = azov_area
+						area = astrakhan_area
+					}
+					culture = WFAS_cossack_culture
 				}
-				culture = WFAS_cossack_culture
+				add_core = DON
 			}
-			add_core = DON
 		}
 	}
 	option = {
@@ -2055,6 +2057,18 @@ country_event = {
 		}
 	}
 	option = {
+		name = "WFAS_cossacks_don_event_release_play"
+		trigger = {
+			ai = no
+		}
+		release = DON
+		switch_tag = DON
+		reverse_add_opinion = {
+			who = DON
+			modifier = released_us_freely
+		}
+	}
+	option = {
 		name = "WFAS_cossacks_don_event_protectorate"
 		highlight = yes
 		trigger = {
@@ -2068,6 +2082,11 @@ country_event = {
 		create_subject = {
 			subject_type = WFAS_protectorate
 			subject = DON
+		}
+		hidden_effect = {
+			DON = {
+				add_government_reform = cossacks_reform
+			}
 		}
 		ai_chance = {
 			factor = 16

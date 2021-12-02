@@ -44,12 +44,6 @@ WFAS_protectorate = {
 	#is_free_or_tributary_trigger
 	copy_from = default
 	# Triggers:
-	is_potential_overlord = {
-		always = no
-	}
-	can_be_established = {
-		always = no
-	}
 	# Graphics:
 	sprite = GFX_icon_march
 	diplomacy_overlord_sprite = GFX_diplomacy_leadprotectorates

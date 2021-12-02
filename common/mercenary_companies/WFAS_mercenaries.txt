@@ -85,7 +85,7 @@ WFAS_circassian_crimean_band = {
 		has_country_flag = WFAS_circassian_mercenaries_flag
 	}
 	modifier = {
-		prestige_from_land = 0.15
+		prestige_from_land = 0.5
 		shock_damage = 0.1
 	}
 }

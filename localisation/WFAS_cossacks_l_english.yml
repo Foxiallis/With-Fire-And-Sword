@@ -71,6 +71,10 @@
  WFAS_cossacks_don_event_desc:0 "Unlike their friends in struggle to the West, the Zaporozhian Cossacks, the people of Kuban, or how they are also called, Don Cossacks, didn't have an idea of a state in their heads before. But now, with more prominent leaders emerging, they began to strive for independence and self-governance. While they can't be persuaded out of this idea, we can try to negotiate with them, maybe even coming out on top of it all."
  WFAS_cossacks_don_event_ok:0 "I don't care what these unwashed swines want!"
  WFAS_cossacks_don_event_release:0 "Let them do their thing, they'll collapse anyway."
+ WFAS_cossacks_don_event_release_play:0 "The steppes call to me!"
  WFAS_cossacks_don_event_protectorate:0 "Perhaps a military deal can come in question?"
  WFAS_don_cossacks_want_independence:0 "Don cossacks will try to regain their independence..."
+ DON:0 "Don Cossacks"
+ DON_ADJ:0 "Don"
+
  
