@@ -1,4 +1,4 @@
-version="1.30.*"
+version="1.32.*"
 tags={
 	"Balance"
 	"Events"
@@ -9,6 +9,6 @@ tags={
 	"New Nations"
 }
 picture="thumbnail.png"
-name="With Fire and Sword - Eastern Europe Expansion Mod v.1.2"
-supported_version="1.31.5"
+name="With Fire and Sword - Eastern Europe Expansion Mod v.1.3"
+supported_version="1.32.*"
 remote_file_id="2481053190"
