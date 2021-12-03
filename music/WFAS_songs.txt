@@ -1,0 +1,116 @@
+#Combat 
+song = {
+	name = "Cossack March"
+	chance = {
+		factor = 1.1
+		modifier = {
+			factor = 0
+			is_at_war = no
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				OR = {
+					has_estate = estate_cossacks
+					tag = ZAZ
+				}
+			}
+		}
+	}
+}
+
+song = {
+	name = "Rule Ruthenia"
+	chance = {
+		factor = 1.1
+		modifier = {
+			factor = 0
+			is_at_war = no
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				OR = {
+					has_estate = estate_cossacks
+					tag = ZAZ
+				}
+			}
+		}
+	}
+}
+
+#Peace/Combat
+song = {
+	name = "The Land of Cossacks"
+	chance = {
+		factor = 1.1
+		modifier = {
+			factor = 0
+			NOT = {
+				OR = {
+					has_estate = estate_cossacks
+					tag = ZAZ
+				}
+			}
+		}
+	}
+}
+
+#Peace
+song = {
+	name = "Bagcalarda Kestane"
+	chance = {
+		factor = 1.1
+		modifier = {
+			factor = 0
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				OR = {
+					tag = GOL			#Great Horde
+					tag = NOG			#Nogai
+					tag = KAZ			#Kazań
+					tag = SHY			#Uzbek
+					tag = GLH			#Golden Horde
+					tag = SIB			#Sibir
+					tag = BSH			#Bashkiria
+					tag = AST			#Astrakhan
+					tag = QAS			#Qasim
+					tag = KZH			#Kazakh
+					tag = CRI			#Crimea
+				}
+			}
+		}
+	}
+}
+
+song = {
+	name = "Tipir Tipir Biyerge"
+	chance = {
+		factor = 1.1
+		modifier = {
+			factor = 0
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				OR = {
+					tag = GOL			#Great Horde
+					tag = NOG			#Nogai
+					tag = KAZ			#Kazań
+					tag = SHY			#Uzbek
+					tag = GLH			#Golden Horde
+					tag = SIB			#Sibir
+					tag = BSH			#Bashkiria
+					tag = AST			#Astrakhan
+					tag = QAS			#Qasim
+					tag = KZH			#Kazakh
+					tag = CRI			#Crimea
+				}
+			}
+		}
+	}
+}

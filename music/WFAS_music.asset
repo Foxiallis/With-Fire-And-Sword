@@ -1,0 +1,24 @@
+music = {
+	name = "The Land of Cossacks"
+	file = "The Land of Cossacks.ogg"
+}
+
+music = {
+	name = "Cossack March"
+	file = "Cossack March.ogg"
+}
+
+music = {
+	name = "Rule Ruthenia"
+	file = "Rule Ruthenia.ogg"
+}
+
+music = {
+	name = "Bagcalarda Kestane"
+	file = "Bagcalarda Kestane.ogg"
+}
+
+music = {
+	name = "Tipir Tipir Biyerge"
+	file = "Tipir Tipir Biyerge.ogg"
+}
