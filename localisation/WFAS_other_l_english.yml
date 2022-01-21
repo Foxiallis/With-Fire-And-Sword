@@ -135,4 +135,5 @@
  
  WFAS_remove_protectorate: "Remove Protectorate Status"
  WFAS_remove_protectorate_title: "Remove Protectorate Status"
- WFAS_remove_protectorate_desc: "Change your subject type into march. "
+ WFAS_remove_protectorate_desc: "They will become a March. A March doesn't pay any taxes to their Overlord and the Overlord can't annex them.\n \nThis will cost you §R-1§! stability.\n\n §RThis decision cannot be undone!§!"
+ WFAS_remove_protectorate_tooltip: "They will become a March. A March is a Vassal that cannot be annexed and does not pay any taxes, but has greater military capacity than a regular Vassal. This will cost you §R-1§! stability."
