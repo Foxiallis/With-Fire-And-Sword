@@ -65,5 +65,5 @@ WFAS_cossacks_enforced_recruitment = {
 
 #Enforced Autonomy
 WFAS_cossacks_enforced_autonomy = {
-	global_autonomy = -0.01
+	global_autonomy = -0.1
 }

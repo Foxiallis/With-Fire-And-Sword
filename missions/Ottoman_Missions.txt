@@ -1381,14 +1381,9 @@ WFAS_OTTOMAN_missions_3_1 = {
 			}
 		}
 		trigger = {
-			all_province = {
-				if = {
-					limit = {
-						culture = turkish
-					}
-					owns_or_non_sovereign_subject_of = ROOT
-				}
-			}
+			owns_all_provinces = {
+					culture = turkish
+			}	
 		}
 		effect = {
 			capital_scope = {
