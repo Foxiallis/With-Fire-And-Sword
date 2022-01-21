@@ -755,6 +755,7 @@ DE_mission_slot_3 = {
 			add_treasury = 500
 			add_accepted_culture = scottish
 			define_advisor = {
+				name = "Simon Maelko"
 				type = army_reformer
 				skill = 3
 				cost_multiplier = 0.25
