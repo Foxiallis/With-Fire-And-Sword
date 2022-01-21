@@ -16,9 +16,10 @@ country_event = {
 		senior_union_with = MOL
 		is_at_war = no
 		is_subject = no
+		is_year = 1500
 	}
 	mean_time_to_happen = {
-		months = 60
+		months = 240
 	}
 	option = {
 		name = "WFAS_other_moldavia_2_option"
@@ -819,6 +820,79 @@ country_event = {
 	}
 }
 
+#Khan in Hajitarkhan
+country_event = {
+	id = WFAS_other.15
+	title = "WFAS_other_astrakhan_title"
+	desc = "WFAS_other_astrakhan_desc"
+	picture = BAD_WITH_MONARCH_eventPicture
+	major = yes
+	trigger = {
+		tag = GOL
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 2
+				OR = {
+					area = tambov_area
+					area = sloboda_ukraine_area
+					area = saratov_area
+				}
+			}
+		}
+		NOT = {
+			owns = 303
+		}
+		NOT = {
+			stability = 2
+		}
+		NOT = {
+			exists = AST
+		}
+		is_year = 1460
+	}
+	mean_time_to_happen = {
+		months = 24
+	}
+	option = {
+		name = "WFAS_other_astrakhan_reform"
+		change_tag = AST
+		add_stability_or_adm_power = yes
+		add_accepted_culture = astrakhani
+		add_accepted_culture = nogaybak
+		set_government_rank = 2
+		if = {
+			limit = {
+				owns_core_province = 464
+			}
+			464 = {
+				move_capital_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_custom_ideas = no
+				NOT = {
+					has_idea_group = horde_ideas
+				}
+			}
+			country_event = {
+				id = ideagroups.1
+			}
+			#Swap Ideas
+		}
+		ai_chance = {
+			factor = 8
+		}
+	}
+	option = {
+		name = "WFAS_other_astrakhan_remain"
+		add_stability = -2
+		ai_chance = {
+			factor = 2
+		}
+	}
+}
+
 #The Finest of Horses - Golden Horde 
 country_event = {
 	id = WFAS_other.15
@@ -831,9 +905,110 @@ country_event = {
 	option = {
 		name = "WFAS_other_golden_horde_option"
 		change_price = {
+			key = WFAS_other_finest_horses
 			trade_goods = livestock
 			value = 0.5
 			duration = 18250
+		}
+	}
+}
+
+# Ottoman Siege Mines
+country_event = {
+	id = WFAS_other.16
+	title = "WFAS_other.16.t"
+	desc = "WFAS_other.16.d"
+	picture = SIEGE_eventPicture
+	immediate = {
+		hidden_effect = {
+			set_country_flag = WFAS_ottoman_siege_event_pending
+			random_province = {
+				limit = {
+					owner = {
+						war_with = ROOT
+					}
+					sieged_by = ROOT
+					fort_level = 1
+					NOT = {
+						has_province_modifier = WFAS_ottoman_mines_siege_used
+					}
+				}
+				save_global_event_target_as = WFAS_ottoman_province_under_siege
+			}
+		}
+	}
+	trigger = {
+		NOT = {
+			has_country_flag = WFAS_ottoman_siege_event_pending
+		}
+		OR = {
+			tag = TUR
+			tag = RUM
+		}
+		has_country_flag = WFAS_ottoman_enable_siege_event
+		any_known_country = {
+			war_with = ROOT
+			any_owned_province = {
+				sieged_by = ROOT
+				fort_level = 1
+				NOT = {
+					has_province_modifier = WFAS_ottoman_mines_siege_used
+				}
+				NOT = {
+					has_province_modifier = WFAS_ottoman_mines_siege_not_used
+				}
+			}
+		}
+	}
+	after = {
+		clear_global_event_target = WFAS_ottoman_province_under_siege
+		clr_country_flag = WFAS_ottoman_siege_event_pending
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "WFAS_other.16.a"
+		custom_tooltip = WFAS_OTTOMANS_TOOLTIP.9
+		hidden_effect = {
+			event_target:WFAS_ottoman_province_under_siege = {
+				add_province_modifier = {
+					name = WFAS_ottoman_mines_siege_not_used
+					duration = 730
+					hidden = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = "WFAS_other.16.b"
+		add_manpower = -2
+		add_mil_power = -75
+		event_target:WFAS_ottoman_province_under_siege = {
+			change_siege = 2
+			custom_tooltip = WFAS_OTTOMANS_TOOLTIP.10
+			add_province_modifier = {
+				name = WFAS_ottoman_mines_siege_used
+				duration = 730
+			}
+		}
+	}
+}
+
+# Westernisation of Ottoman Army
+country_event = {
+	id = WFAS_other.17
+	title = "WFAS_other.17.t"
+	desc = "WFAS_other.17.d"
+	picture = SIEGE_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	major = yes
+	option = {
+		name = "WFAS_other.17.a"
+		add_country_modifier = {
+			name = WFAS_ottomans_westernisation_of_turkish_army
+			duration = -1
 		}
 	}
 }

@@ -1,0 +1,39 @@
+music = {
+	name = "Ivar_s-Revenge"
+	file = "Ivar_s-Revenge.ogg"
+}
+
+music = {
+	name = "Den-Tapre-Landsoldat"
+	file = "Den-Tapre-Landsoldat.ogg"
+}
+
+music = {
+	name = "Hans-Christian-Lumbye-Champagne-Galop"
+	file = "Hans-Christian-Lumbye-Champagne-Galop.ogg"
+}
+
+music = {
+	name = "Niels-Wiggo-Gade-Bridal-waltz"
+	file = "Niels-Wiggo-Gade-Bridal-waltz.ogg"
+}
+
+music = {
+	name = "Njordfoto-Tagen-Letter"
+	file = "Njordfoto-Tagen-Letter.ogg"
+}
+
+music = {
+	name = "The-Elf-King_s-Daughter"
+	file = "The-Elf-King_s-Daughter.ogg"
+}
+
+music = {
+	name = "Valhalla-Calling"
+	file = "Valhalla-Calling.ogg"
+}
+
+music = {
+	name = "Viking-Gods"
+	file = "Viking-Gods.ogg"
+}

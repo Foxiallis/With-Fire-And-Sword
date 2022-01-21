@@ -10,17 +10,66 @@ country_event = {
 		has_government_attribute = lottery_election
 		has_reform = elective_monarchy
 	}
+
+
 	option = {
 		name = WFAS_elective_monarchy_events.1.a
 		custom_tooltip = WFAS_elective_monarchy_event1.tooltip
 		add_stability = -1
 		hidden_effect = {
+	if = {
+		limit = {
+			has_estate_privilege = estate_magnates_priviliges_and_promises
+		}
+		remove_estate_privilege = estate_magnates_priviliges_and_promises
+	}
+	if = {
+		limit = {
+			has_estate_privilege = estate_nobles_priviliges_and_promises
+		}
+		remove_estate_privilege = estate_nobles_priviliges_and_promises
+	}
 			country_event = {
 				id = WFAS_elective_monarchy_events.2
 				days = 90
 				random = 90
 			}
+		
+	if = {
+		limit = {
+			has_reform = elective_monarchy
+			NOT = {
+				has_reform = WFAS_the_institution_of_interrex
+			}
 		}
+		define_ruler = {
+			name = "(Interregnum)"
+			adm = 0
+			mil = 0
+			dip = 0
+			max_random_adm = 0
+			max_random_dip = 0
+			max_random_mil = 0
+			regency = yes
+		}
+	}
+	else_if = {
+		limit = {
+			has_reform = elective_monarchy
+			has_reform = WFAS_the_institution_of_interrex
+		}
+		define_ruler = {
+			name = "(Interrex)"
+			adm = 3
+			mil = 3
+			dip = 3
+			max_random_adm = 0
+			max_random_dip = 0
+			max_random_mil = 0
+			regency = yes
+		}
+	}
+	}
 	}
 	option = {
 		highlight = yes
