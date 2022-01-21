@@ -257,9 +257,11 @@ malbork_castle = {
 		}
 		#what effects happen when this tier is achieved
 		on_upgraded = {
-			add_estate_loyalty = {
-				estate = estate_nobles
-				loyalty = 5
+			owner = {
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 5
+				}
 			}
 		}
 	}
@@ -286,9 +288,11 @@ malbork_castle = {
 		}
 		#what effects happen when this tier is achieved
 		on_upgraded = {
-			add_estate_loyalty = {
-				estate = estate_nobles
-				loyalty = 10
+			owner = {
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 10
+				}
 			}
 		}
 	}

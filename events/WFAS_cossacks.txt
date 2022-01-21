@@ -526,6 +526,9 @@ country_event = {
 				}
 			}
 		}
+		else = {
+			add_mil_power = 50
+		}
 		ai_chance = {
 			factor = 6
 			modifier = {
@@ -536,15 +539,18 @@ country_event = {
 	}
 	option = {
 		name = "WFAS_cossacks_exhausted_force"
-		add_mil_power = -50
 		if = {
 			limit = {
 				has_estate = estate_cossacks
 			}
 			add_estate_loyalty = {
 				estate = estate_cossacks
-				loyalty = -15
+				loyalty = -10
 			}
+		}
+		add_country_modifier = {
+			name = WFAS_cossacks_enforced_recruitment
+			duration = 1825
 		}
 		if = {
 			limit = {
@@ -593,6 +599,9 @@ country_event = {
 					}
 				}
 			}
+		}
+		else = {
+			add_mil_power = -50
 		}
 		ai_chance = {
 			factor = 4
@@ -711,7 +720,7 @@ country_event = {
 	option = {
 		name = "WFAS_cossacks_autonomy_decline"
 		add_country_modifier = {
-			name = WFAS_cossacks_unruly
+			name = WFAS_cossacks_enforced_autonomy
 			duration = 1825
 		}
 		if = {
@@ -769,6 +778,12 @@ country_event = {
 						duration = -1
 					}
 				}
+			}
+		}
+		else = {
+			add_country_modifier = {
+				name = WFAS_cossacks_unruly
+				duration = 1825
 			}
 		}
 		ai_chance = {
@@ -872,6 +887,9 @@ country_event = {
 				}
 			}
 		}
+		else = {
+			add_adm_power = 50
+		}
 		ai_chance = {
 			factor = 6
 			modifier = {
@@ -897,11 +915,11 @@ country_event = {
 				duration = 1460
 			}
 		}
+		add_adm_power = -50
 		if = {
 			limit = {
 				has_country_flag = WFAS_established_don_cossacks
 			}
-			add_adm_power = 75
 			custom_tooltip = WFAS_don_cossacks_displeased
 			hidden_effect = {
 				if = {
@@ -947,7 +965,7 @@ country_event = {
 			}
 		}
 		else = {
-			add_adm_power = -50
+			add_prestige = 10
 		}
 		ai_chance = {
 			factor = 4
@@ -994,38 +1012,61 @@ country_event = {
 					religion = orthodox
 				}
 			}
+			base_tax = 2
+			base_production = 2
+			base_manpower = 2
 		}
 	}
 	is_triggered_only = yes
 	immediate = {
-		random_core_province = {
-			limit = {
-				OR = {
-					NOT = {
-						OR = {
-							has_owner_accepted_culture = yes
-							culture_group = east_slavic
+		hidden_effect = {
+			random_core_province = {
+				limit = {
+					OR = {
+						NOT = {
+							OR = {
+								has_owner_accepted_culture = yes
+								culture_group = east_slavic
+							}
+						}
+						NOT = {
+							religion = orthodox
 						}
 					}
-					NOT = {
-						religion = orthodox
-					}
 				}
+				set_province_flag = WFAS_cossack_minority_flag
 			}
-			set_province_flag = WFAS_cossack_minority_flag
+			random_core_province = {
+				limit = {
+					culture = WFAS_cossack_culture
+				}
+				set_province_flag = WFAS_cossack_settlement_flag
+			}
 		}
 	}
 	option = {
 		name = "WFAS_cossacks_minorities_allow"
-		every_owned_province = {
-			limit = {
-				has_province_flag = WFAS_cossack_minority_flag
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_flag = WFAS_cossack_minority_flag
+				}
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				add_devastation = 5
+				clr_province_flag = WFAS_cossack_minority_flag
 			}
-			add_base_tax = -1
-			add_base_production = -1
-			add_base_manpower = -1
-			add_devastation = 5
-			clr_province_flag = WFAS_cossack_minority_flag
+			every_owned_province = {
+				limit = {
+					has_province_flag = WFAS_cossack_settlement_flag
+				}
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				add_devastation = -5
+				clr_province_flag = WFAS_cossack_settlement_flag
+			}
 		}
 		if = {
 			limit = {
@@ -1106,19 +1147,12 @@ country_event = {
 			}
 			add_estate_loyalty = {
 				estate = estate_cossacks
-				loyalty = -20
+				loyalty = -10
 			}
 		}
 		if = {
 			limit = {
 				has_country_flag = WFAS_established_don_cossacks
-			}
-			every_owned_province = {
-				limit = {
-					has_province_flag = WFAS_cossack_minority_flag
-				}
-				add_unrest = -5
-				clr_province_flag = WFAS_cossack_minority_flag
 			}
 			custom_tooltip = WFAS_don_cossacks_displeased
 			hidden_effect = {
@@ -1164,19 +1198,19 @@ country_event = {
 				}
 			}
 		}
-		else = {
-			every_owned_province = {
-				limit = {
-					culture = WFAS_cossack_culture
-				}
-				add_unrest = 3
+		every_owned_province = {
+			limit = {
+				has_province_flag = WFAS_cossack_minority_flag
 			}
-			every_owned_province = {
-				limit = {
-					has_province_flag = WFAS_cossack_minority_flag
-				}
-				clr_province_flag = WFAS_cossack_minority_flag
+			add_unrest = -5
+			clr_province_flag = WFAS_cossack_minority_flag
+		}
+		every_owned_province = {
+			limit = {
+				has_province_flag = WFAS_cossack_settlement_flag
 			}
+			add_unrest = 5
+			clr_province_flag = WFAS_cossack_settlement_flag
 		}
 		ai_chance = {
 			factor = 4
@@ -1222,6 +1256,7 @@ country_event = {
 			name = WFAS_cossacks_return
 			duration = 1460
 		}
+		add_stability_or_adm_power = yes
 		if = {
 			limit = {
 				has_estate = estate_cossacks
@@ -1295,21 +1330,12 @@ country_event = {
 			}
 			add_estate_loyalty = {
 				estate = estate_cossacks
-				loyalty = -20
+				loyalty = -10
 			}
 		}
 		if = {
 			limit = {
 				has_country_flag = WFAS_established_don_cossacks
-			}
-			if = {
-				limit = {
-					has_dlc = "Cradle of Civilization"
-				}
-				add_army_professionalism = 0.05
-			}
-			else = {
-				add_army_tradition = 10
 			}
 			custom_tooltip = WFAS_don_cossacks_displeased
 			hidden_effect = {
@@ -1356,7 +1382,15 @@ country_event = {
 			}
 		}
 		else = {
-			add_mil_power = -50
+			if = {
+				limit = {
+					has_dlc = "Cradle of Civilization"
+				}
+				add_army_professionalism = 0.05
+			}
+			else = {
+				add_army_tradition = 10
+			}
 		}
 		ai_chance = {
 			factor = 4
@@ -1396,6 +1430,9 @@ country_event = {
 			NOT = {
 				culture = WFAS_cossack_culture
 			}
+			NOT = {
+				has_province_flag = WFAS_cossacks_forbidden_settlement
+			}
 		}
 	}
 	is_triggered_only = yes
@@ -1404,6 +1441,9 @@ country_event = {
 		random_owned_province = {
 			limit = {
 				has_terrain = steppe
+				NOT = {
+					culture = WFAS_cossack_culture
+				}
 			}
 			change_culture = WFAS_cossack_culture
 			change_religion = orthodox
@@ -1436,11 +1476,11 @@ country_event = {
 			}
 			change_estate_land_share = {
 				estate = estate_cossacks
-				share = 2
+				share = 0.5
 			}
 		}
 		else = {
-			add_adm_power = -100
+			add_adm_power = -50
 		}
 		ai_chance = {
 			factor = 6
@@ -1458,7 +1498,21 @@ country_event = {
 			}
 			add_estate_loyalty = {
 				estate = estate_cossacks
-				loyalty = -20
+				loyalty = -10
+			}
+		}
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					has_terrain = steppe
+					NOT = {
+						culture = WFAS_cossack_culture
+					}
+					NOT = {
+						has_province_flag = WFAS_cossacks_forbidden_settlement
+					}
+				}
+				set_province_flag = WFAS_cossacks_forbidden_settlement
 			}
 		}
 		if = {
@@ -1510,8 +1564,8 @@ country_event = {
 			}
 		}
 		else = {
-			add_adm_power = 25
-			add_mil_power = 25
+			add_adm_power = 15
+			add_mil_power = 15
 		}
 		ai_chance = {
 			factor = 4
@@ -1908,7 +1962,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				num_of_generals = 1
+				num_of_generals = 2
 			}
 			define_leader_to_ruler = {
 				type = general
@@ -2100,6 +2154,116 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 16
+		}
+	}
+}
+
+#Invite Cossacks to Settle
+country_event = {
+	id = WFAS_cossacks.17
+	title = "WFAS_cossacks_invite_event_title"
+	desc = "WFAS_cossacks_invite_event_desc"
+	picture = COSSACK_ESTATE_eventPicture
+	fire_only_once = yes
+	trigger = {
+		has_dlc = "The Cossacks"
+		NOT = {
+			has_reform = pirate_republic_reform
+		}
+		NOT = {
+			has_government_attribute = is_merchant_republic
+		}
+		NOT = {
+			has_reform = trading_city
+		}
+		NOT = {
+			is_revolutionary_republic_trigger = yes
+		}
+		NOT = {
+			government = native
+		}
+		NOT = {
+			has_reform = siberian_tribe
+		}
+		NOT = {
+			has_reform = veche_republic
+		}
+		is_nomad = no
+		is_colonial_nation = no
+		NOT = {
+			has_reform = celestial_empire
+		}
+		OR = {
+			AND = {
+				unit_type = eastern
+				religion_group = christian
+			}
+			has_country_flag = WFAS_cossacs_for_ottomans
+		}
+		NOT = {
+			has_reform = revolutionary_empire_reform
+		}
+		any_owned_province = {
+			has_terrain = steppe
+			NOT = {
+				culture = WFAS_cossack_culture
+			}
+			NOT = {
+				has_province_flag = WFAS_cossacks_forbidden_settlement
+			}
+		}
+		NOT = {
+			has_estate = estate_cossacks
+		}
+	}
+	option = {
+		name = "WFAS_cossacks_invite_allow"
+		random_owned_province = {
+			limit = {
+				has_terrain = steppe
+				NOT = {
+					culture = WFAS_cossack_culture
+				}
+				NOT = {
+					has_province_flag = WFAS_cossacks_forbidden_settlement
+				}
+			}
+			change_culture = WFAS_cossack_culture
+			change_religion = orthodox
+			random_list = {
+				1 = {
+					add_base_tax = 1
+				}
+				1 = {
+					add_base_production = 1
+				}
+				1 = {
+					add_base_manpower = 1
+				}
+			}
+		}
+		custom_tooltip = WFAS_cossacks_unlock_estate
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = "WFAS_cossacks_invite_decline"
+		add_dip_power = 1
+		random_owned_province = {
+			limit = {
+				has_terrain = steppe
+				NOT = {
+					culture = WFAS_cossack_culture
+				}
+				NOT = {
+					has_province_flag = WFAS_cossacks_forbidden_settlement
+				}
+			}
+			set_province_flag = WFAS_cossacks_forbidden_settlement
+		}
+		ai_chance = {
+			factor = 0
 		}
 	}
 }

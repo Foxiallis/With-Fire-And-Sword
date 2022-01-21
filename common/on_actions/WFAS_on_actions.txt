@@ -91,6 +91,12 @@ on_five_year_pulse_2 = {
 		400 = cossack_estate_events.12 #Disloyal
 		100 = cossack_estate_events.13
 		400 = cossack_estate_events.14 #Demands
+		200 = WFAS_cossacks.4
+		200 = WFAS_cossacks.5
+		200 = WFAS_cossacks.6
+		100 = WFAS_cossacks.7
+		100 = WFAS_cossacks.10
+		100 = WFAS_cossacks.11
 		# Tribes
 		100 = tribal_estate_events.1
 		100 = tribal_estate_events.2
@@ -166,13 +172,6 @@ on_five_year_pulse_2 = {
 		100 = magnates_estate_events.3
 		300 = magnates_estate_events.4
 		500 = magnates_estate_events.5
-		# Cossacks
-		200 = WFAS_cossacks.4
-		200 = WFAS_cossacks.5
-		200 = WFAS_cossacks.6
-		100 = WFAS_cossacks.7
-		100 = WFAS_cossacks.10
-		100 = WFAS_cossacks.11
 		# Random
 		5 = flavor_fra.9500
 		1000 = 0
@@ -306,8 +305,8 @@ on_new_heir = {
 
 on_new_term_election = {
 	events = {
-		WFAS_cossacks.13
 		700		# Election event
+		WFAS_cossacks.13
 		elections.720		# Dutch Republic
 		elections.800	# Lottery election
 		pirates.1

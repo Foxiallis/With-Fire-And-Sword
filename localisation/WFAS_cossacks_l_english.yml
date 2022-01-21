@@ -74,6 +74,17 @@
  WFAS_cossacks_don_event_release_play:0 "The steppes call to me!"
  WFAS_cossacks_don_event_protectorate:0 "Perhaps a military deal can come in question?"
  WFAS_don_cossacks_want_independence:0 "Don cossacks will try to regain their independence..."
+ WFAS_cossacks_invite_event_title:0 "Inviting the Cossacks"
+ WFAS_cossacks_invite_event_desc:0 "The steppe cossack people of the Wild Fields are restless and always on the move. We can use that to our advantage, and invite them to our country to serve us. But, with that, we'd have to deal with the multitude of problems they bring... After all, they are the bane of the wild fields."
+ WFAS_cossacks_invite_allow:0 "Invite them, but of course!"
+ WFAS_cossacks_invite_decline:0 "Nonsense."
+
+ WFAS_cossacks_enforced_recruitment:0 "Enforced Cossack Recruitment"
+ desc_WFAS_cossacks_enforced_recruitment:0 "What do they want? A vacation? Pfff!"
+ WFAS_cossacks_enforced_autonomy:0 "Enforced Centralization"
+ desc_WFAS_cossacks_enforced_autonomy:0 "We'll enforce centralization, just in spite of the cossacks."
+ WFAS_cossacks_unlock_estate:0 "§GUnlocks the cossack estate§!"
+
  DON:0 "Don Cossacks"
  DON_ADJ:0 "Don"
 

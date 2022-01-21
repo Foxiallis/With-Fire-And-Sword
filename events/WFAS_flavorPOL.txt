@@ -1497,8 +1497,10 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		NOT = {
-			has_country_flag = WFAS_chodkiewicz
-			is_monarch_leader = yes
+			AND = {
+				has_country_flag = WFAS_chodkiewicz
+				is_monarch_leader = yes
+			}
 		}
 		had_country_flag = {
 			flag = WFAS_general_escaped

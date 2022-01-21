@@ -516,15 +516,17 @@ DE_mission_slot_3 = {
 		}
 		effect = {
 			33 = {
-				limit = {
-					NOT = {
-						is_permanent_claim = ROOT
+				if = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+						}
+						NOT = {
+							is_core = ROOT
+						}
 					}
-					NOT = {
-						is_core = ROOT
-					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
 			}
 			estonia_ingria_area = {
 				limit = {

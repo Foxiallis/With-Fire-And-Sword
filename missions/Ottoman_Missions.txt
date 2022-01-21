@@ -277,15 +277,13 @@ WFAS_OTTOMAN_missions_1_1 = {
 			WFAS_OTTOMAN_raid_on_magyars
 		}
 		provinces_to_highlight = {
-			OR = {
-				province_id = 134
-			}
+			province_id = 134
 		}
 		icon = boh_humiliate_austria
 		trigger = {
 			OR = {
 				owns = 134
-				AND = {
+				134 = {
 					devastation = 20
 					controlled_by = ROOT
 				}
@@ -1216,7 +1214,7 @@ WFAS_OTTOMAN_missions_3_1 = {
 				name = "defeated_byzantine_empire"
 				duration = 5475
 			}
-			albania_region = {
+			albania_area = {
 				limit = {
 					NOT = {
 						is_permanent_claim = ROOT
@@ -1377,17 +1375,19 @@ WFAS_OTTOMAN_missions_3_1 = {
 		}
 		icon = mission_non-western_soldiers
 		provinces_to_highlight = {
-			OR = {
-				culture = turkish
-			}
+			culture = turkish
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		trigger = {
 			all_province = {
-				culture = turkish
-				owns_or_non_sovereign_subject_of = ROOT
+				if = {
+					limit = {
+						culture = turkish
+					}
+					owns_or_non_sovereign_subject_of = ROOT
+				}
 			}
 		}
 		effect = {
@@ -1502,15 +1502,17 @@ WFAS_OTTOMAN_missions_3_1 = {
 				add_permanent_claim = ROOT
 			}
 			2315 = {
-				limit = {
-					NOT = {
-						is_permanent_claim = ROOT
+				if = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+						}
+						NOT = {
+							is_core = ROOT
+						}
 					}
-					NOT = {
-						is_core = ROOT
-					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
 			}
 			add_casus_belli = {
 				type = cb_vassalize_mission
@@ -2015,9 +2017,7 @@ WFAS_OTTOMAN_missions_3_2 = {
 			WFAS_OTTOMAN_control_gujarat
 		}
 		provinces_to_highlight = {
-			OR = {
-				region = india_superregion
-			}
+			superregion = india_superregion
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -2026,7 +2026,7 @@ WFAS_OTTOMAN_missions_3_2 = {
 		trigger = {
 			calc_true_if = {
 				all_province = {
-					region = india_superregion
+					superregion = india_superregion
 					owned_by = ROOT
 				}
 				amount = 50
@@ -2494,6 +2494,7 @@ WFAS_OTTOMAN_missions_5_1 = {
 			}
 			add_sailors = 2000
 			321 = {
+				if = {
 				limit = {
 					NOT = {
 						is_permanent_claim = ROOT
@@ -2503,8 +2504,10 @@ WFAS_OTTOMAN_missions_5_1 = {
 					}
 				}
 				add_permanent_claim = ROOT
+			}
 			}
 			320 = {
+				if = {
 				limit = {
 					NOT = {
 						is_permanent_claim = ROOT
@@ -2514,8 +2517,10 @@ WFAS_OTTOMAN_missions_5_1 = {
 					}
 				}
 				add_permanent_claim = ROOT
+			}
 			}
 			3003 = {
+				if = {
 				limit = {
 					NOT = {
 						is_permanent_claim = ROOT
@@ -2525,8 +2530,10 @@ WFAS_OTTOMAN_missions_5_1 = {
 					}
 				}
 				add_permanent_claim = ROOT
+			}
 			}
 			164 = {
+				if = {
 				limit = {
 					NOT = {
 						is_permanent_claim = ROOT
@@ -2536,8 +2543,10 @@ WFAS_OTTOMAN_missions_5_1 = {
 					}
 				}
 				add_permanent_claim = ROOT
+			}
 			}
 			2348 = {
+				if = {
 				limit = {
 					NOT = {
 						is_permanent_claim = ROOT
@@ -2547,8 +2556,10 @@ WFAS_OTTOMAN_missions_5_1 = {
 					}
 				}
 				add_permanent_claim = ROOT
+			}
 			}
 			163 = {
+				if = {
 				limit = {
 					NOT = {
 						is_permanent_claim = ROOT
@@ -2559,7 +2570,9 @@ WFAS_OTTOMAN_missions_5_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			}
 			4700 = {
+				if = {
 				limit = {
 					NOT = {
 						is_permanent_claim = ROOT
@@ -2569,6 +2582,7 @@ WFAS_OTTOMAN_missions_5_1 = {
 					}
 				}
 				add_permanent_claim = ROOT
+			}
 			}
 			add_country_modifier = {
 				name = WFAS_ottoman_coast_safeguarded
@@ -2822,19 +2836,19 @@ WFAS_OTTOMAN_missions_5_1 = {
 			}
 		}
 		effect = {
-			if = {
-				limit = {
-					has_dlc = "Leviathan"
-				}
-				add_great_project_tier = {
-					type = kaaba
-					tier = 1
-				}
-			}
-			else = {
-				add_base_tax = 3
-			}
 			385 = {
+				if = {
+					limit = {
+						has_dlc = "Leviathan"
+					}
+					add_great_project_tier = {
+						type = kaaba
+						tier = 1
+					}
+				}
+				else = {
+					add_base_tax = 3
+				}
 				add_building = cathedral
 			}
 			custom_tooltip = WFAS_OTTOMANS_TOOLTIP.24
@@ -2968,9 +2982,11 @@ WFAS_OTTOMAN_missions_5_2 = {
 		icon = mission_mnd_maj_rein_in_brunei
 		trigger = {
 			any_country = {
-				OR = {
-					region = malaya_region
-					region = indonesia_region
+				capital_scope = {
+					OR = {
+						region = malaya_region
+						region = indonesia_region
+					}
 				}
 				reverse_has_opinion = {
 					who = root

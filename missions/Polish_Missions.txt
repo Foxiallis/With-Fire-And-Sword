@@ -299,32 +299,32 @@ WFAS_POL_missions_2 = {
 			}
 			if = {
 				limit = {
-					LIT = {
-						junior_union_with = ROOT
-						lithuania_area = {
-							type = all
-							owned_by = LIT
-						}
-						minsk_area = {
-							type = all
-							owned_by = LIT
-						}
-						west_dniepr_area = {
-							type = all
-							owned_by = LIT
-						}
-						pripyat_area = {
-							type = all
-							owned_by = LIT
-						}
-						smolensk_area = {
-							type = all
-							owned_by = LIT
+					NOT = {
+						LIT = {
+							junior_union_with = ROOT
+							lithuania_area = {
+								type = all
+								owned_by = LIT
+							}
+							minsk_area = {
+								type = all
+								owned_by = LIT
+							}
+							west_dniepr_area = {
+								type = all
+								owned_by = LIT
+							}
+							pripyat_area = {
+								type = all
+								owned_by = LIT
+							}
+							smolensk_area = {
+								type = all
+								owned_by = LIT
+							}
 						}
 					}
 				}
-			}
-			else = {
 				lithuania_area = {
 					limit = {
 						NOT = {

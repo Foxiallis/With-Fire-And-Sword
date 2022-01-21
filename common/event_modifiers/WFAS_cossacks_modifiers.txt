@@ -41,18 +41,29 @@ WFAS_cossacks_5 = {
 #Absent Cossacks
 WFAS_cossacks_absent = {
 	shock_damage = -0.1
-	cavalry_power = -0.15
+	cavalry_power = -0.1
 }
 
 #Unruly Cossacks
 WFAS_cossacks_unruly = {
-	discipline = -0.05
-	shock_damage_received = 0.05
+	discipline = -0.025
+	shock_damage_received = 0.025
 	cossacks_influence_modifier = 0.1
 }
 
 #Cossacks Returning Home
 WFAS_cossacks_return = {
-	yearly_army_professionalism = -0.025
-	cavalry_cost = 0.25
+	cavalry_cost = 0.2
+	special_unit_forcelimit_fraction = -0.1
+}
+
+#Enforced Cossack Recruitment
+WFAS_cossacks_enforced_recruitment = {
+	manpower_recovery_speed = 0.1
+	cavalry_cost = -0.1
+}
+
+#Enforced Autonomy
+WFAS_cossacks_enforced_autonomy = {
+	global_autonomy = -0.01
 }

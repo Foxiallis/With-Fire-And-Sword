@@ -519,7 +519,7 @@ country_event = {
 		has_country_flag = WFAS_chmielnicki_zaz_flag
 		OR = {
 			is_subject = no
-			is_subject_of_type = WFAS_crimean_protectorate
+			is_subject_of_type = WFAS_protectorate
 		}
 		NOT = {
 			is_rival = CRI
@@ -528,7 +528,7 @@ country_event = {
 			exists = yes
 			OR = {
 				is_subject = no
-				is_subject_of_type = WFAS_crimean_protectorate
+				is_subject_of_type = WFAS_protectorate
 			}
 			NOT = {
 				war_with = ROOT

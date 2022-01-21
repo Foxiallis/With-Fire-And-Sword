@@ -131,7 +131,7 @@ WFAS_tatar_missions_1 = {
 		}
 		effect = {
 			add_manpower = 10
-			prestige = 15
+			add_prestige = 15
 			add_country_modifier = {
 				name = WFAS_tatar_crimean_trade
 				duration = 7300
