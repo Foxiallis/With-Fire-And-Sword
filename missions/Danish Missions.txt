@@ -1,0 +1,1079 @@
+########################## Slot 1 ##########################
+danish_missions_kalmar = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = DAN
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	DE_crush_the_rebels = {
+		icon = mission_cannons_firing
+		required_missions = {
+		}
+		position = 1
+		trigger = {
+			NOT = {
+				has_spawned_rebels = pretender_rebels
+			}
+		}
+		effect = {
+			add_manpower = 5
+			add_prestige = 10
+		}
+	}
+	DE_relations_with_unions = {
+		icon = mission_alliances
+		required_missions = {
+			DE_crush_the_rebels
+		}
+		provinces_to_highlight = {
+			OR = {
+				owned_by = NOR
+				owned_by = SWE
+			}
+		}
+		position = 2
+		trigger = {
+			diplomatic_reputation = 1
+			AND = {
+				NOR = {
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+					NOT = {
+						liberty_desire = 30
+					}
+				}
+				AND = {
+					SWE = {
+						has_opinion = {
+							who = ROOT
+							value = 100
+						}
+						NOT = {
+							liberty_desire = 30
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "DE_leader_of_kalmar_union"
+				duration = 10950
+			}
+		}
+	}
+	DE_control_your_subjects = {
+		icon = mission_have_two_subjects
+		required_missions = {
+			DE_relations_with_unions
+		}
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				owned_by = NOR
+				owned_by = SWE
+			}
+		}
+		trigger = {
+			num_of_cities = SWE
+			num_of_cities = NOR
+		}
+		effect = {
+			add_country_modifier = {
+				name = "DE_scandinavia_dominated"
+				duration = 18250
+			}
+		}
+	}
+	DE_rule_the_scandinavia = {
+		icon = mission_empire
+		required_missions = {
+			DE_control_your_subjects
+		}
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				owned_by = NOR
+				owned_by = SWE
+			}
+		}
+		trigger = {
+			NOT = {
+				exists = NOR
+			}
+			NOT = {
+				exists = SWE
+			}
+			scandinavia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			subarctic_islands_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "DE_scandinavia_dominated"
+				duration = 18250
+			}
+		}
+	}
+	DE_the_vinland = {
+		icon = mission_rb_conquer_the_isles
+		required_missions = {
+			DE_old_norwegian_colonies
+		}
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				province_id = 981
+				province_id = 980
+				province_id = 2573
+			}
+		}
+		trigger = {
+			AND = {
+				981 = {
+					is_city = yes
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				980 = {
+					is_city = yes
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				2573 = {
+					is_city = yes
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			981 = {
+				add_base_production = 2
+				add_base_manpower = 2
+				add_province_modifier = {
+					name = "DE_back_to_the_vinland"
+					duration = -1
+				}
+			}
+			980 = {
+				add_base_production = 2
+				add_base_manpower = 2
+				add_province_modifier = {
+					name = "DE_back_to_the_vinland"
+					duration = -1
+				}
+			}
+			2573 = {
+				add_base_production = 2
+				add_base_manpower = 2
+				add_province_modifier = {
+					name = "DE_back_to_the_vinland"
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+########################## Slot 2 ##########################
+DE_mission_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = DAN
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	DE_stabilize_country = {
+		icon = mission_high_income
+		required_missions = {
+			DE_crush_the_rebels
+		}
+		position = 2
+		trigger = {
+			stability = 1
+			num_of_estate_privileges = {
+				estate = estate_church
+				value = 2
+			}
+			num_of_estate_privileges = {
+				estate = estate_nobles
+				value = 2
+			}
+			num_of_estate_privileges = {
+				estate = estate_burghers
+				value = 2
+			}
+		}
+		effect = {
+			add_prestige = 10
+			add_adm_power = 25
+			add_dip_power = 25
+			add_mil_power = 25
+		}
+	}
+	DE_sound_toll = {
+		icon = mission_dominate_home_trade_node
+		required_missions = {
+			DE_stabilize_country
+		}
+		position = 4
+		trigger = {
+			12 = {
+				trade_share = {
+					country = ROOT
+					share = 30
+				}
+			}
+		}
+		effect = {
+			12 = {
+				add_base_tax = 2
+				add_building = marketplace
+			}
+			add_years_of_owned_provinces_production_income = {
+				years = 10
+				trigger = {
+					trade_goods = fish
+				}
+				custom_tooltip = DE_sound_toll.tooltip
+			}
+		}
+	}
+	DE_control_over_lubeck = {
+		icon = mission_hanseatic_city
+		required_missions = {
+			DE_sound_toll
+		}
+		position = 5
+		trigger = {
+			OR = {
+				is_part_of_hre = yes
+				NOT = {
+					hre_size = 1
+				}
+			}
+		}
+		effect = {
+			weser_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			lower_saxony_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			mecklenburg_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			vorpommern_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			hinter_pommern_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	DE_old_norwegian_colonies = {
+		icon = mission_rb_settle_the_north
+		required_missions = {
+			DE_rule_the_scandinavia
+			DE_control_baltic_trade
+		}
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				area = subarctic_islands_area
+			}
+		}
+		trigger = {
+			subarctic_islands_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "DE_begining_of_danish_colonisation"
+				duration = -1
+			}
+			canada_region = {
+				discover_country = ROOT
+			}
+			american_east_coast_region = {
+				discover_country = ROOT
+			}
+			north_atlantic_area = {
+				discover_country = ROOT
+			}
+			1104 = {
+				if = {
+					limit = {
+						OR = {
+							is_empty = yes
+							AND = {
+								controlled_by = ROOT
+								is_colony = yes
+							}
+						}
+					}
+					add_siberian_construction = 100
+				}
+				else_if = {
+					limit = {
+						is_city = yes
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					add_base_production = 2
+					add_base_manpower = 2
+				}
+				else_if = {
+					limit = {
+						is_city = yes
+						NOT = {
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			1105 = {
+				if = {
+					limit = {
+						OR = {
+							is_empty = yes
+							AND = {
+								controlled_by = ROOT
+								is_colony = yes
+							}
+						}
+					}
+					add_siberian_construction = 100
+				}
+				else_if = {
+					limit = {
+						is_city = yes
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					add_base_production = 2
+					add_base_manpower = 2
+				}
+				else_if = {
+					limit = {
+						is_city = yes
+						NOT = {
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	DE_danish_gold_coast = {
+		icon = mission_west_african_ports
+		required_missions = {
+			DE_old_norwegian_colonies
+		}
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1139
+			}
+		}
+		trigger = {
+			AND = {
+				1139 = {
+					is_city = yes
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			1139 = {
+				add_base_production = 2
+				add_base_manpower = 2
+				add_province_modifier = {
+					name = "DE_danish_gold_coast_mod"
+					duration = -1
+				}
+			}
+		}
+	}
+	DE_colonies_in_india = {
+		icon = mission_indian_empire
+		required_missions = {
+			DE_danish_gold_coast
+		}
+		position = 8
+		trigger = {
+			is_year = 1530
+			num_of_ports = 3
+			custom_trigger_tooltip = {
+				tooltip = DE_colonies_in_india.tooltip
+				any_known_country = {
+					capital_scope = {
+						superregion = india_superregion
+					}
+					num_of_ports = 3
+					any_owned_province = {
+						has_port = yes
+						superregion = india_superregion
+						is_capital = no
+					}
+				}
+			}
+		}
+		effect = {
+			country_event = {
+				id = flavor_dan.10
+				days = 0
+				random = 0
+				#tooltip = CELESTIAL_EMPIRE_TOOLTIP
+			}
+		}
+	}
+}
+
+########################## Slot 3 ##########################
+DE_mission_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = DAN
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	DE_raise_an_army = {
+		icon = mission_assemble_an_army
+		required_missions = {
+		}
+		position = 1
+		trigger = {
+			army_size_percentage = 1
+			num_of_generals = 1
+		}
+		effect = {
+			33 = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			estonia_ingria_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			livonia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			curonia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	DE_deal_with_livonians = {
+		icon = mission_conquer_riga
+		required_missions = {
+			DE_raise_an_army
+			DE_stabilize_country
+		}
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = curonia_area
+				area = livonia_area
+				area = estonia_ingria_area
+			}
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 6
+				OR = {
+					area = curonia_area
+					area = livonia_area
+					area = estonia_ingria_area
+				}
+			}
+		}
+		effect = {
+			east_prussia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			west_prussia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	DE_conquer_prussian_land = {
+		icon = mission_danzig_or_war
+		required_missions = {
+			DE_deal_with_livonians
+		}
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = east_prussia_area
+				area = west_prussia_area
+			}
+		}
+		trigger = {
+			43 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			41 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			east_prussia_area = {
+				area = {
+					limit = {
+						owned_by = ROOT
+					}
+					add_province_modifier = {
+						name = "DE_declining_influence_of_teutons"
+						duration = 3650
+					}
+				}
+			}
+			west_prussia_area = {
+				area = {
+					limit = {
+						owned_by = ROOT
+					}
+					add_province_modifier = {
+						name = "DE_declining_influence_of_teutons"
+						duration = 3650
+					}
+				}
+			}
+		}
+	}
+	DE_control_baltic_trade = {
+		icon = mission_develop_nevas_port
+		required_missions = {
+			DE_sound_toll
+			DE_conquer_prussian_land
+		}
+		position = 5
+		trigger = {
+			43 = {
+				trade_share = {
+					country = ROOT
+					share = 60
+				}
+			}
+		}
+		effect = {
+			43 = {
+				add_base_production = 2
+				add_base_manpower = 2
+				add_building = stock_exchange
+				add_province_modifier = {
+					name = "DE_baltic_trade_company"
+					duration = 14600
+				}
+			}
+			41 = {
+				add_base_production = 2
+				add_base_manpower = 2
+				add_province_modifier = {
+					name = "DE_baltic_trade_company"
+					duration = 14600
+				}
+			}
+		}
+	}
+	DE_control_north_sea_trade = {
+		icon = mission_rb_scottish_north_sea_trade
+		required_missions = {
+		}
+		position = 6
+		trigger = {
+			1975 = {
+				trade_share = {
+					country = DAN
+					share = 25
+				}
+			}
+		}
+		effect = {
+			highlands_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			lowlands_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	DE_land_in_scotland = {
+		icon = mission_rb_conquer_scotland
+		required_missions = {
+			DE_control_north_sea_trade
+			DE_old_norwegian_colonies
+		}
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				area = highlands_area
+				area = lowlands_area
+			}
+		}
+		trigger = {
+			highlands_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lowlands_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_treasury = 500
+			add_accepted_culture = scottish
+			define_advisor = {
+				type = army_reformer
+				skill = 3
+				cost_multiplier = 0.25
+			}
+		}
+	}
+}
+
+########################## Slot 4 ##########################
+DE_mission_slot_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = DAN
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	DE_neva_or_war = {
+		icon = mission_reconquer_vologda
+		required_missions = {
+			DE_raise_an_army
+		}
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				province_id = 33
+			}
+		}
+		trigger = {
+			owns = 33
+		}
+		effect = {
+			pskov_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			novgorod_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			karelia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	DE_novgorodian_lands = {
+		icon = mission_novgorod_the_great
+		required_missions = {
+			DE_neva_or_war
+		}
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = pskov_area
+				area = novgorod_area
+			}
+		}
+		trigger = {
+			pskov_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			novgorod_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "DE_conquest_of_nothern_russia"
+				duration = 3650
+			}
+			north_karelia = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			arkhangelsk_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			pomor_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			samogitia_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			lithuania_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			minsk_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	DE_lithuanian_forests = {
+		icon = mission_collect_yasak
+		required_missions = {
+			DE_novgorodian_lands
+		}
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = samogitia_area
+				area = lithuania_area
+				area = minsk_area
+			}
+		}
+		trigger = {
+			samogitia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lithuania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			minsk_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "DE_good_wood_for_buildings"
+				duration = 3650
+			}
+		}
+	}
+	DE_northeast_power = {
+		icon = mission_italian_condottiere
+		required_missions = {
+			DE_lithuanian_forests
+			DE_conquer_prussian_land
+			DE_riches_of_russia
+		}
+		position = 5
+		trigger = {
+			NOT = {
+				great_power_rank = 8
+			}
+			government_rank = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = "DE_northeast_empire"
+				duration = -1
+			}
+		}
+	}
+}
+
+########################## Slot 5 ##########################
+DE_mission_slot_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = DAN
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	DE_novgorodian_trade = {
+		icon = mission_galleys_in_port
+		required_missions = {
+			DE_neva_or_war
+		}
+		position = 3
+		trigger = {
+			33 = {
+				trade_share = {
+					country = ROOT
+					share = 40
+				}
+			}
+		}
+		effect = {
+			33 = {
+				add_province_modifier = {
+					name = "DE_baltic_trade_company"
+					duration = 14600
+				}
+			}
+		}
+	}
+	DE_riches_of_russia = {
+		icon = mission_unite_home_region
+		required_missions = {
+			DE_novgorodian_trade
+		}
+		position = 4
+		trigger = {
+			production_leader = {
+				trade_goods = fur
+			}
+		}
+		effect = {
+			custom_tooltip = DE_riches_of_russia.tooltip
+			every_province = {
+				limit = {
+					owned_by = ROOT
+					trade_goods = fur
+				}
+				add_province_modifier = {
+					name = "DE_danish_fur_manufactories"
+					duration = 18250
+				}
+			}
+		}
+	}
+	DE_roskilde_cathedral = {
+		icon = mission_european_church
+		required_missions = {
+		}
+		position = 6
+		trigger = {
+			capital_scope = {
+				has_building = temple
+			}
+		}
+		effect = {
+			add_prestige = 10
+			capital_scope = {
+				add_base_tax = 4
+				add_building = cathedral
+			}
+		}
+	}
+	DE_university_of_denmark = {
+		icon = mission_rb_the_bank_of_scotland
+		required_missions = {
+			DE_roskilde_cathedral
+		}
+		position = 7
+		trigger = {
+			capital_scope = {
+				has_building = university
+			}
+		}
+		effect = {
+			change_adm = 1
+			change_dip = 1
+			change_mil = 1
+			add_country_modifier = {
+				name = "DE_danish_national_university"
+				duration = -1
+			}
+		}
+	}
+}

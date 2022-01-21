@@ -1,0 +1,270 @@
+WFAS_ottoman_reform_1_modifier = {
+	development_cost = -0.05
+	build_cost = -0.1
+	core_creation = 0.25
+}
+
+WFAS_ottoman_reform_2_modifier = {
+	defensiveness = 0.25
+	fort_maintenance_modifier = 0.1
+}
+
+WFAS_ottoman_reform_3_modifier = {
+	movement_speed = 0.15
+	caravan_power = 0.25
+	global_tax_modifier = -0.25
+}
+
+WFAS_ottoman_rebels_punished = {
+	land_attrition = -0.2
+	global_unrest = -1
+}
+
+WFAS_ottoman_pacification_of_serbian_separatists = {
+	years_of_nationalism = -5
+	core_creation = -0.1
+}
+
+WFAS_ottoman_over_the_bosnian_hills = {
+	movement_speed = 0.05
+	reinforce_cost_modifier = -0.1
+	reinforce_speed = 0.1
+}
+
+WFAS_ottoman_step_into_europe = {
+	ae_impact = -0.2
+	unjustified_demands = -0.2
+}
+
+WFAS_ottoman_fear_sowed_in_german_heads = {
+	land_morale = 0.05
+	hostile_attrition = 1
+}
+
+WFAS_ottoman_killer_of_roman_empires = {
+	diplomatic_reputation = 3
+	manpower_in_true_faith_provinces = 0.2
+	leader_land_shock = 1
+}
+
+WFAS_ottoman_greece_united = {
+	culture_conversion_cost = -0.1
+	num_accepted_cultures = 1
+}
+
+WFAS_ottoman_podolia_looted = {
+	loot_amount = 0.25
+	available_province_loot = 0.25
+}
+
+WFAS_ottoman_cossack_armies = {
+	cavalry_power = 0.1
+}
+
+WFAS_ottoman_levantine_victory = {
+	yearly_army_professionalism = 0.01
+}
+
+WFAS_ottoman_vassal_sultanates = {
+	reduced_liberty_desire = 25
+}
+
+WFAS_ottoman_turkish_maghreb = {
+	global_autonomy = -0.1
+	global_monthly_devastation = -0.05
+	production_efficiency = 0.15
+}
+
+WFAS_ottoman_coast_safeguarded = {
+	hostile_disembark_speed = 0.5
+	blockade_force_required = 0.5
+}
+
+WFAS_ottoman_end_of_crusaider_raids = {
+	navy_tradition = 1
+	galley_cost = -0.2
+}
+
+WFAS_ottoman_the_golden_horn = {
+	local_sailors_modifier = 0.5
+	local_ship_repair = 0.2
+	local_ship_cost = -0.2
+	ship_recruit_speed = -0.2
+}
+
+WFAS_ottoman_great_mediterranean_fleet = {
+	galley_power = 0.1
+	naval_morale = 0.1
+}
+
+WFAS_ottoman_control_over_mediterranean_islands = {
+	naval_attrition = -0.25
+	ship_durability = 0.05
+}
+
+WFAS_ottoman_venetian_fleet_defeated = {
+	global_naval_barrage_cost = -0.25
+	admiral_cost = -0.25
+	leader_naval_fire = 1
+}
+
+WFAS_ottoman_domestic_trade = {
+	global_own_trade_power = 0.25
+}
+
+WFAS_ottoman_new_sea_trade_routes = {
+	merchants = 1
+	center_of_trade_upgrade_cost = -0.1
+}
+
+WFAS_ottoman_trade_of_nile_river = {
+	trade_efficiency = 0.1
+	trade_range_modifier = 0.25
+}
+
+WFAS_ottoman_faith_in_allah = {
+	tolerance_own = 1
+}
+
+WFAS_loyal_and_invincible_janissaries = {
+	is_janissary_modifier = yes
+	discipline = 0.025
+}
+
+WFAS_ottoman_mines_siege_used = {
+	local_defensiveness = -0.25
+}
+
+WFAS_ottoman_mines_siege_not_used = {
+	#local_defensiveness = 0.001
+}
+
+WFAS_ottomans_legalism_piety = {
+	monthly_piety = 0.005
+	religious_unity = 0.15
+}
+
+WFAS_ottomans_misticism_piety = {
+	monthly_piety = -0.005
+	religious_unity = 0.15
+}
+
+WFAS_ottomans_piety = {
+	tolerance_own = 2
+	religious_unity = 0.15
+}
+
+WFAS_ottoman_homeland_of_renaissance = {
+	development_cost = -0.1
+	great_project_upgrade_cost = -0.25
+}
+
+WFAS_ottomans_jannisary_army = {
+	land_maintenance_modifier = -0.1
+}
+
+WFAS_ottomans_reforms_of_court_and_state = {
+	advisor_cost = -0.1
+	inflation_reduction = 0.1
+}
+
+WFAS_ottomans_westernisation_of_turkish_army = {
+	infantry_fire = 0.15
+	infantry_shock = 0.15
+}
+
+WFAS_ottomans_economy = {
+	global_trade_goods_size_modifier = 0.1
+	stability_cost_modifier = -0.2
+}
+
+WFAS_ottomans_italy_region = {
+	local_missionary_strength = 0.02
+}
+
+WFAS_ottomans_mashriq_region = {
+	#WFAS_OTTOMANS_TOOLTIP.16
+	local_development_cost = -0.05
+}
+
+WFAS_ottomans_egypt_region = {
+	trade_goods_size_modifier = 0.1
+}
+
+WFAS_ottomans_balkan_region = {
+	local_unrest = -1
+}
+
+WFAS_ottomans_carpathia_region = {
+	local_defensiveness = 0.1
+}
+
+WFAS_ottomans_anatolia_region = {
+	local_manpower_modifier = 0.05
+}
+
+WFAS_ottomans_caucasia_region = {
+	garrison_growth = 0.25
+}
+
+WFAS_ottomans_maghreb_region = {
+	local_hostile_attrition = 1
+}
+
+WFAS_ottomans_persia_region = {
+	local_friendly_movement_speed = 0.1
+}
+
+WFAS_ottomans_arabia_region = {
+	local_monthly_devastation = -0.1
+}
+
+WFAS_ottomans_khorasan_region = {
+	local_years_of_nationalism = -10
+}
+
+WFAS_ottomans_south_german_region = {
+	local_tax_modifier = 0.1
+}
+
+WFAS_ottomans_west_india_region = {
+	province_trade_power_modifier = 0.1
+}
+
+WFAS_ottomans_poland_region = {
+	local_regiment_cost = -0.1
+}
+
+WFAS_ottomans_caucasian_christians = {
+	tolerance_heathen = 1
+}
+
+WFAS_ottomans_black_sheep = {
+	province_warscore_cost = -0.05
+}
+
+WFAS_ottomans_white_sheep = {
+	diplomats = 1
+}
+
+WFAS_ottomans_conquest_of_east = {
+	unjustified_demands = -0.2
+}
+
+WFAS_ottomans_riches_of_persia = {
+	global_trade_goods_size_modifier = 0.1
+}
+
+WFAS_ottomans_mesopotamian_trade = {
+	global_trade_power = 0.2
+	trade_steering = 0.1
+}
+
+WFAS_ottomans_gujarati_trade = {
+	global_ship_trade_power = 0.5
+}
+
+WFAS_ottomans_monsoon_dawn = {
+	administrative_efficiency = 0.05
+	warscore_cost_vs_other_religion = -0.1
+}

@@ -9,26 +9,241 @@ on_five_year_pulse_3 = {
 		100 = WFAS_chmielnicki_flavor.1
 		100 = WFAS_chmielnicki_flavor.2
 		30 = WFAS_cossacks.9
+		100 = propagate_religion_events.1
+		100 = propagate_religion_events.2
+		100 = propagate_religion_events.3
+		100 = propagate_religion_events.4
+		100 = propagate_religion_events.5
+		100 = propagate_religion_events.6
+		100 = propagate_religion_events.8
+		100 = propagate_religion_events.9
+		100 = propagate_religion_events.10
+		#100 = propagate_religion_events.11 #Province event
+		1000 = 0
 	}
 }
 
 on_five_year_pulse_2 = {
 	random_events = {
+		# Burghers
+		100 = burghers_estate_events.1
+		100 = burghers_estate_events.2
+		100 = burghers_estate_events.3
+		100 = burghers_estate_events.4
+		100 = burghers_estate_events.5
+		100 = burghers_estate_events.6
+		100 = burghers_estate_events.7
+		100 = burghers_estate_events.8
+		100 = burghers_estate_events.9
+		400 = burghers_estate_events.10 #Demands
+		100 = burghers_estate_events.11 #Bonus
+		100 = burghers_estate_events.12
+		100 = burghers_estate_events.13
+		400 = burghers_estate_events.14 #Demands
+		100 = burghers_estate_events.15 #Disloyal
+		# Nobles
+		100 = nobles_estate_events.1 #Demands
+		100 = nobles_estate_events.2
+		100 = nobles_estate_events.3
+		100 = nobles_estate_events.4
+		400 = nobles_estate_events.5 #Demands
+		100 = nobles_estate_events.6
+		100 = nobles_estate_events.7
+		400 = nobles_estate_events.8 #Disloyal
+		400 = nobles_estate_events.9 #Disloyal
+		50 = nobles_estate_events.10
+		100 = nobles_estate_events.11 #Bonus
+		# Clergy
+		100 = church_estate_events.1
+		#Regional Variations:
+		100 = church_estate_events.101
+		100 = church_estate_events.102
+		100 = church_estate_events.103
+		100 = church_estate_events.104
+		100 = church_estate_events.105
+		100 = church_estate_events.2
+		100 = church_estate_events.3
+		100 = church_estate_events.4
+		400 = church_estate_events.5 #Disloyal
+		400 = church_estate_events.6 #Demands
+		100 = church_estate_events.7 #Bonus
+		100 = church_estate_events.8
+		100 = church_estate_events.9
+		100 = church_estate_events.10
+		# Dhimmi
+		100 = dhimmi_estate_events.1
+		400 = dhimmi_estate_events.2 #Demands
+		100 = dhimmi_estate_events.3
+		100 = dhimmi_estate_events.4
+		100 = dhimmi_estate_events.5
+		100 = dhimmi_estate_events.6
+		400 = dhimmi_estate_events.7 #Disloyal
+		100 = dhimmi_estate_events.8
+		# Cossacks
+		100 = cossack_estate_events.1
+		#100 = cossack_estate_events.2 (triggers in neighbor country)
+		100 = cossack_estate_events.6
+		100 = cossack_estate_events.7
+		100 = cossack_estate_events.8
+		100 = cossack_estate_events.9
+		100 = cossack_estate_events.10
+		100 = cossack_estate_events.11
+		400 = cossack_estate_events.12 #Disloyal
+		100 = cossack_estate_events.13
+		400 = cossack_estate_events.14 #Demands
+		# Tribes
+		100 = tribal_estate_events.1
+		100 = tribal_estate_events.2
+		100 = tribal_estate_events.3
+		100 = tribal_estate_events.4
+		100 = tribal_estate_events.5
+		100 = tribal_estate_events.6
+		100 = tribal_estate_events.7
+		100 = tribal_estate_events.8
+		100 = tribal_estate_events.9
+		150 = tribal_estate_events.11 #Demands
+		150 = tribal_estate_events.12 #Demands
+		150 = tribal_estate_events.13 #Demands
+		150 = tribal_estate_events.14 #Demands
+		# Marathas
+		100 = marathas_estate_events.2
+		100 = marathas_estate_events.3
+		100 = marathas_estate_events.4
+		100 = marathas_estate_events.5
+		100 = marathas_estate_events.6
+		400 = marathas_estate_events.7 # Demands
+		100 = marathas_estate_events.8
+		100 = marathas_estate_events.9
+		100 = marathas_estate_events.10
+		400 = marathas_estate_events.11 # Disloyal
+		# Brahmins
+		400 = brahmins_estate_events.2 # demands
+		100 = brahmins_estate_events.3
+		100 = brahmins_estate_events.4
+		100 = brahmins_estate_events.5
+		400 = brahmins_estate_events.6 # disloyal
+		100 = brahmins_estate_events.7
+		100 = brahmins_estate_events.8
+		100 = brahmins_estate_events.9
+		100 = brahmins_estate_events.10
+		100 = brahmins_estate_events.11
+		# Jains
+		100 = jains_estate_events.2
+		100 = jains_estate_events.3
+		100 = jains_estate_events.4
+		100 = jains_estate_events.5
+		100 = jains_estate_events.6
+		100 = jains_estate_events.7
+		400 = jains_estate_events.8 # Disloyal
+		100 = jains_estate_events.9
+		400 = jains_estate_events.10 # Demands
+		100 = jains_estate_events.11
+		# Vaishyas
+		100 = vaisyas_estate_events.2
+		100 = vaisyas_estate_events.3
+		100 = vaisyas_estate_events.4
+		100 = vaisyas_estate_events.5
+		100 = vaisyas_estate_events.6
+		100 = vaisyas_estate_events.7
+		100 = vaisyas_estate_events.8
+		400 = vaisyas_estate_events.9
+		100 = vaisyas_estate_events.10
+		100 = vaisyas_estate_events.11
+		# Rajputs
+		100 = rajputs_estate_events.2
+		100 = rajputs_estate_events.3
+		100 = rajputs_estate_events.4
+		100 = rajputs_estate_events.5
+		400 = rajputs_estate_events.6
+		100 = rajputs_estate_events.7
+		400 = rajputs_estate_events.8
+		100 = rajputs_estate_events.9
+		100 = rajputs_estate_events.10
+		100 = rajputs_estate_events.11
+		# Magnates
 		500 = magnates_estate_events.1
 		500 = magnates_estate_events.2
 		100 = magnates_estate_events.3
 		300 = magnates_estate_events.4
 		500 = magnates_estate_events.5
+		# Cossacks
 		200 = WFAS_cossacks.4
 		200 = WFAS_cossacks.5
 		200 = WFAS_cossacks.6
 		100 = WFAS_cossacks.7
 		100 = WFAS_cossacks.10
 		100 = WFAS_cossacks.11
+		# Random
+		5 = flavor_fra.9500
+		1000 = 0
 	}
 }
 
+
 on_monarch_death = {
+	if = {
+		limit = {
+			tag = ANS
+			BRA = {
+				has_country_flag = albrecht_achilles_flag
+			}
+		}
+		BRA = {
+			clr_country_flag = albrecht_achilles_flag #Just to be sure
+			kill_heir = {} #If Albrecht Achilles dies in Ansbach he will also be dead in Brandenburg, will appear as normal death of heir to BRA.
+		}
+	}
+	if = {
+		limit = { has_country_modifier = sought_after_bachelor }
+		remove_country_modifier = sought_after_bachelor
+	}
+	if = {
+		limit = {
+			tag = SAX
+			has_country_flag = sax_thuringen_split_to_happen
+			OR = {
+				NOT = { dynasty = "von Wettin" }
+				NOT = { senior_union_with = THU }
+				has_regency = yes
+			}
+		}
+		clr_country_flag = sax_thuringen_split_to_happen
+	}
+	if = {
+		limit = { tag = SAM }
+		country_event = { id = polynesian.35 }
+	}
+	if = {
+		limit = { tag = TOG }
+		country_event = { id = polynesian.36 }
+	}
+	if = {	# Ascension of Trailokanat
+		limit = { tag = AYU }
+		country_event = { id = flavor_suk.1 }
+	}
+	burgundian_inheritance_start_effect = yes
+	ladislaus_postumus_king_died_effect = yes
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = no_stab_hit_on_ruler_death
+				has_a_primary_cult_selected = yes
+			}
+			OR = {
+				government = tribal
+				government = monarchy
+			}
+			NOT = { has_ruler_flag = no_stab_bonus_on_ascending_the_throne }
+			NOT = { has_heir_flag = no_stab_bonus_on_ascending_the_throne }
+		}
+		add_stability = 1
+		if = {
+			limit = {
+				NOT = { heir_age = 15 }
+			}
+			set_heir_flag = no_stab_bonus_on_ascending_the_throne
+		}
+	}
 	if = {
 		limit = {
 			has_heir = no
@@ -50,12 +265,40 @@ on_monarch_death = {
 		set_ruler_flag = WFAS_tot_anarchy_flag
 	}
 	events = {
+		flavor_wal.1 # Vlad the Impaler. So that he doesn't try to usurp his father.
+		flavor_nav.4 # Navarra succession event
+		flavor_sax.8 # Treaty of Leipzig
+		flavor_pap.16 # Borgia Pope
+		flavor_pap.19 # death of borgia pope
+		flavor_tus.22 # Medici Pope
+		flavor_tus.24 # death of the Medici Pope
+		majapahit.8 # Majapahit pretenders
+		flavor_mal.11 # Mali pretenders
+		flavor_mal.47 # Pilgrimage ends prematurely
 		WFAS_timeoftroubles.2
 		WFAS_timeoftroubles.30
 	}
 }
 
 on_new_heir = {
+	if = {
+		limit = { has_any_heir_cult_active = yes }
+		remove_heir_cult = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = enabled_cult_for_heirs
+		}
+		country_event = {
+			id = fetishist_flavor.600
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = had_bmv
+		}
+		clr_country_flag = had_bmv
+	}
 	events = {
 		WFAS_timeoftroubles.33
 	}
@@ -64,47 +307,248 @@ on_new_heir = {
 on_new_term_election = {
 	events = {
 		WFAS_cossacks.13
+		700		# Election event
+		elections.720		# Dutch Republic
+		elections.800	# Lottery election
+		pirates.1
 	}
 }
 
 on_death_election = {
 	if = {
 		limit = {
-			has_reform = elective_monarchy
+			has_reform = presidential_despot_reform
 		}
-		define_ruler = {
-			name = "(Interregnum)"
-			adm = 0
-			mil = 0
-			dip = 0
-			max_random_adm = 0
-			max_random_dip = 0
-			max_random_mil = 0
-			regency = yes
+		remove_government_reform = presidential_despot_reform
+	}
+	if = {
+		limit = {
+			has_reform = pirate_republic_reform
+		}
+		set_country_flag = pirate_death_election
+		country_event = {
+			id = pirates.1
 		}
 	}
 	events = {
-		WFAS_elective_monarchy_events.1
+		701		# Election event
+		elections.721		# Dutch Republic
+		elections.800		# Lottery election
+		flavor_tus.16		#Savonarola Leaves This World
+		WFAS_elective_monarchy_events.1		#Election of ruler in Poland
 		WFAS_cossacks.14
 	}
 }
 
+
 on_siege_won_country = {
+	if = {
+		limit = {
+			from = { owned_by = SAX }
+			OR = {
+				is_in_war = {
+					defenders = root
+					defenders = THU
+					defenders = emperor
+					attackers = SAX
+				}
+				is_in_war = {
+					attackers = root
+					attackers = THU
+					attackers = emperor
+					defenders = SAX
+				}
+			}
+			THU = {
+				dynasty = "von Wettin"
+				is_elector = no
+				is_emperor = no
+				alliance_with = emperor
+			}
+			SAX = {
+				is_elector = yes
+				all_owned_province = {
+					NOT = { controlled_by = SAX }
+					OR = {
+						controlled_by = THU
+						controller = {
+							OR = {
+								is_in_war = {
+									defenders = this
+									defenders = THU
+									defenders = emperor
+									attackers = SAX
+								}
+								is_in_war = {
+									attackers = this
+									attackers = THU
+									attackers = emperor
+									defenders = SAX
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		THU = { country_event = { id = flavor_sax.10 } } # Ask Emperor for Saxon Electorate
+	}
+	if = {
+		limit = {
+			ROOT = {
+				religion = jewish
+				has_church_aspect = judaism_remember_passover_aspect
+			}
+			FROM = {
+				owner = {
+					war_with = ROOT
+				}
+				fort_level = 1
+			}
+		}
+		ROOT = {
+			add_church_power = 5
+		}
+	}
+	grant_manpower_from_capital_slave_raid = yes
 	events = {
+		tyw_events.14 # Fall of Prague in Religious War
+		flavor_oir.5 # Oirats capture Beijing
+		flavor_lna.1 # Emerald Buddha
+		flavor_son.14 # Djenne surrenders to Songhai Trigger
 		WFAS_lithuania.6
 		WFAS_crimea.9
+	}
+	random_events = {
+		10 = army_professionalism_events.1 #City Sacked
+		100 = 0
 	}
 }
 
 on_war_lost = {
+	ROOT = { country_event = { id = flavor_cri.6 } }
+	ROOT = { country_event = { id = tributary_events.32 } }
+	if = {
+		limit = {
+			government = republic
+			is_lesser_in_union = yes
+		}
+		change_government_to_monarchy = yes
+	}
+	if = {
+		limit = {
+			FROM = { is_emperor = yes }
+			NOT = { has_country_flag = reined_in_for_shadow_kingdom }
+			NOT = { has_global_flag = italians_leave_hre }
+			is_emperor = no
+			is_part_of_hre = yes
+			OR = {
+				capital_scope = { region = italy_region }
+				AND = {
+					culture_group = latin
+					any_owned_province = {
+						region = italy_region
+					}
+				}
+			}
+		}
+		set_country_flag = reined_in_for_shadow_kingdom
+	}
+	add_country_modifier = {
+		name = just_lost_war_timer
+		duration = 10
+		hidden = yes
+	}
 	events = {
-		WFAS_cossacks.8
 		WFAS_crimea.17
 		WFAS_crimean_war.15
 	}
 }
 
 on_war_won = {
+	FROM = { country_event = { id = flavor_cri.6 } }
+	ROOT = { country_event = { id = tributary_events.32 } }
+
+	if = {
+		limit = {
+			is_part_of_hre = yes
+			FROM  = { is_part_of_hre = yes }
+		}
+		ROOT = { save_global_event_target_as = hre_winner }
+		FROM = { save_global_event_target_as = hre_loser }
+		random_known_country = {
+			limit = {
+				has_reform = free_city
+				NOT = {
+					prestige = 40
+				}
+				NOT = {
+					has_country_modifier = fc_treatyconference_timer
+				}
+			}
+			add_country_modifier = {
+				name = fc_treatyconference_timer
+				duration = 3650
+				hidden = yes
+			}
+			country_event = {
+				id = free_cities.7
+				days = 7
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			tag = MLO
+			NOT = { has_country_flag = emp_mlo_won_war_with_swiss_mercs }
+			any_hired_mercenary_company = {
+				home_province = {
+					OR = {
+						area = switzerland_area
+						area = romandie_area
+					}
+				}
+			}
+		}
+		set_country_flag = emp_mlo_won_war_with_swiss_mercs
+	}
+
+	if = {
+		limit = {
+			is_hiring_condottiere_from = SWI
+		}
+		SWI = { set_country_flag = won_condottiere_war }
+		if = {
+			limit = {
+				tag = PAP
+			}
+			SWI = {
+				set_country_flag = hired_to_pope
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			primary_culture = melanesian
+			NOT = { has_country_modifier = warlord_mod }
+		}
+		FROM = {
+			country_event = {
+				id = polynesian.17
+			}
+		}
+	}
+	if = {
+		limit = {
+			ROOT = {
+				religion = jewish
+				has_church_aspect = judaism_purim_teachings_aspect
+			}
+		}
+		add_church_power = 10
+	}
 	events = {
 		WFAS_crimean_war.14
 	}
@@ -114,11 +558,5 @@ on_siberian_pulse = {
 	random_events = {
 		100 = WFAS_cossacks.3
 		15000 = 0
-	}
-}
-
-on_siege_won_country = {
-	events = {
-		WFAS_crimea.9
 	}
 }

@@ -1,0 +1,211 @@
+song = {
+	name = "Den-Tapre-Landsoldat"
+	chance = {
+		modifier = {
+			factor = 1
+		}
+		modifier = {
+			factor = 2
+			culture_group = scandinavian
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				culture_group = scandinavian
+			}
+		}
+		modifier = {
+			factor = 1.5
+			is_year = 1500
+		}
+	}
+}
+
+song = {
+	name = "Ivar_s-Revenge"
+	chance = {
+		modifier = {
+			factor = 1
+		}
+		modifier = {
+			factor = 2
+			culture_group = scandinavian
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				culture_group = scandinavian
+			}
+		}
+		modifier = {
+			factor = 2
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0
+			is_at_war = no
+		}
+	}
+}
+
+song = {
+	name = "Hans-Christian-Lumbye-Champagne-Galop"
+	chance = {
+		modifier = {
+			factor = 1
+		}
+		modifier = {
+			factor = 2
+			culture_group = scandinavian
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				culture_group = scandinavian
+			}
+		}
+		modifier = {
+			factor = 0
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 2
+			is_at_war = no
+		}
+	}
+}
+
+song = {
+	name = "Niels-Wiggo-Gade-Bridal-waltz"
+	chance = {
+		modifier = {
+			factor = 1
+		}
+		modifier = {
+			factor = 2
+			culture_group = scandinavian
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				culture_group = scandinavian
+			}
+		}
+		modifier = {
+			factor = 0
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 2
+			is_at_war = no
+		}
+	}
+}
+
+song = {
+	name = "Njordfoto-Tagen-Letter"
+	chance = {
+		modifier = {
+			factor = 1
+		}
+		modifier = {
+			factor = 2
+			culture_group = scandinavian
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				culture_group = scandinavian
+			}
+		}
+		modifier = {
+			factor = 0
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 2
+			is_at_war = no
+		}
+	}
+}
+
+song = {
+	name = "The-Elf-King_s-Daughter"
+	chance = {
+		modifier = {
+			factor = 1
+		}
+		modifier = {
+			factor = 2
+			culture_group = scandinavian
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				culture_group = scandinavian
+			}
+		}
+		modifier = {
+			factor = 0
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 2
+			is_at_war = no
+		}
+	}
+}
+
+song = {
+	name = "Valhalla-Calling"
+	chance = {
+		modifier = {
+			factor = 1
+		}
+		modifier = {
+			factor = 2
+			culture_group = scandinavian
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				culture_group = scandinavian
+			}
+		}
+		modifier = {
+			factor = 2
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 1
+			is_at_war = no
+		}
+	}
+}
+
+song = {
+	name = "Viking-Gods"
+	chance = {
+		modifier = {
+			factor = 1
+		}
+		modifier = {
+			factor = 2
+			culture_group = scandinavian
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				culture_group = scandinavian
+			}
+		}
+		modifier = {
+			factor = 2
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 1
+			is_at_war = no
+		}
+	}
+}

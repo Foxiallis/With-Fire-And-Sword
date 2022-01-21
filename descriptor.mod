@@ -10,5 +10,5 @@ tags={
 }
 picture="thumbnail.png"
 name="With Fire and Sword - Eastern Europe Expansion Mod v.1.3"
-supported_version="1.32.*"
+supported_version="1.32.2"
 remote_file_id="2481053190"

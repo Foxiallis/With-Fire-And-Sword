@@ -1,0 +1,71 @@
+country_decisions = {
+	WFAS_ottoman_reform_1 = {
+		potential = {
+			has_country_flag = WFAS_otto_decisons_enabled
+			tag = TUR
+			NOT = {
+				has_country_flag = WFAS_ottoman_reform_1
+			}
+		}
+		allow = {
+			government_reform_progress = 25
+		}
+		effect = {
+			change_government_reform_progress = -25
+			set_country_flag = WFAS_ottoman_reform_1
+			add_country_modifier = {
+				name = WFAS_ottoman_reform_1_modifier
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	WFAS_ottoman_reform_2 = {
+		potential = {
+			has_country_flag = WFAS_otto_decisons_enabled
+			tag = TUR
+			NOT = {
+				has_country_flag = WFAS_ottoman_reform_2
+			}
+		}
+		allow = {
+			government_reform_progress = 25
+		}
+		effect = {
+			change_government_reform_progress = -25
+			set_country_flag = WFAS_ottoman_reform_2
+			add_country_modifier = {
+				name = WFAS_ottoman_reform_2_modifier
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	WFAS_ottoman_reform_3 = {
+		potential = {
+			has_country_flag = WFAS_otto_decisons_enabled
+			tag = TUR
+			NOT = {
+				has_country_flag = WFAS_ottoman_reform_3
+			}
+		}
+		allow = {
+			government_reform_progress = 25
+		}
+		effect = {
+			change_government_reform_progress = -25
+			set_country_flag = WFAS_ottoman_reform_3
+			add_country_modifier = {
+				name = WFAS_ottoman_reform_3_modifier
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

@@ -255,7 +255,7 @@ WFAS_CRI_missions_2 = {
 			}
 		}
 	}
-	WFAS_tatar_ruin_ruthenia = {
+	WFAS_tatar_ruin_ruthenia_2 = {
 		position = 3
 		required_missions = {
 			WFAS_CRI_lithuanian_diplomacy
@@ -495,7 +495,7 @@ WFAS_CRI_missions_4 = {
 			map_setup = map_setup_random
 		}
 	}
-	WFAS_tatar_the_khan_laws = {
+	WFAS_tatar_the_khan_laws_2 = {
 		position = 1
 		required_missions = {
 		}
@@ -522,10 +522,10 @@ WFAS_CRI_missions_4 = {
 			}
 		}
 	}
-	WFAS_tatar_embrace_western_institutions = {
+	WFAS_tatar_embrace_western_institutions_2 = {
 		position = 2
 		required_missions = {
-			WFAS_tatar_the_khan_laws
+			WFAS_tatar_the_khan_laws_2
 		}
 		icon = mission_dominate_home_trade_node
 		trigger = {
@@ -544,10 +544,10 @@ WFAS_CRI_missions_4 = {
 			}
 		}
 	}
-	WFAS_tatar_stable_economy = {
+	WFAS_tatar_stable_economy_2 = {
 		position = 3
 		required_missions = {
-			WFAS_tatar_embrace_western_institutions
+			WFAS_tatar_embrace_western_institutions_2
 		}
 		icon = mission_war_chest
 		trigger = {
@@ -667,7 +667,7 @@ WFAS_CRI_missions_5 = {
 		position = 4
 		required_missions = {
 			WFAS_CRI_crimean_trade
-			WFAS_tatar_stable_economy
+			WFAS_tatar_stable_economy_2
 		}
 		icon = mission_entrepot_of_india
 		trigger = {

@@ -1,0 +1,62 @@
+DE_leader_of_kalmar_union = {
+	diplomatic_reputation = 1
+}
+
+DE_declining_influence_of_teutons = {
+	local_autonomy = -0.075
+	local_years_of_nationalism = -5
+}
+
+DE_scandinavia_dominated = {
+	diplomatic_annexation_cost = -0.25
+}
+
+DE_baltic_trade_company = {
+	province_trade_power_modifier = 0.2
+}
+
+DE_danish_fur_manufactories = {
+	local_production_efficiency = 0.1
+}
+
+DE_conquest_of_nothern_russia = {
+	land_morale = 0.1
+	land_attrition = -0.3
+}
+
+DE_good_wood_for_buildings = {
+	development_cost = -0.1
+}
+
+DE_northeast_empire = {
+	land_morale = 0.05
+	land_forcelimit_modifier = 0.2
+	global_manpower_modifier = 0.2
+	global_regiment_cost = -0.1
+}
+
+DE_begining_of_danish_colonisation = {
+	colonists = 1
+	global_colonial_growth = 15
+	range = 0.5
+	trade_range_modifier = 0.25
+}
+
+DE_dansborg_factory = {
+	trade_goods_size = 2.5
+}
+
+DE_back_to_the_vinland = {
+	trade_goods_size = 1
+	local_manpower_modifier = 0.2
+	local_development_cost = -0.1
+}
+
+DE_danish_gold_coast_mod = {
+	trade_goods_size = 1
+	trade_value_modifier = 0.2
+}
+
+DE_danish_national_university = {
+	technology_cost = -0.1
+}
