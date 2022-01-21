@@ -117,5 +117,7 @@
 
  WITH_FIRE_AND_SWORD:0 "With Fire and Sword" #bookmark
  WITH_FIRE_AND_SWORD_DESC:0 "With Fire and Sword is sizeable Eastern Europe expansion mod. Countries marked in bookmark have received reworked mission trees, a lot of new custom events and many other stuff like decisions, disasters, privileges, estates, mechanics and more. Enjoy your Eastern Europe campaign filled with much more new intresting flavor. Don't forget to comment and rate the mod. Have fun!" 
-
-
+ 
+ WFAS_remove_protectorate: "Remove Protectorate Status"
+ WFAS_remove_protectorate_title: "Remove Protectorate Status"
+ WFAS_remove_protectorate_desc: "Change your subject type into march. "
